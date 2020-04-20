@@ -19,7 +19,7 @@ const Bio = () => {
           working on front-end.
         </p>
         <p>
-          I am a Software Engineer with a passion for progressive and usable web
+          I am a Software Engineer with a passion for the progressive and usable web
           at heart. Nowadays I regularly work with:
           <span className={style.stack}>
             Symfony, JavaScript, NodeJS, React/Gatsby, Redux, CSS/Sass,
@@ -29,9 +29,9 @@ const Bio = () => {
         </p>
       </div>
       <p className={style.subintro}>
-        I love to work on ideas when I have a chance. Almost all of projects are
+        I love to work on ideas when I have a chance. Almost all of the projects are
         open-sourced and available from GitHub. Between 2008 and 2012 I
-        volunteered as digital cartographer to map the unmapped areas of the
+        volunteered as a digital cartographer to map the unmapped areas of the
         world with{' '}
         <a
           href="https://mapmaker.google.com"
@@ -59,7 +59,7 @@ const Bio = () => {
         >
           code
         </a>
-        , <Link to="/articles">write</Link> my thoughts out and occassionally{' '}
+        , <Link to="/articles">write</Link> my thoughts out and occasionally{' '}
         <Link to="/speaking">speak</Link> at events.
       </p>
     </>
