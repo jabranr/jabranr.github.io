@@ -32,7 +32,7 @@ const Layout = ({ location, children }) => {
         <nav className={style.nav} role="navigation">
           <a
             target="_blank"
-            rel="noreferer noopener"
+            rel="noopener noreferrer"
             className={style.socialIcon}
             href="https://www.github.com/jabranr"
           >
@@ -45,7 +45,7 @@ const Layout = ({ location, children }) => {
           </a>
           <a
             target="_blank"
-            rel="noreferer noopener"
+            rel="noopener noreferrer"
             className={style.socialIcon}
             href="https://www.twitter.com/twitter"
           >
@@ -71,7 +71,7 @@ const Layout = ({ location, children }) => {
             <a
               href="https://github.com/jabranr"
               target="_blank"
-              rel="noreferer noopener"
+              rel="noopener noreferrer"
             >
               GitHub
             </a>
@@ -80,7 +80,7 @@ const Layout = ({ location, children }) => {
             <a
               href="https://twitter.com/@jabranr"
               target="_blank"
-              rel="noreferer noopener"
+              rel="noopener noreferrer"
             >
               Twitter
             </a>
@@ -88,6 +88,7 @@ const Layout = ({ location, children }) => {
           <li>
             <a
               href="https://google.com/mapmaker?gw=66&amp;uid=208599960765438642668"
+              rel="noopener noreferrer"
               target="_blank"
             >
               Google Map Maker
@@ -99,12 +100,13 @@ const Layout = ({ location, children }) => {
             <a href="mailto:hello@jabran.me">Contact</a>
           </li>
           <li>
-            <a href="/feed.xml">RSS</a>
+            <a href="/rss.xml">RSS</a>
           </li>
           <li>
             <a
               target="_blank"
-              href="https://github.com/jabranr/jabranr.github.io/issues?q=milestone%3Av4"
+              rel="noopener noreferrer"
+              href="https://github.com/jabranr/jabranr.github.io/releases"
             >
               v4
             </a>
