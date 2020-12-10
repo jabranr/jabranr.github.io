@@ -9,6 +9,8 @@ import tedxLahore from '../../content/assets/images/speaking/tedx-lahore.png';
 import gmmRegionalConference from '../../content/assets/images/speaking/gmm-regional-uae.png';
 import geoUsersSummit from '../../content/assets/images/speaking/geo-summit-singapore.png';
 import bigTent from '../../content/assets/images/speaking/big-tent-sendai.png';
+import dscUet from '../../content/assets/images/speaking/dsc-uet-lahore.jpg';
+import devFestLums from '../../content/assets/images/speaking/lums-devfest-2019.jpg';
 
 import style from './speaking.module.scss';
 
@@ -50,8 +52,69 @@ const SpeakingPage = ({ data, location }) => {
       <hr />
       <div className={style.speaking}>
         <div className={style.event}>
-          <h3>Google Big Tent Sendai &ndash; 2011</h3>
-          <img src={bigTent} alt="" />
+          <h3>Google Maps & Digital Landscape of Pakistan</h3>
+          <h4>Google DevFest LUMS, Lahore &ndash; 2019</h4>
+          <figure>
+            <img
+              src={devFestLums}
+              alt="Jabran Rafique presenting at Google DevFest LUMS, Lahore 2019"
+            />
+            <figcaption>&copy; Tech Tology</figcaption>
+          </figure>
+          <p>
+            I shared the stage with many amazing people to tell the stories of
+            Google Maps and how hundreds of passionate volunteers mapped to
+            shape the digital landscape of Pakistan on Google Maps.
+          </p>
+          <p>
+            <a
+              href="https://www.facebook.com/events/937081413342144"
+              target="_blank"
+              rel="noopener noreferer"
+            >
+              Event page &raquo;
+            </a>
+          </p>
+        </div>
+        <div className={style.event}>
+          <h3>Google Maps: Drawing from clean slate</h3>
+          <h4>University of Engineering & Technology, Lahore &ndash; 2019</h4>
+          <figure>
+            <img
+              src={dscUet}
+              alt="Jabran Rafique presenting at University of Engineering & Technology, Lahore"
+            />
+            <figcaption>&copy; DSC UET</figcaption>
+          </figure>
+          <p>
+            I was invited to present to an amazing group of students of
+            University of Engineering & Technology, Lahore – to share stories of
+            mapping from time at Google Map Maker and all about on how Google
+            Maps are drawn and how Google has mapped cities and countries.
+          </p>
+          <p>
+            <a
+              href="https://www.facebook.com/events/573032606858734"
+              target="_blank"
+              rel="noopener noreferer"
+            >
+              Event page &raquo;
+            </a>
+          </p>
+        </div>
+        <div className={style.event}>
+          <h3>
+            Citizen mapping: impact of crowd-sourced contributions on local
+            populations
+          </h3>
+          <h4>Google Big Tent Sendai &ndash; 2011</h4>
+          <figure>
+            <img
+              src={bigTent}
+              alt="Jabran Rafique presenting at Google Big Tent Sendai"
+            />
+            <figcaption>&copy; Google Big Tent</figcaption>
+          </figure>
           <p>
             I was invited along with{' '}
             <a
@@ -77,8 +140,15 @@ const SpeakingPage = ({ data, location }) => {
           </p>
         </div>
         <div className={style.event}>
-          <h3>Google Geo Users Summit Singapore &ndash; 2011</h3>
-          <img src={geoUsersSummit} alt="" />
+          <h3>Mapper Stories: Pakistan</h3>
+          <h4>Google Geo Users Summit Singapore &ndash; 2011</h4>
+          <figure>
+            <img
+              src={geoUsersSummit}
+              alt="Jabran Rafique presenting at Google Geo Users Summit Singapore"
+            />
+            <figcaption>&copy; Google</figcaption>
+          </figure>
           <p>
             The Summit hosted Google Map Maker Mappers, Geo Modelers, Panoramio
             Enthusiasts from Asia Pacific to celebrate their contribution in
@@ -105,8 +175,15 @@ const SpeakingPage = ({ data, location }) => {
           </p>
         </div>
         <div className={style.event}>
-          <h3>Google Map Maker Regional Conference Dubai &ndash; 2011</h3>
-          <img src={gmmRegionalConference} alt="" />
+          <h3>Mapper Stories: Pakistan</h3>
+          <h4>Google Map Maker Regional Conference Dubai &ndash; 2011</h4>
+          <figure>
+            <img
+              src={gmmRegionalConference}
+              alt="Jabran Rafique presenting at Google Map Maker Regional Conference Dubai"
+            />
+            <figcaption>&copy; Google</figcaption>
+          </figure>
           <p>
             The Regional Conference brought most active cartographers together
             to meet, have fun and learn from each other. Teams and individuals
@@ -124,8 +201,18 @@ const SpeakingPage = ({ data, location }) => {
           </p>
         </div>
         <div className={style.event}>
-          <h3>Africa Supper Mappers Conference, Kenya &ndash; 2010</h3>
-          <img src={africaMappers} alt="" />
+          <h3>
+            Disaster Response, case of Pakistan / Map Maker for mobile, some
+            thoughts
+          </h3>
+          <h4>Africa Supper Mappers Conference, Kenya &ndash; 2010</h4>
+          <figure>
+            <img
+              src={africaMappers}
+              alt="Jabran Rafique presenting at Africa Supper Mappers Conference, Kenya"
+            />
+            <figcaption>&copy; Google</figcaption>
+          </figure>
           <p>
             I was invited along with{' '}
             <a
@@ -151,8 +238,15 @@ const SpeakingPage = ({ data, location }) => {
           </p>
         </div>
         <div className={style.event}>
-          <h3>TEDx Lahore &ndash; 2010</h3>
-          <img src={tedxLahore} alt="" />
+          <h3>All you need is a map and some goodwill</h3>
+          <h4>TEDx Lahore &ndash; 2010</h4>
+          <figure>
+            <img
+              src={tedxLahore}
+              alt="Jabran Rafique presenting at TEDx Lahore"
+            />
+            <figcaption>&copy; TEDx Lahore</figcaption>
+          </figure>
           <p>
             I was invited along with{' '}
             <a
