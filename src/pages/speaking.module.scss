@@ -19,12 +19,21 @@
     color: #333;
   }
 
-  img {
+  figure {
     float: right;
+  }
+
+  figcaption {
+    font-size: small;
+    color: #999;
+    text-align: center;
+  }
+
+  img {
     width: 150px;
     height: 150px;
     border-radius: 10%;
     vertical-align: middle;
-    margin: 0 0 1rem 1.125rem;
+    margin: 0 0 0.5rem 1.125rem;
   }
 }

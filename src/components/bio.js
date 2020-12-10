@@ -15,32 +15,38 @@ const Bio = () => {
             href="https://www.ratedpeople.com/c/about-us"
           >
             Rated People
-          </a>{' '}
-          working on front-end.
+          </a>
         </p>
         <p>
-          I am a Software Engineer with a passion for the progressive and usable web
-          at heart. Nowadays I regularly work with:
+          I am a Software Engineer with a passion for progressive and usable
+          web. Some of the technologies and tools I work with regularly are{' '}
           <span className={style.stack}>
-            Symfony, JavaScript, NodeJS, React/Gatsby, Redux, CSS/Sass,
-            WordPress, Webpack, Composer, npm, docker, AWS, Atlassian suite and
-            more.
+            JavaScript, nodeJS, React, Gatsby, Redux, CSS/Sass, Symfony,
+            WordPress, Webpack, Composer, npm, docker, Cloudflare, AWS,
+            Atlassian suite and more.
           </span>
         </p>
       </div>
       <p className={style.subintro}>
-        I love to work on ideas when I have a chance. Almost all of the projects are
-        open-sourced and available from GitHub. Between 2008 and 2012 I
-        volunteered as a digital cartographer to map the unmapped areas of the
-        world with{' '}
+        I like to work on different ideas from time to time. Almost all of my
+        projects are open-sourced and available at{' '}
+        <a
+          href="https://www.github.com/jabranr"
+          target="_blank"
+          rel="noopener noreferer"
+        >
+          GitHub
+        </a>
+        . Apart from web development, I have been a digital cartographer to map
+        the unmapped areas of the world with{' '}
         <a
           href="https://mapmaker.google.com"
           target="_blank"
           rel="noopener noreferer"
         >
           Google Map Maker
-        </a>
-        .
+        </a>{' '}
+        from 2008 to 2013.
       </p>
       <p className={style.subintro}>
         I regularly{' '}
