@@ -16,12 +16,6 @@ module.exports = {
     }
   },
   plugins: [
-    {
-      resolve: `gatsby-plugin-google-adsense`,
-      options: {
-        publisherId: `ca-pub-4297681002419123`
-      }
-    },
     `gatsby-plugin-sass`,
     {
       resolve: `gatsby-source-filesystem`,
