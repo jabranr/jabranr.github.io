@@ -7,7 +7,7 @@
     "start": "NODE_ENV=development eleventy --serve",
     "build": "NODE_ENV=production eleventy",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d _site -b gh-pages",
+    "deploy": "gh-pages -d _site -b master",
     "cache:clear": "node ./purge-cf-cache.js"
   },
   "repository": {
