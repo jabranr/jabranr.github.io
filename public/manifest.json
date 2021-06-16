@@ -1,0 +1,35 @@
+{
+  "short_name": "Jabran Rafique",
+  "name": "Jabran Rafique",
+  "icons": [
+    {
+      "src": "./assets/images/apple-touch-icon-114x114.png",
+      "sizes": "60x60 76x76 114x114",
+      "type": "image/png"
+    },
+    {
+      "src": "./assets/images/apple-touch-icon-200x200.png",
+      "sizes": "120x120 152x152 200x200",
+      "type": "image/png"
+    },
+    {
+      "src": "./assets/images/apple-touch-icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "./assets/images/avatar.png",
+      "sizes": "1024x1024",
+      "type": "image/png"
+    },
+    {
+      "src": "./assets/images/favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ],
+  "start_url": ".?utm_source=webapp",
+  "display": "standalone",
+  "theme_color": "#f69",
+  "background_color": "#f69"
+}

@@ -1,0 +1,39 @@
+---
+layout: page.njk
+title: Projects
+description: Here is list of projects I have worked on from time to time.
+eleventyExcludeFromCollections: true
+renderData:
+  title: Projects{% if pagination.pageNumber > 0 %} - Page {{ pagination.pageNumber + 1 }}{% endif %}
+pagination:
+  data: collections.projects
+  size: 10
+  alias: projects
+  reverse: true
+permalink: "/projects/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber + 1 }}/{% endif %}"
+---
+
+<section class="page_description">
+  <p>Most of these are open-source and hosted at <a href="https://github.com/jabranr">GitHub</a> – free to use and explore. You are most welcome to share your feedback, corrections and even enhancements to any of those.</p>
+  <p>I also use <a href="https://gist.github.com/jabranr">GitHub Gist</a> and <a href="https://codepen.io/jabranr">CodePen</a> to share experiments from day to day work.</p>
+</section>
+
+{% for project in projects %}
+  <section class="list-item">
+    <time class="list-item_time" datetime="{{ project.date | format_date('YYYY-MM-DD') }}">{{ project.date | format_date }}</time>
+    <h3 class="list-item_heading">
+      <a href="{{ project.url | url }}">{{ project.data.title }}</a>
+    </h3>
+    <p class="list-item_excerpt">{{ project.data.excerpt | safe }}</p>
+  </section>
+{% endfor %}
+
+<section class="pagination">
+  {% for pageEntry in pagination.pages %}
+    {% if pagination.hrefs[loop.index0] == '/projects/1/' or page.url == pagination.hrefs[loop.index0] %}
+      <span class="pagination_current" aria-current="page">{{ loop.index }}</span>
+    {% else %}
+      <a href="/projects/{% if loop.index != loop.first %}{{ loop.index }}/{% endif %}">{{ loop.index }}</a>
+    {% endif %}
+  {% endfor %}
+</section>

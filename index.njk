@@ -1,0 +1,28 @@
+---
+layout: page.njk
+---
+
+{% set latest = collections.articles | last %}
+
+<div class="hero">
+  <p class="lead">Tech Lead at <a href="https://www.ratedpeople.com">Rated People</a></p>
+  <p class="lead">I am a Software Engineer with a passion for progressive and usable web. Some of the technologies and tools I work with regularly are</p>
+  <p class="stack">JavaScript, nodeJS, React, Gatsby, Redux, CSS/Sass, Symfony, WordPress, Webpack, Composer, npm, docker, Cloudflare, AWS, Atlassian suite and more.</p>
+
+  <p>I like to work on different ideas from time to time. Almost all of my projects are open-sourced and available at <a href="https://www.github.com/jabranr">GitHub</a>. Apart from web development, I have been a digital cartographer to map the unmapped areas of the world with <a href="https://mapmaker.google.com/">Google Map Maker</a> from 2008 to 2013.</p>
+
+  <p>I regularly <a href="https://www.twitter.com/jabranr">tweet</a>, share and contribute to <a href="https://www.github.com/jabranr">code</a>, <a href="https://jabran.me/articles/">write</a> my thoughts out and occasionally <a href="https://jabran.me/speaking">speak</a> at events.</p>
+</div>
+
+<div class="activity">
+  <div>
+    <h2>Latest project</h2>
+    <p><strong>Work Clock</strong>. A macOS menubar app to display time for a different timezone. Download on <a href="https://apps.apple.com/app/id1568934503">App Store</a></p>
+    <p><a href="/projects/">More projects &raquo;</a></p>
+  </div>
+  <div>
+    <h2>Latest article</h2>
+    <p><a href="{{latest.url}}">{{latest.data.title}}</a></p>
+    <p><a href="/articles/">More articles &raquo;</a></p>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+---
+permalink: /sitemap.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>{{ '/' | absoluteUrl }}</loc>
+    <lastmod>{{ now | format_date('YYYY-MM-DD[T]HH:mm:ss[Z]') }}</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+
+  {%- for article in collections.articles -%}
+    <url>
+      <loc>{{ article.url | absoluteUrl  }}</loc>
+      <lastmod>{{ article.updated | format_date('YYYY-MM-DD[T]HH:mm:ss[Z]') }}</lastmod>
+      <changefreq>weekly</changefreq>
+    </url>
+
+    {%- for project in collections.projects -%}
+      <url>
+        <loc>{{ project.url | absoluteUrl  }}</loc>
+        <lastmod>{{ project.updated | format_date('YYYY-MM-DD[T]HH:mm:ss[Z]') }}</lastmod>
+        <changefreq>weekly</changefreq>
+      </url>
+    {%- endfor -%}
+  {%- endfor -%}
+</urlset>

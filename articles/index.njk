@@ -1,0 +1,35 @@
+---
+layout: page.njk
+title: Articles
+description: An archived collection of articles by Jabran Rafique
+eleventyExcludeFromCollections: true
+renderData:
+  title: Articles{% if pagination.pageNumber > 0 %} - Page {{ pagination.pageNumber + 1 }}{% endif %}
+pagination:
+  data: collections.articles
+  size: 10
+  alias: articles
+  reverse: true
+permalink: "/articles/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber + 1 }}/{% endif %}"
+---
+
+{% for article in articles %}
+  <section class="list-item">
+    <time class="list-item_time" datetime="{{ article.date | format_date('YYYY-MM-DD') }}">{{ article.date | format_date }}</time>
+    <h3 class="list-item_heading">
+      <a href="{{ article.url | url }}">{{ article.data.title }}</a>
+    </h3>
+    <p class="list-item_excerpt">{{ article.data.excerpt | safe }}</p>
+  </section>
+{% endfor %}
+
+
+<section class="pagination">
+  {% for pageEntry in pagination.pages %}
+    {% if pagination.hrefs[loop.index0] == '/articles/1/' or page.url == pagination.hrefs[loop.index0] %}
+      <span class="pagination_current" aria-current="page">{{ loop.index }}</span>
+    {% else %}
+      <a href="/articles/{% if loop.index != loop.first %}{{ loop.index }}/{% endif %}">{{ loop.index }}</a>
+    {% endif %}
+  {% endfor %}
+</section>

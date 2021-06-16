@@ -1,0 +1,13 @@
+---
+layout: base.njk
+---
+
+<section class="container-fluid">
+  <section class="container page">
+    <h1 class="page_header">{{ renderData and renderData.title or title }}</h1>
+    {% if description %}<p>{{ description }}</p>{% endif %}
+    <section class="page_content">
+      {{ content | safe }}
+    </section>
+  </section>
+</section>
