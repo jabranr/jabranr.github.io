@@ -8,7 +8,7 @@
     "build": "NODE_ENV=production eleventy",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d _site -b master",
-    "cache:clear": "node ./purge-cf-cache.js"
+    "cf:cache:purge": "node ./purge-cf-cache.js"
   },
   "repository": {
     "type": "git",
