@@ -428,3 +428,7 @@ pre[class*='language-'] {
     float: right;
   }
 }
+
+.ads {
+  margin: 2rem auto;
+}
