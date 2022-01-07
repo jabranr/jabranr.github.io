@@ -366,3 +366,65 @@ pre[class*='language-'] {
   padding: 4px;
   border-radius: 50%;
 }
+
+.page_description {
+  display: block;
+  position: relative;
+  padding-bottom: 2rem;
+  border-bottom: 3px double #f69;
+  background-color: transparent;
+}
+
+.events h3 {
+  margin-bottom: 0;
+}
+
+.events h4 {
+  margin-top: 8px;
+  color: var(--jr-dark-gray);
+}
+
+.event {
+  display: block;
+  clear: both;
+  color: #666;
+  min-height: 250px;
+}
+
+.events > * + * {
+  border-top: 2px solid #eee;
+  margin-top: 1rem;
+  padding-top: 2.5rem;
+}
+
+.event_image {
+  width: 100%;
+  vertical-align: middle;
+  margin: 0 0 0.5rem;
+}
+
+.event_figure {
+  margin: 0;
+}
+
+.event_figcaption {
+  font-size: small;
+  color: #999;
+  text-align: center;
+}
+
+@media screen and (min-width: 719px) {
+  .event_image {
+    width: 200px;
+    height: 200px;
+    border-radius: 10%;
+    vertical-align: middle;
+    margin: 0 0 0.5rem 1.125rem;
+  }
+}
+
+@media screen and (min-width: 719px) {
+  .event_figure {
+    float: right;
+  }
+}
