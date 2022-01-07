@@ -9,6 +9,11 @@ eleventyExcludeFromCollections: true
     <lastmod>{{ now | format_date('YYYY-MM-DD[T]HH:mm:ss[Z]') }}</lastmod>
     <changefreq>weekly</changefreq>
   </url>
+  <url>
+    <loc>{{ '/speaking/' | absoluteUrl }}</loc>
+    <lastmod>{{ now | format_date('YYYY-MM-DD[T]HH:mm:ss[Z]') }}</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
 
   {%- for article in collections.articles -%}
     <url>
