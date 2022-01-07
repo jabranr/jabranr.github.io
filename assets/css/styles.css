@@ -140,26 +140,27 @@ pre[class*='language-'] {
   }
 }
 
+.h1 {
+  font-size: 2.25em;
+  font-weight: 700;
+}
+
 .logo {
   margin: 0;
   text-decoration: none;
-  color: var(--jr-black);
+  color: var(--jr-dark-gray);
   background-image: url(../images/avatar.png);
   background-repeat: no-repeat;
   background-size: contain;
   padding-left: 65px;
   text-decoration: none;
+  font-size: 2em;
 }
 
 .logo:hover,
 .logo:active,
 .logo:focus {
   color: var(--jr-black);
-}
-
-.h1 {
-  font-size: 2.25em;
-  font-weight: 700;
 }
 
 .header_inner {
