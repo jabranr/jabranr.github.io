@@ -429,6 +429,6 @@ pre[class*='language-'] {
   }
 }
 
-.ads {
+.ads:not(:empty) {
   margin: 2rem auto;
 }
