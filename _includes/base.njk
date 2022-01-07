@@ -42,7 +42,8 @@
     <link rel="apple-touch-icon" href="{{ '/assets/images/apple-touch-icon-114x114.png' | absoluteUrl }}" />
 
     <link href="{{ '/assets/css/normalize.css' | absoluteUrl }}?v={{ 'now' | format_date('unix') }}" rel="stylesheet" />
-    <link href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" rel="stylesheet">
+    <link href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" rel="stylesheet"></noscript>
     <link href="{{ '/assets/css/styles.css' | absoluteUrl }}?v={{ 'now' | format_date('unix') }}" rel="stylesheet" />
 
 
