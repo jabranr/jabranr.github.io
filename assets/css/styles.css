@@ -35,6 +35,10 @@ a:active {
   color: var(--jr-orange);
 }
 
+.post {
+  margin-top: -2.5em;
+}
+
 .page a:focus,
 .post a:focus {
   color: var(--jr-black);
