@@ -437,3 +437,15 @@ pre[class*='language-'] {
 .ads:not(:empty) {
   margin: 2rem auto;
 }
+
+@media screen and (min-width: 719px) {
+  .ads:not(:empty) {
+    margin: 1em 0 1em 1em;
+    float: right;
+    max-width: 50%;
+  }
+}
+
+ins.adsbygoogle[data-ad-status='unfilled'] {
+  display: none;
+}
