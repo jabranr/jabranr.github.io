@@ -1,5 +1,5 @@
 :root {
-  --jr-orange: #f69;
+  --jr-orange: #cf1956;
   --jr-black: #333;
   --jr-offwhite: #fafafa;
   --jr-darker-gray: #888;
@@ -7,7 +7,7 @@
   --jr-light-gray: #eee;
   --jr-gray: #ddd;
   --jr-blue: #00bcd4;
-  --jr-dark-blue: #1e90ff;
+  --jr-dark-blue: #006ad0;
 }
 
 body {
@@ -184,6 +184,9 @@ pre[class*='language-'] {
 
 .footer a {
   color: var(--jr-blue);
+  padding: 8px 0;
+  font-weight: bold;
+  display: inline-block;
 }
 
 .footer a:hover,
