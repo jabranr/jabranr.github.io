@@ -32,18 +32,18 @@
   "prettier": "@jabranr-lab/prettier",
   "license": "MIT",
   "devDependencies": {
-    "@11ty/eleventy": "^0.12.1",
-    "@11ty/eleventy-plugin-syntaxhighlight": "^3.1.1",
+    "@11ty/eleventy": "^1.0.1",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^4.1.0",
     "@jabranr-lab/prettier": "^1.2.1",
-    "cloudflare": "^2.7.0",
-    "dayjs": "^1.10.5",
-    "dotenv": "^10.0.0",
-    "dotenv-expand": "^5.1.0",
-    "eleventy-plugin-time-to-read": "^1.0.0",
-    "gh-pages": "^3.2.0",
-    "husky": "^7.0.4",
+    "cloudflare": "^2.9.1",
+    "dayjs": "^1.11.4",
+    "dotenv": "^16.0.1",
+    "dotenv-expand": "^8.0.3",
+    "eleventy-plugin-time-to-read": "^1.2.0",
+    "gh-pages": "^4.0.0",
+    "husky": "^8.0.1",
     "normalize.css": "^8.0.1",
-    "pretty-quick": "^3.1.0"
+    "pretty-quick": "^3.1.3"
   },
   "husky": {
     "hooks": {
