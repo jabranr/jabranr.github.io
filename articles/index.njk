@@ -14,22 +14,22 @@ permalink: "/articles/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber
 ---
 
 {% for article in articles %}
-  <section class="list-item">
-    <time class="list-item_time" datetime="{{ article.date | format_date('YYYY-MM-DD') }}">{{ article.date | format_date }}</time>
-    <h3 class="list-item_heading">
+  <section class="mt-4 pt-4 {% if not loop.first %}border-t-[1px] border-t-[#ddd]{% endif %}">
+    <time class="text-[#666] text-sm" datetime="{{ article.date | format_date('YYYY-MM-DD') }}">{{ article.date | format_date }}</time>
+    <h3 class="text-xl font-bold my-2">
       <a href="{{ article.url | url }}">{{ article.data.title }}</a>
     </h3>
-    <p class="list-item_excerpt">{{ article.data.excerpt | safe }}</p>
+    <p class="text-base mb-4">{{ article.data.excerpt | safe }}</p>
   </section>
 {% endfor %}
 
 
-<section class="pagination">
+<section class="inline-flex items-center justify-center font-bold text-base my-12">
   {% for pageEntry in pagination.pages %}
     {% if pagination.hrefs[loop.index0] == '/articles/1/' or page.url == pagination.hrefs[loop.index0] %}
-      <span class="pagination_current" aria-current="page">{{ loop.index }}</span>
+      <span class="block bg-[#eee] w-8 h-8 rounded-full text-center p-1" aria-current="page">{{ loop.index }}</span>
     {% else %}
-      <a href="/articles/{% if loop.index != loop.first %}{{ loop.index }}/{% endif %}">{{ loop.index }}</a>
+      <a class="block w-8 h-8 rounded-full text-center p-1" href="/articles/{% if loop.index != loop.first %}{{ loop.index }}/{% endif %}">{{ loop.index }}</a>
     {% endif %}
   {% endfor %}
 </section>
