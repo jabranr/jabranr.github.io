@@ -14,6 +14,7 @@
     <title>{{ (renderData and renderData.title) or title }}</title>
     <meta name="description" content="{{ (renderData and renderData.description) or description }}" />
     <meta name="keywords" content="blog, jabran, rafique, html, css, javascript, react, php, full stack, front-end{{ (renderData and ', ' ~ renderData.keywords)  }}" />
+    <meta name="generator" content="{{eleventy.generator}}" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="{{ (renderData and renderData.title) or title }}" />
     <meta property="og:description" content="{{ (renderData and renderData.description) or description }}" />
@@ -41,60 +42,50 @@
     <link rel="icon" type="image/x-icon" href="{{ '/assets/images/favicon.ico' | absoluteUrl }}" />
     <link rel="apple-touch-icon" href="{{ '/assets/images/apple-touch-icon-114x114.png' | absoluteUrl }}" />
 
-    <link href="{{ '/assets/css/normalize.css' | absoluteUrl }}?v={{ 'now' | format_date('unix') }}" rel="stylesheet" />
-    <link href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" rel="stylesheet"></noscript>
-    <link href="{{ '/assets/css/styles.css' | absoluteUrl }}?v={{ 'now' | format_date('unix') }}" rel="stylesheet" />
+    <link href="{{ '/main.css' | absoluteUrl }}?v={{ 'now' | format_date('unix') }}" rel="stylesheet" />
 
-    {% if config.env. NODE_ENV != 'development' %}
+    {% if env_NODE_ENV != 'development' %}
       <!-- Google Tag Manager -->
       <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
       new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
       j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.defer=true;j.src=
       'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','{{ config.env.GTM_ID }}');</script>
+      })(window,document,'script','dataLayer','{{ env_GTM_ID }}');</script>
       <!-- End Google Tag Manager -->
     {% endif %}
   </head>
   <body>
-    {% if config.env. NODE_ENV != 'development' %}
+    {% if env_NODE_ENV != 'development' %}
       <!-- Google Tag Manager (noscript) -->
-      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ config.env.GTM_ID }}"
-      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ env_GTM_ID }}"
+      height="0" width="0" class="invisible hidden"></iframe></noscript>
       <!-- End Google Tag Manager (noscript) -->
     {% endif %}
     {% block schema %}{% endblock schema %}
-    <div class="wrapper">
-      <header class="header container-fluid">
-        <section class="container header_inner">
+    <div class="container mx-auto p-4 max-w-3xl">
+      <header class="header">
+        <section class="header_inner">
           {% if page.url != '/' %}
-            <a class="h1 logo" href="/">Jabran Rafique</a>
+            <a class="h1 m-0 no-underline text-darkGray text-4xl font-bold hover:text-black" href="/">Jabran Rafique</a>
           {% else %}
-            <h1 class="logo">Jabran Rafique</h1>
+            <h1 class="m-0 no-underline text-darkGray text-4xl font-bold hover:text-black">Jabran Rafique</h1>
           {% endif %}
         </section>
       </header>
       <main class="main">{{ content | safe }}</main>
-      <footer class="footer container-fluid">
-        <div class="container footer_inner">
-          <div>
-            <p>&copy; 2012 &ndash; present</p>
-            <div class="colophone bullets">
-              <a target="_blank" rel="noopener noreferrer" href="https://www.twitter.com/jabranr">Twitter</a>
-              <a target="_blank" rel="noopener noreferrer" href="https://github.com/jabranr">GitHub</a>
-              <a target="_blank" rel="noopener noreferrer" href="https://google.com/mapmaker?gw=66&amp;uid=208599960765438642668">Google Map Maker</a>
-              <a href="mailto:hello@jabran.me">Contact</a>
-              <a href="/sitemap.xml">RSS</a>
-            </div>
-            <p><span class="heart">&hearts;</span> I like to develop on ideas that are useful and beneficial to everyone. All contents and code samples are licensed under the MIT License unless stated otherwise.</p>
-            <hr />
-            <p>This website uses cookies to deliver better user experience. By continuing to use this website you agree to the use of cookies.</p>
+      <footer class="container bg-full-width text-sm py-4">
+        <div class="max-w-lg">
+          <p>&copy; 2012 &ndash; present</p>
+          <div class="colophone">
+            <a target="_blank" rel="noopener noreferrer" href="https://www.twitter.com/jabranr">Twitter</a>
+            <a target="_blank" rel="noopener noreferrer" href="https://github.com/jabranr">GitHub</a>
+            <a target="_blank" rel="noopener noreferrer" href="https://google.com/mapmaker?gw=66&amp;uid=208599960765438642668">Google Map Maker</a>
+            <a href="mailto:hello@jabran.me">Contact</a>
+            <a href="/sitemap.xml">RSS</a>
           </div>
-          {# <div>
-            <ul class="footer_list">
-              <li><a href="/work-clock">Work Clock</a></li>
-            </ul>
-          </div> #}
+          <p><span class="heart text-[#cf1956]">&hearts;</span> I like to develop on ideas that are useful and beneficial to everyone. All contents and code samples are licensed under the MIT License unless stated otherwise.</p>
+          <hr class="border-t-2 border-t-[#cf1956]" />
+          <p>This website uses cookies to deliver better user experience. By continuing to use this website you agree to the use of cookies.</p>
         </div>
       </footer>
     </div>

@@ -1,5 +1,4 @@
 .DS_Store
 node_modules/
 _site/
-_data/*
-!_data/config.js
+public/main.css

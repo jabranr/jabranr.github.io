@@ -18,6 +18,11 @@ if (fs.existsSync(dotenvFile)) {
 const config = require('./_data/config');
 
 module.exports = function (eleventyConfig) {
+  // add config to globals
+  Object.keys(config).forEach((k) => {
+    eleventyConfig.addNunjucksGlobal(`env_${k}`, config[k]);
+  });
+
   // add plugins
   eleventyConfig.addPlugin(timeToRead);
   eleventyConfig.addPlugin(syntaxHighlight);
@@ -62,12 +67,14 @@ module.exports = function (eleventyConfig) {
   // format date time
   eleventyConfig.addFilter('absoluteUrl', function (value) {
     if (!Boolean(value) || value === '/') {
-      return config.env.APP_HOSTNAME;
+      return config.APP_HOSTNAME;
     }
 
     const regulateSlash = value.startsWith('/') ? value : `'/'${value}`;
-    return `${config.env.APP_HOSTNAME}${regulateSlash}`;
+    return `${config.APP_HOSTNAME}${regulateSlash}`;
   });
+
+  eleventyConfig.addWatchTarget('./styles/');
 
   // add 404
   eleventyConfig.setBrowserSyncConfig({
@@ -82,4 +89,14 @@ module.exports = function (eleventyConfig) {
       }
     }
   });
+
+  // return {
+  //   markdownTemplateEngine: 'njk',
+  //   dataTemplateEngine: 'njk',
+  //   htmlTemplateEngine: 'njk',
+  //   dir: {
+  //     input: 'content',
+  //     includes: '../_includes'
+  //   }
+  // };
 };

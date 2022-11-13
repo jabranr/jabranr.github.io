@@ -1,0 +1,35 @@
+@import 'prismjs//themes/prism-okaidia.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply text-lg text-gray-800 leading-normal;
+}
+
+.lead {
+  @apply text-3xl my-8 font-extralight leading-tight;
+}
+
+p {
+  @apply my-4;
+}
+
+a {
+  @apply text-[#006ad0] underline hover:text-[#cf1956];
+}
+
+.hero a {
+  @apply underline underline-offset-4 text-[#666] ;
+  text-decoration-skip-ink: none;
+}
+
+.bg-full-width {
+  @apply text-[#ddd] bg-[#333] shadow-[0_0_0_100vmax_#333];
+  clip-path: inset(0 -100vmax);
+}
+
+.colophone a {
+  @apply inline-block text-[#00bcd4] hover:text-[#cf1956] font-bold after:content-['\2022'] after:inline-block after:pr-[3px] after:ml-[6px] after:text-[#666] last:after:content-[''];
+}

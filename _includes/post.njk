@@ -16,7 +16,7 @@ layout: base.njk
       {{date|format_date}} &bull; {{ content | timeToRead }} read
     </time>
     <section class="article_content">
-      {% if config.env. NODE_ENV != 'development' %}
+      {% if env_NODE_ENV != 'development' %}
         <div class="ads">
           <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4297681002419123" crossorigin="anonymous"></script>
           <!-- Banner ad -->

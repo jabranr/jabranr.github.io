@@ -5,24 +5,29 @@ layout: page.njk
 {% set latest = collections.articles | last %}
 
 <div class="hero">
-  <p class="lead">Technical Lead for Front-end Web at <a href="https://www.ratedpeople.com">Rated People</a>.</p>
-  <p class="lead">I am a Software Engineer with a passion for progressive, performant and accessible Web. I work with variety of technologies and tools on daily basis. Some of those are:</p>
-  <p class="stack">JavaScript, node, React, Remix, Gatsby, Redux, CSS/Sass, Symfony, WordPress, Webpack, Composer, npm, docker, Cloudflare, AWS, Atlassian suite and more.</p>
+  <p class="lead">I am a Front-end Tech Lead at <a href="https://www.ratedpeople.com">Rated People</a>.</p>
+  <div class="bg-full-width p-4 mb-8">
+    <p class="lead">I am a software engineer with a knack for progressive, performant and accessible Web. I work with a variety of technologies and tools daily. Some of those are:</p>
+    <p class="text-base pb-8 mb-0">JavaScript, Node, React, Remix, Gatsby, Redux, Jest, Ruby, CSS/Sass, Symfony, WordPress, Webpack, Composer, npm, docker, Storybook, Cloudflare, AWS, GitHub, Atlassian suite and more.</p>
+  </div>
 
-  <p>In my free time, I like to build on different ideas from time to time. Almost all of my projects are open-sourced on <a href="https://www.github.com/jabranr">GitHub</a>. Previously I have held a passion for digital cartography. I was a digital cartographer to map the unmapped areas of the world with <a href="https://mapmaker.google.com/">Google Map Maker</a> from 2008 to 2013.</p>
-
-  <p>I regularly <a href="https://www.twitter.com/jabranr">tweet</a>, <a href="https://www.github.com/jabranr">write code</a>, occasionally <a href="/articles/">blog</a> my thoughts out and <a href="/speaking">speak</a> at events.</p>
+    <p>In my spare time, I like to build on different ideas. A majority of my projects are open-sourced on <a href="https://www.github.com/jabranr">GitHub</a>. Previously I have also held a passion for digital cartography and <a href="https://www.google.com/search?q=site%3Amaps.googleblog.com%20jabran">mapped the unmapped areas</a> of the world with <a href="https://mapmaker.google.com/">Google Map Maker</a> between 2008 to 2013 until the tool was retired and graduated into Google Maps.</p>
+    <p>I regularly <a href="https://www.twitter.com/jabranr">tweet</a>, <a href="https://www.github.com/jabranr">write code</a>, occasionally <a href="/articles/">blog</a> my thoughts out and <a href="/speaking">speak</a> at events.</p>
 </div>
 
-<div class="activity">
+<div class="pt-8 flex border-t-2 border-t-[#cf1956] my-8">
   <div>
-    <h2>Latest project</h2>
-    <p><strong>Work Clock</strong>. A macOS menubar app to display time for a different timezone. Download from <a href="https://apps.apple.com/app/id1568934503">App Store</a></p>
-    <p><a href="/projects/">More projects &raquo;</a></p>
+    <h2 class="text-base text-gray-500 mb-4">Recent projects</h2>
+    <ul class="list-none">
+      <li><strong>Work Clock</strong>. A macOS menubar app to display time for a different timezone. Download from <a href="https://apps.apple.com/app/id1568934503">App Store</a></li>
+    </ul>
+    <p><a class="text-base font-semibold mt-8 block" href="/projects/">More projects &raquo;</a></p>
   </div>
   <div>
-    <h2>Latest article</h2>
-    <p><a href="{{latest.url}}">{{latest.data.title}}</a></p>
-    <p><a href="/articles/">More articles &raquo;</a></p>
+    <h2 class="text-base text-gray-500 mb-4">Recent articles</h2>
+    <ul class="list-none">
+      <li><a href="{{latest.url}}">{{latest.data.title}}</a></li>
+    </ul>
+    <p><a class="text-base font-semibold mt-8 block" href="/articles/">More articles &raquo;</a></p>
   </div>
 </div>
