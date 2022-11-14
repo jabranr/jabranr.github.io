@@ -20,6 +20,14 @@ a {
   @apply text-[#006ad0] underline hover:text-[#cf1956];
 }
 
+h2, h3 {
+  @apply text-2xl my-6 mb-2 font-bold;
+}
+
+h2 {
+  @apply text-3xl my-8 mb-4;
+}
+
 .hero a {
   @apply underline underline-offset-4 text-[#666] ;
   text-decoration-skip-ink: none;
@@ -32,4 +40,16 @@ a {
 
 .colophone a {
   @apply inline-block text-[#00bcd4] hover:text-[#cf1956] font-bold after:content-['\2022'] after:inline-block after:pr-[3px] after:ml-[6px] after:text-[#666] last:after:content-[''];
+}
+
+code {
+  @apply font-mono text-sm bg-[#eee] text-[#cf1956] py-[1px] px-1 rounded-[4px];
+}
+
+blockquote {
+  @apply text-[#666] py-1 px-4 border-l-[5px] border-l-[#ddd] bg-[#eee] my-4 italic;
+}
+
+.post ul {
+  @apply list-disc my-4 pl-10;
 }

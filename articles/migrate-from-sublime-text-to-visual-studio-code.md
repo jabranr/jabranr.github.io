@@ -54,6 +54,4 @@ Some of the most amazing things about vscode I found are:
 
 I think I will stick to it for now to give SublimeText a break that it deserves! Go for it and give it a try by downloading from [Visual Studio website](https://code.visualstudio.com/)!
 
-> By the way, if you are a UK resident and looking to work on exciting stuff, we are hiring a [Front-end Developer](http://j.mp/rp-front-end) at Rated People.
-
 Happy programming!

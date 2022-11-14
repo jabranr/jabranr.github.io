@@ -5,28 +5,26 @@ layout: base.njk
 {% set previousPage = collections.all | getPreviousCollectionItem(page) %}
 {% set nextPage = collections.all | getNextCollectionItem(page) %}
 
-<section class="container breadcrumbs">
-  <a href="/">Home</a> &rsaquo; <a href="/projects/">Projects</a>
+<section class="container text-sm my-4">
+  <a class="text-[#333]" href="/">Home</a> &rsaquo; <a class="text-[#333]" href="/projects/">Projects</a>
 </section>
 
-<section class="container-fluid">
-  <section class="container post">
-    <h1 class="article_header underlined">{{title}}</h1>
-    <time datetime="{{ date | format_date('YYYY-MM-DD') }}" class="article_time">
-      {{date|format_date}} &bull; {{ content | timeToRead }} read
-    </time>
-    <section class="article_content">
-      {{ content | safe }}
-    </section>
-
-    {% if previousPage or nextPage %}
-      <section class="more-pagination">
-        <h3 class="more-pagination_heading">More projects</h3>
-        <section class="more-pagination_content">
-          {% if previousPage %}<a rel="prev" class="more-pagination_prev" href="{{ previousPage.url | url }}"><span class="more-pagination_guide">&laquo;</span> {{ previousPage.data.title }}</a>{% endif %}
-          {% if nextPage %}<a rel="next" class="more-pagination_next" href="{{ nextPage.url | url }}">{{ nextPage.data.title }} <span class="more-pagination_guide">&raquo;</span></a>{% endif %}
-        </section>
-      </section>
-    {% endif %}
+<section class="container project">
+  <h1 class="my-6 relative text-4xl font-bold after:block after::absolute after:content-[''] after:w-[25%] after:h-[4px] after:mt-4 after:bg-[#cf1956]">{{title}}</h1>
+  <time datetime="{{ date | format_date('YYYY-MM-DD') }}" class="text-[#666] text-base">
+    {{date|format_date}} &bull; {{ content | timeToRead }} read
+  </time>
+  <section class="article_content">
+    {{ content | safe }}
   </section>
+
+  {% if previousPage or nextPage %}
+    <section class="my-12 border-t-2 border-t-[#cf1956]">
+      <h3 class="text-xl">More projects</h3>
+      <section class="flex flex-col md:flex-row md:items-center md:justify-between">
+        {% if previousPage %}<a rel="prev" href="{{ previousPage.url | url }}"><span class="hidden md:inline-block">&laquo;</span> {{ previousPage.data.title }}</a>{% endif %}
+        {% if nextPage %}<a rel="next" href="{{ nextPage.url | url }}">{{ nextPage.data.title }} <span class="hidden md:inline-block">&raquo;</span></a>{% endif %}
+      </section>
+    </section>
+  {% endif %}
 </section>
