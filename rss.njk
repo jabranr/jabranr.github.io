@@ -1,0 +1,41 @@
+---json
+{
+  "permalink": "/feed.xml",
+  "eleventyExcludeFromCollections": true,
+  "metadata": {
+    "title": "Welcome to Jabran Rafique personal website",
+    "subtitle": "Jabran Rafique's personal website and blog",
+    "language": "en",
+    "url": "https://jabran.me/",
+    "author": {
+      "name": "Jabran Rafique",
+      "email": "hello@jabran.me"
+    }
+  }
+}
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:base="{{ metadata.url }}">
+  <title>{{ metadata.title }}</title>
+  <subtitle>{{ metadata.subtitle }}</subtitle>
+  <link href="{{ permalink | absoluteUrl(metadata.url) }}" rel="self"/>
+  <link href="{{ metadata.url }}"/>
+  <updated>{{ now | format_date('YYYY-MM-DD[T]HH:mm:ss[Z]') }}</updated>
+  <id>{{ metadata.url }}</id>
+  <author>
+    <name>{{ metadata.author.name }}</name>
+    <email>{{ metadata.author.email }}</email>
+  </author>
+
+  {%- for collection in collections.all | reverse -%}
+    {%- if not collection.data.draft -%}
+    <entry>
+      <title>{{ collection.data.title }}</title>
+      <link href="{{ collection.url | absoluteUrl  }}"/>
+      <updated>{{ collection.updated | format_date('YYYY-MM-DD[T]HH:mm:ss[Z]') }}</updated>
+      <id>{{ collection.url | absoluteUrl  }}</id>
+      <content xml:lang="{{ metadata.language }}" type="html">{{ collection.data.description| safe }}</content>
+    </entry>
+    {%- endif -%}
+  {%- endfor -%}
+</feed>

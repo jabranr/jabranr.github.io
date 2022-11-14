@@ -132,6 +132,10 @@ pre[class*='language-'] {
   padding: 2em 0;
 }
 
+.main .container-fluid {
+  padding-top: 0;
+}
+
 .lead {
   font-size: 1.35em;
   color: var(--jr-dark-gray);
@@ -228,6 +232,9 @@ pre[class*='language-'] {
 .hero a,
 .hero a:link {
   text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-decoration-skip-ink: none;
+  text-underline-offset: 3px;
   color: currentColor;
 }
 

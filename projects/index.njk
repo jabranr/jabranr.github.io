@@ -13,27 +13,27 @@ pagination:
 permalink: "/projects/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber + 1 }}/{% endif %}"
 ---
 
-<section class="page_description">
+<section class="border-b-[3px] border-double border-b-[#f69] mb-10 pb-8">
   <p>Most of these are open-source and hosted at <a href="https://github.com/jabranr">GitHub</a> – free to use and explore. You are most welcome to share your feedback, corrections and even enhancements to any of those.</p>
   <p>I also use <a href="https://gist.github.com/jabranr">GitHub Gist</a> and <a href="https://codepen.io/jabranr">CodePen</a> to share experiments from day to day work.</p>
 </section>
 
 {% for project in projects %}
-  <section class="list-item">
-    <time class="list-item_time" datetime="{{ project.date | format_date('YYYY-MM-DD') }}">{{ project.date | format_date }}</time>
-    <h3 class="list-item_heading">
+  <section class="mt-4 pt-4 {% if not loop.first %}border-t-[1px] border-t-[#ddd]{% endif %}">
+    <time class="text-[#666] text-sm" datetime="{{ project.date | format_date('YYYY-MM-DD') }}">{{ project.date | format_date }}</time>
+    <h3 class="text-xl font-bold my-2">
       <a href="{{ project.url | url }}">{{ project.data.title }}</a>
     </h3>
-    <p class="list-item_excerpt">{{ project.data.excerpt | safe }}</p>
+    <p class="text-base mb-4">{{ project.data.excerpt | safe }}</p>
   </section>
 {% endfor %}
 
-<section class="pagination">
+<section class="inline-flex items-center justify-center font-bold text-base my-12">
   {% for pageEntry in pagination.pages %}
     {% if pagination.hrefs[loop.index0] == '/projects/1/' or page.url == pagination.hrefs[loop.index0] %}
-      <span class="pagination_current" aria-current="page">{{ loop.index }}</span>
+      <span class="block bg-[#eee] w-8 h-8 rounded-full text-center p-1" aria-current="page">{{ loop.index }}</span>
     {% else %}
-      <a href="/projects/{% if loop.index != loop.first %}{{ loop.index }}/{% endif %}">{{ loop.index }}</a>
+      <a class="block w-8 h-8 rounded-full text-center p-1" href="/projects/{% if loop.index != loop.first %}{{ loop.index }}/{% endif %}">{{ loop.index }}</a>
     {% endif %}
   {% endfor %}
 </section>

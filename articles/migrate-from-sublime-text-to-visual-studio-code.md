@@ -3,7 +3,16 @@ layout: post
 title: Migrating from Sublime Text to Visual Studio Code
 date: 2017-03-06 07:00:00
 categories: articles
-tags: ['articles', Workflow, Front-end tools, SublimeText, Sublime text, vscode, visual studio code]
+tags:
+  [
+    'articles',
+    Workflow,
+    Front-end tools,
+    SublimeText,
+    Sublime text,
+    vscode,
+    visual studio code
+  ]
 excerpt: Quick story telling all about migrating from Sublime Text to Visual Studio Code.
 permalink:
 thumbnail:
@@ -11,7 +20,7 @@ comment: true
 private: false
 ---
 
-I am a Front-end Web Developer at [Rated People](https://ratedpeople.com) (RP) and my day-to-day job requires me to use tools that I am comfortable too work with and those that serve the purpose. This is why everyone in my team uses a different editor of their choice. The company offers all the support required for better workflow and tools regardlessly. After joining RP back in 2015 I was given a  [PHP/WebStorm](https://www.jetbrains.com/phpstorm/) license that I hardly used and instead kept on using [SublimeText](https://www.sublimetext.com/)  because of my comfortability with it. Nevertheless PHPStorm is a great IDE!
+I am a Front-end Web Developer at [Rated People](https://ratedpeople.com) (RP) and my day-to-day job requires me to use tools that I am comfortable too work with and those that serve the purpose. This is why everyone in my team uses a different editor of their choice. The company offers all the support required for better workflow and tools regardlessly. After joining RP back in 2015 I was given a [PHP/WebStorm](https://www.jetbrains.com/phpstorm/) license that I hardly used and instead kept on using [SublimeText](https://www.sublimetext.com/) because of my comfortability with it. Nevertheless PHPStorm is a great IDE!
 
 So recently I started to look into [Visual Studio Code](https://code.visualstudio.com/) (vscode) after hearing all the good stuff about it &ndash; especially from Twitter and our team lead Simon Delaney. Over this past weekend while learning some advance stuff about HTML5 Canvas, I decided to give vscode a try.
 
@@ -39,12 +48,10 @@ Since I also regularly work with PHP/Symfony therefore I installed another coupl
 
 Some of the most amazing things about vscode I found are:
 
-* built-in support for many utility tools and options i.e. finding object definition etc. Although for some languages such as PHP, features like this need to be configured separately.
-* built-in debug console, terminal, version control and more
-* lightening fast ⚡
+- built-in support for many utility tools and options i.e. finding object definition etc. Although for some languages such as PHP, features like this need to be configured separately.
+- built-in debug console, terminal, version control and more
+- lightening fast ⚡
 
 I think I will stick to it for now to give SublimeText a break that it deserves! Go for it and give it a try by downloading from [Visual Studio website](https://code.visualstudio.com/)!
-
->By the way, if you are a UK resident and looking to work on exciting stuff, we are hiring a [Front-end Developer](http://j.mp/rp-front-end) at Rated People.
 
 Happy programming!

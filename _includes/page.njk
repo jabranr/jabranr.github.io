@@ -2,12 +2,10 @@
 layout: base.njk
 ---
 
-<section class="container-fluid">
-  <section class="container page">
-    <h1 class="page_header">{{ renderData and renderData.title or title }}</h1>
-    {% if description %}<p class="page_description">{{ description }}</p>{% endif %}
-    <section class="page_content">
-      {{ content | safe }}
-    </section>
+<section class="container my-8 page">
+  <h1 class="text-3xl font-semibold  my-6 mt-12">{{ renderData and renderData.title or title }}</h1>
+  {% if description %}<p class="mb-10 pb-6 border-b-[3px] border-double border-b-[#f69]">{{ description }}</p>{% endif %}
+  <section class="page_content">
+    {{ content | safe }}
   </section>
 </section>
