@@ -93,9 +93,6 @@ module.exports = function (eleventyConfig) {
   return {
     markdownTemplateEngine: 'njk',
     dataTemplateEngine: 'njk',
-    htmlTemplateEngine: 'njk',
-    dir: {
-      includes: './_includes'
-    }
+    htmlTemplateEngine: 'njk'
   };
 };
