@@ -157,7 +157,7 @@ pre[class*='language-'] {
   margin: 0;
   text-decoration: none;
   color: var(--jr-dark-gray);
-  background-image: url(../images/avatar.png);
+  background-image: url(/avatar.png);
   background-repeat: no-repeat;
   background-size: contain;
   padding-left: 65px;

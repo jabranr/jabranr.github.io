@@ -12,11 +12,10 @@ tags:
     Gruntjs,
     Socialmedia,
     CoffeeScript,
-    Twitter Bootstrap,
+    Twitter Bootstrap
   ]
 excerpt: 'Here is a quick overview of my journey from WordPress to Github that introduced me to amazing collection of tools in web industry.'
 permalink:
-thumbnail: ../../assets/images/avatar.jpg
 comment: true
 private: false
 ---

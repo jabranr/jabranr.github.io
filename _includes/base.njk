@@ -1,14 +1,14 @@
 {% if not title %}
   {% set title = 'Jabran Rafique - Full Stack Web Engineer' %}
 {% else %}
-  {% set title = title ~ " - Jabran Rafique" %}
+  {% set title = ((renderData and renderData.title) or title) ~ " - Jabran Rafique" %}
 {% endif %}
 
 {% if not description %}
   {% set description = 'Full Stack Web Engineer, currently Front-End Tech Lead at Rated People' %}
 {% endif %}
 <!doctype html>
-<html lang="en" xmlns:fb="http://ogp.me/ns/fb#">
+<html lang="en" xmlns:fb="http://ogp.me/ns/fb#" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <title>{{ (renderData and renderData.title) or title }}</title>
@@ -16,19 +16,20 @@
     <meta name="keywords" content="blog, jabran, rafique, html, css, javascript, react, php, full stack, front-end{{ (renderData and ', ' ~ renderData.keywords)  }}" />
     <meta name="generator" content="{{eleventy.generator}}" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="{{ (renderData and renderData.title) or title }}" />
+    <meta property="og:title" content="{{ title }}" />
     <meta property="og:description" content="{{ (renderData and renderData.description) or description }}" />
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@jabranr">
     <meta name="twitter:creator" content="@jabranr">
-    <meta name="twitter:title" content="{{ (renderData and renderData.title) or title }}">
+    <meta name="twitter:title" content="{{ title }}">
     <meta name="twitter:description" content="{{ (renderData and renderData.description) or description }}">
-    <meta property="og:image" content="{{ '/assets/images/icon-1024x1024.png' | absoluteUrl }}" />
-    <meta name="twitter:image" content="{{ '/assets/images/icon-1024x1024.png' | absoluteUrl }}" />
+    <meta property="og:image" content="{{ '/icon-1024x1024.png' | absoluteUrl }}" />
+    <meta name="twitter:image" content="{{ '/icon-1024x1024.png' | absoluteUrl }}" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="msapplication-TileImage" content="{{ '/assets/images/apple-touch-icon-114x114.png' | absoluteUrl }}" />
-    <meta name="theme-color" content="#f55555" />
+    <meta name="msapplication-TileImage" content="{{ '/apple-touch-icon.png' | absoluteUrl }}" />
+    <meta name="msapplication-TileColor" content="#222222" />
+    <meta name="theme-color" content="#222222" />
     {% if page.url == '/404/' %}
       <meta property="robots" content="noindex, nofollow" />
     {% else %}
@@ -39,8 +40,12 @@
     <link rel="preconnect" href="https://www.googletagmanager.com" />
     <link rel="preconnect" href="https://www.google-analytics.com" />
     <link rel="manifest" href="{{ '/manifest.json' | absoluteUrl }}?v={{ 'now' | format_date('unix') }}" />
-    <link rel="icon" type="image/x-icon" href="{{ '/assets/images/favicon.ico' | absoluteUrl }}" />
-    <link rel="apple-touch-icon" href="{{ '/assets/images/apple-touch-icon-114x114.png' | absoluteUrl }}" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ '/apple-touch-icon.png' | absoluteUrl }}" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ '/favicon-32x32.png' | absoluteUrl }}" />
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ '/favicon-16x16.png' | absoluteUrl }}" />
+
+    <link rel="icon" type="image/x-icon" href="{{ '/favicon.ico' | absoluteUrl }}" />
+    <link rel="apple-touch-icon" href="{{ '/apple-touch-icon.png' | absoluteUrl }}" />
 
     <link href="{{ '/main.css' | absoluteUrl }}?v={{ 'now' | format_date('unix') }}" rel="stylesheet" />
 
@@ -65,9 +70,9 @@
     <div class="container mx-auto p-4 max-w-3xl">
       <header class="header my-6">
         {% if page.url != '/' %}
-          <a class="h1 m-0 no-underline text-darkGray text-4xl font-bold text-[#666] transition-colors hover:text-black" href="/">Jabran Rafique</a>
+          <a class="logo" href="/">Jabran Rafique</a>
         {% else %}
-          <h1 class="m-0 no-underline text-darkGray text-4xl font-bold hover:text-black">Jabran Rafique</h1>
+          <h1 class="logo">Jabran Rafique</h1>
         {% endif %}
       </header>
       <main class="main">{{ content | safe }}</main>

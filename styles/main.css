@@ -28,6 +28,14 @@ h2 {
   @apply text-3xl my-8 mb-4;
 }
 
+.logo {
+  @apply block m-0 no-underline w-52 leading-none md:w-full md:leading-relaxed text-4xl font-bold text-[#666] transition-colors hover:text-black bg-no-repeat bg-contain pl-20 md:pl-16 bg-[url('/avatar.png')];
+}
+
+h1.logo {
+  @apply text-black;
+}
+
 .hero a {
   @apply underline underline-offset-4 text-[#666] ;
   text-decoration-skip-ink: none;
