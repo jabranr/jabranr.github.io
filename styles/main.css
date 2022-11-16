@@ -4,6 +4,12 @@
 @tailwind components;
 @tailwind utilities;
 
+
+html[lang="ur"],
+.translated-rtl {
+  direction: rtl;
+}
+
 body {
   @apply text-lg text-gray-800 leading-normal;
 }
@@ -36,8 +42,13 @@ h1.logo {
   @apply text-black;
 }
 
+[lang="ur"] .logo,
+.translated-rtl .logo {
+  @apply pl-0 pr-20 md:pr-16 bg-right;
+}
+
 .hero a {
-  @apply underline underline-offset-4 text-[#666] ;
+  @apply underline underline-offset-4 text-[#666] hover:text-[#cf1956];
   text-decoration-skip-ink: none;
 }
 
