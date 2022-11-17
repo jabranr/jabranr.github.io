@@ -1,0 +1,65 @@
+---
+layout: resume.njk
+title: Resume
+templateEngineOverride: njk,md
+excludeFromBrowse: true
+---
+
+<div class="hidden print:block">
+  {{ resume.contact|join(' &bull; ')|safe }}
+</div>
+<div>
+  {{ resume.social|join(' &bull; ')|safe }}
+</div>
+
+{{resume.intro|safe}}
+
+<h2>Employments</h2>
+
+{%- for job in resume.employments -%}
+  <h3>{{job.role|safe}} ({{job.duration|safe}})</h3>
+  <h4>{{job.employer|safe}} — {{job.website|safe}}</h4>
+  <ul class="list-disc list-inside mt-4 hidden print:block">
+    {%- for duty in job.experience -%}
+      <li>{{duty|safe}}</li>
+    {%- endfor -%}
+  </ul>
+{%- endfor -%}
+
+
+<h2>Freelancing</h2>
+
+{%- for freelanceJob in resume.freelancing -%}
+  <h3>{{freelanceJob.role|safe}} ({{freelanceJob.duration|safe}})</h3>
+  <h4>{{freelanceJob.employer|safe}} — {{freelanceJob.website|safe}}</h4>
+  <p class="list-disc list-inside mt-4 hidden print:block">
+    {{freelanceJob.description|safe}}
+  </p>
+{%- endfor -%}
+
+<h2>Projects</h2>
+<p>{{resume.projectsDescription}}</p>
+
+{%- for project in resume.projects -%}
+  <h3>{{project.name|safe}} <span class="text-base font-normal">— {{project.website|safe}}</span></h3>
+  <p>{{project.description|safe}}</p>
+{%- endfor -%}
+
+<h2>Education</h2>
+{%- for edu in resume.education -%}
+  <h3>{{edu.type|safe}}</h3>
+  <h4>{{edu.school|safe}}</h4>
+  <p>{{edu.duration|safe}}</p>
+{%- endfor -%}
+
+<h2>Skills</h2>
+{%- for skill in resume.skills -%}
+  <h3>{{skill.title|safe}}</h3>
+  <p>{{skill.tech|safe}}</p>
+{%- endfor -%}
+
+<h2>Voluntary Work</h2>
+<p>{{resume.volunteering|join('</p><p>')|safe}}</p>
+
+<h2>Interests</h2>
+<p>{{resume.interests|safe}}</p>

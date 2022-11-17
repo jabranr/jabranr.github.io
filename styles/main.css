@@ -42,6 +42,10 @@ h1.logo {
   @apply text-black;
 }
 
+.no-logo {
+  @apply print:bg-none print:p-0;
+}
+
 [lang="ur"] .logo,
 .translated-rtl .logo {
   @apply pl-0 pr-20 md:pr-16 bg-right;
