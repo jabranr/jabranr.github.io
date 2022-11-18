@@ -182,27 +182,32 @@
       "duration": "May 2005 — August 2008"
     }
   ],
+  "skillsDescription": "I have worked with or have a good understanding/familiarity with the following technologies, services and concepts.",
   "skills": [
     {
       "title": "Languages / Technologies",
-      "tech": "HTML, CSS, JavaScript, PHP, SQL, Apache, Java, Ruby, Docker, AWS, Cloudflare, GCP, Linux/MacOS/Windows"
+      "tech": "HTML, CSS, JavaScript, TypeScript, PHP, SQL, Apache, Java, Ruby, Docker, AWS, Cloudflare, Google Cloud Platform (GCP), Firebase, Elastic, Swift, React Native, Linux/MacOS/Windows"
     },
     {
       "title": "Frameworks / Libraries",
-      "tech": "ReactJS, NodeJS, Redux, Express, Remix, 11ty, jQuery, Backbone, Underscore/Lodash, Symfony, WordPress, Laravel, Bootstrap, Tailwind"
+      "tech": "ReactJS, NodeJS, Redux, Express, Remix, 11ty, jQuery, Backbone, Underscore/Lodash, Symfony, WordPress, Laravel, Bootstrap, Tailwind, Create React App"
     },
     {
       "title": "Data / APIs / Web Services",
-      "tech": "XML, JSON, Google APIs, Facebook Graph API, Twitter API, Instagram API"
+      "tech": "XML, JSON, JSONP, Google APIs, Facebook Graph API, Twitter API, Instagram API"
     },
     {
-      "title": "Workflow Concepts / Tools",
-      "tech": "MVC, MV*, REST, TDD (Unit, UI, Integration), Agile, Waterfall, Scrum, DRY, KISS, Progressive Enhancement & Graceful Degradation, Sass, Less, BEM, Jekyll, Grunt, Yeoman, Git, GitHub, NPM, Bower, Composer, Terminal, Functional Programming, Adobe Photoshop, Adobe Illustrator, Figma"
+      "title": "Workflow Concepts",
+      "tech": "REST, TDD, BDD, Cucumber, Testing (Unit, Integration, End-to-End, Smoke, Stress, Performance), MVC, Agile, Waterfall, Kanban, Scrum, DRY, KISS, BEM, Progressive Enhancement & Graceful Degradation"
+    },
+    {
+      "title": "Tools",
+      "tech": "Jest, Enzyme, React Testing Library, Git, GitHub, GitHub Actions, BitBucket, Confluence, JIRA, Bamboo, Pipelines, Trello, NPM, Bower, Composer, Sass, Less, Jekyll, Webpack, Grunt, Yeoman, Functional/Reactive programming, Adobe Photoshop, Adobe Illustrator, VWO, AppDynamics, Miro, Figma, Salesforce, Invision, Branch, Postman, Swagger, Storybook, Lerna, Volta, Prettier, ESLint, Android Studio, XCode, Wrangler, Miniflare"
     }
   ],
   "volunteering": [
     "During free time, I like to contribute to social work that benefits large communities. I worked between 2008 and 2013 with Google on their Map Maker project to map the unmapped areas of the world — especially developing countries.",
-    "Since then, I have served in different community leading positions such as Power Mapper, Advocate and as a Regional Lead. It involves working with global community of mappers, guiding them, setting regional standards of mapping, organizing, and speaking at events and leading training sessions around the globe. More information is available on Google LatLng Blog — <a href=\"https://goo.gl/zkTbhS\">https://goo.gl/zkTbhS</a>"
+    "Since then, I have served in different community leading positions such as Power Mapper, Advocate and as a Regional Lead. It involves working with global community of mappers, guiding them, setting regional standards of mapping, organizing, and speaking at events and leading training sessions around the globe. More information is available on <a class=\"print-link\" target=\"_blank\" href=\"https://bit.ly/google-latlng\">Google LatLng Blog</a>"
   ],
   "interests": [
     "Travelling, Cooking, Open-Source development, Cartography, Books, Cricket"

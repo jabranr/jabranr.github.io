@@ -1,0 +1,27 @@
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+h2,h4 {
+  font-family: 'Playfair Display', serif;
+}
+
+h2 {
+  @apply border-b-2 border-b-[#666] pb-2 mt-12 text-2xl;
+}
+
+h3 {
+  @apply text-xl mb-0 text-[#666] print:text-[#333];
+}
+
+h4 {
+  @apply text-xl mt-0;
+}
+
+.logo {
+  @apply print:bg-none print:p-0 print:w-full;
+}
+
+.print-link {
+  @apply print:no-underline print:text-inherit print:after:content-['('attr(href)')'] print:after:ml-1;
+}

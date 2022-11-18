@@ -17,8 +17,8 @@ excludeFromBrowse: true
 <h2>Employments</h2>
 
 {%- for job in resume.employments -%}
-  <h3>{{job.role|safe}} ({{job.duration|safe}})</h3>
-  <h4>{{job.employer|safe}} — {{job.website|safe}}</h4>
+  <h3>{{job.role|safe}} <small>({{job.duration|safe}})</small></h3>
+  <h4>{{job.employer|safe}} <small>— <a class="print:no-underline print:text-[#333]" target="_blank" href="https://{{job.website|safe}}">{{job.website|safe}}</a></small></h4>
   <ul class="list-disc list-inside mt-4 hidden print:block">
     {%- for duty in job.experience -%}
       <li>{{duty|safe}}</li>
@@ -27,32 +27,37 @@ excludeFromBrowse: true
 {%- endfor -%}
 
 
-<h2>Freelancing</h2>
+<section class="hidden print:block">
+  <h2>Freelancing</h2>
 
-{%- for freelanceJob in resume.freelancing -%}
-  <h3>{{freelanceJob.role|safe}} ({{freelanceJob.duration|safe}})</h3>
-  <h4>{{freelanceJob.employer|safe}} — {{freelanceJob.website|safe}}</h4>
-  <p class="list-disc list-inside mt-4 hidden print:block">
-    {{freelanceJob.description|safe}}
-  </p>
-{%- endfor -%}
+  {%- for freelanceJob in resume.freelancing -%}
+    <h3>{{freelanceJob.role|safe}} ({{freelanceJob.duration|safe}})</h3>
+    <h4>{{freelanceJob.employer|safe}} — {{freelanceJob.website|safe}}</h4>
+    <p class="list-disc list-inside mt-4">
+      {{freelanceJob.description|safe}}
+    </p>
+  {%- endfor -%}
+</section>
 
 <h2>Projects</h2>
 <p>{{resume.projectsDescription}}</p>
 
 {%- for project in resume.projects -%}
-  <h3>{{project.name|safe}} <span class="text-base font-normal">— {{project.website|safe}}</span></h3>
+  <h3 class="font-serif">{{project.name|safe}} <small class="text-base font-normal">— <a class="print:no-underline print:text-[#333]" target="_blank" href="https://{{project.website|safe}}">{{project.website|safe}}</a></small></h3>
   <p>{{project.description|safe}}</p>
 {%- endfor -%}
 
 <h2>Education</h2>
 {%- for edu in resume.education -%}
-  <h3>{{edu.type|safe}}</h3>
-  <h4>{{edu.school|safe}}</h4>
-  <p>{{edu.duration|safe}}</p>
+  <section {% if loop.last %}class="hidden print:block"{%endif%}>
+    <h3>{{edu.type|safe}}</h3>
+    <h4>{{edu.school|safe}}</h4>
+    <p>{{edu.duration|safe}}</p>
+  </section>
 {%- endfor -%}
 
 <h2>Skills</h2>
+<p>{{resume.skillsDescription}}</p>
 {%- for skill in resume.skills -%}
   <h3>{{skill.title|safe}}</h3>
   <p>{{skill.tech|safe}}</p>
@@ -63,3 +68,5 @@ excludeFromBrowse: true
 
 <h2>Interests</h2>
 <p>{{resume.interests|safe}}</p>
+
+<small class="hidden print:block mt-10 pt-4">jabran.me/resume/</small>
