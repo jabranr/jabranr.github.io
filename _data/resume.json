@@ -9,7 +9,7 @@
     "<span class=\"text-[#666]\">github.com/</span>jabranr",
     "<span class=\"text-[#666]\">twitter.com/</span>jabranr"
   ],
-  "intro": "I am software engineer with a passion for the web. I have an experience of more than seven years in developing scalable, performant, and interactive web applications with a keen eye for best practices and industry standards. <p class=\"hidden print:block\">I am passionate about the fascinating world of the web, its impact on human lives and the drive to make it accessible and performant for all. Therefore, I enjoy working on concepts and ideas that sustain best practices with early adoption of the latest technologies and workflows covering the entire software development life cycle.</p>",
+  "intro": "I am software engineer with a passion for the web. I have an experience of more than seven years in developing scalable, performant, and interactive web applications with a keen eye for best practices and industry standards. <span class=\"hidden print:block\">I am passionate about the fascinating world of the web, its impact on human lives and the drive to make it accessible and performant for all. Therefore, I enjoy working on concepts and ideas that sustain best practices with early adoption of the latest technologies and workflows covering the entire software development life cycle.</span>",
   "employments": [
     {
       "order": 1,
@@ -193,12 +193,12 @@
       "tech": "ReactJS, NodeJS, Redux, Express, Remix, 11ty, jQuery, Backbone, Underscore/Lodash, Symfony, WordPress, Laravel, Bootstrap, Tailwind, Create React App"
     },
     {
-      "title": "Data / APIs / Web Services",
-      "tech": "XML, JSON, JSONP, Google APIs, Facebook Graph API, Twitter API, Instagram API"
-    },
-    {
       "title": "Workflow Concepts",
       "tech": "REST, TDD, BDD, Cucumber, Testing (Unit, Integration, End-to-End, Smoke, Stress, Performance), MVC, Agile, Waterfall, Kanban, Scrum, DRY, KISS, BEM, Progressive Enhancement & Graceful Degradation"
+    },
+    {
+      "title": "Data / APIs / Web Services",
+      "tech": "XML, JSON, JSONP, Google APIs, Facebook Graph API, Twitter API, Instagram API"
     },
     {
       "title": "Tools",

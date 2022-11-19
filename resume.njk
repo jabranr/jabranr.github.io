@@ -12,56 +12,76 @@ excludeFromBrowse: true
   {{ resume.social|join(' &bull; ')|safe }}
 </div>
 
-{{resume.intro|safe}}
+<section class="mt-4">
+  <p>{{resume.intro|safe}}</p>
+</section>
 
 <h2>Employments</h2>
-
-{%- for job in resume.employments -%}
-  <h3>{{job.role|safe}} <small>({{job.duration|safe}})</small></h3>
-  <h4>{{job.employer|safe}} <small>— <a class="print:no-underline print:text-[#333]" target="_blank" href="https://{{job.website|safe}}">{{job.website|safe}}</a></small></h4>
-  <ul class="list-disc list-inside mt-4 hidden print:block">
-    {%- for duty in job.experience -%}
-      <li>{{duty|safe}}</li>
-    {%- endfor -%}
-  </ul>
-{%- endfor -%}
-
-
-<section class="hidden print:block">
-  <h2>Freelancing</h2>
-
-  {%- for freelanceJob in resume.freelancing -%}
-    <h3>{{freelanceJob.role|safe}} ({{freelanceJob.duration|safe}})</h3>
-    <h4>{{freelanceJob.employer|safe}} — {{freelanceJob.website|safe}}</h4>
-    <p class="list-disc list-inside mt-4">
-      {{freelanceJob.description|safe}}
-    </p>
+<section>
+  {%- for job in resume.employments -%}
+  <section>
+    <h3>{{job.role|safe}} <small>({{job.duration|safe}})</small></h3>
+    <h4>
+      <a target="_blank" class="print-link" data-print="&bull; {{job.website|safe}}" href="https://{{job.website|safe}}">{{job.employer|safe}}</a>
+    </h4>
+    <ul class="list-disc list-inside mt-2 mb-4 hidden print:block">
+      {%- for duty in job.experience -%}
+        <li>{{duty|safe}}</li>
+      {%- endfor -%}
+    </ul>
+  </section>
   {%- endfor -%}
 </section>
 
 <h2>Projects</h2>
 <p>{{resume.projectsDescription}}</p>
-
+<section>
 {%- for project in resume.projects -%}
-  <h3 class="font-serif">{{project.name|safe}} <small class="text-base font-normal">— <a class="print:no-underline print:text-[#333]" target="_blank" href="https://{{project.website|safe}}">{{project.website|safe}}</a></small></h3>
-  <p>{{project.description|safe}}</p>
+  <section>
+    <h3 class="font-serif">
+      <a class="print-link" target="_blank" data-print="&bull; {{project.website|safe}}" href="https://{{project.website|safe}}">{{project.name|safe}}</a>
+    </h3>
+    <p class="text-base my-0">{{project.description|safe}}</p>
+  </section>
 {%- endfor -%}
+</section>
+
+<section class="hidden print:block">
+  <h2>Freelancing</h2>
+  {%- for freelanceJob in resume.freelancing -%}
+    <h3>
+      {{freelanceJob.role|safe}} <small>({{freelanceJob.duration|safe}})</small>
+    </h3>
+    <h4>
+      <a target="_blank" class="print-link" data-print="&bull; {{freelanceJob.website|safe}}" href="https://{{freelanceJob.website|safe}}">
+        {{freelanceJob.employer|safe}}
+      </a>
+    </h4>
+    <p class="text-base my-0 mt-2">
+      {{freelanceJob.description|safe}}
+    </p>
+  {%- endfor -%}
+</section>
 
 <h2>Education</h2>
 {%- for edu in resume.education -%}
   <section {% if loop.last %}class="hidden print:block"{%endif%}>
     <h3>{{edu.type|safe}}</h3>
     <h4>{{edu.school|safe}}</h4>
-    <p>{{edu.duration|safe}}</p>
+    <p class="mt-1">{{edu.duration|safe}}</p>
   </section>
 {%- endfor -%}
 
 <h2>Skills</h2>
 <p>{{resume.skillsDescription}}</p>
-{%- for skill in resume.skills -%}
-  <h3>{{skill.title|safe}}</h3>
-  <p>{{skill.tech|safe}}</p>
-{%- endfor -%}
+<section class="md:grid md:grid-cols-2 print:columns-2">
+  {%- for skill in resume.skills -%}
+  <section class="last-of-type:col-span-2">
+    <h3 class="text-[12pt] mt-0">{{skill.title|safe}}</h3>
+    <p class="mt-2 print:mt-1">{{skill.tech|safe}}</p>
+  </section>
+  {%- endfor -%}
+</section>
 
 <h2>Voluntary Work</h2>
 <p>{{resume.volunteering|join('</p><p>')|safe}}</p>
