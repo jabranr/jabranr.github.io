@@ -1,0 +1,92 @@
+---
+layout: resume.njk
+title: Resume
+templateEngineOverride: njk,md
+excludeFromBrowse: true
+---
+
+<div class="hidden print:block">
+  {{ resume.contact|join(' &bull; ')|safe }}
+</div>
+<div>
+  {{ resume.social|join(' &bull; ')|safe }}
+</div>
+
+<section class="mt-4">
+  <p>{{resume.intro|safe}}</p>
+</section>
+
+<h2>Employments</h2>
+<section>
+  {%- for job in resume.employments -%}
+  <section>
+    <h3>{{job.role|safe}} <small>({{job.duration|safe}})</small></h3>
+    <h4>
+      <a target="_blank" class="print-link" data-print="&bull; {{job.website|safe}}" href="https://{{job.website|safe}}">{{job.employer|safe}}</a>
+    </h4>
+    <ul class="list-disc list-inside mt-2 mb-4 hidden print:block">
+      {%- for duty in job.experience -%}
+        <li>{{duty|safe}}</li>
+      {%- endfor -%}
+    </ul>
+  </section>
+  {%- endfor -%}
+</section>
+
+<h2>Projects</h2>
+<p>{{resume.projectsDescription}}</p>
+<section>
+{%- for project in resume.projects -%}
+  <section>
+    <h3 class="font-serif">
+      <a class="print-link" target="_blank" data-print="&bull; {{project.website|safe}}" href="https://{{project.website|safe}}">{{project.name|safe}}</a>
+    </h3>
+    <p class="text-base my-0">{{project.description|safe}}</p>
+  </section>
+{%- endfor -%}
+</section>
+
+<section class="hidden print:block">
+  <h2>Freelancing</h2>
+  {%- for freelanceJob in resume.freelancing -%}
+    <h3>
+      {{freelanceJob.role|safe}} <small>({{freelanceJob.duration|safe}})</small>
+    </h3>
+    <h4>
+      <a target="_blank" class="print-link" data-print="&bull; {{freelanceJob.website|safe}}" href="https://{{freelanceJob.website|safe}}">
+        {{freelanceJob.employer|safe}}
+      </a>
+    </h4>
+    <p class="text-base my-0 mt-2">
+      {{freelanceJob.description|safe}}
+    </p>
+  {%- endfor -%}
+</section>
+
+<h2>Education</h2>
+{%- for edu in resume.education -%}
+  <section {% if loop.last %}class="hidden print:block"{%endif%}>
+    <h3>{{edu.type|safe}}</h3>
+    <h4>{{edu.school|safe}}</h4>
+    <p class="mt-1">{{edu.duration|safe}}</p>
+  </section>
+{%- endfor -%}
+
+<h2>Skills</h2>
+<p>{{resume.skillsDescription}}</p>
+<section class="md:grid md:grid-cols-2 print:columns-2">
+  {%- for skill in resume.skills -%}
+  <section class="last-of-type:col-span-2">
+    <h3 class="text-[12pt] mt-0">{{skill.title|safe}}</h3>
+    <p class="mt-2 print:mt-1">{{skill.tech|safe}}</p>
+  </section>
+  {%- endfor -%}
+</section>
+
+<h2>Voluntary Work</h2>
+<p>{{resume.volunteering|join('</p><p>')|safe}}</p>
+
+<h2>Interests</h2>
+<p>{{resume.interests|safe}}</p>
+
+<small class="hidden print:block mt-10 pt-4">jabran.me/resume/</small>

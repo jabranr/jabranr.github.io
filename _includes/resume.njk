@@ -30,15 +30,13 @@
     <meta name="msapplication-TileImage" content="{{ '/apple-touch-icon.png' | absoluteUrl }}" />
     <meta name="msapplication-TileColor" content="#222222" />
     <meta name="theme-color" content="#222222" />
-    {% if page.url == '/404/' %}
-      <meta property="robots" content="noindex, nofollow" />
-    {% else %}
-      <meta property="robots" content="all" />
-      <meta property="og:url" content="{{ page.url | absoluteUrl }}{% if page.url == '/' %}/{% endif %}">
-      <link rel="canonical" href="{{ page.url | absoluteUrl }}{% if page.url == '/' %}/{% endif %}" />
-    {% endif %}
+    <meta property="robots" content="noindex, nofollow" />
+    <meta property="og:url" content="{{ page.url | absoluteUrl }}{% if page.url == '/' %}/{% endif %}">
+    <link rel="canonical" href="{{ page.url | absoluteUrl }}{% if page.url == '/' %}/{% endif %}" />
     <link rel="preconnect" href="https://www.googletagmanager.com" />
     <link rel="preconnect" href="https://www.google-analytics.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="manifest" href="{{ '/manifest.json' | absoluteUrl }}?v={{ 'now' | format_date('unix') }}" />
     <link rel="apple-touch-icon" sizes="180x180" href="{{ '/apple-touch-icon.png' | absoluteUrl }}" />
     <link rel="icon" type="image/png" sizes="32x32" href="{{ '/favicon-32x32.png' | absoluteUrl }}" />
@@ -47,7 +45,9 @@
     <link rel="icon" type="image/x-icon" href="{{ '/favicon.ico' | absoluteUrl }}" />
     <link rel="apple-touch-icon" href="{{ '/apple-touch-icon.png' | absoluteUrl }}" />
 
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link href="{{ '/main.css' | absoluteUrl }}?v={{ 'now' | format_date('unix') }}" rel="stylesheet" />
+    <link href="{{ '/resume.css' | absoluteUrl }}?v={{ 'now' | format_date('unix') }}" rel="stylesheet" />
 
     {% if env_NODE_ENV != 'development' %}
       <!-- Google Tag Manager -->
@@ -68,22 +68,21 @@
     {% endif %}
     {% block schema %}{% endblock schema %}
     <div class="container mx-auto p-4 max-w-3xl">
-      <header class="header my-6">
-        {% if page.url != '/' %}
-          <a class="logo" href="/">Jabran Rafique</a>
-        {% else %}
-          <h1 class="logo">Jabran Rafique</h1>
-        {% endif %}
+      <header class="header mt-6 mb-3">
+        <h1><a class="logo" href="/">Jabran Rafique</a></h1>
       </header>
-      <main class="main">{{ content | safe }}</main>
-      <footer class="container bg-full-width text-sm py-4">
+      <main class="main">
+        <section class="container resume mb-20">
+          {{ content | safe }}
+        </section>
+      </main>
+      <footer class="container bg-full-width text-sm py-4 print:hidden">
         <div class="max-w-lg">
           <p>&copy; 2012 &ndash; present</p>
           <div class="colophone">
             <a target="_blank" rel="noopener noreferrer" href="https://www.twitter.com/jabranr">Twitter</a>
             <a target="_blank" rel="noopener noreferrer" href="https://github.com/jabranr">GitHub</a>
             <a target="_blank" rel="noopener noreferrer" href="https://google.com/mapmaker?gw=66&amp;uid=208599960765438642668">Google Map Maker</a>
-            <a href="/resume/">Resume</a>
             <a href="mailto:hello@jabran.me">Contact</a>
             <a href="/feed.xml">RSS</a>
           </div>
@@ -95,3 +94,5 @@
     </div>
   </body>
 </html>
+
+
