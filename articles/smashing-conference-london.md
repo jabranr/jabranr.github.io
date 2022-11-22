@@ -3,7 +3,17 @@ layout: post
 title: Smashing Conference London 2018
 date: 2018-02-22 08:00:00
 categories: articles
-tags: ['articles', Event, Conference, Smashing, London, Web Development, Web Performance, '#perfmatters']
+tags:
+  [
+    'articles',
+    Event,
+    Conference,
+    Smashing,
+    London,
+    Web Development,
+    Web Performance,
+    '#perfmatters'
+  ]
 excerpt: Experience of attending two days of Smashing Conference, London 2018
 permalink:
 thumbnail:
@@ -13,12 +23,12 @@ private: false
 
 Right from the day it was announced, to the day we booked the tickets, it was an exciting wait to attend this fabulous event. I have been an avid reader of [Smashing Magazine](https://www.smashingmagazine.com) for almost a decade. It helped a lot throughout my web development learning process. In fact, it taught me more about web design and development than anything from a formal education, if I am being honest. There are of course other online resources that stood shoulder-to-shoulder to Smashing such as A List Apart and more. The Magazine's website itself has been a metaphor of all the good practices it preaches.
 
-The front-end team at [Rated People](https://www.ratedpeople.com/c/about-us) had been looking for a conference to attend since September last year. By end of the year 2017, we had following on the shortlist:
+The Frontend team at [Rated People](https://www.ratedpeople.com/c/about-us) had been looking for a conference to attend since September last year. By end of the year 2017, we had following on the shortlist:
 
-* Render Conference ([Website](https://2018.render-conf.com))
-* Smashing Conference ([Website](https://smashingconf.com/london-2018/))
-* DeltaV Conference ([Website](https://deltavconf.com))
-* CityJS Conference ([Website](http://cityjsconf.org))
+- Render Conference ([Website](https://2018.render-conf.com))
+- Smashing Conference ([Website](https://smashingconf.com/london-2018/))
+- DeltaV Conference ([Website](https://deltavconf.com))
+- CityJS Conference ([Website](http://cityjsconf.org))
 
 Even with this short list, it was very difficult to choose one as we only had the budget for one. After all the roundtrips to speakers pages for each of them, half of our team decided for Smashing and other for CityJS – being eager to listen to [Kyle Simpson](https://twitter.com/getify).
 

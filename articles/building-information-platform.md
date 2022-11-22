@@ -27,20 +27,19 @@ So after having an experience of providing helpful resources to the public alrea
 
 Now, if you Google some information about Pakistan, you will definitely come across many sites that will serve you good enough information. So why another one of those? The takeaway is to provide easy and open access, no cluttered user interface or user experience with a hope that information will remain the most up-to-date but that's where everyone plays their role by contributing. You might think that government should do something like that but hey, let's hope, one day that might happen too.
 
-
 ## Tech / Architecture
 
 The portal is build with [GatsbyJS](https://www.gatsbyjs.com). GatsbyJS is great development tool to build static pages that less often change. GatsbyJS can source data from variety of data stores which makes it even better. I chose [Markdown](https://guides.github.com/features/mastering-markdown/) for data storage which is as simple as a text file that anyone can write. Since whole point of project is to provide useful information to everyone, it is best that this project lives in open-source so that it can be maintained, sourced and discussed by everyone.
 
-Also I would like to keep application and data separate so that it does not become a giant monolithic application only to give management nightmare. The platform will be hosted on GitHub Pages obviously, therefore there is no scope of server-side or back-end in it. Also there would be no cost to maintain the project apart from domain registration (very low) and the priceless time given by all of us. That means no ads!
+Also I would like to keep application and data separate so that it does not become a giant monolithic application only to give management nightmare. The platform will be hosted on GitHub Pages obviously, therefore there is no scope of server-side or Backend in it. Also there would be no cost to maintain the project apart from domain registration (very low) and the priceless time given by all of us. That means no ads!
 
 The development – which happens during my some free time – started around first week of October 2018 and now it is going through final touches. Content are now the main focus of the project. Therefore I have created some public resources to kickoff some discussions and hopefully some contributions. I have created an [organisation on GitHub](https://www.github.com/localpk) that has content repository with very basic data to start with. Other repositories will be populated with their respective resources with time. All repositories have a README that should explain everything about their structure with guidelines on how to contribute.
 
 I have also created following channels including a Facebook Page and a Facebook Page Group for discussions and updates. There is also a Twitter account for updates.
 
-* GitHub Organisation – [https://www.github.com/localpk](https://www.github.com/localpk)
-* Facebook Page – [https://www.facebook.com/localpakistan](https://www.facebook.com/localpakistan)
-* Facebook Page Group – [https://www.facebook.com/groups/643030409449705](https://www.facebook.com/groups/643030409449705)
-* Twitter – [https://www.twitter.com/localcompk](https://www.twitter.com/localcompk)
+- GitHub Organisation – [https://www.github.com/localpk](https://www.github.com/localpk)
+- Facebook Page – [https://www.facebook.com/localpakistan](https://www.facebook.com/localpakistan)
+- Facebook Page Group – [https://www.facebook.com/groups/643030409449705](https://www.facebook.com/groups/643030409449705)
+- Twitter – [https://www.twitter.com/localcompk](https://www.twitter.com/localcompk)
 
 > Once we have good basic set of content, we launch!

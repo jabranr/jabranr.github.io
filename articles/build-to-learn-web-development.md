@@ -3,7 +3,8 @@ layout: post
 title: 'Build to Learn – socialmedia.js – Case Study'
 date: 2015-04-13 08:00:00
 categories: articles
-tags: ['articles', social media, Facebook, Twitter, Google+, Pinterest, API, SDKs]
+tags:
+  ['articles', social media, Facebook, Twitter, Google+, Pinterest, API, SDKs]
 excerpt: 'The journey of learning web development by building some library, framework or merely a wrapper. Here is quick summary from building and maintaining of socialmedia.js and learning through this process.'
 permalink:
 thumbnail: ../../assets/images/socialmedia-js.png
@@ -17,7 +18,7 @@ private: false
 2. Based on reusable code for a daily workflow
 3. Learn by building a framework, library or wrapper.
 
-Imagine the clutter of code just to make the Facebook SDK available for a web app and other chunks that are required to use various methods of the SDK everywhere in the app. Using Socialmedia, it is cleaner and easier to embed all this into a web app and is even convenient to use in any front-end development work flow.
+Imagine the clutter of code just to make the Facebook SDK available for a web app and other chunks that are required to use various methods of the SDK everywhere in the app. Using Socialmedia, it is cleaner and easier to embed all this into a web app and is even convenient to use in any Frontend development work flow.
 
 One of the many things that I have learned during development and maintenance of Socialmedia is the CoffeeScript. I liked it so much that in fact, since then, I have set development base for this framework in CoffeeScript. Other interesting stuff that I learned along were, better workflow setup using Grunt, Bower and of course Node/NPM, and most of all, JavaScript testing.
 
@@ -40,7 +41,7 @@ In order to use the Facebook SDKs into your web app, you will normally need foll
 
 ```html
 <script>
-  window.fbAsyncInit = function() {
+  window.fbAsyncInit = function () {
     FB.init({
       appId: 'your-app-id',
       xfbml: true,
@@ -48,7 +49,7 @@ In order to use the Facebook SDKs into your web app, you will normally need foll
     });
   };
 
-  (function(d, s, id) {
+  (function (d, s, id) {
     var js,
       fjs = d.getElementsByTagName(s)[0];
     if (d.getElementById(id)) {
@@ -107,7 +108,7 @@ The code used for this example is as following:
   if (inviteFriends) {
     inviteFriends.addEventListener(
       'click',
-      function(e) {
+      function (e) {
         facebook.Invite({
           title: 'Invited friends to read this article',
           message: document.title
@@ -151,13 +152,13 @@ The code used for this example is as following:
   if (getInfo) {
     getInfo.addEventListener(
       'click',
-      function(e) {
-        FB.getLoginStatus(function(response) {
+      function (e) {
+        FB.getLoginStatus(function (response) {
           if (response && response.status === 'connected') {
             FB.api('/me', getUserInfo);
             getInfo.style.display = 'none';
           } else {
-            FB.login(function(response) {
+            FB.login(function (response) {
               if (response && response.status === 'connected') {
                 FB.api('/me', getUserInfo);
                 getInfo.style.display = 'none';

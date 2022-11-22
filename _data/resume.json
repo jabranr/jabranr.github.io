@@ -13,12 +13,12 @@
   "employments": [
     {
       "order": 1,
-      "role": "Front-End Tech Lead",
+      "role": "Frontend Tech Lead",
       "duration": "Jun 2018 — Present",
       "employer": "Rated People",
       "website": "ratedpeople.com",
       "experience": [
-        "Mentor and manage a team of front-end developers, maintain regular team powwows, 1:1s and bi-annual performance reviews",
+        "Mentor and manage a team of Frontend developers, maintain regular team powwows, 1:1s and bi-annual performance reviews",
         "Discuss & challenge technical aspects to help with project scoping and architectural decisions with product/tech/design teams",
         "Knowledge sharing with peer programming and extensive code reviews to ensure best practices",
         "Help retire legacy PHP stack by moving to modern tech, primarily ReactJS, NodeJS, Remix, Cloudflare and AWS. Maintain an ongoing performance improvement roadmap",
@@ -29,15 +29,15 @@
     },
     {
       "order": 2,
-      "role": "Front-End Web Developer",
+      "role": "Frontend Web Developer",
       "duration": "Nov 2015 — May 2018",
       "employer": "Rated People",
       "website": "ratedpeople.com",
       "experience": [
-        "Involved with front-end stack migration to the cloud (AWS)",
+        "Involved with Frontend stack migration to the cloud (AWS)",
         "Involved with platform key rebrand in 2016",
         "Involved with optimising existing PHP Symfony micro-apps to be performant and cloud-ready",
-        "Helped with upgrading the tools chain used in the front-end eco-system and modernised the stack by replacing the obsolete technologies",
+        "Helped with upgrading the tools chain used in the Frontend eco-system and modernised the stack by replacing the obsolete technologies",
         "Involved in developing a new Symfony app to fully automate the customer signups flow, including fraud and risk assessment, and validations externally and internally APIs to reduce overhead for sales and fraud teams",
         "Accustomed with NodeJS, ReactJS and many other relevant modern tools to develop a REST API layer to support future client-side only apps with robust authentication flow"
       ]

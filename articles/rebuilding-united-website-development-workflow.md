@@ -23,18 +23,18 @@ Ben Chalk worked through design process with mobile-first approach since being r
 
 Since responsiveness was an important part of it so development had to start with mobile-first approach as well. Twitter Bootstrap provides an excellent support for fluid layouts out of the box. To make sure that fluid layouts work as expected on most devices and different screen resolutions, I had following few excellent testing tools on board:
 
-+ [Google Chrome Mobile Emulator](https://developer.chrome.com/devtools/docs/mobile-emulation)
-+ [Resizer by Malte Wassermann](http://lab.maltewassermann.com/viewport-resizer/)
+- [Google Chrome Mobile Emulator](https://developer.chrome.com/devtools/docs/mobile-emulation)
+- [Resizer by Malte Wassermann](http://lab.maltewassermann.com/viewport-resizer/)
 
 Google Chrome Mobile Emulator provides an excellent set of environment for variety of devices. Resizer provides a comprehensive list of screen resolutions as well as options to define custom.
 
 Since amount of contents of this website were not massive and did not need to be generated dynamically from a CMS or database, I used [Jekyll](http://jekyllrb.com/) for content delivery. Jekyll also provides a local server to run the tests and confirm outputs. In addition to Jekyll, I used [Grunt.js](http://gruntjs.com) to automate my tasks and make the overflow smooth. Grunt plugins helped in automating the following tasks:
 
-+ Optimizing and compressing the images
-+ Concat SASS files from various packages i.e. Bootstrap, Animate.css, IcoMoon
-+ Concat, compress and minify the JavaScript packages
-+ Contents delivery using Jekyll with Grunt
-+ Watching the file changes automatically to run appropriate tasks
+- Optimizing and compressing the images
+- Concat SASS files from various packages i.e. Bootstrap, Animate.css, IcoMoon
+- Concat, compress and minify the JavaScript packages
+- Contents delivery using Jekyll with Grunt
+- Watching the file changes automatically to run appropriate tasks
 
 Sass provides an excellent support for manipulating and customizing the default packages without touching the core code. It also helps to concatenate more than one Sass files together as well as to reuse variables, functions, compressing and minifying the CSS output for production use.
 
@@ -46,7 +46,7 @@ Merging different CSS files into single output file helps to enhance the perform
 
 <img src="../../assets/images/bootstrap-sass-selective-modules.png" alt="" />
 
-This awesomeness of selecting only required modules doesn't just stop at Bootstrap or Sass! It continues to other front-end tools used in this project as well i.e. jQuery, jQuery Mobile, Animate.css, Bootstrap.js etc. In addition to these, I also used a selective set of font icons from [IcoMoon](http://icomoon.io) that enables the social media links at the website. Once again, it is important to only import the glyphs that are required rather than loading a complete font file.
+This awesomeness of selecting only required modules doesn't just stop at Bootstrap or Sass! It continues to other Frontend tools used in this project as well i.e. jQuery, jQuery Mobile, Animate.css, Bootstrap.js etc. In addition to these, I also used a selective set of font icons from [IcoMoon](http://icomoon.io) that enables the social media links at the website. Once again, it is important to only import the glyphs that are required rather than loading a complete font file.
 
 > In short, sole purpose of this all “selective” practice is to keep the files size as minimum as required and to keep up with overall performance.
 
@@ -61,21 +61,21 @@ The contact section has feeds from Instagram and Twitter channels.
 [Instagram API](http://instagram.com/developer/) now provides a very convenient way to grab a user feed with [a new addition](http://instagram.com/developer/endpoints/users/#get_users_media_recent_with_client_id) to its `/users` endpoint. I used `jQuery.getJSON` method as exampled below to grab the feed. The `callback=?` parameter here is to get the response in JSONP type to bypass the cross-origin restrictions in a `XMLHttpRequest`.
 
 ```javascript
-  var url = "https://api.instagram.com/v1/users/396527045/media/recent/";
-  url += "?client_id=012345689";
-  url += "&count=10";
-  url += "&callback=?";
+var url = 'https://api.instagram.com/v1/users/396527045/media/recent/';
+url += '?client_id=012345689';
+url += '&count=10';
+url += '&callback=?';
 
-  $.getJSON(url, function(data) {
+$.getJSON(url, function (data) {
   // Setup Instagram feed here.
-  });
+});
 ```
 
 #### Twitter Feed:
 
 To get a feed from Twitter API requires an OAuth authentication. For this purpose, I used PHP library [Fetchwitter](https://github.com/jabranr/Fetchwitter) that provides an excellent and easy support for Twitter API OAuth authentication. An `XMLHttpRequest` call (somewhat similar to above example) to Fetchwitter output grabs the response in JSON format. The default tweet coming from this response is plain text so once Twitter feed is setup, it is time to format the plain text to a tweet.
 
-Fetchwitter has built-in method `to_tweet` that formats plain text into proper tweet with links, hashtags and mentions enabled appropriately. Since I am getting data in JSON format from Fetchwitter, it would be more convenient to format the tweet at front-end than using the built-in `to_tweet` method. So I decided to use JavaScript at front-end to modify the `String` prototype and add few methods to it to get the similar formatting output. This prototyping used JavaScript `indexOf` method which is not available in Internet Explorer 8 therefore to make this `String` prototype available in IE8 as well I needed an extra prototype manipulation in `Array` object too. Here is what a plain text formatted into tweet looks like:
+Fetchwitter has built-in method `to_tweet` that formats plain text into proper tweet with links, hashtags and mentions enabled appropriately. Since I am getting data in JSON format from Fetchwitter, it would be more convenient to format the tweet at Frontend than using the built-in `to_tweet` method. So I decided to use JavaScript at Frontend to modify the `String` prototype and add few methods to it to get the similar formatting output. This prototyping used JavaScript `indexOf` method which is not available in Internet Explorer 8 therefore to make this `String` prototype available in IE8 as well I needed an extra prototype manipulation in `Array` object too. Here is what a plain text formatted into tweet looks like:
 
 <p data-height="268" data-theme-id="6602" data-slug-hash="wBxGA" data-default-tab="result" class='codepen'>See the Pen <a href='http://codepen.io/jabranr/pen/wBxGA/'>Format text to tweet using JavaScript String prototyping</a> by Jabran Rafique (<a href='http://codepen.io/jabranr'>@jabranr</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
 <script async src="//codepen.io/assets/embed/ei.js"></script>

@@ -5,7 +5,7 @@
 {% endif %}
 
 {% if not description %}
-  {% set description = 'Full Stack Web Engineer, currently Front-End Tech Lead at Rated People' %}
+  {% set description = 'Full Stack Web Engineer, currently Frontend Tech Lead at Rated People' %}
 {% endif %}
 <!doctype html>
 <html lang="en" xmlns:fb="http://ogp.me/ns/fb#" class="scroll-smooth">
@@ -13,7 +13,7 @@
     <meta charset="UTF-8" />
     <title>{{ (renderData and renderData.title) or title }}</title>
     <meta name="description" content="{{ (renderData and renderData.description) or description }}" />
-    <meta name="keywords" content="blog, jabran, rafique, html, css, javascript, react, php, full stack, front-end{{ (renderData and ', ' ~ renderData.keywords)  }}" />
+    <meta name="keywords" content="blog, jabran, rafique, html, css, javascript, react, php, full stack, Frontend{{ (renderData and ', ' ~ renderData.keywords)  }}" />
     <meta name="generator" content="{{eleventy.generator}}" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="{{ title }}" />

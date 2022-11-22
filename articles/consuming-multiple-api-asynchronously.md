@@ -3,7 +3,17 @@ layout: post
 title: 'Consuming multiple APIs asynchronously'
 date: 2014-08-21 08:00:00
 categories: articles
-tags: ['articles', Facebook, Graph, API, Google Maps, JavaScript, Asynchorounus, callback]
+tags:
+  [
+    'articles',
+    Facebook,
+    Graph,
+    API,
+    Google Maps,
+    JavaScript,
+    Asynchorounus,
+    callback
+  ]
 excerpt: 'Consuming multiple APIs parallel to each other can be very tricky. Here is a detailed case study to chain multiple APIs with each other using JavaScript’s asynchronous approach.'
 permalink:
 thumbnail: ../../assets/images/usa-outdoors-adventure.jpg
@@ -11,7 +21,7 @@ comment: true
 private: false
 ---
 
-Recently, I worked on few Facebook apps that utilized multiple Application Programming Interfaces(APIs) in addition to default [Facebook Graph API](https://developers.facebook.com/docs/graph-api/). Applications normally use provided Software Development Kits(SDKs) to consume an API. At front-end development, majority of developers, prefer to use JavaScript SDKs for such a purpose. Consuming multiple APIs can be tricky in single app sometime&mdash;especially when using their JavaScript SDKs.
+Recently, I worked on few Facebook apps that utilized multiple Application Programming Interfaces(APIs) in addition to default [Facebook Graph API](https://developers.facebook.com/docs/graph-api/). Applications normally use provided Software Development Kits(SDKs) to consume an API. At Frontend development, majority of developers, prefer to use JavaScript SDKs for such a purpose. Consuming multiple APIs can be tricky in single app sometime&mdash;especially when using their JavaScript SDKs.
 
 There can be multiple reasons behind this tricky behaviour but an obvious one is not able to calculate the load time of an SDK. It can vary from app to app and even from page to page. Therefore, loading multiple SDKs and parallel consumption of their associated APIs, can lead to unexpected responses. For Facebook Graph API, most common examples are [early call warnings for FB methods](http://stackoverflow.com/search?q=fb.getloginstatus+called+before+fb.init).
 
@@ -19,17 +29,17 @@ There can be multiple reasons behind this tricky behaviour but an obvious one is
 
 [USA Outdoors Adventure](http://j.mp/1ohip3T) app recognises its users by using Facebook Graph API and then loads their up-to-date status by consuming Graph, Google Maps and its own Outdoors Adventure(OA) API. The process flow is as following:
 
-* Check user status (Graph API)
-* Confirm user registration (OA API)
-* Check user status and get user data (OA API)
-* Load user status (Google Maps API)
+- Check user status (Graph API)
+- Confirm user registration (OA API)
+- Check user status and get user data (OA API)
+- Load user status (Google Maps API)
 
 To stick with this cascading flow, API calls need to be chained accordingly to avoid errors, unexpected results or early call warnings. So APIs call flow goes as following:
 
-* Call Graph API
-* Call OA API as a callback to Graph API
-* Call Google Maps API as a callback to OA API
-* Setup front-end using final data in hand
+- Call Graph API
+- Call OA API as a callback to Graph API
+- Call Google Maps API as a callback to OA API
+- Setup Frontend using final data in hand
 
 Here I will go through all these steps explaining how it works best by chaining calls for multiple APIs. <sup>1</sup>
 
@@ -38,24 +48,28 @@ Here I will go through all these steps explaining how it works best by chaining 
 This app uses Facebook user ID in order to identify and keep track of user progress. Facebook JavaScript SDK has built-in methods of returning asynchronous calls that can defer custom steps until SDKs are fully loaded so the relevant functions are available to the app. Here is quick overview with default Facebook SDK initialization code:
 
 ```javascript
-window.fbAsyncInit = function() {
-	FB.init({
-		appId   : '1234567890',
-		xfbml   : true,
-		version : 'v2.0'
-	});
+window.fbAsyncInit = function () {
+  FB.init({
+    appId: '1234567890',
+    xfbml: true,
+    version: 'v2.0'
+  });
 
-	// Callback function goes here
-	FB.getLoginStatus(myCallbackFunc);
+  // Callback function goes here
+  FB.getLoginStatus(myCallbackFunc);
 };
 
-(function(d, s, id){
-	var js, fjs = d.getElementsByTagName(s)[0];
-	if (d.getElementById(id)) {return;}
-	js = d.createElement(s); js.id = id;
-	js.src = "//connect.facebook.net/en_US/sdk.js";
-	fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
+(function (d, s, id) {
+  var js,
+    fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {
+    return;
+  }
+  js = d.createElement(s);
+  js.id = id;
+  js.src = '//connect.facebook.net/en_US/sdk.js';
+  fjs.parentNode.insertBefore(js, fjs);
+})(document, 'script', 'facebook-jssdk');
 ```
 
 Passing a custom function `myCallbackFunc` in `FB.getLoginStatus(...)`, will have a deferred execution and will be served as callback.
@@ -134,15 +148,15 @@ Google Maps is loaded now and ready to use. It is time to load user data to disp
 
 ```javascript
 function setupLocationData(map, json) {
-	for ( var i=0; i < json.length; i++ ) {
-		var info = json[i];
-		var marker = new google.maps.Marker({
-			position: new google.maps.LatLng(info.lat, info.lng),
-			id: info.id,
-			info: info,
-			map: map
-		});
-	}
+  for (var i = 0; i < json.length; i++) {
+    var info = json[i];
+    var marker = new google.maps.Marker({
+      position: new google.maps.LatLng(info.lat, info.lng),
+      id: info.id,
+      info: info,
+      map: map
+    });
+  }
 }
 ```
 

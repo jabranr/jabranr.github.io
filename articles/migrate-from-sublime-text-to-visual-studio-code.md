@@ -7,7 +7,7 @@ tags:
   [
     'articles',
     Workflow,
-    Front-end tools,
+    Frontend tools,
     SublimeText,
     Sublime text,
     vscode,
@@ -20,7 +20,7 @@ comment: true
 private: false
 ---
 
-I am a Front-end Web Developer at [Rated People](https://ratedpeople.com) (RP) and my day-to-day job requires me to use tools that I am comfortable too work with and those that serve the purpose. This is why everyone in my team uses a different editor of their choice. The company offers all the support required for better workflow and tools regardlessly. After joining RP back in 2015 I was given a [PHP/WebStorm](https://www.jetbrains.com/phpstorm/) license that I hardly used and instead kept on using [SublimeText](https://www.sublimetext.com/) because of my comfortability with it. Nevertheless PHPStorm is a great IDE!
+I am a Frontend Web Developer at [Rated People](https://ratedpeople.com) (RP) and my day-to-day job requires me to use tools that I am comfortable too work with and those that serve the purpose. This is why everyone in my team uses a different editor of their choice. The company offers all the support required for better workflow and tools regardlessly. After joining RP back in 2015 I was given a [PHP/WebStorm](https://www.jetbrains.com/phpstorm/) license that I hardly used and instead kept on using [SublimeText](https://www.sublimetext.com/) because of my comfortability with it. Nevertheless PHPStorm is a great IDE!
 
 So recently I started to look into [Visual Studio Code](https://code.visualstudio.com/) (vscode) after hearing all the good stuff about it &ndash; especially from Twitter and our team lead Simon Delaney. Over this past weekend while learning some advance stuff about HTML5 Canvas, I decided to give vscode a try.
 
