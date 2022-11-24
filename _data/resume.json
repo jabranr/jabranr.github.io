@@ -9,7 +9,7 @@
     "<span class=\"text-[#666]\">github.com/</span>jabranr",
     "<span class=\"text-[#666]\">twitter.com/</span>jabranr"
   ],
-  "intro": "I am a software engineer with a passion for the web. I have an experience of more than seven years in developing scalable, performant, and interactive web applications with a keen eye for best practices and industry standards. <span class=\"hidden print:block\">I am passionate about the fascinating world of the web, its impact on human lives and the drive to make it accessible and performant for all. Therefore, I enjoy working on concepts and ideas that sustain best practices with early adoption of the latest technologies and workflows covering the entire software development life cycle.</span>",
+  "intro": "I am a software engineer with a passion for the web. I have an experience of more than seven years in developing scalable, performant, and interactive web applications with a keen eye for best practices and industry standards. <span class=\"hidden print:block print:my-4\">I am passionate about the fascinating world of the web, its impact on human lives and the drive to make it accessible and performant for all. Therefore, I enjoy working on concepts and ideas that sustain best practices with early adoption of the latest technologies and workflows covering the entire software development life cycle.</span>",
   "employments": [
     {
       "order": 1,
