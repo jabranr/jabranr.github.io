@@ -24,7 +24,7 @@
         "Help retire legacy PHP stack by moving to modern tech, primarily ReactJS, NodeJS, Remix, Cloudflare and AWS. Maintain an ongoing performance improvement roadmap",
         "Write robust, performant, and scalable code, unit and UI tests in a variety of languages, frameworks and tools, such as HTML, CSS, JavaScript, ReactJS, NodeJS, Ruby, Bash, Docker, WordPress, Elastic, Remix, Tailwind CSS, cloud and more",
         "Monitoring platform health using SaaS tools such as AppDynamics and Heap",
-        "Assist product and CRM teams with users testing and AB testing using tools such as Cloudflare Workers, VWO and SEOClarity"
+        "Assist product and CRM teams with user testing and AB testing using tools such as Cloudflare Workers, VWO and SEOClarity"
       ]
     },
     {
@@ -38,8 +38,8 @@
         "Involved with platform key rebrand in 2016",
         "Involved with optimising existing PHP Symfony micro-apps to be performant and cloud-ready",
         "Helped with upgrading the tools chain used in the Frontend eco-system and modernised the stack by replacing the obsolete technologies",
-        "Involved in developing a new Symfony app to fully automate the customer signups flow, including fraud and risk assessment, and validations externally and internally APIs to reduce overhead for sales and fraud teams",
-        "Accustomed with NodeJS, ReactJS and many other relevant modern tools to develop a REST API layer to support future client-side only apps with robust authentication flow"
+        "Involved in developing a new Symfony app to fully automate the customer signups flow, including fraud and risk assessment, and validations externally and internal APIs to reduce overhead for sales and fraud teams",
+        "Accustomed with NodeJS, ReactJS and many other relevant modern tools to develop a REST API layer to support future client-side apps with robust authentication flow"
       ]
     },
     {
@@ -54,7 +54,7 @@
         "Supervise junior developers and freelancers. Provide consultation and analysis to design lead, report and collaborate with the project manager to maintain development flow sprints",
         "Maintain in-house developed social media application development frameworks",
         "Build prototypes based on ideas for social campaigns",
-        "Develop and maintain LAM(PHP) stack based MVC framework and boilerplates for in-house custom web apps development",
+        "Develop and maintain LAM(PHP) stack-based MVC framework and boilerplates for in-house custom web apps development",
         "Clients included Thomas Cook Group, Hotels4U, Marco Aldany UK, RedStripe, Arcadia Group, Intec Digital, Modestep, Nordic Games, Hobbs, ShopStyle, Outfit Fashion, WeAreFSTVL, Rise Festival, OnBlackHeath, Pathé"
       ]
     },
@@ -65,11 +65,11 @@
       "employer": "Influence Digital ex. United Agency",
       "website": "united-agency.co.uk",
       "experience": [
-        "Involved with development of standalone web apps for social media and websites in a small team",
+        "Involved with the development of standalone web apps for social media and websites in a small team",
         "Enhanced the development workflow from a basic structure to a more stable, secure and reusable structure by introducing and encouraging the use of the latest technologies, best practices and workflows",
         "Developing social web apps for the Facebook platform",
         "Integrating third-party APIs (Facebook, Google Maps, Instagram) to build interactive apps engaging a vast social media audience ",
-        "Help infram team to restructure the servers’ setup and development workflow for better management",
+        "Involved with the infra team to restructure the servers’ setup and development workflow for better management",
         "Clients included mostly from retail, travel and music i.e. Arcadia Group, Thomas Cook, WeAreFSTVL and Lisa Stansfield"
       ]
     }
