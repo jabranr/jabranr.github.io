@@ -2,7 +2,7 @@
 layout: page.njk
 ---
 
-{% set latest = collections.articles | last %}
+{% set latestPosts = collections.articles  %}
 
 <div class="hero">
   <p class="lead">I am a Frontend Tech Lead at <a href="https://www.ratedpeople.com">Rated People</a>.</p>
@@ -20,15 +20,19 @@ layout: page.njk
     <h2 class="text-base text-gray-500 mb-4 md:mt-0">Recent projects</h2>
     <ul class="list-none [&>li]:mt-4">
       <li><div><strong>Childcare Vouchers</strong></div>A directory of businesses accepting childcare vouchers as payment. <a href="https://childcare-vouchers.uk">Visit website</a></li>
-      <li><div><strong>Work Clock</strong></div>A macOS menubar app to display time for a different timezone. Download from <a href="https://apps.apple.com/app/id1568934503">App Store</a></li>
-      <li><div><strong>Guess Where</strong></div>An interactive geo quiz game to guess a location name by looking at bare map. <a href="https://jabran.me/guess-where/">Play game</a></li>
+      <li><div><strong>Work Clock</strong></div>A macOS menubar app to display time for a different timezone. <a href="https://work-clock.pages.dev">Visit website</a></li>
+      <li><div><strong>Guess Where</strong></div>An interactive geo quiz game to guess a location name by looking at bare map. <a href="https://guess-where.pages.dev">Play game</a></li>
     </ul>
     <p><a class="text-base font-semibold mt-8 block" href="/projects/">More projects &raquo;</a></p>
   </div>
   <div class="border-t-[1px] border-t-[#ddd] mt-8 md:border-t-0 md:mt-0">
     <h2 class="text-base text-gray-500 mb-4 md:mt-0">Recent articles</h2>
-    <ul class="list-none">
-      <li><a href="{{latest.url}}">{{latest.data.title}}</a></li>
+    <ul class="list-disk [&>li]:mt-2">
+      {% for article in collections.articles|reverse %}
+        {% if loop.index < 6 %}
+          <li><a href="{{article.url}}">{{article.data.title}}</a></li>
+        {% endif %}
+      {% endfor %}
     </ul>
     <p><a class="text-base font-semibold mt-8 block" href="/articles/">More articles &raquo;</a></p>
   </div>
