@@ -15,7 +15,7 @@ layout: page.njk
     <p>I regularly <a href="https://www.twitter.com/jabranr">tweet</a>, <a href="https://www.github.com/jabranr">write code</a>, occasionally <a href="/articles/">blog</a> my thoughts, and <a href="/speaking">speak</a> at events.</p>
 </div>
 
-<div class="pt-8 md:flex md:space-x-4 border-t-2 border-t-[#cf1956] my-8">
+<div class="pt-8 md:flex md:space-x-10 border-t-2 border-t-[#cf1956] my-8">
   <div>
     <h2 class="text-base text-gray-500 mb-4 md:mt-0">Recent projects</h2>
     <ul class="list-none [&>li]:mt-4">
@@ -27,10 +27,12 @@ layout: page.njk
   </div>
   <div class="border-t-[1px] border-t-[#ddd] mt-8 md:border-t-0 md:mt-0">
     <h2 class="text-base text-gray-500 mb-4 md:mt-0">Recent articles</h2>
-    <ul class="list-disk [&>li]:mt-2">
+    <ul class="list-disk [&>li]:mt-4 articles-list">
       {% for article in collections.articles|reverse %}
         {% if loop.index < 6 %}
-          <li><a href="{{article.url}}">{{article.data.title}}</a></li>
+          <li>
+            <a class="text-xl max-w-xs md:text-base" href="{{article.url}}">{{article.data.title}}</a>
+          </li>
         {% endif %}
       {% endfor %}
     </ul>

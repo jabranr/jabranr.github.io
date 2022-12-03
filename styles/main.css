@@ -72,3 +72,26 @@ blockquote {
 .post ul {
   @apply list-disc my-4 pl-10;
 }
+
+.articles-list {
+  counter-reset: articles;
+}
+
+.articles-list li {
+  margin-top: 0.5rem;
+  counter-increment: articles;
+  display: flex;
+  align-items: center;
+}
+
+.articles-list li::before {
+  content: counter(articles);
+  margin-right: 10px;
+  display: block;
+  font-weight: lighter;
+  font-size: 4rem;
+  color: #ddd;
+  line-height: 1;
+  min-width: min-content;
+  font-variant-numeric: tabular-nums;
+}
