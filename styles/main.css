@@ -4,18 +4,17 @@
 @tailwind components;
 @tailwind utilities;
 
-
-html[lang="ur"],
+html[lang='ur'],
 .translated-rtl {
   direction: rtl;
 }
 
 body {
-  @apply text-lg text-gray-800 leading-normal;
+  @apply text-lg leading-normal text-gray-800;
 }
 
 .lead {
-  @apply text-3xl my-8 font-extralight leading-tight;
+  @apply my-8 text-3xl font-extralight leading-tight;
 }
 
 p {
@@ -26,51 +25,52 @@ a {
   @apply text-[#006ad0] underline hover:text-[#cf1956];
 }
 
-h2, h3 {
-  @apply text-2xl my-6 mb-2 font-bold;
+h2,
+h3 {
+  @apply my-6 mb-2 text-2xl font-bold;
 }
 
 h2 {
-  @apply text-3xl my-8 mb-4;
+  @apply my-8 mb-4 text-3xl;
 }
 
 .logo {
-  @apply block m-0 no-underline w-52 leading-none md:w-full md:leading-relaxed text-4xl font-bold text-[#666] transition-colors hover:text-black bg-no-repeat bg-contain pl-20 md:pl-16 bg-[url('/avatar.png')];
+  @apply m-0 block w-52 bg-[url('/avatar.png')] bg-contain bg-no-repeat pl-20 text-4xl font-bold leading-none text-[#666] no-underline transition-colors hover:text-black md:w-full md:pl-16 md:leading-relaxed;
 }
 
 h1.logo {
   @apply text-black;
 }
 
-[lang="ur"] .logo,
+[lang='ur'] .logo,
 .translated-rtl .logo {
-  @apply pl-0 pr-20 md:pr-16 bg-right;
+  @apply bg-right pl-0 pr-20 md:pr-16;
 }
 
 .hero a {
-  @apply underline underline-offset-4 text-[#666] hover:text-[#cf1956];
+  @apply text-[#666] underline underline-offset-4 hover:text-[#cf1956];
   text-decoration-skip-ink: none;
 }
 
 .bg-full-width {
-  @apply text-[#ddd] bg-[#333] shadow-[0_0_0_100vmax_#333];
+  @apply bg-[#333] text-[#ddd] shadow-[0_0_0_100vmax_#333];
   clip-path: inset(0 -100vmax);
 }
 
 .colophone a {
-  @apply inline-block text-[#00bcd4] hover:text-[#cf1956] font-bold after:content-['\2022'] after:inline-block after:pr-[3px] after:ml-[6px] after:text-[#666] last:after:content-[''];
+  @apply inline-block font-bold text-[#00bcd4] after:ml-[6px] after:inline-block after:pr-[3px] after:text-[#666] after:content-['\2022'] last:after:content-[''] hover:text-[#cf1956];
 }
 
 code {
-  @apply font-mono text-sm bg-[#eee] text-[#cf1956] py-[1px] px-1 rounded-[4px];
+  @apply rounded-[4px] bg-[#eee] py-[1px] px-1 font-mono text-sm text-[#cf1956];
 }
 
 blockquote {
-  @apply text-[#666] py-1 px-4 border-l-[5px] border-l-[#ddd] bg-[#eee] my-4 italic;
+  @apply my-4 border-l-[5px] border-l-[#ddd] bg-[#eee] py-1 px-4 italic text-[#666];
 }
 
 .post ul {
-  @apply list-disc my-4 pl-10;
+  @apply my-4 list-disc pl-10;
 }
 
 .articles-list {
@@ -94,4 +94,9 @@ blockquote {
   line-height: 1;
   min-width: min-content;
   font-variant-numeric: tabular-nums;
+}
+
+pre[class*='language-'] {
+  font-size: 1rem;
+  line-height: 1.5;
 }
