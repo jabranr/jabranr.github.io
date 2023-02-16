@@ -13,8 +13,24 @@
   "employments": [
     {
       "order": 1,
+      "role": "Staff Engineer",
+      "duration": "Jan 2023 — Present",
+      "employer": "Rated People",
+      "website": "ratedpeople.com",
+      "experience": [
+        "Discuss & contribute to technical aspects to help with project scoping and architectural decisions with product/tech/design teams",
+        "Mentor fellow colleagues from engineering teams",
+        "Knowledge sharing with peer programming and extensive code reviews to ensure best practices",
+        "Help retire legacy PHP stack by moving to modern tech, primarily ReactJS, NodeJS, Remix, Cloudflare and AWS. Maintain an ongoing performance improvement roadmap",
+        "Write robust, performant, and scalable code, unit and UI tests in a variety of languages, frameworks and tools, such as HTML, CSS, JavaScript, ReactJS, NodeJS, Ruby, Bash, Docker, WordPress, Elastic, Remix, Tailwind CSS, cloud and more",
+        "Monitoring platform health using SaaS tools such as AppDynamics and Heap",
+        "Assist product and CRM teams with user testing and AB testing using tools such as Cloudflare Workers, VWO and SEOClarity"
+      ]
+    },
+    {
+      "order": 2,
       "role": "Frontend Tech Lead",
-      "duration": "Jun 2018 — Present",
+      "duration": "Jun 2018 — Dec 2022",
       "employer": "Rated People",
       "website": "ratedpeople.com",
       "experience": [
@@ -28,7 +44,7 @@
       ]
     },
     {
-      "order": 2,
+      "order": 3,
       "role": "Frontend Web Developer",
       "duration": "Nov 2015 — May 2018",
       "employer": "Rated People",
@@ -43,7 +59,7 @@
       ]
     },
     {
-      "order": 3,
+      "order": 4,
       "role": "Lead Web Developer",
       "duration": "May 2013 — Oct 2015",
       "employer": "Influence Digital",
@@ -59,7 +75,7 @@
       ]
     },
     {
-      "order": 4,
+      "order": 5,
       "role": "Social Web Developer",
       "duration": "Feb 2013 — Apr 2013",
       "employer": "Influence Digital ex. United Agency",
