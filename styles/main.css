@@ -26,12 +26,17 @@ a {
 }
 
 h2,
-h3 {
+h3,
+h4 {
   @apply my-6 mb-2 text-2xl font-bold;
 }
 
 h2 {
   @apply my-8 mb-4 text-3xl;
+}
+
+h4 {
+  @apply my-4 mb-2 text-xl;
 }
 
 .logo {

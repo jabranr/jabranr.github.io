@@ -53,9 +53,9 @@ This is a straightforward site with most of its content changed rarely. [Elevent
 There are two types of businesses dataset required to build the directory.
 
 - Businesses who manage the Childcare Vouchers – I am calling them "providers".
-- Businesses who accept payment with Childcare Vouchers – I am calling them "businesses".
+- Businesses who accept payment with Childcare Vouchers – I am calling them "consumers".
 
-The data for both providers and businesses live in the `_data` directory and it is directly fed into the build lifecycle of Eleventy.
+The data for both providers and consumers live in the `_data` directory and it is directly fed into the build lifecycle of Eleventy.
 
 Here is a pseudo structure:
 
@@ -63,9 +63,12 @@ Here is a pseudo structure:
 |_data/
  |-- providers.js
  |-- consumers.js
+ |-- consumers-list/
 ```
 
-### Adding a business
+The `consumers.js` is a NodeJS script that gets the list of JSON files from `_data/consumers-list/` sub-directory. Those JSON files are generated as a result of form submission by anyone to add a new business.
+
+#### Adding a business
 
 Anyone can add a business to this directory by filling in a short form.
 
