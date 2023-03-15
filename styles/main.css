@@ -10,7 +10,7 @@ html[lang='ur'],
 }
 
 body {
-  @apply text-lg leading-normal text-gray-800;
+  @apply leading-normal text-gray-800;
 }
 
 .lead {
