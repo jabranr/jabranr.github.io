@@ -38,7 +38,8 @@ I had a lot of fun creating this platform. I wanted to keep the tech stack to a 
 
 ### Goals
 
-- The basic goals to achieve were:
+The basic goals to achieve were:
+
 - show a list of businesses
 - show an option to add a business
 - keep it simple
@@ -77,9 +78,11 @@ I didn't want to keep separate storage for the data submitted by the users. I to
 - it gets validated server-side after submission (Cloudflare functions)
 - the successful submission creates a new issue in the GitHub repository with the submitted details
 
-It makes use of GitHub API. I get the notification and review the submission manually. I label it as _approved_ if this is all good to go.
+It makes use of [GitHub API](https://docs.github.com/en/rest). I get the notification and review the submission manually. I label it as _approved_ if this is all good to go.
 
 > I would love to automate this at some point when and if it gets out of hand.
+
+#### Build and deployment
 
 This kick starts the GitHub actions pipeline that:
 
