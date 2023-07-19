@@ -34,7 +34,7 @@
   "prettier": "@jabranr-lab/prettier",
   "license": "MIT",
   "devDependencies": {
-    "@11ty/eleventy": "^1.0.1",
+    "@11ty/eleventy": "^2.0.1",
     "@11ty/eleventy-plugin-syntaxhighlight": "^4.1.0",
     "@jabranr-lab/prettier": "^1.2.1",
     "autoprefixer": "^10.4.12",
