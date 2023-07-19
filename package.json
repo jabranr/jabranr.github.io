@@ -7,8 +7,8 @@
     "start": "run-p dev:*",
     "dev:watch": "NODE_ENV=development eleventy --serve",
     "dev:css": "run-p css:*",
-    "css:main": "tailwindcss -i ./styles/main.css -o ./public/main.css --watch",
-    "css:resume": "tailwindcss -i ./styles/resume.css -o ./public/resume.css --watch",
+    "css:main": "tailwindcss -w -i ./styles/main.css -o ./public/main.css",
+    "css:resume": "tailwindcss -w -i ./styles/resume.css -o ./public/resume.css",
     "build:css": "tailwindcss -m -i ./styles/main.css -o ./public/main.css && tailwindcss -m -i ./styles/resume.css -o ./public/resume.css",
     "build": "npm run build:css && NODE_ENV=production eleventy"
   },

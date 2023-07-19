@@ -53,7 +53,6 @@ h1.logo {
 }
 
 .hero a {
-  @apply text-[#666] underline underline-offset-4 hover:text-[#cf1956];
   text-decoration-skip-ink: none;
 }
 
