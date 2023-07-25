@@ -5,9 +5,18 @@
     "07983580025"
   ],
   "social": [
-    "jabran.me",
-    "<span class=\"text-[#666]\">github.com/</span>jabranr",
-    "<span class=\"text-[#666]\">twitter.com/</span>jabranr"
+    {
+      "text": "jabran.me",
+      "link": "https://jabran.me"
+    },
+    {
+      "text": "<span>github.com/</span>jabranr",
+      "link": "https://github.com/jabranr"
+    },
+    {
+      "text": "<span>twitter.com/</span>jabranr",
+      "link": "https://twitter.com/jabranr"
+    }
   ],
   "intro": "I am a software engineer with a passion for the web. I have an experience of more than seven years in developing scalable, performant, and interactive web applications with a keen eye for best practices and industry standards. <span class=\"hidden print:block print:my-4\">I am passionate about the fascinating world of the web, its impact on human lives and the drive to make it accessible and performant for all. Therefore, I enjoy working on concepts and ideas that sustain best practices with early adoption of the latest technologies and workflows covering the entire software development life cycle.</span>",
   "employments": [
@@ -17,14 +26,15 @@
       "duration": "Jan 2023 — Present",
       "employer": "Rated People",
       "website": "ratedpeople.com",
+      "intro": "As a Staff Engineer, I inherited a majority of responsibilities from my previous Tech Lead role and expand to encompass broader responsibilities, including leadership, strategic planning, and technical excellence.",
       "experience": [
-        "Discuss & contribute to technical aspects to help with project scoping and architectural decisions with product/tech/design teams",
-        "Mentor fellow colleagues from engineering teams",
-        "Knowledge sharing with peer programming and extensive code reviews to ensure best practices",
-        "Help retire legacy PHP stack by moving to modern tech, primarily ReactJS, NodeJS, Remix, Cloudflare and AWS. Maintain an ongoing performance improvement roadmap",
-        "Write robust, performant, and scalable code, unit and UI tests in a variety of languages, frameworks and tools, such as HTML, CSS, JavaScript, ReactJS, NodeJS, Ruby, Bash, Docker, WordPress, Elastic, Remix, Tailwind CSS, cloud and more",
-        "Monitoring platform health using SaaS tools such as AppDynamics and Heap",
-        "Assist product and CRM teams with user testing and AB testing using tools such as Cloudflare Workers, VWO and SEOClarity"
+        "Provide technical leadership and strategic guidance in Frontend development to align with the business long-term goals and initiatives",
+        "Collaborate with cross-functional teams, including product, design, and other engineering teams, to drive technical decisions and project scoping",
+        "Mentor and guide other engineers, including Frontend developers and possibly engineers from other disciplines, to enhance their skills and promote a culture of learning and growth",
+        "Take ownership of architectural decisions and technology choices, ensuring they align with best practices, scalability, and maintainability",
+        "Lead the migration and adoption of modern Frontend technologies and frameworks, keeping the company's tech stack up-to-date and in line with industry trends",
+        "Collaborate with engineering managers and cross-functional leaders to define and execute the Frontend team's technical roadmap",
+        "Oversee the development of complex and critical Frontend features, and code reviews to ensure the delivery with high quality, performance, and scalability"
       ]
     },
     {
@@ -33,6 +43,7 @@
       "duration": "Jun 2018 — Dec 2022",
       "employer": "Rated People",
       "website": "ratedpeople.com",
+      "intro": "As a Frontend Tech Lead, I was adept at mentoring and managing teams, driving modernization efforts, and ensuring code quality and platform health.",
       "experience": [
         "Mentor and manage a team of Frontend developers, maintain regular team powwows, 1:1s and bi-annual performance reviews",
         "Discuss & challenge technical aspects to help with project scoping and architectural decisions with product/tech/design teams",
@@ -40,7 +51,9 @@
         "Help retire legacy PHP stack by moving to modern tech, primarily ReactJS, NodeJS, Remix, Cloudflare and AWS. Maintain an ongoing performance improvement roadmap",
         "Write robust, performant, and scalable code, unit and UI tests in a variety of languages, frameworks and tools, such as HTML, CSS, JavaScript, ReactJS, NodeJS, Ruby, Bash, Docker, WordPress, Elastic, Remix, Tailwind CSS, cloud and more",
         "Monitoring platform health using SaaS tools such as AppDynamics and Heap",
-        "Assist product and CRM teams with user testing and AB testing using tools such as Cloudflare Workers, VWO and SEOClarity"
+        "Assist product and CRM teams with user testing and AB testing using tools such as Cloudflare Workers, VWO and SEOClarity",
+        "Identify and address technical debt, ensuring the Frontend codebase remains maintainable and scalable over time",
+        "Participate in recruitment efforts, including interviewing and evaluating Frontend engineering candidates, to build a high-performing engineering team"
       ]
     },
     {
@@ -49,6 +62,7 @@
       "duration": "Nov 2015 — May 2018",
       "employer": "Rated People",
       "website": "ratedpeople.com",
+      "intro": "Involved in planning and development of new features and maintaining the existing codebases by keeping up with best practices, performance, security and industry standards.",
       "experience": [
         "Involved with Frontend stack migration to the cloud (AWS)",
         "Involved with platform key rebrand in 2016",
@@ -64,10 +78,11 @@
       "duration": "May 2013 — Oct 2015",
       "employer": "Influence Digital",
       "website": "influence.digital",
+      "intro": "Oversee the social apps and websites development for clients, mentor and manage the development team and maintain technical roadmap.",
       "experience": [
         "Manage development cycles, timelines, roadmaps, quality of code and documentation for apps and websites",
         "Monitor and maintain best practices. Provide guidance and examples to adopt the latest technology trends to improve the development workflow",
-        "Supervise junior developers and freelancers. Provide consultation and analysis to design lead, report and collaborate with the project manager to maintain development flow sprints",
+        "Mentor junior developers and freelancers. Provide consultation and analysis to design lead, report and collaborate with the project manager to maintain development flow sprints",
         "Maintain in-house developed social media application development frameworks",
         "Build prototypes based on ideas for social campaigns",
         "Develop and maintain LAM(PHP) stack-based MVC framework and boilerplates for in-house custom web apps development",
@@ -80,6 +95,7 @@
       "duration": "Feb 2013 — Apr 2013",
       "employer": "Influence Digital ex. United Agency",
       "website": "united-agency.co.uk",
+      "intro": "Developing social web apps for the Facebook platform and integrating third-party APIs (Facebook, Google Maps, Instagram) to build interactive apps engaging a vast social media audience.",
       "experience": [
         "Involved with the development of standalone web apps for social media and websites in a small team",
         "Enhanced the development workflow from a basic structure to a more stable, secure and reusable structure by introducing and encouraging the use of the latest technologies, best practices and workflows",
@@ -116,74 +132,76 @@
       "description": "I designed the wireframes and prototypes. Based on these designs, I developed the website and inventory UI for electro-mechanical material related to the aerospace industry using open-source technologies LAM(PHP)."
     }
   ],
-  "projectsDescription": "I develop apps based on personal ideas and interests in my spare time. Most of my projects are open-sourced and the code is hosted at GitHub. Some of these projects are:",
-  "projects": [
-    {
-      "name": "Childcare Vouchers",
-      "website": "childcare-vouchers.uk",
-      "description": "A directory of businesses accepting childcare vouchers as a method of payment."
-    },
-    {
-      "name": "Covidonation",
-      "website": "covidonation.pages.dev",
-      "description": "A directory of different organisations, charities and individuals who are working around the world to help the vulnerable during the pandemic of Coronavirus (COVID-19)."
-    },
-    {
-      "name": "Covid19 Today",
-      "website": "covid19-today.pages.dev",
-      "description": "Daily updated figures for COVID19 for every country and continent"
-    },
-    {
-      "name": "Reason to Follow",
-      "website": "jabran.me/reason-to-follow/",
-      "description": "A browser extension that helps you remember the reason to follow an account on social platforms."
-    },
-    {
-      "name": "Work Clock",
-      "website": "jabran.me/work-clock/",
-      "description": "A MacOS menu bar utility app I developed to help myself while working remotely from different timezones. The app is written in Swift."
-    },
-    {
-      "name": "Google Maps API React Hook",
-      "website": "github.com/jabranr/use-gmaps",
-      "description": "A custom React hook to integrate Google Maps JavaScript SDK in React apps."
-    },
-    {
-      "name": "Facebook API React Hook",
-      "website": "github.com/jabranr/use-facebook",
-      "description": "A custom React hook to integrate Facebook JavaScript SDK in React apps."
-    },
-    {
-      "name": "Postcode.io PHP SDK",
-      "website": "github.com/jabranr/postcodes-io",
-      "description": "PostcodesIO is a PHP library for postcodes.io API. It provides support to most recent versions of PHP and has robust unit testing suite to report any changes in base API or otherwise."
-    },
-    {
-      "name": "Guess Where",
-      "website": "jabran.me/guess-where/",
-      "description": "A geo quiz app built with HTML, CSS, JavaScript, and Google Maps API. It is inspired from an image-based quiz by The Independent."
-    },
-    {
-      "name": "Socialmedia.js",
-      "website": "github.com/jabranr/socialmedia",
-      "description": "A JavaScript library that simplifies the social media integration into the web apps. It has a comprehensive documentation covering setup and usage for various supportive social media platforms."
-    },
-    {
-      "name": "Fetchwitter",
-      "website": "github.com/jabranr/fetchwitter/",
-      "description": "An easy-to-use PHP client to authenticate and consume Twitter API in web apps. Fetchwitter exposes a small and simple API to fetch Tweets and perform searches with terms such as a hashtag. It also has a WordPress plugin for easy integration into WordPress."
-    },
-    {
-      "name": "CSV Parser",
-      "website": "github.com/jabranr/csv-parser/",
-      "description": "A PHP client to parse CSV data from a file, stream, or string and convert into indexed or associative array format."
-    },
-    {
-      "name": "JS Memcache",
-      "website": "github.com/jabranr/js-memcache",
-      "description": "A lightweight JavaScript in-memory cache to store data for better performance by saving on network requests."
-    }
-  ],
+  "projects": {
+    "description": "I develop apps based on personal ideas and interests in my spare time. Most of my projects are open-sourced and the code is hosted at GitHub. Some of these projects are:",
+    "data": [
+      {
+        "name": "Childcare Vouchers",
+        "website": "childcare-vouchers.uk",
+        "description": "A directory of businesses accepting childcare vouchers as a method of payment."
+      },
+      {
+        "name": "Covidonation",
+        "website": "covidonation.pages.dev",
+        "description": "A directory of different organisations, charities and individuals who are working around the world to help the vulnerable during the pandemic of Coronavirus (COVID-19)."
+      },
+      {
+        "name": "Covid19 Today",
+        "website": "covid19-today.pages.dev",
+        "description": "Daily updated figures for COVID19 for every country and continent"
+      },
+      {
+        "name": "Reason to Follow",
+        "website": "jabran.me/reason-to-follow/",
+        "description": "A browser extension that helps you remember the reason to follow an account on social platforms."
+      },
+      {
+        "name": "Work Clock",
+        "website": "jabran.me/work-clock/",
+        "description": "A MacOS menu bar utility app I developed to help myself while working remotely from different timezones. The app is written in Swift."
+      },
+      {
+        "name": "Google Maps API React Hook",
+        "website": "github.com/jabranr/use-gmaps",
+        "description": "A custom React hook to integrate Google Maps JavaScript SDK in React apps."
+      },
+      {
+        "name": "Facebook API React Hook",
+        "website": "github.com/jabranr/use-facebook",
+        "description": "A custom React hook to integrate Facebook JavaScript SDK in React apps."
+      },
+      {
+        "name": "Postcode.io PHP SDK",
+        "website": "github.com/jabranr/postcodes-io",
+        "description": "PostcodesIO is a PHP library for postcodes.io API. It provides support to most recent versions of PHP and has robust unit testing suite to report any changes in base API or otherwise."
+      },
+      {
+        "name": "Guess Where",
+        "website": "jabran.me/guess-where/",
+        "description": "A geo quiz app built with HTML, CSS, JavaScript, and Google Maps API. It is inspired from an image-based quiz by The Independent."
+      },
+      {
+        "name": "Socialmedia.js",
+        "website": "github.com/jabranr/socialmedia",
+        "description": "A JavaScript library that simplifies the social media integration into the web apps. It has a comprehensive documentation covering setup and usage for various supportive social media platforms."
+      },
+      {
+        "name": "Fetchwitter",
+        "website": "github.com/jabranr/fetchwitter/",
+        "description": "An easy-to-use PHP client to authenticate and consume Twitter API in web apps. Fetchwitter exposes a small and simple API to fetch Tweets and perform searches with terms such as a hashtag. It also has a WordPress plugin for easy integration into WordPress."
+      },
+      {
+        "name": "CSV Parser",
+        "website": "github.com/jabranr/csv-parser/",
+        "description": "A PHP client to parse CSV data from a file, stream, or string and convert into indexed or associative array format."
+      },
+      {
+        "name": "JS Memcache",
+        "website": "github.com/jabranr/js-memcache",
+        "description": "A lightweight JavaScript in-memory cache to store data for better performance by saving on network requests."
+      }
+    ]
+  },
   "education": [
     {
       "order": 1,
@@ -222,10 +240,10 @@
     }
   ],
   "volunteering": [
-    "During free time, I like to contribute to social work that benefits large communities. I worked between 2008 and 2013 with Google on their Map Maker project to map the unmapped areas of the world — especially developing countries.",
-    "Since then, I have served in different community leading positions such as Power Mapper, Advocate and as a Regional Lead. It involves working with global community of mappers, guiding them, setting regional standards of mapping, organizing, and speaking at events and leading training sessions around the globe. More information is available on <a class=\"print-link\" target=\"_blank\" href=\"https://bit.ly/google-latlng\">Google LatLng Blog</a>"
+    "During my free time, I like to contribute to social ideas that benefit large communities. As part of such an initiative, I worked between 2008 and 2013 with Google on their Map Maker project to map the unmapped areas of the world — especially developing countries.",
+    "Since then, I have served in different community-leading positions such as Power Mapper, Advocate and Regional Lead. It involves working with a global community of mappers, guiding them, setting regional standards of mapping, organizing, and speaking at events and leading training sessions around the globe. More information is available on <a class=\"print-link\" target=\"_blank\" href=\"https://bit.ly/google-latlng\">Google LatLng Blog</a>"
   ],
   "interests": [
-    "Cooking, Open-Source development, Travelling, Cartography, Books, Cricket"
+    "Cooking, Cycling, Travelling, Cartography, Books, Cricket"
   ]
 }

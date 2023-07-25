@@ -9,7 +9,10 @@ excludeFromBrowse: true
   {{ resume.contact|join(' &bull; ')|safe }}
 </div>
 <div>
-  {{ resume.social|join(' &bull; ')|safe }}
+  {%- for platform in resume.social -%}
+    <a class="no-underline [&>span]:text-[#666]" href="{{platform.link}}">{{platform.text|safe}}</a>
+    {% if not loop.last %} &bull; {% endif %}
+  {%- endfor -%}
 </div>
 
 <section class="mt-4">
@@ -24,7 +27,10 @@ excludeFromBrowse: true
     <h4>
       <a target="_blank" class="print-link" data-print="&bull; {{job.website|safe}}" href="https://{{job.website|safe}}">{{job.employer|safe}}</a>
     </h4>
-    <ul class="list-disc list-inside mt-2 mb-4 hidden print:block">
+    {%- if job.intro -%}
+      <p>{{job.intro}}</p>
+    {%- endif -%}
+    <ul class="list-disc list-inside mt-2 mb-4 hidden print:block ml-4">
       {%- for duty in job.experience -%}
         <li>{{duty|safe}}</li>
       {%- endfor -%}
@@ -33,20 +39,22 @@ excludeFromBrowse: true
   {%- endfor -%}
 </section>
 
-<h2>Projects</h2>
-<p>{{resume.projectsDescription}}</p>
-<section>
-{%- for project in resume.projects -%}
+<section class="print:break-inside-avoid">
+  <h2>Projects</h2>
+  <p>{{resume.projects.description}}</p>
   <section>
-    <h3 class="font-serif">
-      <a class="print-link" target="_blank" data-print="&bull; {{project.website|safe}}" href="https://{{project.website|safe}}">{{project.name|safe}}</a>
-    </h3>
-    <p class="text-base my-0">{{project.description|safe}}</p>
+  {%- for project in resume.projects.data -%}
+    <section>
+      <h3 class="font-serif">
+        <a class="print-link" target="_blank" data-print="&bull; {{project.website|safe}}" href="https://{{project.website|safe}}">{{project.name|safe}}</a>
+      </h3>
+      <p class="text-base my-0">{{project.description|safe}}</p>
+    </section>
+  {%- endfor -%}
   </section>
-{%- endfor -%}
 </section>
 
-<section class="hidden print:block">
+<section class="hidden">
   <h2>Freelancing</h2>
   {%- for freelanceJob in resume.freelancing -%}
     <h3>

@@ -11,23 +11,23 @@ h4,
 }
 
 h2 {
-  @apply border-b-2 border-b-[#666] pb-2 mt-8 print:pb-0 print:mt-4 print:mb-0 text-2xl print:border-b-[1px];
+  @apply mt-8 border-b-2 border-b-[#666] pb-2 text-2xl print:mt-4 print:mb-0 print:border-b-[1px] print:pb-0;
 }
 
 h3 {
-  @apply text-xl mb-0 text-[#666] print:mt-4;
+  @apply mb-0 text-xl text-[#666] print:mt-4;
 }
 
 h4 {
-  @apply text-xl mt-0;
+  @apply mt-0 text-xl;
 }
 
 .logo {
-  @apply print:bg-none print:p-0 print:w-full print:text-[22pt];
+  @apply print:w-full print:bg-none print:p-0 print:text-[22pt];
 }
 
 .print-link {
-  @apply print:no-underline print:text-inherit print:after:content-[attr(data-print)] print:after:ml-1 print:after:text-[12pt] print:after:font-normal;
+  @apply after:content-[attr(data-print)] print:text-inherit print:no-underline print:after:ml-1 print:after:text-[12pt] print:after:font-normal;
 }
 
 body,
@@ -37,10 +37,13 @@ h4 {
   @apply print:text-[12pt] print:text-[#333];
 }
 
-h2,h3,h4 {
+h2,
+h3,
+h4 {
   @apply print:text-[14pt];
 }
 
-ul, p {
+ul,
+p {
   @apply print:text-[10pt];
 }
