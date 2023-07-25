@@ -39,19 +39,17 @@ excludeFromBrowse: true
   {%- endfor -%}
 </section>
 
-<section class="print:break-inside-avoid">
-  <h2>Projects</h2>
-  <p>{{resume.projects.description}}</p>
+<h2>Projects</h2>
+<p>{{resume.projects.description}}</p>
+<section>
+{%- for project in resume.projects.data -%}
   <section>
-  {%- for project in resume.projects.data -%}
-    <section>
-      <h3 class="font-serif">
-        <a class="print-link" target="_blank" data-print="&bull; {{project.website|safe}}" href="https://{{project.website|safe}}">{{project.name|safe}}</a>
-      </h3>
-      <p class="text-base my-0">{{project.description|safe}}</p>
-    </section>
-  {%- endfor -%}
+    <h3 class="font-serif">
+      <a class="print-link" target="_blank" data-print="&bull; {{project.website|safe}}" href="https://{{project.website|safe}}">{{project.name|safe}}</a>
+    </h3>
+    <p class="text-base my-0">{{project.description|safe}}</p>
   </section>
+{%- endfor -%}
 </section>
 
 <section class="hidden">
