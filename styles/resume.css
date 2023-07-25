@@ -27,7 +27,7 @@ h4 {
 }
 
 .print-link {
-  @apply after:content-[attr(data-print)] print:text-inherit print:no-underline print:after:ml-1 print:after:text-[12pt] print:after:font-normal;
+  @apply print:text-inherit print:no-underline print:after:ml-1 print:after:text-[12pt] print:after:font-normal print:after:content-[attr(data-print)];
 }
 
 body,
