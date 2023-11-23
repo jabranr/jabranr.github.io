@@ -39,15 +39,26 @@ excludeFromBrowse: true
   {%- endfor -%}
 </section>
 
+<h2>Skills</h2>
+<p>{{resume.skillsDescription}}</p>
+<section class="md:grid md:grid-cols-2 print:columns-2">
+  {%- for skill in resume.skills -%}
+  <section{% if loop.last %} class="col-span-2"{% endif %}>
+    <h3 class="text-[10pt] mt-0">{{skill.title|safe}}</h3>
+    <p class="mt-2 print:mt-1">{{skill.tech|safe}}</p>
+  </section>
+  {%- endfor -%}
+</section>
+
 <h2>Projects</h2>
 <p>{{resume.projects.description}}</p>
 <section>
 {%- for project in resume.projects.data -%}
   <section>
-    <h3 class="font-serif">
+    <h3 class="font-serif text-base">
       <a class="print-link" target="_blank" data-print="&bull; {{project.website|safe}}" href="https://{{project.website|safe}}">{{project.name|safe}}</a>
     </h3>
-    <p class="text-base my-0">{{project.description|safe}}</p>
+    <p class="text-[10pt] my-0">{{project.description|safe}}</p>
   </section>
 {%- endfor -%}
 </section>
@@ -71,29 +82,17 @@ excludeFromBrowse: true
 
 <h2>Education</h2>
 {%- for edu in resume.education -%}
-  <section {% if loop.last %}class="hidden print:block"{%endif%}>
-    <h3>{{edu.type|safe}}</h3>
-    <h4>{{edu.school|safe}}</h4>
-    <p class="mt-1">{{edu.duration|safe}}</p>
-  </section>
+  {% if edu.hidden != true %}
+    <section {% if loop.last %}class="hidden print:block"{%endif%}>
+      <h3>{{edu.type|safe}}</h3>
+      <h4>{{edu.school|safe}}</h4>
+      <p class="mt-1">{{edu.duration|safe}}</p>
+    </section>
+  {%- endif -%}
 {%- endfor -%}
-
-<h2>Skills</h2>
-<p>{{resume.skillsDescription}}</p>
-<section class="md:grid md:grid-cols-2 print:columns-2">
-  {%- for skill in resume.skills -%}
-  <section{% if loop.last %} class="col-span-2"{% endif %}>
-    <h3 class="text-[12pt] mt-0">{{skill.title|safe}}</h3>
-    <p class="mt-2 print:mt-1">{{skill.tech|safe}}</p>
-  </section>
-  {%- endfor -%}
-</section>
 
 <h2>Voluntary Work</h2>
 <p>{{resume.volunteering|join('</p><p>')|safe}}</p>
-
-<h2>Interests</h2>
-<p>{{resume.interests|safe}}</p>
 
 <p class="print:hidden mt-20 text-sm font-bold flex space-x-1">
   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">

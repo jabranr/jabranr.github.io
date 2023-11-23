@@ -16,9 +16,13 @@
     {
       "text": "<span>twitter.com/</span>jabranr",
       "link": "https://twitter.com/jabranr"
+    },
+    {
+      "text": "<span>linkedin.com/</span>jabranr",
+      "link": "https://linkedin.com/in/jabranr"
     }
   ],
-  "intro": "I am a software engineer with a passion for the web. I have an experience of more than seven years in developing scalable, performant, and interactive web applications with a keen eye for best practices and industry standards. <span class=\"hidden print:block print:my-4\">I am passionate about the fascinating world of the web, its impact on human lives and the drive to make it accessible and performant for all. Therefore, I enjoy working on concepts and ideas that sustain best practices with early adoption of the latest technologies and workflows covering the entire software development life cycle.</span>",
+  "intro": "I am a software engineer with a passion for the web. I have an experience of more than eight years in developing scalable, performant, and interactive web applications with a keen eye for best practices and industry standards. <span class=\"hidden print:block print:my-4\">I am passionate about the fascinating world of the web, its impact on human lives and the drive to make it accessible and performant for all. Therefore, I enjoy working on concepts and ideas that sustain best practices with early adoption of the latest technologies and workflows covering the entire software development life cycle.</span>",
   "employments": [
     {
       "order": 1,
@@ -26,15 +30,16 @@
       "duration": "Jan 2023 — Present",
       "employer": "Rated People",
       "website": "ratedpeople.com",
-      "intro": "As a Staff Engineer, I inherited a majority of responsibilities from my previous Tech Lead role and expand to encompass broader responsibilities, including leadership, strategic planning, and technical excellence.",
+      "intro": "As a Staff Engineer, I inherited a majority of responsibilities from my previous Tech Lead role and expand to encompass broader responsibilities such as strategic planning, and technical directions.",
       "experience": [
-        "Provide technical leadership and strategic guidance in Frontend development to align with the business long-term goals and initiatives",
-        "Collaborate with cross-functional teams, including product, design, and other engineering teams, to drive technical decisions and project scoping",
-        "Mentor and guide other engineers, including Frontend developers and possibly engineers from other disciplines, to enhance their skills and promote a culture of learning and growth",
-        "Take ownership of architectural decisions and technology choices, ensuring they align with best practices, scalability, and maintainability",
-        "Lead the migration and adoption of modern Frontend technologies and frameworks, keeping the company's tech stack up-to-date and in line with industry trends",
-        "Collaborate with engineering managers and cross-functional leaders to define and execute the Frontend team's technical roadmap",
-        "Oversee the development of complex and critical Frontend features, and code reviews to ensure the delivery with high quality, performance, and scalability"
+        "Lead the migration of legacy web apps to modern Frontend tech mainly based in ReactJS and NodeJS, keeping the company's tech stack up-to-date and in line with industry trends",
+        "Lead CI/CD pipelines using tools such as BitBucket, Bamboo, Pipelines, AWS and Cloudflare",
+        "Drive and lead the performance improvements using tools such as Lighthouse and WebPageTest",
+        "Monitor the platform health using tools such as AppDynamics, Heap and Site24x7",
+        "Provide technical leadership and strategic guidance for engineering to align with the long-term business goals and initiatives",
+        "Collaborate with cross-functional teams including product, design, marketing and other engineering teams, to drive technical decisions and project scoping",
+        "Mentor and guide fellow engineers from different disciplines to enhance their skills and promote a culture of learning and growth",
+        "Drive architectural decisions and technology choices, ensuring they align with best practices and scalability"
       ]
     },
     {
@@ -136,9 +141,39 @@
     "description": "I develop apps based on personal ideas and interests in my spare time. Most of my projects are open-sourced and the code is hosted at GitHub. Some of these projects are:",
     "data": [
       {
+        "name": "Reason to Follow",
+        "website": "reasontofollow.com",
+        "description": "A browser extension that helps you remember the reason to follow an account on social platforms."
+      },
+      {
         "name": "Childcare Vouchers",
         "website": "childcare-vouchers.uk",
         "description": "A directory of businesses accepting childcare vouchers as a method of payment."
+      },
+      {
+        "name": "Guess Where",
+        "website": "guess-where.pages.dev",
+        "description": "A geo quiz app built with HTML, CSS, JavaScript, and Google Maps API. It is inspired from an image-based quiz by The Independent."
+      },
+      {
+        "name": "Postcode.io PHP SDK",
+        "website": "github.com/jabranr/postcodes-io",
+        "description": "PostcodesIO is a PHP library for postcodes.io API. It provides support to most recent versions of PHP and has robust unit testing suite to report any changes in base API or otherwise."
+      },
+      {
+        "name": "Work Clock",
+        "website": "work-clock.pages.dev",
+        "description": "A MacOS menu bar utility app I developed to help myself while working remotely from different timezones. The app is written in Swift."
+      },
+      {
+        "name": "Google Maps API React Hook",
+        "website": "npmjs.com/package/use-gmaps",
+        "description": "A custom React hook to integrate Google Maps JavaScript SDK in React apps."
+      },
+      {
+        "name": "Facebook API React Hook",
+        "website": "npmjs.com/package/use-facebook",
+        "description": "A custom React hook to integrate Facebook JavaScript SDK in React apps."
       },
       {
         "name": "Covidonation",
@@ -151,51 +186,25 @@
         "description": "Daily updated figures for COVID19 for every country and continent"
       },
       {
-        "name": "Reason to Follow",
-        "website": "jabran.me/reason-to-follow/",
-        "description": "A browser extension that helps you remember the reason to follow an account on social platforms."
-      },
-      {
-        "name": "Work Clock",
-        "website": "jabran.me/work-clock/",
-        "description": "A MacOS menu bar utility app I developed to help myself while working remotely from different timezones. The app is written in Swift."
-      },
-      {
-        "name": "Google Maps API React Hook",
-        "website": "github.com/jabranr/use-gmaps",
-        "description": "A custom React hook to integrate Google Maps JavaScript SDK in React apps."
-      },
-      {
-        "name": "Facebook API React Hook",
-        "website": "github.com/jabranr/use-facebook",
-        "description": "A custom React hook to integrate Facebook JavaScript SDK in React apps."
-      },
-      {
-        "name": "Postcode.io PHP SDK",
-        "website": "github.com/jabranr/postcodes-io",
-        "description": "PostcodesIO is a PHP library for postcodes.io API. It provides support to most recent versions of PHP and has robust unit testing suite to report any changes in base API or otherwise."
-      },
-      {
-        "name": "Guess Where",
-        "website": "jabran.me/guess-where/",
-        "description": "A geo quiz app built with HTML, CSS, JavaScript, and Google Maps API. It is inspired from an image-based quiz by The Independent."
-      },
-      {
+        "hidden": true,
         "name": "Socialmedia.js",
         "website": "github.com/jabranr/socialmedia",
         "description": "A JavaScript library that simplifies the social media integration into the web apps. It has a comprehensive documentation covering setup and usage for various supportive social media platforms."
       },
       {
+        "hidden": true,
         "name": "Fetchwitter",
         "website": "github.com/jabranr/fetchwitter/",
         "description": "An easy-to-use PHP client to authenticate and consume Twitter API in web apps. Fetchwitter exposes a small and simple API to fetch Tweets and perform searches with terms such as a hashtag. It also has a WordPress plugin for easy integration into WordPress."
       },
       {
+        "hidden": true,
         "name": "CSV Parser",
         "website": "github.com/jabranr/csv-parser/",
         "description": "A PHP client to parse CSV data from a file, stream, or string and convert into indexed or associative array format."
       },
       {
+        "hidden": true,
         "name": "JS Memcache",
         "website": "github.com/jabranr/js-memcache",
         "description": "A lightweight JavaScript in-memory cache to store data for better performance by saving on network requests."
@@ -213,7 +222,8 @@
       "order": 2,
       "type": "Bachelor of Science in Information Technology",
       "school": "West London College of Business & Management Sciences",
-      "duration": "May 2005 — August 2008"
+      "duration": "May 2005 — August 2008",
+      "hidden": true
     }
   ],
   "skillsDescription": "I have worked with or have a good understanding/familiarity with the following technologies, services and concepts.",
@@ -236,14 +246,11 @@
     },
     {
       "title": "Tools",
-      "tech": "Jest, Enzyme, React Testing Library, Git, GitHub, GitHub Actions, BitBucket, Confluence, JIRA, Bamboo, Pipelines, Trello, NPM, Bower, Composer, Sass, Less, Jekyll, Webpack, Grunt, Yeoman, Functional/Reactive programming, Adobe Photoshop, Adobe Illustrator, VWO, AppDynamics, Miro, Figma, Salesforce, Invision, Branch, Postman, Swagger, Storybook, Lerna, Volta, Prettier, ESLint, Android Studio, XCode, Wrangler, Miniflare"
+      "tech": "Jest, Enzyme, React Testing Library, Git, GitHub, GitHub Actions, BitBucket, Confluence, JIRA, Bamboo, Pipelines, Redis, Cypress, Playwright, Trello, NPM, Bower, Composer, Sass, Less, Jekyll, Webpack, Grunt, Yeoman, Functional/Reactive programming, Adobe Photoshop, Adobe Illustrator, VWO, AppDynamics, Miro, Figma, Salesforce, Invision, Branch, Postman, Swagger, Storybook, Lerna, Volta, Prettier, ESLint, Android Studio, XCode, Wrangler, Miniflare"
     }
   ],
   "volunteering": [
     "During my free time, I like to contribute to social ideas that benefit large communities. As part of such an initiative, I worked between 2008 and 2013 with Google on their Map Maker project to map the unmapped areas of the world — especially developing countries.",
-    "Since then, I have served in different community-leading positions such as Power Mapper, Advocate and Regional Lead. It involves working with a global community of mappers, guiding them, setting regional standards of mapping, organizing, and speaking at events and leading training sessions around the globe. More information is available on <a class=\"print-link\" target=\"_blank\" href=\"https://bit.ly/google-latlng\">Google LatLng Blog</a>"
-  ],
-  "interests": [
-    "Cooking, Cycling, Travelling, Cartography, Books, Cricket"
+    "Since then, I have served in different community-leading positions such as Power Mapper, Advocate and Regional Lead. It involves working with a global community of mappers, guiding them, setting regional standards of mapping, organizing, and speaking at events and leading training sessions around the globe. More information is available on <a data-print=\"&bull; https://bit.ly/google-latlng\" class=\"print-link\" target=\"_blank\" href=\"https://bit.ly/google-latlng\">Google LatLng Blog</a>"
   ]
 }
