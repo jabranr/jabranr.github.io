@@ -54,12 +54,14 @@ excludeFromBrowse: true
 <p>{{resume.projects.description}}</p>
 <section>
 {%- for project in resume.projects.data -%}
-  <section>
-    <h3 class="font-serif text-base">
-      <a class="print-link" target="_blank" data-print="&bull; {{project.website|safe}}" href="https://{{project.website|safe}}">{{project.name|safe}}</a>
-    </h3>
-    <p class="text-[10pt] my-0">{{project.description|safe}}</p>
-  </section>
+  {%- if project.hidden != true -%}
+    <section>
+      <h3 class="font-serif text-base">
+        <a class="print-link" target="_blank" data-print="&bull; {{project.website|safe}}" href="https://{{project.website|safe}}">{{project.name|safe}}</a>
+      </h3>
+      <p class="text-[10pt] my-0">{{project.description|safe}}</p>
+    </section>
+  {%- endif -%}
 {%- endfor -%}
 </section>
 
@@ -82,7 +84,7 @@ excludeFromBrowse: true
 
 <h2>Education</h2>
 {%- for edu in resume.education -%}
-  {% if edu.hidden != true %}
+  {%- if edu.hidden != true -%}
     <section {% if loop.last %}class="hidden print:block"{%endif%}>
       <h3>{{edu.type|safe}}</h3>
       <h4>{{edu.school|safe}}</h4>
