@@ -22,7 +22,7 @@
       "link": "https://jabranr.me/linkedin"
     }
   ],
-  "intro": "I am a software engineer with a passion for the web. I have an experience of more than eight years in developing scalable, performant, and interactive web applications with a keen eye for best practices and industry standards. <span class=\"hidden print:block print:my-4\">I am passionate about the fascinating world of the web, its impact on human lives and the drive to make it accessible and performant for all. Therefore, I enjoy working on concepts and ideas that sustain best practices with early adoption of the latest technologies and workflows covering the entire software development life cycle.</span>",
+  "intro": "<span class=\"print:hidden\">I am a software engineer with a passion for the web. I have an experience of more than eight years in developing scalable, performant, and interactive web applications with a keen eye for best practices and industry standards.</span><span class=\"hidden print:block print:my-4\">I am a seasoned software engineer with over eight years of experience in developing scalable, performant, and interactive web applications. My passion for the web extends to a commitment to best practices and industry standards. I thrive on driving technology adoption, leading strategic initiatives, and mentoring cross-disciplinary teams.</span>",
   "employments": [
     {
       "order": 1,
@@ -32,14 +32,12 @@
       "website": "ratedpeople.com",
       "intro": "As a Staff Engineer, I inherited a majority of responsibilities from my previous Tech Lead role and expand to encompass broader responsibilities such as strategic planning, and technical directions.",
       "experience": [
-        "Lead the migration of legacy web apps to modern Frontend tech mainly based in ReactJS and NodeJS, keeping the company's tech stack up-to-date and in line with industry trends",
-        "Lead CI/CD pipelines using tools such as BitBucket, Bamboo, Pipelines, AWS and Cloudflare",
-        "Drive and lead the performance improvements using tools such as Lighthouse and WebPageTest",
-        "Monitor the platform health using tools such as AppDynamics, Heap and Site24x7",
-        "Provide technical leadership and strategic guidance for engineering to align with the long-term business goals and initiatives",
-        "Collaborate with cross-functional teams including product, design, marketing and other engineering teams, to drive technical decisions and project scoping",
-        "Mentor and guide fellow engineers from different disciplines to enhance their skills and promote a culture of learning and growth",
-        "Drive architectural decisions and technology choices, ensuring they align with best practices and scalability"
+        "Spearheading strategic planning and technical directions.",
+        "Leading migration of legacy web apps to modern Frontend tech (ReactJS, NodeJS).",
+        "Overseeing CI/CD pipelines using tools such as BitBucket, Bamboo, AWS, and Cloudflare.",
+        "Driving performance improvements with tools like Lighthouse and WebPageTest.",
+        "Providing technical leadership, strategic guidance, and mentorship to foster a culture of learning and growth.",
+        "Collaborating with cross-functional teams to drive technical decisions aligning with long-term business goals."
       ]
     },
     {
@@ -50,15 +48,12 @@
       "website": "ratedpeople.com",
       "intro": "As a Frontend Tech Lead, I was adept at mentoring and managing teams, driving modernization efforts, and ensuring code quality and platform health.",
       "experience": [
-        "Mentor and manage a team of Frontend developers, maintain regular team powwows, 1:1s and bi-annual performance reviews",
-        "Discuss & challenge technical aspects to help with project scoping and architectural decisions with product/tech/design teams",
-        "Knowledge sharing with peer programming and extensive code reviews to ensure best practices",
-        "Help retire legacy PHP stack by moving to modern tech, primarily ReactJS, NodeJS, Remix, Cloudflare and AWS. Maintain an ongoing performance improvement roadmap",
-        "Write robust, performant, and scalable code, unit and UI tests in a variety of languages, frameworks and tools, such as HTML, CSS, JavaScript, ReactJS, NodeJS, Ruby, Bash, Docker, WordPress, Elastic, Remix, Tailwind CSS, cloud and more",
-        "Monitoring platform health using SaaS tools such as AppDynamics and Heap",
-        "Assist product and CRM teams with user testing and AB testing using tools such as Cloudflare Workers, VWO and SEOClarity",
-        "Identify and address technical debt, ensuring the Frontend codebase remains maintainable and scalable over time",
-        "Participate in recruitment efforts, including interviewing and evaluating Frontend engineering candidates, to build a high-performing engineering team"
+        "Managed and mentored Frontend development teams.",
+        "Drove modernization efforts, ensuring code quality and platform health.",
+        "Led migration from legacy PHP stack to modern tech (ReactJS, NodeJS, Remix).",
+        "Monitored platform health using tools such as AppDynamics and Heap.",
+        "Participated in recruitment efforts to build a high-performing engineering team.",
+        "Contributed to user testing and AB testing initiatives using tools like Cloudflare Workers, VWO, and SEOClarity."
       ]
     },
     {
@@ -69,45 +64,25 @@
       "website": "ratedpeople.com",
       "intro": "Involved in planning and development of new features and maintaining the existing codebases by keeping up with best practices, performance, security and industry standards.",
       "experience": [
-        "Involved with Frontend stack migration to the cloud (AWS)",
-        "Involved with platform key rebrand in 2016",
-        "Involved with optimising existing PHP Symfony micro-apps to be performant and cloud-ready",
-        "Helped with upgrading the tools chain used in the Frontend eco-system and modernised the stack by replacing the obsolete technologies",
-        "Involved in developing a new Symfony app to fully automate the customer signups flow, including fraud and risk assessment, and validations externally and internal APIs to reduce overhead for sales and fraud teams",
-        "Accustomed with NodeJS, ReactJS and many other relevant modern tools to develop a REST API layer to support future client-side apps with robust authentication flow"
+        "Contributed to Frontend stack migration to AWS.",
+        "Played a key role in the platform rebrand in 2016.",
+        "Upgraded Frontend tools chain and modernized the stack.",
+        "Developed Symfony app for automated customer signups flow.",
+        "Utilized NodeJS, ReactJS, and other modern tools for REST API development."
       ]
     },
     {
       "order": 4,
       "role": "Lead Web Developer",
-      "duration": "May 2013 — Oct 2015",
+      "duration": "Feb 2013 — Oct 2015",
       "employer": "Influence Digital",
       "website": "influence.digital",
       "intro": "Oversee the social apps and websites development for clients, mentor and manage the development team and maintain technical roadmap.",
       "experience": [
-        "Manage development cycles, timelines, roadmaps, quality of code and documentation for apps and websites",
-        "Monitor and maintain best practices. Provide guidance and examples to adopt the latest technology trends to improve the development workflow",
-        "Mentor junior developers and freelancers. Provide consultation and analysis to design lead, report and collaborate with the project manager to maintain development flow sprints",
-        "Maintain in-house developed social media application development frameworks",
-        "Build prototypes based on ideas for social campaigns",
-        "Develop and maintain LAM(PHP) stack-based MVC framework and boilerplates for in-house custom web apps development",
-        "Clients included Thomas Cook Group, Hotels4U, Marco Aldany UK, RedStripe, Arcadia Group, Intec Digital, Modestep, Nordic Games, Hobbs, ShopStyle, Outfit Fashion, WeAreFSTVL, Rise Festival, OnBlackHeath, Pathé"
-      ]
-    },
-    {
-      "order": 5,
-      "role": "Social Web Developer",
-      "duration": "Feb 2013 — Apr 2013",
-      "employer": "Influence Digital ex. United Agency",
-      "website": "united-agency.co.uk",
-      "intro": "Developing social web apps for the Facebook platform and integrating third-party APIs (Facebook, Google Maps, Instagram) to build interactive apps engaging a vast social media audience.",
-      "experience": [
-        "Involved with the development of standalone web apps for social media and websites in a small team",
-        "Enhanced the development workflow from a basic structure to a more stable, secure and reusable structure by introducing and encouraging the use of the latest technologies, best practices and workflows",
-        "Developing social web apps for the Facebook platform",
-        "Integrating third-party APIs (Facebook, Google Maps, Instagram) to build interactive apps engaging a vast social media audience ",
-        "Involved with the infra team to restructure the servers’ setup and development workflow for better management",
-        "Clients included mostly from retail, travel and music i.e. Arcadia Group, Thomas Cook, WeAreFSTVL and Lisa Stansfield"
+        "Oversaw social apps and websites development for various clients.",
+        "Managed development cycles, timelines, and roadmaps.",
+        "Mentored junior developers and freelancers.",
+        "Developed and maintained LAMPHP stack-based MVC framework."
       ]
     }
   ],
@@ -143,47 +118,47 @@
       {
         "name": "Reason to Follow",
         "website": "reasontofollow.com",
-        "description": "A browser extension that helps you remember the reason to follow an account on social platforms."
+        "description": "A browser extension for remembering reasons to follow accounts on social platforms."
       },
       {
         "name": "Childcare Vouchers",
         "website": "childcare-vouchers.uk",
-        "description": "A directory of businesses accepting childcare vouchers as a method of payment."
+        "description": "A directory of businesses accepting childcare vouchers as payment."
       },
       {
         "name": "Guess Where",
         "website": "guess-where.pages.dev",
-        "description": "A geo quiz app built with HTML, CSS, JavaScript, and Google Maps API. It is inspired from an image-based quiz by The Independent."
+        "description": "A geo quiz app built with HTML, CSS, JavaScript, and Google Maps API."
       },
       {
-        "name": "Postcode.io PHP SDK",
+        "name": "Postcode.io",
         "website": "github.com/jabranr/postcodes-io",
-        "description": "PostcodesIO is a PHP library for postcodes.io API. It provides support to most recent versions of PHP and has robust unit testing suite to report any changes in base API or otherwise."
+        "description": "PHP library for postcodes.io API."
       },
       {
         "name": "Work Clock",
         "website": "work-clock.pages.dev",
-        "description": "A MacOS menu bar utility app I developed to help myself while working remotely from different timezones. The app is written in Swift."
+        "description": "MacOS menu bar utility app written in Swift for remote work in different timezones."
       },
       {
         "name": "Google Maps API React Hook",
         "website": "npmjs.com/package/use-gmaps",
-        "description": "A custom React hook to integrate Google Maps JavaScript SDK in React apps."
+        "description": "Custom React hook to integrate Google Maps JavaScript SDK in React apps."
       },
       {
         "name": "Facebook API React Hook",
         "website": "npmjs.com/package/use-facebook",
-        "description": "A custom React hook to integrate Facebook JavaScript SDK in React apps."
+        "description": "Custom React hook to integrate Facebook JavaScript SDK in React apps."
       },
       {
         "name": "Covidonation",
         "website": "covidonation.pages.dev",
-        "description": "A directory of different organisations, charities and individuals who are working around the world to help the vulnerable during the pandemic of Coronavirus (COVID-19)."
+        "description": "Directory of organizations helping during the COVID-19 pandemic."
       },
       {
         "name": "Covid19 Today",
         "website": "covid19-today.pages.dev",
-        "description": "Daily updated figures for COVID19 for every country and continent"
+        "description": "Daily updated figures for COVID-19 for every country and continent."
       },
       {
         "hidden": true,
@@ -250,7 +225,7 @@
     }
   ],
   "volunteering": [
-    "During my free time, I like to contribute to social ideas that benefit large communities. As part of such an initiative, I worked between 2008 and 2013 with Google on their Map Maker project to map the unmapped areas of the world — especially developing countries.",
-    "Since then, I have served in different community-leading positions such as Power Mapper, Advocate and Regional Lead. It involves working with a global community of mappers, guiding them, setting regional standards of mapping, organizing, and speaking at events and leading training sessions around the globe. More information is available on <a data-print=\"&bull; https://bit.ly/google-latlng\" class=\"print-link\" target=\"_blank\" href=\"https://bit.ly/google-latlng\">Google LatLng Blog</a>"
+    "Contributed to Google's Map Maker project (2008-2013) to map unmapped areas, focusing on developing countries. Served in various community-leading positions, guiding a global community of mappers, setting regional mapping standards, organizing events, and leading training sessions.",
+    "For more information, visit <a data-print=\"&bull; https://bit.ly/google-latlng\" class=\"print-link\" target=\"_blank\" href=\"https://bit.ly/google-latlng\">Google LatLng Blog</a>."
   ]
 }

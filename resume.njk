@@ -28,7 +28,7 @@ excludeFromBrowse: true
       <a target="_blank" class="print-link" data-print="&bull; {{job.website|safe}}" href="https://{{job.website|safe}}">{{job.employer|safe}}</a>
     </h4>
     {%- if job.intro -%}
-      <p>{{job.intro}}</p>
+      <p class="print:hidden">{{job.intro}}</p>
     {%- endif -%}
     <ul class="list-disc list-inside mt-2 mb-4 hidden print:block ml-4">
       {%- for duty in job.experience -%}
