@@ -26,8 +26,23 @@
   "employments": [
     {
       "order": 1,
+      "role": "Senior Software Enigneer",
+      "duration": "Dec 2023 — Present",
+      "employer": "Sky",
+      "website": "sky.com",
+      "intro": "As a Senior Software Engineer, I am involved in maintaining Sky customers online portfolio platform for 3 continents covering US, Europe and Africa.",
+      "experience": [
+        "Involved in maintaining Sky customers online portfolio platform for 3 continents covering US, Europe and Africa.",
+        "Improve test driven development, developer experience and application performance improvements.",
+        "Mentor and guide fellow engineers to improve their technical skills and career growth.",
+        "Providing technical leadership, strategic guidance, and mentorship to foster a culture of learning and growth.",
+        "Collaborating with cross-functional teams to drive technical decisions aligning with long-term business goals."
+      ]
+    },
+    {
+      "order": 2,
       "role": "Staff Engineer",
-      "duration": "Jan 2023 — Present",
+      "duration": "Jan 2023 — Nov 2023",
       "employer": "Rated People",
       "website": "ratedpeople.com",
       "intro": "As a Staff Engineer, I inherited a majority of responsibilities from my previous Tech Lead role and expand to encompass broader responsibilities such as strategic planning, and technical directions.",
@@ -41,7 +56,7 @@
       ]
     },
     {
-      "order": 2,
+      "order": 3,
       "role": "Frontend Tech Lead",
       "duration": "Jun 2018 — Dec 2022",
       "employer": "Rated People",
@@ -57,7 +72,7 @@
       ]
     },
     {
-      "order": 3,
+      "order": 4,
       "role": "Frontend Web Developer",
       "duration": "Nov 2015 — May 2018",
       "employer": "Rated People",
@@ -72,7 +87,7 @@
       ]
     },
     {
-      "order": 4,
+      "order": 5,
       "role": "Lead Web Developer",
       "duration": "Feb 2013 — Oct 2015",
       "employer": "Influence Digital",
