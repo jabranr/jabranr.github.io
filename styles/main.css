@@ -40,11 +40,15 @@ h4 {
 }
 
 .logo {
-  @apply m-0 block w-52 bg-[url('/avatar.png')] bg-contain bg-no-repeat pl-20 text-4xl font-bold leading-none text-[#666] no-underline transition-colors hover:text-black md:w-full md:pl-16 md:leading-relaxed;
+  @apply m-0 block w-52 bg-[url('/avatar.png')] bg-contain bg-no-repeat pl-20 text-4xl font-bold leading-none text-[#333] no-underline transition-colors md:w-full md:pl-16 md:leading-relaxed;
 }
 
 h1.logo {
-  @apply text-black;
+  @apply text-6xl tracking-tighter;
+}
+
+:not(h1).logo {
+  @apply hover:text-black;
 }
 
 [lang='ur'] .logo,
@@ -66,11 +70,11 @@ h1.logo {
 }
 
 code {
-  @apply rounded-[4px] bg-[#eee] py-[1px] px-1 font-mono text-sm text-[#cf1956];
+  @apply rounded-[4px] bg-[#eee] px-1 py-[1px] font-mono text-sm text-[#cf1956];
 }
 
 blockquote {
-  @apply my-4 border-l-[5px] border-l-[#ddd] bg-[#eee] py-1 px-4 italic text-[#666];
+  @apply my-4 border-l-[5px] border-l-[#ddd] bg-[#eee] px-4 py-1 italic text-[#666];
 }
 
 .post ul {
