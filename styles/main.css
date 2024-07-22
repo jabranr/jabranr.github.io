@@ -40,11 +40,7 @@ h4 {
 }
 
 .logo {
-  @apply m-0 block w-52 bg-[url('/avatar.png')] bg-contain bg-no-repeat pl-20 text-4xl font-bold leading-none text-[#333] no-underline transition-colors md:w-full md:pl-16 md:leading-relaxed;
-}
-
-h1.logo {
-  @apply text-6xl tracking-tighter;
+  @apply m-0 block bg-contain bg-no-repeat text-6xl font-bold leading-none tracking-tighter text-[#333] no-underline transition-colors md:bg-[url('/avatar.png')] md:pl-28 md:leading-relaxed;
 }
 
 :not(h1).logo {
