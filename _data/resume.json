@@ -26,14 +26,14 @@
   "employments": [
     {
       "order": 1,
-      "role": "Senior Software Enigneer",
+      "role": "Senior Software Enigneer & Tech Lead",
       "duration": "Dec 2023 — Present",
       "employer": "Sky",
       "website": "sky.com",
-      "intro": "As a Senior Software Engineer, I am involved in maintaining Sky customers online portfolio platform for 3 continents covering US, Europe and Africa.",
+      "intro": "I am involved in maintaining NBCUniversal & Sky customers streaming account platforms in 3 continents covering US, Europe and Africa.",
       "experience": [
-        "Involved in maintaining Sky customers online portfolio platform for 3 continents covering US, Europe and Africa.",
-        "Improve test driven development, developer experience and application performance improvements.",
+        "Involved in maintaining Sky customers online portfolio platform in 3 continents covering US, Europe and Africa.",
+        "Lead test driven development, developer experience and application performance improvements.",
         "Mentor and guide fellow engineers to improve their technical skills and career growth.",
         "Providing technical leadership, strategic guidance, and mentorship to foster a culture of learning and growth.",
         "Collaborating with cross-functional teams to drive technical decisions aligning with long-term business goals."
