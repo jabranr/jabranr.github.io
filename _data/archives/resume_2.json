@@ -22,7 +22,7 @@
       "link": "https://jabranr.me/linkedin"
     }
   ],
-  "intro": "Senior Software Engineer with over a decade of experience in developing high-performance, scalable web applications. Demonstrates expertise in agile development, code optimization, and enhancing user experience. Passionate about integrating cutting-edge technologies to drive transformative web solutions and align technical initiatives with business goals.",
+  "intro": "<span class=\"print:hidden\">I am a software engineer with a passion for the web. I have an experience of more than eight years in developing scalable, performant, and interactive web applications with a keen eye for best practices and industry standards.</span><span class=\"hidden print:block print:my-4\">I am a seasoned software engineer with over eight years of experience in developing scalable, performant, and interactive web applications. My passion for the web extends to a commitment to best practices and industry standards. I thrive on driving technology adoption, leading strategic initiatives, and mentoring cross-disciplinary teams.</span>",
   "employments": [
     {
       "order": 1,
@@ -32,12 +32,11 @@
       "website": "sky.com",
       "intro": "I am involved in maintaining NBCUniversal & Sky customers streaming account platforms in 3 continents covering US, Europe and Africa.",
       "experience": [
-        "Maintain Sky's online portfolio across the US, Europe, and Africa, enhancing platform performance.",
-        "Led performance improvements for the web apps driving results through strategic and technical enhancements",
-        "Led test-driven development and developer experience initiatives, resulting in measurable improvements and optimized workflows.",
-        "Mentor engineers, fostering technical skill growth and career progression.",
-        "Provide strategic technical leadership and guidance, aligning with business goals.",
-        "Collaborate with cross-functional stakeholders to drive impactful technical decisions."
+        "Involved in maintaining Sky customers online portfolio platform in 3 continents covering US, Europe and Africa.",
+        "Lead test driven development, developer experience and application performance improvements.",
+        "Mentor and guide fellow engineers to improve their technical skills and career growth.",
+        "Providing technical leadership, strategic guidance, and mentorship to foster a culture of learning and growth.",
+        "Collaborating with cross-functional teams to drive technical decisions aligning with long-term business goals."
       ]
     },
     {
@@ -48,44 +47,43 @@
       "website": "ratedpeople.com",
       "intro": "As a Staff Engineer, I inherited a majority of responsibilities from my previous Tech Lead role and expand to encompass broader responsibilities such as strategic planning, and technical directions.",
       "experience": [
-        "Guided strategic planning and technical direction, aligning engineering efforts with long-term business goals and market trends.",
-        "Led migration of legacy web apps to ReactJS and NodeJS ecosystem, enhancing performance and reliability.",
-        "Oversaw CI/CD pipelines with BitBucket, Bamboo, AWS, and Cloudflare, ensuring continuous development and seamless deployments.",
-        "Led and drove web performance enhancements using tools like Lighthouse and WebPageTest, achieving up to 55% speed improvements across the web platform.",
-        "Championed progressive web app technologies, revolutionizing mobile user experience and substantially increasing engagement metrics.",
-        "Cultivated a culture of continuous learning and technical excellence through mentorship, elevating team capabilities and fostering innovation."
+        "Spearheading strategic planning and technical directions.",
+        "Leading migration of legacy web apps to modern Frontend tech (ReactJS, NodeJS).",
+        "Overseeing CI/CD pipelines using tools such as BitBucket, Bamboo, AWS, and Cloudflare.",
+        "Driving performance improvements with tools like Lighthouse and WebPageTest.",
+        "Providing technical leadership, strategic guidance, and mentorship to foster a culture of learning and growth.",
+        "Collaborating with cross-functional teams to drive technical decisions aligning with long-term business goals."
       ]
     },
     {
       "order": 3,
-      "role": "Front-end Tech Lead",
+      "role": "Frontend Tech Lead",
       "duration": "Jun 2018 — Dec 2022",
       "employer": "Rated People",
       "website": "ratedpeople.com",
-      "intro": "As a Front-end Tech Lead, I was adept at mentoring and managing teams, driving modernization efforts, and ensuring code quality and platform health.",
+      "intro": "As a Frontend Tech Lead, I was adept at mentoring and managing teams, driving modernization efforts, and ensuring code quality and platform health.",
       "experience": [
-        "Led REST API development in NodeJS and Redis for user authentication serving just over half a million requests a day as a proxy to Java microservices.",
-        "Spearheaded micro-frontend migration using ReactJS, NodeJS, and Remix, enhancing system performance and user experience for Rated People's digital platforms.",
-        "Partnered with cross-functional teams to drive technical improvements, leveraging Cloudflare Workers, VWO, and SEOClarity for enhanced user testing and A/B experiments.",
-        "Cultivated engineering excellence by mentoring front-end developers, elevating code quality standards, and optimizing workflow automation processes.",
-        "Implemented comprehensive monitoring systems with AppDynamics, Heap, and Site24x7, ensuring platform stability and swift issue resolution.",
-        "Actively shaped a high-performing engineering team through active involvement in recruitment, aligning talent acquisition with long-term technical goals."
+        "Managed and mentored Frontend development teams.",
+        "Drove modernization efforts, ensuring code quality and platform health.",
+        "Led migration from legacy PHP stack to modern tech (ReactJS, NodeJS, Remix).",
+        "Monitored platform health using tools such as AppDynamics and Heap.",
+        "Participated in recruitment efforts to build a high-performing engineering team.",
+        "Contributed to user testing and AB testing initiatives using tools like Cloudflare Workers, VWO, and SEOClarity."
       ]
     },
     {
       "order": 4,
-      "role": "Front-end Web Developer",
+      "role": "Frontend Web Developer",
       "duration": "Nov 2015 — May 2018",
       "employer": "Rated People",
       "website": "ratedpeople.com",
       "intro": "Involved in planning and development of new features and maintaining the existing codebases by keeping up with best practices, performance, security and industry standards.",
       "experience": [
-        "Actively participated in front-end stack migration to AWS, enhancing performance and scalability.",
-        "Actively participated in platform rebranding in 2016, improving user engagement and brand perception.",
-        "Modernized front-end tools chain to boost developer experience.",
-        "Spearheaded and developed a new front-end app using LAMP stack and Symfony2, revolutionizing customer signup and vetting processes.",
-        "Pioneered cutting-edge UI/UX designs that enhanced user engagement and site functionality.",
-        "Pioneered the adoption of Docker and AWS technologies, revolutionizing deployment strategies and significantly enhancing scalability and reliability."
+        "Contributed to Frontend stack migration to AWS.",
+        "Played a key role in the platform rebrand in 2016.",
+        "Upgraded Frontend tools chain and modernized the stack.",
+        "Developed Symfony app for automated customer signups flow.",
+        "Utilized NodeJS, ReactJS, and other modern tools for REST API development."
       ]
     },
     {
@@ -96,12 +94,10 @@
       "website": "influence.digital",
       "intro": "Oversee the social apps and websites development for clients, mentor and manage the development team and maintain technical roadmap.",
       "experience": [
-        "Enforced rigorous quality standards in code and documentation, ensuring robust and maintainable applications across diverse client projects.",
-        "Spearheaded the adoption of cutting-edge technologies, guiding the team on industry trends and elevating the company's technical capabilities.",
-        "Mentored junior developers and freelancers, fostering a culture of knowledge sharing and driving team productivity in agile development sprints.",
-        "Pioneered MVC frameworks for custom web apps, enhancing code reusability and streamlining development processes for high-profile clients.",
-        "Optimized in-house social media application frameworks, significantly improving performance and user engagement for client platforms.",
-        "Partnered with design leads and project managers to maintain development sprints, ensuring seamless project execution for high-profile clients."
+        "Oversaw social apps and websites development for various clients.",
+        "Managed development cycles, timelines, and roadmaps.",
+        "Mentored junior developers and freelancers.",
+        "Developed and maintained LAMPHP stack-based MVC framework."
       ]
     }
   ],
@@ -224,7 +220,7 @@
   "skills": [
     {
       "title": "Languages / Technologies",
-      "tech": "HTML, CSS, JavaScript, TypeScript, PHP, SQL, Bash, Apache, Java, Ruby, Docker, AWS, Cloudflare, Google Cloud Platform (GCP), Firebase, Elastic, Swift, React Native, Linux/MacOS/Windows"
+      "tech": "HTML, CSS, JavaScript, TypeScript, PHP, SQL, Apache, Java, Ruby, Docker, AWS, Cloudflare, Google Cloud Platform (GCP), Firebase, Elastic, Swift, React Native, Linux/MacOS/Windows"
     },
     {
       "title": "Frameworks / Libraries",
@@ -232,7 +228,7 @@
     },
     {
       "title": "Workflow Concepts",
-      "tech": "REST, TDD, BDD, Cucumber, Testing (Unit, Integration, End-to-End, Smoke, Stress, Performance), MVC, Agile, Waterfall, Kanban, Scrum, DRY, KISS, BEM, Progressive Enhancement & Graceful Degradation, Monorepo, Micro Front-ends, Micro services"
+      "tech": "REST, TDD, BDD, Cucumber, Testing (Unit, Integration, End-to-End, Smoke, Stress, Performance), MVC, Agile, Waterfall, Kanban, Scrum, DRY, KISS, BEM, Progressive Enhancement & Graceful Degradation"
     },
     {
       "title": "Data / APIs / Web Services",
@@ -240,7 +236,7 @@
     },
     {
       "title": "Tools",
-      "tech": "Jest, Enzyme, React Testing Library, ViTest, Git, GitHub, GitHub Actions, BitBucket, Confluence, JIRA, Bamboo, Concourse, Jenkins, Artifactory, F5 Shape Defence, BitBucket Pipelines, Redis, Cypress, Playwright, Trello, NPM, Bower, Composer, Sass, Less, PM2, Jekyll, Webpack, Grunt, Yeoman, Functional/Reactive programming, Adobe Photoshop, Adobe Illustrator, VWO, AppDynamics, Miro, Figma, Salesforce, Invision, BranchIO, Postman, Swagger, Storybook, Lerna, Volta, Prettier, ESLint, Android Studio, XCode, Wrangler, Miniflare"
+      "tech": "Jest, Enzyme, React Testing Library, Git, GitHub, GitHub Actions, BitBucket, Confluence, JIRA, Bamboo, Pipelines, Redis, Cypress, Playwright, Trello, NPM, Bower, Composer, Sass, Less, Jekyll, Webpack, Grunt, Yeoman, Functional/Reactive programming, Adobe Photoshop, Adobe Illustrator, VWO, AppDynamics, Miro, Figma, Salesforce, Invision, Branch, Postman, Swagger, Storybook, Lerna, Volta, Prettier, ESLint, Android Studio, XCode, Wrangler, Miniflare"
     }
   ],
   "volunteering": [
