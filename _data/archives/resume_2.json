@@ -22,18 +22,18 @@
       "link": "https://jabranr.me/linkedin"
     }
   ],
-  "intro": "<span class=\"print:hidden\">I am a software engineer with a passion for the web. I have an experience of more than eight years in developing scalable, performant, and interactive web applications with a keen eye for best practices and industry standards.</span><span class=\"hidden print:block print:my-4\">I am a seasoned software engineer with over eight years of experience in developing scalable, performant, and interactive web applications. My passion for the web extends to a commitment to best practices and industry standards. I thrive on driving technology adoption, leading strategic initiatives, and mentoring cross-disciplinary teams.</span>",
+  "intro": "<span class=\"print:hidden\">I am a software engineer with a passion for the web. I have over eight years of experience in developing scalable, performant, and interactive web applications, with a keen eye for best practices and industry standards.</span><span class=\"hidden print:block print:my-4\">I am a seasoned software engineer with over eight years of experience in developing scalable, performant, and interactive web applications. My passion for the web extends to a commitment to best practices and industry standards. I thrive on driving technology adoption, leading strategic initiatives, and mentoring cross-disciplinary teams.</span>",
   "employments": [
     {
       "order": 1,
-      "role": "Senior Software Enigneer & Tech Lead",
+      "role": "Senior Software Engineer & Tech Lead",
       "duration": "Dec 2023 — Present",
       "employer": "Sky",
       "website": "sky.com",
-      "intro": "I am involved in maintaining NBCUniversal & Sky customers streaming account platforms in 3 continents covering US, Europe and Africa.",
+      "intro": "I am involved in maintaining NBCUniversal & Sky customers' streaming account platforms in 3 continents covering the US, Europe and Africa.",
       "experience": [
-        "Involved in maintaining Sky customers online portfolio platform in 3 continents covering US, Europe and Africa.",
-        "Lead test driven development, developer experience and application performance improvements.",
+        "Maintain Sky customers' online portfolio platform in 3 continents covering the US, Europe and Africa.",
+        "Lead test-driven development, developer experience and application performance improvements.",
         "Mentor and guide fellow engineers to improve their technical skills and career growth.",
         "Providing technical leadership, strategic guidance, and mentorship to foster a culture of learning and growth.",
         "Collaborating with cross-functional teams to drive technical decisions aligning with long-term business goals."
@@ -61,10 +61,10 @@
       "duration": "Jun 2018 — Dec 2022",
       "employer": "Rated People",
       "website": "ratedpeople.com",
-      "intro": "As a Frontend Tech Lead, I was adept at mentoring and managing teams, driving modernization efforts, and ensuring code quality and platform health.",
+      "intro": "As a Frontend Tech Lead, I was adept at mentoring and managing teams, driving modernisation efforts, and ensuring code quality and platform health.",
       "experience": [
         "Managed and mentored Frontend development teams.",
-        "Drove modernization efforts, ensuring code quality and platform health.",
+        "Drove modernisation efforts, ensuring code quality and platform health.",
         "Led migration from legacy PHP stack to modern tech (ReactJS, NodeJS, Remix).",
         "Monitored platform health using tools such as AppDynamics and Heap.",
         "Participated in recruitment efforts to build a high-performing engineering team.",
@@ -81,9 +81,9 @@
       "experience": [
         "Contributed to Frontend stack migration to AWS.",
         "Played a key role in the platform rebrand in 2016.",
-        "Upgraded Frontend tools chain and modernized the stack.",
+        "Upgraded Frontend tools chain and modernised the stack.",
         "Developed Symfony app for automated customer signups flow.",
-        "Utilized NodeJS, ReactJS, and other modern tools for REST API development."
+        "Utilised NodeJS, ReactJS, and other modern tools for REST API development."
       ]
     },
     {
@@ -142,7 +142,7 @@
       },
       {
         "name": "Guess Where",
-        "website": "guess-where.pages.dev",
+        "website": "guess-where.jabran.dev",
         "description": "A geo quiz app built with HTML, CSS, JavaScript, and Google Maps API."
       },
       {
@@ -152,7 +152,7 @@
       },
       {
         "name": "Work Clock",
-        "website": "work-clock.pages.dev",
+        "website": "work-clock.jabran.dev",
         "description": "MacOS menu bar utility app written in Swift for remote work in different timezones."
       },
       {
@@ -167,25 +167,25 @@
       },
       {
         "name": "Covidonation",
-        "website": "covidonation.pages.dev",
-        "description": "Directory of organizations helping during the COVID-19 pandemic."
+        "website": "covidonation.jabran.dev",
+        "description": "Directory of organisations helping during the COVID-19 pandemic."
       },
       {
         "name": "Covid19 Today",
-        "website": "covid19-today.pages.dev",
+        "website": "covid19-today.jabran.dev",
         "description": "Daily updated figures for COVID-19 for every country and continent."
       },
       {
         "hidden": true,
         "name": "Socialmedia.js",
         "website": "github.com/jabranr/socialmedia",
-        "description": "A JavaScript library that simplifies the social media integration into the web apps. It has a comprehensive documentation covering setup and usage for various supportive social media platforms."
+        "description": "A JavaScript library that simplifies the social media integration into web apps. It has a comprehensive documentation covering setup and usage for various supportive social media platforms."
       },
       {
         "hidden": true,
         "name": "Fetchwitter",
         "website": "github.com/jabranr/fetchwitter/",
-        "description": "An easy-to-use PHP client to authenticate and consume Twitter API in web apps. Fetchwitter exposes a small and simple API to fetch Tweets and perform searches with terms such as a hashtag. It also has a WordPress plugin for easy integration into WordPress."
+        "description": "An easy-to-use PHP client to authenticate and consume the Twitter API in web apps. Fetchwitter exposes a small and simple API to fetch Tweets and perform searches with terms such as a hashtag. It also has a WordPress plugin for easy integration into WordPress."
       },
       {
         "hidden": true,
