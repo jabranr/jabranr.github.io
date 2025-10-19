@@ -65,11 +65,13 @@ We can make use of [Euclid’s Algorithm](https://en.wikipedia.org/wiki/Euclidea
 - Subtract smallest number from result of previous calculation until reach zero
 - GCF is the number before it reached zero
 
-So from our above example we have largest number is 58 and smallest number is 38:
+So from our above example we have largest number is 36 and smallest number is 24:
 
+```
 36 - 24 = 12
 24 - 12 = 12
 12 - 12 = 0
+```
 
 So the GCF is 12 that means the baker needs 12 of each muffins in a box for equal share with no left overs.
 
@@ -144,7 +146,7 @@ This same method can be used to find:
 
 > ### Maths meets programming
 >
-> Helping my son prepare for the 11+ test reignited my interest in maths. With over couple of decades in programming, I naturally started applying what I was learning—turning formulas into code. This blog is my way of documenting that journey.
+> Helping my son, Omer prepare for the 11+ test reignited my interest in maths. With over couple of decades in programming, I naturally started applying what I was learning—turning formulas into code. This blog is my way of documenting that journey.
 >
 > > These are simple problems, often solved and available on coding platforms, but this is my personal exploration of learning and implementation.
 
