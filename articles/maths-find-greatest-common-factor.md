@@ -28,22 +28,22 @@ Here is a tree breakdown of finding all factors and then choose the common highe
 <div class='sm:flex sm:gap-4 sm:justify-evenly sm:[&>*]:grow'>
 
 ```js
-        18
-      /   \
-      9     2
-    /  \    \
-  3     3    1
+         18
+       /    \
+      9      2
+    /  \       \
+  3     3       1
  /     /
  1    1
 
 ```
 
 ```js
-        27
-      /   \
-      9     3
-    /  \    \
-  3     3    1
+         27
+       /    \
+      9      3
+    /  \       \
+  3     3       1
  /     /
  1    1
 ```
@@ -67,7 +67,7 @@ We can make use of [Euclid’s Algorithm](https://en.wikipedia.org/wiki/Euclidea
 
 So from our above example we have largest number is 36 and smallest number is 24:
 
-```
+```md
 36 - 24 = 12
 24 - 12 = 12
 12 - 12 = 0
