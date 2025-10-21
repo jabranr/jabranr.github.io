@@ -15,7 +15,8 @@ layout: base.njk
     {{date|format_date}} &bull; {{ content | timeToRead }} read
   </time>
   <section class="article_content">
-    {% if env_NODE_ENV != 'development' %}
+    {# Google ads #}
+    {# {% if env_NODE_ENV != 'development' %}
       <div class="ads mt-4">
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4297681002419123" crossorigin="anonymous"></script>
         <!-- Banner ad -->
@@ -27,7 +28,7 @@ layout: base.njk
             data-full-width-responsive="true"></ins>
         <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
       </div>
-    {% endif %}
+    {% endif %} #}
     {{ content | safe }}
   </section>
 
