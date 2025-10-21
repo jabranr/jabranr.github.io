@@ -25,9 +25,25 @@ It looks easy for small list of numbers but quickly becomes a difficult task as 
 
 To find the sum of numbers like `1, 2, 3, ..., n`, the quickest thought was to loop through numbers but instead of looping through them, use this elegant formula:
 
-```js
-sum = (n * (n + 1)) / 2;
-```
+<math>
+  <mrow>
+    <mi>x</mi>
+    <mo>=</mo>
+    <mfrac>
+      <mrow>
+        <mi>n</mi>
+        <mo>(</mo>
+        <mi>n</mi>
+        <mo>+</mo>
+        <mi>1</mi>
+        <mo>)</mo>
+      </mrow>
+      <mrow>
+        <mi>2</mi>
+      </mrow>
+    </mfrac>
+  </mrow>
+</math>
 
 > where `n` is the largest number in the list i.e. for `1,2,3,4...100`, n = 100`
 
