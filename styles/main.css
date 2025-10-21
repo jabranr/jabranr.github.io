@@ -108,3 +108,17 @@ pre[class*='language-'] {
 math {
   @apply my-4 inline-block text-3xl;
 }
+
+.reading-progress {
+  animation-name: width;
+  animation-timeline: scroll(y);
+}
+
+@keyframes width {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}

@@ -5,6 +5,7 @@ layout: base.njk
 {% set previousPage = collections.all | getPreviousCollectionItem(page) %}
 {% set nextPage = collections.all | getNextCollectionItem(page) %}
 
+<div class="block h-1 sticky top-0 bg-green-500 reading-progress"></div>
 <section class="container text-sm my-4">
   <a class="text-[#333]" href="/">Home</a> &rsaquo; <a class="text-[#333]" href="/articles/">Articles</a>
 </section>
