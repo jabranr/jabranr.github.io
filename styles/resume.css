@@ -5,13 +5,12 @@ body {
 
 h2,
 h4,
-.logo,
 .font-serif {
   font-family: 'Playfair Display', serif;
 }
 
 h2 {
-  @apply mt-8 border-b-2 border-b-[#666] pb-2 text-2xl print:mt-4 print:mb-0 print:border-b-[1px] print:pb-0;
+  @apply mt-8 border-b-2 border-b-[#666] pb-2 text-2xl print:mb-0 print:mt-4 print:border-b-[1px] print:pb-0;
 }
 
 h3 {

@@ -3,7 +3,7 @@ layout: base.njk
 ---
 
 <section class="container my-8 page">
-  {% if renderData and renderData.title or title %}<h1 class="text-3xl font-semibold  my-6 mt-12">{{ renderData and renderData.title or title }}</h1>{% endif %}
+  {% if renderData and renderData.title or title %}<h1 class="text-3xl font-semibold my-6 mt-12">{{ renderData and renderData.title or title }}</h1>{% endif %}
   {% if description %}<p class="mb-10 pb-6 border-b-[3px] border-double border-b-[#f69]">{{ description }}</p>{% endif %}
   <section class="page_content">
     {{ content | safe }}
