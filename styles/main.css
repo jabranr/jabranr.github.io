@@ -9,8 +9,24 @@ html[lang='ur'],
   direction: rtl;
 }
 
-body {
-  @apply leading-normal text-gray-800;
+html.light {
+  .icon-light-mode {
+    @apply visible;
+  }
+
+  .icon-dark-mode {
+    @apply hidden;
+  }
+}
+
+html.dark {
+  .icon-light-mode {
+    @apply hidden;
+  }
+
+  .icon-dark-mode {
+    @apply visible;
+  }
 }
 
 .lead {
@@ -22,7 +38,7 @@ p {
 }
 
 a {
-  @apply text-[#006ad0] underline hover:text-[#cf1956];
+  @apply text-sky-600 underline hover:text-red-700 dark:text-sky-400;
 }
 
 h2,
@@ -40,11 +56,11 @@ h4 {
 }
 
 .logo {
-  @apply m-0 block bg-contain bg-no-repeat text-6xl font-bold leading-none tracking-tighter text-[#333] no-underline transition-colors md:bg-[url('/avatar.png')] md:pl-28 md:leading-relaxed;
+  @apply m-0 block bg-contain bg-no-repeat text-6xl font-bold leading-none tracking-tighter text-sky-950  no-underline transition-colors md:bg-[url('/avatar.png')] md:pl-28 md:leading-relaxed dark:text-sky-50;
 }
 
 :not(h1).logo {
-  @apply hover:text-black;
+  @apply hover:text-black dark:hover:text-gray-300;
 }
 
 [lang='ur'] .logo,
@@ -57,7 +73,7 @@ h4 {
 }
 
 .bg-full-width {
-  @apply bg-[#333] text-[#ddd] shadow-[0_0_0_100vmax_#333];
+  @apply bg-sky-950 text-sky-50 shadow-[0_0_0_100vmax_#082f49] dark:bg-sky-100 dark:text-sky-950 dark:shadow-[0_0_0_100vmax_#e0f2fe];
   clip-path: inset(0 -100vmax);
 }
 

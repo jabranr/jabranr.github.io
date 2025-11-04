@@ -7,12 +7,12 @@ layout: base.njk
 
 <div class="block h-1 sticky top-0 bg-green-500 reading-progress"></div>
 <section class="container text-sm my-4">
-  <a class="text-[#333]" href="/">Home</a> &rsaquo; <a class="text-[#333]" href="/articles/">Articles</a>
+  <a href="/">Home</a> &rsaquo; <a href="/articles/">Articles</a>
 </section>
 
 <section class="container post">
   <h1 class="my-6 relative text-4xl font-bold after:block after::absolute after:content-[''] after:w-[25%] after:h-[4px] after:mt-4 after:bg-[#cf1956]">{{title}}</h1>
-  <time datetime="{{ date | format_date('YYYY-MM-DD') }}" class="text-[#666] text-base">
+  <time datetime="{{ date | format_date('YYYY-MM-DD') }}" class="text-gray-500 text-base">
     {{date|format_date}} &bull; {{ content | timeToRead }} read
   </time>
   <section class="article_content">
