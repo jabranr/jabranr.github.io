@@ -7,3 +7,4 @@ on:
 jobs:
   ai-agent:
     uses: jabranr/ai/.github/workflows/ai-dev-agent.yaml@main
+    secrets: inherit
