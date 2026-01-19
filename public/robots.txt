@@ -1,5 +1,6 @@
 User-agent: *
+Allow: /
+
 Sitemap: https://jabran.me/sitemap.xml
 Sitemap: https://guess-where.jabran.dev/sitemap.xml
 Sitemap: https://email-signatures.jabran.dev/sitemap.xml
-Disallow:
