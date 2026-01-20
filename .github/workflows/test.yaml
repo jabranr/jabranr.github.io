@@ -1,11 +1,26 @@
 name: Test
 
-on: repository_dispatch
+on:
+  pull_request:
 
 jobs:
-  print-status:
+  check-details:
     runs-on: ubuntu-latest
     steps:
-      - name: Print deployment status
+      - name: Get PR details from GitHub context and event
         run: |
-          echo "Event payload: ${{ toJson(github.event) }}"
+          echo "${{ toJson(github) }}" > github_context.json
+          echo "${{ toJson(github.event) }}" > github_event.json
+      - name: Display PR details
+        run: |
+          echo "---------------"
+          echo "GitHub Context:"
+          echo "---------------"
+          cat github_context.json
+          echo ""
+          echo "==============="
+          echo ""
+          echo "---------------"
+          echo "GitHub Event:"
+          echo "---------------"
+          cat github_event.json
