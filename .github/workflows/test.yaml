@@ -1,8 +1,6 @@
 name: Test
 
-on:
-  repository_dispatch:
-    types:
+on: repository_dispatch
 
 jobs:
   print-status:
