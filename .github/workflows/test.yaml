@@ -1,8 +1,12 @@
 name: Test
 
 on:
-  deployment:
-  deployment_status:
+  check_run:
+    types: [created, completed]
+    branch:
+      - test-deploy-status
+  check_suite:
+    types: [completed]
     branch:
       - test-deploy-status
 
@@ -12,4 +16,4 @@ jobs:
     steps:
       - name: Print deployment status
         run: |
-          echo "Deployment status: ${{ github.event.deployment_status.state }}"
+          echo "Event payload: ${{ toJson(github.event) }}"
