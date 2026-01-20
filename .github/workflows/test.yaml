@@ -1,14 +1,11 @@
 name: Test
 
 on:
-  issue_comment:
-    types: [created, edited]
-    branch:
-      - test-deploy-status
+  repository_dispatch:
+    types:
 
 jobs:
   print-status:
-    if: ${{ github.event.issue.pull_request }}
     runs-on: ubuntu-latest
     steps:
       - name: Print deployment status
