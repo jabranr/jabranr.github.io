@@ -1,0 +1,12 @@
+name: Test
+
+on:
+  deployment_status:
+
+jobs:
+  print-status:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print deployment status
+        run: |
+          echo "Deployment status: ${{ github.event.deployment_status.state }}"
