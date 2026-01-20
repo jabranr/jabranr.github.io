@@ -1,6 +1,7 @@
 name: Test
 
 on:
+  deployment:
   deployment_status:
     branch:
       - test-deploy-status
