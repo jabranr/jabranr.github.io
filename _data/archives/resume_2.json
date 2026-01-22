@@ -1,9 +1,6 @@
 {
   "title": "Jabran Rafique",
-  "contact": [
-    "hello@jabran.me",
-    "07983580025"
-  ],
+  "contact": ["hello@jabran.me", "07983580025"],
   "social": [
     {
       "text": "jabran.me",
@@ -14,19 +11,19 @@
       "link": "https://github.com/jabranr"
     },
     {
-      "text": "<span>twitter.com/</span>jabranr",
-      "link": "https://twitter.com/jabranr"
-    },
-    {
       "text": "<span>linkedin.com/</span>jabranr",
       "link": "https://jabranr.me/linkedin"
+    },
+    {
+      "text": "<span>x.com/</span>jabranr",
+      "link": "https://x.com/jabranr"
     }
   ],
-  "intro": "<span class=\"print:hidden\">I am a software engineer with a passion for the web. I have over eight years of experience in developing scalable, performant, and interactive web applications, with a keen eye for best practices and industry standards.</span><span class=\"hidden print:block print:my-4\">I am a seasoned software engineer with over eight years of experience in developing scalable, performant, and interactive web applications. My passion for the web extends to a commitment to best practices and industry standards. I thrive on driving technology adoption, leading strategic initiatives, and mentoring cross-disciplinary teams.</span>",
+  "intro": "<span class=\"print:hidden\">I am a software engineer with a passion for the web. I have over a decade of experience in developing scalable, performant, and interactive web applications, with a keen eye for best practices and industry standards.</span><span class=\"hidden print:block print:my-4\">I am a seasoned software engineer with over a decade of experience in developing scalable, performant, and interactive web applications. My passion for the web extends to a commitment to best practices and industry standards. I thrive on driving technology adoption, leading strategic initiatives, and mentoring cross-disciplinary teams.</span>",
   "employments": [
     {
       "order": 1,
-      "role": "Senior Software Engineer & Tech Lead",
+      "role": "Senior Software Engineer / Tech Lead",
       "duration": "Dec 2023 — Present",
       "employer": "Sky",
       "website": "sky.com",
@@ -236,7 +233,7 @@
     },
     {
       "title": "Tools",
-      "tech": "Jest, Enzyme, React Testing Library, Git, GitHub, GitHub Actions, BitBucket, Confluence, JIRA, Bamboo, Pipelines, Redis, Cypress, Playwright, Trello, NPM, Bower, Composer, Sass, Less, Jekyll, Webpack, Grunt, Yeoman, Functional/Reactive programming, Adobe Photoshop, Adobe Illustrator, VWO, AppDynamics, Miro, Figma, Salesforce, Invision, Branch, Postman, Swagger, Storybook, Lerna, Volta, Prettier, ESLint, Android Studio, XCode, Wrangler, Miniflare"
+      "tech": "Jest, Enzyme, Vitest, React Testing Library, Git, GitHub, GitHub Actions, BitBucket, Confluence, JIRA, Bamboo, Pipelines, Redis, Cypress, Playwright, Trello, NPM, Composer, Sass, Less, Jekyll, Webpack, Functional/Reactive programming, Adobe Photoshop, Adobe Illustrator, VWO, AppDynamics, Miro, Figma, Salesforce, Invision, Branch, Postman, Swagger, Storybook, Lerna, Volta, Prettier, ESLint, Android Studio, XCode, Wrangler, Miniflare"
     }
   ],
   "volunteering": [
