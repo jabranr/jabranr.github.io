@@ -19,7 +19,18 @@ excludeFromBrowse: true
   <p>{{resume.intro|safe}}</p>
 </section>
 
-<h2>Employments</h2>
+<h2>Core Technical Skills</h2>
+<p>{{resume.skillsDescription}}</p>
+<section class="[&>*+*]:mt-4 md:[&>*+*]:mt-2 print:columns-3 [&>*+*]:border-t-[1px] [&>*+*]:border-dotted [&>*+*]:border-gray-300 [&>*+*]:pt-2 [&>*+*]:print:border-none [&>*+*]:print:pt-1">
+  {%- for skill in resume.skills -%}
+  <section class="md:grid items-center print:grid-cols-auto screen:grid-cols-[1fr_2fr] break-inside-avoid-column">
+    <h3 class="text-sm mt-0">{{skill.title|safe}}</h3>
+    <p class="m-0">{{skill.tech|safe}}</p>
+  </section>
+  {%- endfor -%}
+</section>
+
+<h2>Professional Experience</h2>
 <section>
   {%- for job in resume.employments -%}
   <section>
@@ -28,9 +39,9 @@ excludeFromBrowse: true
       <a target="_blank" class="print-link" data-print="&bull; {{job.website|safe}}" href="https://{{job.website|safe}}">{{job.employer|safe}}</a>
     </h4>
     {%- if job.intro -%}
-      <p class="print:hidden">{{job.intro}}</p>
+      <p>{{job.intro}}</p>
     {%- endif -%}
-    <ul class="list-disc list-inside mt-2 mb-4 hidden print:block ml-4">
+    <ul class="list-disc list-inside mt-2 mb-4 hidden print:block ml-4 columns-2">
       {%- for duty in job.experience -%}
         <li>{{duty|safe}}</li>
       {%- endfor -%}
@@ -39,24 +50,13 @@ excludeFromBrowse: true
   {%- endfor -%}
 </section>
 
-<h2>Skills</h2>
-<p>{{resume.skillsDescription}}</p>
-<section class="md:grid md:grid-cols-2 print:columns-2">
-  {%- for skill in resume.skills -%}
-  <section class="break-inside-avoid-column{% if loop.last %} col-span-2{% endif %}">
-    <h3 class="text-[10pt] mt-0">{{skill.title|safe}}</h3>
-    <p class="mt-2 print:mt-1">{{skill.tech|safe}}</p>
-  </section>
-  {%- endfor -%}
-</section>
-
-<h2>Projects</h2>
+<h2>Projects &amp; Open Source</h2>
 <p>{{resume.projects.description}}</p>
-<section class="columns-2">
+<section class="[&>*+*]:mt-4 md:[&>*+*]:mt-2 print:columns-2 [&>*+*]:border-t-[1px] [&>*+*]:border-dotted [&>*+*]:border-gray-300 [&>*+*]:pt-2 [&>*+*]:print:border-none [&>*+*]:print:pt-1">
 {%- for project in resume.projects.data -%}
   {%- if project.hidden != true -%}
-    <section class="break-inside-avoid-column">
-      <h3 class="font-serif text-base {% if loop.first %}mt-0{% endif %}">
+    <section class="md:grid items-center print:grid-cols-auto screen:grid-cols-[1fr_2fr] break-inside-avoid-column">
+      <h3 class="font-serif text-base mt-0">
         <a class="print-link" target="_blank" data-print="&bull; {{project.website|safe}}" href="https://{{project.website|safe}}">{{project.name|safe}}</a>
       </h3>
       <p class="text-[10pt] my-0">{{project.description|safe}}</p>
@@ -84,21 +84,31 @@ excludeFromBrowse: true
 
 <section>
   <section>
-    <h2>Education</h2>
+    <h2>Education &amp; Voluntary work</h2>
     {%- for edu in resume.education -%}
       {%- if edu.hidden != true -%}
         <section {% if loop.last %}class="hidden print:block"{%endif%}>
+          <div class="flex justify-between items-center [&>*]:mt-1 print:[&>*]:mt-2">
           <h3>{{edu.type|safe}}</h3>
           <h4>{{edu.school|safe}}</h4>
+          </div>
           <p class="mt-1">{{edu.duration|safe}}</p>
         </section>
       {%- endif -%}
     {%- endfor -%}
   </section>
-  <section class="break-before-page">
-    <h2>Voluntary Work</h2>
-    <p>{{resume.volunteering|join('</p><p>')|safe}}</p>
+  {%- if resume.volunteering|length > 0 -%}
+  <hr class="border-t-[1px] border-dotted border-gray-300" />
+  <section>
+    {%- for volunteer in resume.volunteering -%}
+      <div class="flex justify-between items-center mt-2 [&>*]:mt-1 print:[&>*]:mt-2">
+        <h3>{{volunteer.title|safe}}</h3>
+        <h4>{{volunteer.org|safe}}</h4>
+      </div>
+      <p class="mt-1">{{volunteer.duration|safe}}</p>
+    {%- endfor -%}
   </section>
+  {%- endif -%}
 </section>
 
 <p class="print:hidden mt-20 text-sm font-bold flex space-x-1">
@@ -107,4 +117,5 @@ excludeFromBrowse: true
   </svg>
   <a href="javascript:window.print();">Print CV</a>
 </p>
-<p class="hidden print:block mt-10 text-sm">Source: jabran.me/resume/</p>
+
+<p class="hidden print:block mt-20 text-sm">Source: jabran.me/resume/</p>

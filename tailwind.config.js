@@ -10,6 +10,10 @@ module.exports = {
       center: true
     },
     extend: {
+      screens: {
+        screen: { raw: 'screen' },
+        print: { raw: 'print' }
+      },
       backgroundImage: ({ theme }) => ({
         skyBackground:
           'linear-gradient(90deg,#ff7800,#f80032 17.19%,#ff00a0 42.71%,#8c28ff 60%,#0023ff 85%,#1798ff)'
