@@ -1,3 +1,12 @@
+@page {
+  size: A4;
+}
+
+html,
+body {
+  @apply print:m-0 print:h-[297mm] print:w-[210mm] print:p-0 print:py-4;
+}
+
 body {
   font-family: 'Inter', sans-serif;
   @apply print:text-[12pt];

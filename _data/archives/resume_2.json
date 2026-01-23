@@ -154,7 +154,7 @@
       },
       {
         "name": "Google Maps API React Hook",
-        "website": "npmjs.com/package/use-gmaps",
+        "website": "npmjs.com/package/@jabraf/use-gmaps",
         "description": "Custom React hook to integrate Google Maps JavaScript SDK in React apps."
       },
       {

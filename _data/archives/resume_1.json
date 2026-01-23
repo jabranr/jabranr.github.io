@@ -1,9 +1,6 @@
 {
   "title": "Jabran Rafique",
-  "contact": [
-    "hello@jabran.me",
-    "07983580025"
-  ],
+  "contact": ["hello@jabran.me", "07983580025"],
   "social": [
     {
       "text": "jabran.me",
@@ -167,7 +164,7 @@
       },
       {
         "name": "Google Maps API React Hook",
-        "website": "npmjs.com/package/use-gmaps",
+        "website": "npmjs.com/package/@jabraf/use-gmaps",
         "description": "A custom React hook to integrate Google Maps JavaScript SDK in React apps."
       },
       {

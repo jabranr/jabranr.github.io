@@ -11,15 +11,15 @@
       "link": "https://github.com/jabranr"
     },
     {
-      "text": "<span>twitter.com/</span>jabranr",
-      "link": "https://twitter.com/jabranr"
-    },
-    {
       "text": "<span>linkedin.com/</span>jabranr",
       "link": "https://jabranr.me/linkedin"
+    },
+    {
+      "text": "<span>x.com/</span>jabranr",
+      "link": "https://x.com/jabranr"
     }
   ],
-  "intro": "Senior Software Engineer with over a decade of experience in developing high-performance, scalable web applications. Demonstrates expertise in agile development, code optimization, and enhancing user experience. Passionate about integrating cutting-edge technologies to drive transformative web solutions and align technical initiatives with business goals.",
+  "intro": "Senior Tech Lead / Staff Engineer with 10+ years' experience scaling high-performance global web applications. Expert at aligning technical strategy and roadmaps with business ROI to drive measurable growth. Proven track record in mentoring teams and fostering a culture of engineering excellence.",
   "employments": [
     {
       "order": 1,
@@ -27,14 +27,18 @@
       "duration": "Dec 2023 — Present",
       "employer": "Sky",
       "website": "sky.com",
-      "intro": "I am involved in maintaining NBCUniversal & Sky customers streaming account platforms in 3 continents covering US, Europe and Africa.",
+      "intro": "Manage Sky’s online portfolio across US, Europe, and Africa. Lead TDD/DX initiatives; mentor engineers to accelerate career growth. Drive high-stakes technical decisions via cross-functional stakeholder collaboration.",
       "experience": [
-        "Maintain Sky's online portfolio across the US, Europe, and Africa, enhancing platform performance.",
-        "Led performance improvements for the web apps driving results through strategic and technical enhancements",
-        "Led test-driven development and developer experience initiatives, resulting in measurable improvements and optimized workflows.",
-        "Mentor engineers, fostering technical skill growth and career progression.",
-        "Provide strategic technical leadership and guidance, aligning with business goals.",
-        "Collaborate with cross-functional stakeholders to drive impactful technical decisions."
+        "Architected and delivered enterprise-wide AI automation infra with Augment/Auggie and GitHub Copilot, creating reusable GitHub Actions workflows with AI agent prompts, enhancing developer productivity and code quality and reducing time to market.",
+        "Engineered interactive AI development workflows enabling teams to trigger AI-assisted code analysis, implementation planning, and automated PR generation through GitHub issue comments, streamlining development cycles for distributed teams.",
+        "Created automated documentation generation pipeline running weekly via GitHub Actions, automatically analysing codebases and generating/updating markdown files with Augment AI agents, reducing 75% of documentation maintenance overhead.",
+        "Helped implement tailored AI-powered PR review system using Claude Sonnet 4.5 and Haiku 4.5 models with custom prompt engineering, providing automated code quality feedback with configurable severity levels and confidence scoring.",
+        "Implemented rigorous performance monitoring using Lighthouse CI, Catchpoint and Elastic APM Watchers, validation checks for GraphQL Schema in Concourse CI/CD workflows to continously evaluate performance bottlenecks and reduce frictions, ensuring web applications consistently meet high-performance standards across global markets.",
+        "Architected and implemented automation of the rules order key for Akamai Property Manager eliminating manual effort by 100%, enhancing CDN config efficiency, accuracy and DX.",
+        "Contributed to Next.js 15+ applications using React, TypeScript, styled-components, Apollo Client for GraphQL, integration and VR with Playwright and Cypress, Vitest, and AWS Lambda serverless architecture, serving millions of users across Peacock, NOW TV, and Sky streaming platforms.",
+        "Contributed to the shared UI components library to align implementations with Sky's design system, enhancing consistency and reusability across multiple web applications.",
+        "Championed developer experience improvements through automation, mentor engineers, fostering technical skill growth and career progression.",
+        "Led knowledge-sharing sessions and code reviews to promote best practices and continuous learning within the team. Helped promote at least 2 engineers to senior roles."
       ]
     },
     {
@@ -43,14 +47,12 @@
       "duration": "Jan 2023 — Nov 2023",
       "employer": "Rated People",
       "website": "ratedpeople.com",
-      "intro": "As a Staff Engineer, I inherited a majority of responsibilities from my previous Tech Lead role and expand to encompass broader responsibilities such as strategic planning, and technical directions.",
+      "intro": "Led legacy-to-React/Node migration, improving reliability and performance. Leveraged Lighthouse/WebPageTest and PWA for 55% platform speed increase. Spearheaded CI/CD pipelines via BitBucket, Bamboo, AWS, and Cloudflare.",
       "experience": [
         "Guided strategic planning and technical direction, aligning engineering efforts with long-term business goals and market trends.",
-        "Led migration of legacy web apps to ReactJS and NodeJS ecosystem, enhancing performance and reliability.",
-        "Oversaw CI/CD pipelines with BitBucket, Bamboo, AWS, and Cloudflare, ensuring continuous development and seamless deployments.",
-        "Led and drove web performance enhancements using tools like Lighthouse and WebPageTest, achieving up to 55% speed improvements across the web platform.",
-        "Championed progressive web app technologies, revolutionizing mobile user experience and substantially increasing engagement metrics.",
-        "Cultivated a culture of continuous learning and technical excellence through mentorship, elevating team capabilities and fostering innovation."
+        "Championed progressive web app (PWA) technologies, revolutionizing mobile user experience and substantially increasing engagement metrics.",
+        "Cultivated a culture of continuous learning and technical excellence through mentorship, elevating team capabilities and fostering innovation.",
+        "Actively involved in recruitment process, attracting top-tier talent to build a high-performing engineering team aligned with company vision."
       ]
     },
     {
@@ -59,13 +61,10 @@
       "duration": "Jun 2018 — Dec 2022",
       "employer": "Rated People",
       "website": "ratedpeople.com",
-      "intro": "As a Front-end Tech Lead, I was adept at mentoring and managing teams, driving modernization efforts, and ensuring code quality and platform health.",
+      "intro": "Built Node/Redis BFF service with auth sessions handling more than half a million daily requests to Java microservices. Spearheaded migration using React, Node, and Remix. Leveraged Cloudflare Workers, VWO and SEOClarity for A/B testing and SEO gains.",
       "experience": [
-        "Led REST API development in NodeJS and Redis for user authentication serving just over half a million requests a day as a proxy to Java microservices.",
-        "Spearheaded micro-frontend migration using ReactJS, NodeJS, and Remix, enhancing system performance and user experience for Rated People's digital platforms.",
-        "Partnered with cross-functional teams to drive technical improvements, leveraging Cloudflare Workers, VWO, and SEOClarity for enhanced user testing and A/B experiments.",
         "Cultivated engineering excellence by mentoring front-end developers, elevating code quality standards, and optimizing workflow automation processes.",
-        "Implemented comprehensive monitoring systems with AppDynamics, Heap, and Site24x7, ensuring platform stability and swift issue resolution.",
+        "Implemented comprehensive monitoring systems with AWS CloudWatch, AppDynamics, Heap, and Site24x7, ensuring platform stability and swift issue resolution.",
         "Actively shaped a high-performing engineering team through active involvement in recruitment, aligning talent acquisition with long-term technical goals."
       ]
     },
@@ -75,14 +74,11 @@
       "duration": "Nov 2015 — May 2018",
       "employer": "Rated People",
       "website": "ratedpeople.com",
-      "intro": "Involved in planning and development of new features and maintaining the existing codebases by keeping up with best practices, performance, security and industry standards.",
+      "intro": "Helped transition Front-end stack to AWS to enhance performance; Docker for scalable deployments. Spearheaded and developed custom signup app with automated vetting process using LAMP and Symfony2.",
       "experience": [
-        "Actively participated in front-end stack migration to AWS, enhancing performance and scalability.",
-        "Actively participated in platform rebranding in 2016, improving user engagement and brand perception.",
-        "Modernized front-end tools chain to boost developer experience.",
-        "Spearheaded and developed a new front-end app using LAMP stack and Symfony2, revolutionizing customer signup and vetting processes.",
-        "Pioneered cutting-edge UI/UX designs that enhanced user engagement and site functionality.",
-        "Pioneered the adoption of Docker and AWS technologies, revolutionizing deployment strategies and significantly enhancing scalability and reliability."
+        "Actively participated in platform rebranding during 2016, improving user engagement and brand perception.",
+        "Modernized Front-end tools chain to boost developer experience.",
+        "Pioneered cutting-edge UI/UX designs that enhanced user engagement and site functionality."
       ]
     },
     {
@@ -91,14 +87,13 @@
       "duration": "Feb 2013 — Oct 2015",
       "employer": "Influence Digital",
       "website": "influence.digital",
-      "intro": "Oversee the social apps and websites development for clients, mentor and manage the development team and maintain technical roadmap.",
+      "intro": "Collaborated with design leads and project managers to maintain development sprints, ensuring seamless project execution for high-profile clients. Oversaw the social apps and websites development, mentored and managed the development team and maintained the technical roadmap.",
       "experience": [
         "Enforced rigorous quality standards in code and documentation, ensuring robust and maintainable applications across diverse client projects.",
         "Spearheaded the adoption of cutting-edge technologies, guiding the team on industry trends and elevating the company's technical capabilities.",
         "Mentored junior developers and freelancers, fostering a culture of knowledge sharing and driving team productivity in agile development sprints.",
-        "Pioneered MVC frameworks for custom web apps, enhancing code reusability and streamlining development processes for high-profile clients.",
-        "Optimized in-house social media application frameworks, significantly improving performance and user engagement for client platforms.",
-        "Partnered with design leads and project managers to maintain development sprints, ensuring seamless project execution for high-profile clients."
+        "Developed a custom MVC framework for custom web apps, enhancing code reusability and streamlining development processes for high-profile clients.",
+        "Developed and optimized in-house social media MVC application frameworks, significantly improving performance and user engagement for client platforms while enhancing code reusability and streamlining development processes."
       ]
     }
   ],
@@ -129,22 +124,22 @@
     }
   ],
   "projects": {
-    "description": "I develop apps based on personal ideas and interests in my spare time. Most of my projects are open-sourced and the code is hosted at GitHub. Some of these projects are:",
+    "description": "I develop apps based on personal ideas and interests in my spare time. Most of my projects are open-sourced and the code is hosted at GitHub. Here are some selected projects:",
     "data": [
-      {
-        "name": "Reason to Follow",
-        "website": "reasontofollow.com",
-        "description": "A browser extension for remembering reasons to follow accounts on social platforms."
-      },
-      {
-        "name": "Childcare Vouchers",
-        "website": "childcare-vouchers.uk",
-        "description": "A directory of businesses accepting childcare vouchers as payment."
-      },
       {
         "name": "Guess Where",
         "website": "guess-where.jabran.dev",
-        "description": "A geo quiz app built with HTML, CSS, JavaScript, and Google Maps API."
+        "description": "Geo-quiz game. Built with React, Google Maps API, and PartyKit (WebSockets)."
+      },
+      {
+        "name": "Google Maps API React Hook",
+        "website": "npmjs.com/package/@jabraf/use-gmaps",
+        "description": "Custom React hook to integrate Google Maps JavaScript SDK in React apps."
+      },
+      {
+        "name": "Facebook API React Hook",
+        "website": "npmjs.com/package/use-facebook",
+        "description": "Custom React hook to integrate Facebook JavaScript SDK in React apps."
       },
       {
         "name": "Postcode.io",
@@ -154,24 +149,26 @@
       {
         "name": "Work Clock",
         "website": "work-clock.pages.dev",
-        "description": "MacOS menu bar utility app written in Swift for remote work in different timezones."
+        "description": "Swift-based MacOS utility for managing remote work across timezones."
       },
       {
-        "name": "Google Maps API React Hook",
-        "website": "npmjs.com/package/use-gmaps",
-        "description": "Custom React hook to integrate Google Maps JavaScript SDK in React apps."
+        "name": "Childcare Vouchers",
+        "website": "childcare-vouchers.uk",
+        "description": "A directory of businesses accepting childcare vouchers as payment."
       },
       {
-        "name": "Facebook API React Hook",
-        "website": "npmjs.com/package/use-facebook",
-        "description": "Custom React hook to integrate Facebook JavaScript SDK in React apps."
+        "name": "Reason to Follow",
+        "website": "reasontofollow.com",
+        "description": "A browser extension for remembering reasons to follow accounts on social platforms."
       },
       {
+        "hidden": true,
         "name": "Covidonation",
         "website": "covidonation.pages.dev",
         "description": "Directory of organizations helping during the COVID-19 pandemic."
       },
       {
+        "hidden": true,
         "name": "Covid19 Today",
         "website": "covid19-today.pages.dev",
         "description": "Daily updated figures for COVID-19 for every country and continent."
@@ -217,31 +214,52 @@
       "hidden": true
     }
   ],
-  "skillsDescription": "I have worked with or have a good understanding/familiarity with the following technologies, services and concepts.",
+  "skillsDescription": "",
+
   "skills": [
     {
-      "title": "Languages / Technologies",
-      "tech": "HTML, CSS, JavaScript, TypeScript, PHP, SQL, Bash, Apache, Java, Ruby, Docker, AWS, Cloudflare, Google Cloud Platform (GCP), Firebase, Elastic, Swift, React Native, Linux/MacOS/Windows"
+      "title": "Languages/Frameworks",
+      "tech": "TypeScript, JavaScript, PHP, SQL, Java, Swift, Bash, Ruby, Python"
     },
     {
-      "title": "Frameworks / Libraries",
-      "tech": "ReactJS, NodeJS, Redux, Express, Remix, 11ty, jQuery, Backbone, Underscore/Lodash, Symfony, WordPress, Laravel, Bootstrap, Tailwind, Create React App"
+      "title": "Front-end",
+      "tech": "ReactJS, Remix, Redux, Tailwind, React Native, HTML5, CSS3, Sass, Styled Components"
     },
     {
-      "title": "Workflow Concepts",
-      "tech": "REST, TDD, BDD, Cucumber, Testing (Unit, Integration, End-to-End, Smoke, Stress, Performance), MVC, Agile, Waterfall, Kanban, Scrum, DRY, KISS, BEM, Progressive Enhancement & Graceful Degradation, Monorepo, Micro Front-ends, Micro services"
+      "title": "Back-end",
+      "tech": "NodeJS, Express, GraphQL, Symfony, Laravel, Redis, REST APIs, Elastic"
     },
     {
-      "title": "Data / APIs / Web Services",
-      "tech": "XML, JSON, JSONP, Google APIs, Facebook Graph API, Twitter API, Instagram API"
+      "title": "AI/ML",
+      "tech": "OpenAI, Google Gemini, Anthropic, GitHub Copilot, Augment, Prompt Engineering, AI Agents, TensorFlow"
     },
     {
-      "title": "Tools",
-      "tech": "Jest, Enzyme, Vitest, React Testing Library, ViTest, Git, GitHub, GitHub Actions, BitBucket, Confluence, JIRA, Bamboo, Concourse, Jenkins, Artifactory, F5 Shape Defence, BitBucket Pipelines, Redis, Cypress, Playwright, Trello, NPM, Composer, Sass, Less, PM2, Jekyll, Webpack, Functional/Reactive programming, Adobe Photoshop, Adobe Illustrator, VWO, AppDynamics, Miro, Figma, Salesforce, Invision, BranchIO, Postman, Swagger, Storybook, Lerna, Volta, Prettier, ESLint, Android Studio, XCode, Wrangler, Miniflare"
+      "title": "Management",
+      "tech": "Jira, Confluence, Agile (Scrum/Kanban), GitHub"
+    },
+    {
+      "title": "Architecture",
+      "tech": "AI Agentic workflows, Micro-frontends, Microservices, Monorepos (Lerna/Yarn Workspaces), PWA, MVC, SSR, SSG, JAMstack, Serverless, CDNs, OAuth, JWT"
+    },
+    {
+      "title": "Cloud/DevOps",
+      "tech": "AWS, Cloudflare (Workers/Wrangler), Docker, GCP, GitHub Actions, Bamboo, Jenkins, Concourse, Atlassian"
+    },
+    {
+      "title": "Testing",
+      "tech": "TDD, BDD, Jest, Vitest, Cypress, Playwright, React Testing Library, Selenium, JUnit, PHPUnit, Puppeteer"
+    },
+
+    {
+      "title": "Observability/UX",
+      "tech": "AppDynamics, Site24x7, VWO, SEOClarity, Figma, Elastic APM, Heap Analytics, Google Lighthouse, WebPageTest, Datadog, Grafana, Prometheus, CloudWatch, Catchpoint, Google Analytics"
     }
   ],
   "volunteering": [
-    "Contributed to Google's Map Maker project (2008-2013) to map unmapped areas, focusing on developing countries. Served in various community-leading positions, guiding a global community of mappers, setting regional mapping standards, organizing events, and leading training sessions.",
-    "For more information, visit <a data-print=\"&bull; https://bit.ly/google-latlng\" class=\"print-link\" target=\"_blank\" href=\"https://bit.ly/google-latlng\">Google LatLng Blog</a>."
+    {
+      "title": "Regional Community Lead & Moderator",
+      "org": "Google Map Maker",
+      "duration": "2008 — 2013"
+    }
   ]
 }
