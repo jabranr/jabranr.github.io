@@ -28,7 +28,7 @@ Mobile UX: Championed PWA tech; significantly increased engagement metrics.
 
 DevOps: Oversaw CI/CD pipelines via BitBucket, Bamboo, AWS, and Cloudflare.
 
-## Front-end Tech Lead | Rated People Jun 2018 – Dec 2022
+## Frontend Tech Lead | Rated People Jun 2018 – Dec 2022
 
 High-Scale API: Built Node/Redis proxy handling 500k+ daily requests to Java microservices.
 
@@ -38,9 +38,9 @@ Experiments: Leveraged Cloudflare Workers and SEOClarity for A/B testing and SEO
 
 Observability: Implemented AppDynamics/Site24x7 for platform stability.
 
-## Front-end Web Developer | Rated People Nov 2015 – May 2018
+## Frontend Web Developer | Rated People Nov 2015 – May 2018
 
-Infrastructure: Transitioned front-end stack to AWS; adopted Docker for scalable deployments.
+Infrastructure: Transitioned frontend stack to AWS; adopted Docker for scalable deployments.
 
 Product: Built custom signup/vetting app using LAMP and Symfony2.
 
