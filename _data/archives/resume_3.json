@@ -55,32 +55,32 @@
     },
     {
       "order": 3,
-      "role": "Front-end Tech Lead",
+      "role": "Frontend Tech Lead",
       "duration": "Jun 2018 — Dec 2022",
       "employer": "Rated People",
       "website": "ratedpeople.com",
-      "intro": "As a Front-end Tech Lead, I was adept at mentoring and managing teams, driving modernization efforts, and ensuring code quality and platform health.",
+      "intro": "As a Frontend Tech Lead, I was adept at mentoring and managing teams, driving modernization efforts, and ensuring code quality and platform health.",
       "experience": [
         "Led REST API development in NodeJS and Redis for user authentication serving just over half a million requests a day as a proxy to Java microservices.",
         "Spearheaded micro-frontend migration using ReactJS, NodeJS, and Remix, enhancing system performance and user experience for Rated People's digital platforms.",
         "Partnered with cross-functional teams to drive technical improvements, leveraging Cloudflare Workers, VWO, and SEOClarity for enhanced user testing and A/B experiments.",
-        "Cultivated engineering excellence by mentoring front-end developers, elevating code quality standards, and optimizing workflow automation processes.",
+        "Cultivated engineering excellence by mentoring frontend developers, elevating code quality standards, and optimizing workflow automation processes.",
         "Implemented comprehensive monitoring systems with AppDynamics, Heap, and Site24x7, ensuring platform stability and swift issue resolution.",
         "Actively shaped a high-performing engineering team through active involvement in recruitment, aligning talent acquisition with long-term technical goals."
       ]
     },
     {
       "order": 4,
-      "role": "Front-end Web Developer",
+      "role": "Frontend Web Developer",
       "duration": "Nov 2015 — May 2018",
       "employer": "Rated People",
       "website": "ratedpeople.com",
       "intro": "Involved in planning and development of new features and maintaining the existing codebases by keeping up with best practices, performance, security and industry standards.",
       "experience": [
-        "Actively participated in front-end stack migration to AWS, enhancing performance and scalability.",
+        "Actively participated in frontend stack migration to AWS, enhancing performance and scalability.",
         "Actively participated in platform rebranding in 2016, improving user engagement and brand perception.",
-        "Modernized front-end tools chain to boost developer experience.",
-        "Spearheaded and developed a new front-end app using LAMP stack and Symfony2, revolutionizing customer signup and vetting processes.",
+        "Modernized frontend tools chain to boost developer experience.",
+        "Spearheaded and developed a new frontend app using LAMP stack and Symfony2, revolutionizing customer signup and vetting processes.",
         "Pioneered cutting-edge UI/UX designs that enhanced user engagement and site functionality.",
         "Pioneered the adoption of Docker and AWS technologies, revolutionizing deployment strategies and significantly enhancing scalability and reliability."
       ]
@@ -229,7 +229,7 @@
     },
     {
       "title": "Workflow Concepts",
-      "tech": "REST, TDD, BDD, Cucumber, Testing (Unit, Integration, End-to-End, Smoke, Stress, Performance), MVC, Agile, Waterfall, Kanban, Scrum, DRY, KISS, BEM, Progressive Enhancement & Graceful Degradation, Monorepo, Micro Front-ends, Micro services"
+      "tech": "REST, TDD, BDD, Cucumber, Testing (Unit, Integration, End-to-End, Smoke, Stress, Performance), MVC, Agile, Waterfall, Kanban, Scrum, DRY, KISS, BEM, Progressive Enhancement & Graceful Degradation, Monorepo, Micro Frontends, Micro services"
     },
     {
       "title": "Data / APIs / Web Services",

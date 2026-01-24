@@ -57,27 +57,27 @@
     },
     {
       "order": 3,
-      "role": "Front-end Tech Lead",
+      "role": "Frontend Tech Lead",
       "duration": "Jun 2018 — Dec 2022",
       "employer": "Rated People",
       "website": "ratedpeople.com",
       "intro": "Built Node/Redis BFF service with auth sessions handling more than half a million daily requests to Java microservices. Spearheaded migration using React, Node, and Remix. Leveraged Cloudflare Workers, VWO and SEOClarity for A/B testing and SEO gains.",
       "experience": [
-        "Cultivated engineering excellence by mentoring front-end developers, elevating code quality standards, and optimizing workflow automation processes.",
+        "Cultivated engineering excellence by mentoring frontend developers, elevating code quality standards, and optimizing workflow automation processes.",
         "Implemented comprehensive monitoring systems with AWS CloudWatch, AppDynamics, Heap, and Site24x7, ensuring platform stability and swift issue resolution.",
         "Actively shaped a high-performing engineering team through active involvement in recruitment, aligning talent acquisition with long-term technical goals."
       ]
     },
     {
       "order": 4,
-      "role": "Front-end Web Developer",
+      "role": "Frontend Web Developer",
       "duration": "Nov 2015 — May 2018",
       "employer": "Rated People",
       "website": "ratedpeople.com",
-      "intro": "Helped transition Front-end stack to AWS to enhance performance; Docker for scalable deployments. Spearheaded and developed custom signup app with automated vetting process using LAMP and Symfony2.",
+      "intro": "Helped transition Frontend stack to AWS to enhance performance; Docker for scalable deployments. Spearheaded and developed custom signup app with automated vetting process using LAMP and Symfony2.",
       "experience": [
         "Actively participated in platform rebranding during 2016, improving user engagement and brand perception.",
-        "Modernized Front-end tools chain to boost developer experience.",
+        "Modernized Frontend tools chain to boost developer experience.",
         "Pioneered cutting-edge UI/UX designs that enhanced user engagement and site functionality."
       ]
     },
@@ -222,20 +222,20 @@
       "tech": "TypeScript, JavaScript, PHP, SQL, Java, Swift, Bash, Ruby, Python"
     },
     {
-      "title": "Front-end",
-      "tech": "ReactJS, Remix, Redux, Tailwind, React Native, HTML5, CSS3, Sass, Styled Components"
+      "title": "Frontend",
+      "tech": "ReactJS, Remix, NextJS, Redux, Tailwind, React Native, HTML, JavaScript, CSS, Sass, Styled Components, Vite, Webpack, PWA, Service Workers, Web Sockets, ThreeJS, D3JS"
     },
     {
-      "title": "Back-end",
-      "tech": "NodeJS, Express, GraphQL, Symfony, Laravel, Redis, REST APIs, Elastic"
+      "title": "Backend",
+      "tech": "NodeJS, Express, GraphQL, Symfony, Laravel, Redis, REST APIs, Elastic, RabbitMQ, MySQL, MongoDB, AWS DynamoDB"
     },
     {
       "title": "AI/ML",
-      "tech": "OpenAI, Google Gemini, Anthropic, GitHub Copilot, Augment, Prompt Engineering, AI Agents, TensorFlow"
+      "tech": "OpenAI, Gemini, Anthropic/Claude, GitHub Copilot, Augment, Prompt Engineering, AI Agents, Hugging Face, TensorFlow, DALL-E"
     },
     {
       "title": "Management",
-      "tech": "Jira, Confluence, Agile (Scrum/Kanban), GitHub"
+      "tech": "Jira, Confluence, Agile (Scrum/Kanban), GitHub, Bitbucket"
     },
     {
       "title": "Architecture",
@@ -243,7 +243,7 @@
     },
     {
       "title": "Cloud/DevOps",
-      "tech": "AWS, Cloudflare (Workers/Wrangler), Docker, GCP, GitHub Actions, Bamboo, Jenkins, Concourse, Atlassian"
+      "tech": "AWS, Cloudflare, Docker, GCP, GitHub Actions, Bamboo, Jenkins, Concourse, Fly, Atlassian, Akamai"
     },
     {
       "title": "Testing",
@@ -252,7 +252,7 @@
 
     {
       "title": "Observability/UX",
-      "tech": "AppDynamics, Site24x7, VWO, SEOClarity, Figma, Elastic APM, Heap Analytics, Google Lighthouse, WebPageTest, Datadog, Grafana, Prometheus, CloudWatch, Catchpoint, Google Analytics"
+      "tech": "AppDynamics, Site24x7, VWO, Optimizely, SEOClarity, Elastic APM, Heap Analytics, Lighthouse, WebPageTest, Datadog, Grafana, Prometheus, CloudWatch, Catchpoint, Google Analytics, OpenTelemetry, BetterStack, Figma"
     }
   ],
   "volunteering": [
