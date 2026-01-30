@@ -6,7 +6,7 @@ const PROJECT_LINK_SELECTOR = 'main a[href^="/projects/"]';
 test.describe('Projects Page', () => {
   test('should load projects page', async ({ page }) => {
     await page.goto('/projects');
-    await expect(page).toHaveTitle('Projects');
+    await expect(page).toHaveTitle('Projects - Jabran Rafique');
   });
 
   test('should display projects list', async ({ page }) => {

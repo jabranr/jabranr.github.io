@@ -3,7 +3,7 @@ const { test, expect } = require('@playwright/test');
 test.describe('Speaking Page', () => {
   test('should load speaking page', async ({ page }) => {
     await page.goto('/speaking');
-    await expect(page).toHaveTitle('Speaking');
+    await expect(page).toHaveTitle('Speaking - Jabran Rafique');
   });
 
   test('should display speaking content with headings', async ({ page }) => {

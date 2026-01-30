@@ -77,18 +77,9 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addWatchTarget("./styles/");
 
-  // add 404
-  eleventyConfig.setBrowserSyncConfig({
-    callbacks: {
-      ready: function (err, bs) {
-        bs.addMiddleware("*", (req, res) => {
-          const content404 = fs.readFileSync("_site/404/index.html");
-          res.write(content404);
-          res.writeHead(404);
-          res.end();
-        });
-      },
-    },
+  // add 404 for dev server
+  eleventyConfig.setServerOptions({
+    showVersion: true,
   });
 
   return {

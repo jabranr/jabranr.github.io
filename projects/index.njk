@@ -3,8 +3,8 @@ layout: page.njk
 title: Projects
 description: Here is list of projects I have worked on from time to time.
 eleventyExcludeFromCollections: true
-renderData:
-  title: Projects{% if pagination.pageNumber > 0 %} - Page {{ pagination.pageNumber + 1 }}{% endif %}
+eleventyComputed:
+  title: "{% if pagination.pageNumber > 0 %}Projects - Page {{ pagination.pageNumber + 1 }}{% else %}Projects{% endif %}"
 pagination:
   data: collections.projects
   size: 10

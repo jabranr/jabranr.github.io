@@ -6,7 +6,7 @@ const ARTICLE_LINK_SELECTOR = 'main a[href^="/articles/"]';
 test.describe('Articles Page', () => {
   test('should load articles page', async ({ page }) => {
     await page.goto('/articles');
-    await expect(page).toHaveTitle('Articles');
+    await expect(page).toHaveTitle('Articles - Jabran Rafique');
   });
 
   test('should display articles list', async ({ page }) => {

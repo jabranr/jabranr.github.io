@@ -3,8 +3,8 @@ layout: page.njk
 title: Articles
 description: An archived collection of articles by Jabran Rafique
 eleventyExcludeFromCollections: true
-renderData:
-  title: Articles{% if pagination.pageNumber > 0 %} - Page {{ pagination.pageNumber + 1 }}{% endif %}
+eleventyComputed:
+  title: "{% if pagination.pageNumber > 0 %}Articles - Page {{ pagination.pageNumber + 1 }}{% else %}Articles{% endif %}"
 pagination:
   data: collections.articles
   size: 10
