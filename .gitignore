@@ -3,3 +3,8 @@ node_modules/
 _site/
 public/main.css
 public/resume.css
+
+# Playwright
+test-results/
+playwright-report/
+playwright/.cache/
