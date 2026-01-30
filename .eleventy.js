@@ -8,9 +8,10 @@ const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const dotenvFile = path.resolve(__dirname, `./.env.${process.env.NODE_ENV}`);
 
 if (fs.existsSync(dotenvFile)) {
-  require("dotenv-expand").expand(
-    require("dotenv").config({
+  require('dotenv-expand').expand(
+    require('dotenv').config({
       path: dotenvFile,
+      quiet: true
     })
   );
 }
