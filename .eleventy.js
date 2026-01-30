@@ -8,9 +8,10 @@ const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const dotenvFile = path.resolve(__dirname, `./.env.${process.env.NODE_ENV}`);
 
 if (fs.existsSync(dotenvFile)) {
-  require("dotenv-expand").expand(
-    require("dotenv").config({
+  require('dotenv-expand').expand(
+    require('dotenv').config({
       path: dotenvFile,
+      quiet: true
     })
   );
 }
@@ -21,6 +22,14 @@ module.exports = function (eleventyConfig) {
   // add config to globals
   Object.keys(config).forEach((k) => {
     eleventyConfig.addNunjucksGlobal(`env_${k}`, config[k]);
+  });
+
+  // combine collections for RSS
+  eleventyConfig.addCollection("rss", function (collectionApi) {
+    return [
+      ...collectionApi.getFilteredByTag("articles"),
+      ...collectionApi.getFilteredByTag("projects"),
+    ].sort((a, b) => b.date - a.date);
   });
 
   // add plugins
@@ -76,18 +85,9 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addWatchTarget("./styles/");
 
-  // add 404
-  eleventyConfig.setBrowserSyncConfig({
-    callbacks: {
-      ready: function (err, bs) {
-        bs.addMiddleware("*", (req, res) => {
-          const content404 = fs.readFileSync("_site/404/index.html");
-          res.write(content404);
-          res.writeHead(404);
-          res.end();
-        });
-      },
-    },
+  // add 404 for dev server
+  eleventyConfig.setServerOptions({
+    showVersion: true,
   });
 
   return {

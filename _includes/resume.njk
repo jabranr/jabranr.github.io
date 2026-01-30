@@ -1,7 +1,7 @@
 {% if not title %}
   {% set title = 'Jabran Rafique - Full Stack Web Engineer' %}
 {% else %}
-  {% set title = ((renderData and renderData.title) or title) ~ " - Jabran Rafique" %}
+  {% set title = title ~ " - Jabran Rafique" %}
 {% endif %}
 
 {% if not description %}
@@ -11,13 +11,13 @@
 <html lang="en" xmlns:fb="http://ogp.me/ns/fb#" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <title>{{ (renderData and renderData.title) or title }}</title>
-    <meta name="description" content="{{ (renderData and renderData.description) or description }}" />
-    <meta name="keywords" content="blog, jabran, rafique, html, css, javascript, react, php, full stack, Frontend{{ (renderData and ', ' ~ renderData.keywords)  }}" />
+    <title>{{ title }}</title>
+    <meta name="description" content="{{ description }}" />
+    <meta name="keywords" content="blog, jabran, rafique, html, css, javascript, react, php, full stack, Frontend" />
     <meta name="generator" content="{{eleventy.generator}}" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="{{ title }}" />
-    <meta property="og:description" content="{{ (renderData and renderData.description) or description }}" />
+    <meta property="og:description" content="{{ description }}" />
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@jabranr">
     <meta name="twitter:creator" content="@jabranr">
