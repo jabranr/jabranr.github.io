@@ -10,7 +10,11 @@
     "css:main": "tailwindcss -w -i ./styles/main.css -o ./public/main.css",
     "css:resume": "tailwindcss -w -i ./styles/resume.css -o ./public/resume.css",
     "build:css": "tailwindcss -m -i ./styles/main.css -o ./public/main.css && tailwindcss -m -i ./styles/resume.css -o ./public/resume.css",
-    "build": "npm run build:css && NODE_ENV=production eleventy"
+    "build": "npm run build:css && NODE_ENV=production eleventy",
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:ui": "playwright test --ui",
+    "test:report": "playwright show-report"
   },
   "repository": {
     "type": "git",
@@ -37,6 +41,7 @@
     "@11ty/eleventy": "^1.0.2",
     "@11ty/eleventy-plugin-syntaxhighlight": "^4.2.0",
     "@jabranr-lab/prettier": "^1.2.1",
+    "@playwright/test": "^1.58.0",
     "autoprefixer": "^10.4.21",
     "cloudflare": "^2.9.1",
     "dayjs": "^1.11.19",
