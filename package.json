@@ -13,8 +13,8 @@
     "build:css": "tailwindcss -m -i ./styles/main.css -o ./public/main.css && tailwindcss -m -i ./styles/resume.css -o ./public/resume.css",
     "build": "npm run build:css && NODE_ENV=production eleventy",
     "test": "playwright test",
-    "test:headed": "npm run test --headed",
-    "test:ui": "npm run test --ui",
+    "test:headed": "npm run test -- --headed",
+    "test:ui": "npm run test -- --ui",
     "test:report": "playwright show-report"
   },
   "repository": {

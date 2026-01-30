@@ -24,12 +24,14 @@ permalink: "/articles/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber
 {% endfor %}
 
 
-<section class="inline-flex items-center justify-center font-bold text-base my-12">
-  {% for pageEntry in pagination.pages %}
-    {% if pagination.hrefs[loop.index0] == '/articles/1/' or page.url == pagination.hrefs[loop.index0] %}
-      <span class="block bg-[#eee] w-8 h-8 rounded-full text-center p-1" aria-current="page">{{ loop.index }}</span>
-    {% else %}
-      <a class="block w-8 h-8 rounded-full text-center p-1" href="/articles/{% if loop.index != loop.first %}{{ loop.index }}/{% endif %}">{{ loop.index }}</a>
-    {% endif %}
-  {% endfor %}
-</section>
+{% if pagination.pages.length > 1 %}
+  <nav data-testid="pagination" id="pagination" class="inline-flex items-center justify-center font-bold text-base my-12">
+    {% for pageEntry in pagination.pages %}
+      {% if pagination.hrefs[loop.index0] == '/articles/1/' or page.url == pagination.hrefs[loop.index0] %}
+        <span class="block bg-[#eee] w-8 h-8 rounded-full text-center p-1" aria-current="page" aria-label="Page {{ loop.index }}">{{ loop.index }}</span>
+      {% else %}
+        <a class="block w-8 h-8 rounded-full text-center p-1" href="/articles/{% if loop.index != loop.first %}{{ loop.index }}/{% endif %}"  aria-label="Go to page {{ loop.index }}">{{ loop.index }}</a>
+      {% endif %}
+    {% endfor %}
+  </nav>
+{% endif %}

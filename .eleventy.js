@@ -24,6 +24,14 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addNunjucksGlobal(`env_${k}`, config[k]);
   });
 
+  // combine collections for RSS
+  eleventyConfig.addCollection("rss", function (collectionApi) {
+    return [
+      ...collectionApi.getFilteredByTag("articles"),
+      ...collectionApi.getFilteredByTag("projects"),
+    ].sort((a, b) => b.date - a.date);
+  });
+
   // add plugins
   eleventyConfig.addPlugin(timeToRead);
   eleventyConfig.addPlugin(syntaxHighlight);

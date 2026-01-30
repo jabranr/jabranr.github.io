@@ -27,8 +27,8 @@
     <email>{{ metadata.author.email }}</email>
   </author>
 
-  {%- for collection in collections.all | reverse -%}
-    {%- if not collection.data.draft -%}
+  {%- for collection in collections.rss -%}
+    {%- if not collection.data.private -%}
     <entry>
       <title>{{ collection.data.title }}</title>
       <link href="{{ collection.url | absoluteUrl  }}"/>
@@ -38,4 +38,5 @@
     </entry>
     {%- endif -%}
   {%- endfor -%}
+
 </feed>

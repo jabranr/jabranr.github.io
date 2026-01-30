@@ -28,7 +28,7 @@ permalink: "/projects/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber
   </section>
 {% endfor %}
 
-<section class="inline-flex items-center justify-center font-bold text-base my-12">
+<nav data-testid="pagination" id="pagination" class="inline-flex items-center justify-center font-bold text-base my-12">
   {% for pageEntry in pagination.pages %}
     {% if pagination.hrefs[loop.index0] == '/projects/1/' or page.url == pagination.hrefs[loop.index0] %}
       <span class="block bg-[#eee] w-8 h-8 rounded-full text-center p-1" aria-current="page">{{ loop.index }}</span>
@@ -36,4 +36,4 @@ permalink: "/projects/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber
       <a class="block w-8 h-8 rounded-full text-center p-1" href="/projects/{% if loop.index != loop.first %}{{ loop.index }}/{% endif %}">{{ loop.index }}</a>
     {% endif %}
   {% endfor %}
-</section>
+</nav>

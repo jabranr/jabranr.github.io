@@ -1,4 +1,4 @@
-const { test, expect } = require('@playwright/test');
+import { test, expect } from '@playwright/test';
 
 test.describe('Resume Page', () => {
   test('should load resume page', async ({ page }) => {
@@ -8,7 +8,7 @@ test.describe('Resume Page', () => {
 
   test('should display resume content', async ({ page }) => {
     await page.goto('/resume');
-    
+
     // Check for resume-related content
     const content = await page.textContent('body');
     expect(content).toContain('Jabran');
@@ -16,7 +16,7 @@ test.describe('Resume Page', () => {
 
   test('should have structured resume sections', async ({ page }) => {
     await page.goto('/resume');
-    
+
     // Resume typically has sections - check for headings
     const headings = page.locator('h1, h2, h3');
     const count = await headings.count();
