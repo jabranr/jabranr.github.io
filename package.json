@@ -1,5 +1,5 @@
 {
-  "name": "jabranr.github.io",
+  "name": "@jabraf/personal-website",
   "version": "3.0.0",
   "description": "Jabran Rafique's personal website and blog",
   "main": "index.js",
@@ -12,11 +12,10 @@
     "css:resume": "tailwindcss -w -i ./styles/resume.css -o ./public/resume.css",
     "build:css": "tailwindcss -m -i ./styles/main.css -o ./public/main.css && tailwindcss -m -i ./styles/resume.css -o ./public/resume.css",
     "build": "npm run build:css && NODE_ENV=production eleventy",
-    "test": "npm run test:integration",
-    "test:integration": "playwright test",
-    "test:integration:headed": "playwright test --headed",
-    "test:integration:ui": "playwright test --ui",
-    "test:integration:report": "playwright show-report"
+    "test": "playwright test",
+    "test:headed": "npm run test --headed",
+    "test:ui": "npm run test --ui",
+    "test:report": "playwright show-report"
   },
   "repository": {
     "type": "git",
@@ -37,15 +36,14 @@
     "name": "Jabran Rafique",
     "email": "hello@jabran.me"
   },
-  "prettier": "@jabranr-lab/prettier",
+  "prettier": "@jabraf/prettier",
   "license": "MIT",
   "devDependencies": {
     "@11ty/eleventy": "^1.0.2",
     "@11ty/eleventy-plugin-syntaxhighlight": "^4.2.0",
-    "@jabranr-lab/prettier": "^1.2.1",
+    "@jabraf/prettier": "^3.0.1",
     "@playwright/test": "^1.58.0",
     "autoprefixer": "^10.4.21",
-    "baseline-browser-mapping": "^2.9.19",
     "cloudflare": "^2.9.1",
     "dayjs": "^1.11.19",
     "dotenv": "^16.6.1",
