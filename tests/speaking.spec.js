@@ -6,19 +6,24 @@ test.describe('Speaking Page', () => {
     await expect(page).toHaveTitle('Speaking');
   });
 
-  test('should display speaking content', async ({ page }) => {
+  test('should display speaking content with headings', async ({ page }) => {
     await page.goto('/speaking');
     
-    // Check for speaking-related content
+    // Check for speaking page structure with headings
+    const headings = page.locator('h1, h2, h3');
+    const headingCount = await headings.count();
+    expect(headingCount).toBeGreaterThan(0);
+    
+    // Verify the page has meaningful content
     const content = await page.textContent('body');
-    expect(content).toBeTruthy();
+    expect(content.length).toBeGreaterThan(100);
   });
 
-  test('should have content sections', async ({ page }) => {
+  test('should have main content area', async ({ page }) => {
     await page.goto('/speaking');
     
-    // Check for some structure
-    const body = await page.locator('body');
-    await expect(body).toBeVisible();
+    // Check for main content section
+    const main = page.locator('main, .main, [role="main"]').first();
+    await expect(main).toBeVisible();
   });
 });
