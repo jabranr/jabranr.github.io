@@ -73,8 +73,11 @@ module.exports = function (eleventyConfig) {
     }
   );
 
-  eleventyConfig.addFilter('appVersion', function (value) {
-    return config.VERSION;
+  eleventyConfig.addFilter('appVersion', function () {
+    if (fs.existsSync('./version.txt')) {
+      return fs.readFileSync('./version.txt', 'utf8').trim();
+    }
+    return 'not-set';
   });
 
   // format date time
