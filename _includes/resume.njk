@@ -30,6 +30,8 @@
     <meta name="msapplication-TileImage" content="{{ '/apple-touch-icon.png' | absoluteUrl }}" />
     <meta name="msapplication-TileColor" content="#222222" />
     <meta name="theme-color" content="#222222" />
+    {# Gets replaced in post build script #}
+    <meta name="app:version" content="{{ 'VERSION' | appVersion }}" />
     <meta property="robots" content="noindex, nofollow" />
     <meta property="og:url" content="{{ page.url | absoluteUrl }}{% if page.url == '/' %}/{% endif %}">
     <link rel="canonical" href="{{ page.url | absoluteUrl }}{% if page.url == '/' %}/{% endif %}" />
