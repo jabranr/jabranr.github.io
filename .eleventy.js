@@ -1,9 +1,9 @@
-const fs = require("node:fs");
-const path = require("node:path");
-const util = require("node:util");
-const dayjs = require("dayjs");
-const timeToRead = require("eleventy-plugin-time-to-read");
-const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+const fs = require('node:fs');
+const path = require('node:path');
+const util = require('node:util');
+const dayjs = require('dayjs');
+const timeToRead = require('eleventy-plugin-time-to-read');
+const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 
 const dotenvFile = path.resolve(__dirname, `./.env.${process.env.NODE_ENV}`);
 
@@ -16,7 +16,7 @@ if (fs.existsSync(dotenvFile)) {
   );
 }
 
-const config = require("./_data/config");
+const config = require('./_data/config');
 
 module.exports = function (eleventyConfig) {
   // add config to globals
@@ -25,10 +25,10 @@ module.exports = function (eleventyConfig) {
   });
 
   // combine collections for RSS
-  eleventyConfig.addCollection("rss", function (collectionApi) {
+  eleventyConfig.addCollection('rss', function (collectionApi) {
     return [
-      ...collectionApi.getFilteredByTag("articles"),
-      ...collectionApi.getFilteredByTag("projects"),
+      ...collectionApi.getFilteredByTag('articles'),
+      ...collectionApi.getFilteredByTag('projects')
     ].sort((a, b) => b.date - a.date);
   });
 
@@ -37,21 +37,21 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(syntaxHighlight);
 
   // copy static assets
-  eleventyConfig.addPassthroughCopy("assets");
-  eleventyConfig.addPassthroughCopy({ "public/**": "." });
+  eleventyConfig.addPassthroughCopy('assets');
+  eleventyConfig.addPassthroughCopy({ 'public/**': '.' });
   eleventyConfig.addPassthroughCopy({
-    "node_modules/normalize.css/normalize.css": "assets/css/normalize.css",
+    'node_modules/normalize.css/normalize.css': 'assets/css/normalize.css'
   });
 
   // add dump for debugging
-  eleventyConfig.addFilter("dump", function (value) {
+  eleventyConfig.addFilter('dump', function (value) {
     return util.inspect(value, { depth: 5 });
   });
 
   // format numbers
-  eleventyConfig.addFilter("number_format", function (value) {
+  eleventyConfig.addFilter('number_format', function (value) {
     if (Number(value) === 0) {
-      return "N/A";
+      return 'N/A';
     }
 
     return Number(value).toLocaleString();
@@ -59,9 +59,9 @@ module.exports = function (eleventyConfig) {
 
   // format date time
   eleventyConfig.addFilter(
-    "format_date",
-    function (value, format = "MMMM DD, YYYY") {
-      if (format === "unix") {
+    'format_date',
+    function (value, format = 'MMMM DD, YYYY') {
+      if (format === 'unix') {
         return +dayjs();
       }
 
@@ -73,26 +73,30 @@ module.exports = function (eleventyConfig) {
     }
   );
 
+  eleventyConfig.addFilter('appVersion', function (value) {
+    return config.VERSION;
+  });
+
   // format date time
-  eleventyConfig.addFilter("absoluteUrl", function (value) {
-    if (!Boolean(value) || value === "/") {
+  eleventyConfig.addFilter('absoluteUrl', function (value) {
+    if (!Boolean(value) || value === '/') {
       return config.APP_HOSTNAME;
     }
 
-    const regulateSlash = value.startsWith("/") ? value : `'/'${value}`;
+    const regulateSlash = value.startsWith('/') ? value : `'/'${value}`;
     return `${config.APP_HOSTNAME}${regulateSlash}`;
   });
 
-  eleventyConfig.addWatchTarget("./styles/");
+  eleventyConfig.addWatchTarget('./styles/');
 
   // add 404 for dev server
   eleventyConfig.setServerOptions({
-    showVersion: true,
+    showVersion: true
   });
 
   return {
-    markdownTemplateEngine: "njk",
-    dataTemplateEngine: "njk",
-    htmlTemplateEngine: "njk",
+    markdownTemplateEngine: 'njk',
+    dataTemplateEngine: 'njk',
+    htmlTemplateEngine: 'njk'
   };
 };
