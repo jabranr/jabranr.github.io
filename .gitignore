@@ -3,6 +3,7 @@ node_modules/
 _site/
 public/main.css
 public/resume.css
+version.txt
 
 # Playwright
 test-results/

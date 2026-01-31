@@ -13,7 +13,7 @@
     "build:css": "tailwindcss -m -i ./styles/main.css -o ./public/main.css && tailwindcss -m -i ./styles/resume.css -o ./public/resume.css",
     "build": "NODE_ENV=production eleventy",
     "prebuild": "npm run build:css && npm run build:version",
-    "build:version": "GIT_VERSION=$(git rev-parse HEAD 2> /dev/null | head -c 7 || echo \"dev\") && export GIT_VERSION=\"$GIT_VERSION\"",
+    "build:version": "GIT_VERSION=$(git rev-parse HEAD 2> /dev/null | head -c 7 || echo \"dev\") && echo \"$GIT_VERSION\" > version.txt",
     "test": "playwright test",
     "test:headed": "npm run test -- --headed",
     "test:ui": "npm run test -- --ui",
