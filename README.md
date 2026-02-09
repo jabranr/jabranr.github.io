@@ -4,9 +4,10 @@ This is uncompiled source code for the personal website of Jabran Rafique.
 
 ## Documentation
 
-- **[AGENTS.md](./AGENTS.md)** - Comprehensive guidance for AI agents working on this codebase
+- **[AGENTS.md](./AGENTS.md)** - Quick start guide and documentation index for AI agents
 - **[TESTING.md](./TESTING.md)** - Testing guidelines and best practices
 - **[STYLING.md](./STYLING.md)** - Code style and formatting guidelines
+- **[docs/](./docs/)** - Additional project-specific guides (workflows, tasks, Eleventy conventions, architecture)
 
 ## Testing
 
