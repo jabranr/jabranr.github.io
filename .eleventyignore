@@ -1,2 +1,7 @@
 misc/
+docs/
+.github/agents/
+AGENTS.md
 README.md
+STYLING.md
+TESTING.md
