@@ -4,25 +4,36 @@ This document describes the project structure and infrastructure.
 
 ## Repository Structure
 
+```mermaid
+graph TD
+    ROOT["."]
+    ROOT --> DATA["_data/<br/>(Eleventy data files)"]
+    ROOT --> INCLUDES["_includes/<br/>(Nunjucks templates/partials)"]
+    ROOT --> ARTICLES["articles/<br/>(Blog articles in Markdown)"]
+    ROOT --> ASSETS["assets/<br/>(Static assets)"]
+    ROOT --> DOCS["docs/<br/>(AI agent documentation)"]
+    ROOT --> INTEGRATION["integration/<br/>(Playwright test files)"]
+    ROOT --> MISC["misc/<br/>(Miscellaneous files)"]
+    ROOT --> PROJECTS["projects/<br/>(Project pages)"]
+    ROOT --> PUBLIC["public/<br/>(Generated CSS and static files)"]
+    ROOT --> STYLES["styles/<br/>(Source CSS files)"]
+    ROOT --> ELEVENTY[".eleventy.js<br/>(Eleventy configuration)"]
+    ROOT --> INDEX["index.njk<br/>(Homepage template)"]
+    ROOT --> RESUME["resume.njk<br/>(Resume page template)"]
+    ROOT --> SPEAKING["speaking.njk<br/>(Speaking engagements)"]
+    ROOT --> SITEMAP["sitemap.njk<br/>(Sitemap template)"]
+    ROOT --> RSS["rss.njk<br/>(RSS feed template)"]
+    
+    style PUBLIC fill:#fff3cd
+    style DOCS fill:#d1ecf1
+    style INTEGRATION fill:#d1ecf1
 ```
-.
-├── _data/              # Eleventy data files (config, resume data, etc.)
-├── _includes/          # Reusable Nunjucks templates/partials
-├── articles/           # Blog articles in Markdown (.md)
-├── assets/             # Static assets (images, fonts, etc.)
-├── docs/               # AI agent documentation
-├── integration/        # Playwright test files (.spec.js)
-├── misc/               # Miscellaneous files
-├── projects/           # Project pages
-├── public/             # Generated CSS and static files
-├── styles/             # Source CSS files (Tailwind)
-├── .eleventy.js        # Eleventy configuration
-├── index.njk           # Homepage template
-├── resume.njk          # Resume page template
-├── speaking.njk        # Speaking engagements page
-├── sitemap.njk         # Sitemap template
-└── rss.njk            # RSS feed template
-```
+
+**Key directories:**
+- **Source content**: `articles/`, `projects/`, `_includes/`
+- **Generated files**: `public/` (do not modify directly)
+- **Configuration**: `.eleventy.js`, `tailwind.config.js`, `playwright.config.js`
+- **Documentation**: `docs/` (AI agent guides)
 
 ## Key Configuration Files
 
@@ -55,16 +66,27 @@ This document describes the project structure and infrastructure.
 - Pull requests (opened, synchronized, reopened)
 - Pushes to `main` branch
 
-**Steps:**
-1. Checkout code
-2. Setup Node.js 22 with npm cache
-3. Install dependencies with `npm ci`
-4. Build the site with `npm run build`
-5. Install Chromium browser for Playwright
-6. Run integration tests with `CI=true npm test`
-7. Upload test reports as artifacts (if tests fail)
+```mermaid
+flowchart TD
+    A[Trigger: PR or Push to main] --> B[Checkout code]
+    B --> C[Setup Node.js 22 with cache]
+    C --> D[Install dependencies: npm ci]
+    D --> E[Build site: npm run build]
+    E --> F[Install Chromium browser]
+    F --> G[Run tests: CI=true npm test]
+    G --> H{Tests passed?}
+    H -->|Yes| I[Success]
+    H -->|No| J[Upload test reports as artifacts]
+    J --> K[Fail]
+    
+    style A fill:#e1f5ff
+    style I fill:#d4edda
+    style K fill:#f8d7da
+```
 
 **Concurrency:** Cancels in-progress runs for the same ref to save resources.
+
+> **Note for AI Agents:** When documenting workflows or processes in this project, prefer Mermaid diagrams for visual clarity. Use `flowchart` for processes, `graph` for relationships, and `sequenceDiagram` for interactions. This improves comprehension and maintains consistency across documentation.
 
 ## Version Tracking
 

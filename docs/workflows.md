@@ -20,6 +20,17 @@ Access the site at: `http://localhost:8080`
 npm run build
 ```
 
+```mermaid
+flowchart LR
+    A[npm run build] --> B[Build CSS with Tailwind]
+    B --> C[Generate version.txt]
+    C --> D[Run Eleventy build]
+    D --> E[Output to _site/]
+    
+    style A fill:#e1f5ff
+    style E fill:#d4edda
+```
+
 **Build process:**
 1. Builds CSS with Tailwind (minified)
 2. Generates `version.txt` with git commit hash
