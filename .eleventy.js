@@ -80,6 +80,34 @@ module.exports = function (eleventyConfig) {
     return 'not-set';
   });
 
+  // Get OG image path for a page (convention-based)
+  eleventyConfig.addFilter('ogImage', function (page) {
+    if (!page || !page.url) {
+      return '/icon-1024x1024.png';
+    }
+
+    // Extract slug from URL
+    const urlParts = page.url.split('/').filter(Boolean);
+    if (urlParts.length === 0) {
+      return '/icon-1024x1024.png';
+    }
+
+    // Get the last part of the URL as the slug
+    const slug = urlParts[urlParts.length - 1];
+    const ogImagePath = path.resolve(
+      __dirname,
+      `./assets/images/og/${slug}.png`
+    );
+
+    // Check if OG image exists
+    if (fs.existsSync(ogImagePath)) {
+      return `/assets/images/og/${slug}.png`;
+    }
+
+    // Fallback to default icon
+    return '/icon-1024x1024.png';
+  });
+
   // format date time
   eleventyConfig.addFilter('absoluteUrl', function (value) {
     if (!Boolean(value) || value === '/') {
