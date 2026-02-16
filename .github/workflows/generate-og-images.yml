@@ -19,8 +19,6 @@ concurrency:
 jobs:
   generate:
     runs-on: ubuntu-latest
-    # Don't block the workflow on failure
-    continue-on-error: true
     
     steps:
       - name: Checkout repository
@@ -39,9 +37,7 @@ jobs:
       
       - name: Generate OG images
         id: generate
-        run: |
-          npm run og-images
-          echo "generated=true" >> $GITHUB_OUTPUT
+        run: npm run og-images
         continue-on-error: true
       
       - name: Check for changes
@@ -50,7 +46,7 @@ jobs:
           git diff --quiet assets/images/og/ || echo "changes=true" >> $GITHUB_OUTPUT
       
       - name: Commit and push changes
-        if: steps.check.outputs.changes == 'true'
+        if: steps.check.outputs.changes == 'true' && steps.generate.outcome == 'success'
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
@@ -61,7 +57,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       
       - name: Retry on failure
-        if: failure() && steps.generate.outcome == 'failure'
+        if: steps.generate.outcome == 'failure'
         run: |
           echo "⚠️ Initial OG image generation failed, retrying..."
           sleep 5

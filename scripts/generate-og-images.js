@@ -112,20 +112,20 @@ async function generateImage(filePath, force = false) {
   
   if (!frontmatter) {
     console.log(`⚠️  Skipping ${path.basename(filePath)}: No frontmatter found`);
-    return null;
+    return { status: 'skipped', reason: 'no_frontmatter' };
   }
   
   // Skip private/draft content
   if (frontmatter.private === true) {
     console.log(`⚠️  Skipping ${path.basename(filePath)}: Private content`);
-    return null;
+    return { status: 'skipped', reason: 'private' };
   }
   
   // Get title
   const title = frontmatter.title;
   if (!title) {
     console.log(`⚠️  Skipping ${path.basename(filePath)}: No title found`);
-    return null;
+    return { status: 'skipped', reason: 'no_title' };
   }
   
   // Generate slug from title
@@ -135,7 +135,7 @@ async function generateImage(filePath, force = false) {
   // Skip if file exists and not forcing
   if (!force && fs.existsSync(outputPath)) {
     console.log(`✓ ${slug}.png already exists`);
-    return null;
+    return { status: 'exists', path: outputPath };
   }
   
   try {
@@ -208,10 +208,10 @@ async function generateImage(filePath, force = false) {
     fs.writeFileSync(outputPath, buffer);
     
     console.log(`✅ Generated ${slug}.png`);
-    return outputPath;
+    return { status: 'generated', path: outputPath };
   } catch (error) {
     console.error(`❌ Error generating ${slug}.png:`, error.message);
-    return null;
+    return { status: 'error', error: error.message };
   }
 }
 
@@ -240,10 +240,13 @@ async function main() {
   
   for (const file of files) {
     const result = await generateImage(file, force);
-    if (result) {
+    
+    if (result.status === 'generated') {
       generated++;
-    } else if (result === null && fs.readFileSync(file, 'utf-8').match(/private:\s*true/)) {
+    } else if (result.status === 'skipped' || result.status === 'exists') {
       skipped++;
+    } else if (result.status === 'error') {
+      errors++;
     }
   }
   
