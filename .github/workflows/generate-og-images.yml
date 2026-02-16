@@ -1,0 +1,79 @@
+name: Generate OG Images
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'articles/**'
+      - 'projects/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: og-images-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    # Don't block the workflow on failure
+    continue-on-error: true
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Generate OG images
+        id: generate
+        run: |
+          npm run og-images
+          echo "generated=true" >> $GITHUB_OUTPUT
+        continue-on-error: true
+      
+      - name: Check for changes
+        id: check
+        run: |
+          git diff --quiet assets/images/og/ || echo "changes=true" >> $GITHUB_OUTPUT
+      
+      - name: Commit and push changes
+        if: steps.check.outputs.changes == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add assets/images/og/
+          git commit -m "chore: generate OG images for new/updated content [skip ci]"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Retry on failure
+        if: failure() && steps.generate.outcome == 'failure'
+        run: |
+          echo "⚠️ Initial OG image generation failed, retrying..."
+          sleep 5
+          npm run og-images
+          
+          if git diff --quiet assets/images/og/; then
+            echo "No changes to commit"
+          else
+            git config --local user.email "github-actions[bot]@users.noreply.github.com"
+            git config --local user.name "github-actions[bot]"
+            git add assets/images/og/
+            git commit -m "chore: generate OG images (retry) [skip ci]"
+            git push
+          fi
+        continue-on-error: true
