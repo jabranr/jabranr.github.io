@@ -100,18 +100,6 @@ function extractFrontmatter(content) {
 }
 
 /**
- * Create slug from title
- */
-function slugify(text) {
-  return text
-    .toString()
-    .toLowerCase()
-    .trim()
-    .replace(/[\s\W-]+/g, '-')
-    .replace(/^-+|-+$/g, '');
-}
-
-/**
  * Get all content files (articles and projects)
  */
 function getContentFiles() {
@@ -162,8 +150,8 @@ async function generateImage(filePath, force = false) {
     return { status: 'skipped', reason: 'no_title' };
   }
 
-  // Generate slug from title
-  const slug = slugify(title);
+  // use file name as slug instead of title to be aligned with how 11ty renders the page
+  const slug = path.basename(filePath, '.md');
   const outputPath = path.join(CONFIG.outputDir, `${slug}.png`);
 
   // Skip if file exists and not forcing

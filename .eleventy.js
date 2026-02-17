@@ -94,14 +94,11 @@ module.exports = function (eleventyConfig) {
 
     // Get the last part of the URL as the slug
     const slug = urlParts[urlParts.length - 1];
-    const ogImagePath = path.resolve(
-      __dirname,
-      `./assets/images/og/${slug}.png`
-    );
+    const ogImagePath = path.resolve(__dirname, `./public/og/${slug}.png`);
 
     // Check if OG image exists
     if (fs.existsSync(ogImagePath)) {
-      return `/assets/images/og/${slug}.png`;
+      return `/og/${slug}.png`;
     }
 
     // Fallback to default icon
