@@ -38,7 +38,7 @@ const CONFIG = {
       path: path.join(__dirname, './fonts/InstrumentSerif-Regular.ttf')
     }
   },
-  outputDir: path.join(__dirname, '../assets/images/og'),
+  outputDir: path.join(__dirname, '../public/og'),
   defaultImage: {
     title: 'Software Engineer. Sometimes maker of things.',
     slug: 'icon-1024x1024',

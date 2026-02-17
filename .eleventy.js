@@ -81,13 +81,13 @@ module.exports = function (eleventyConfig) {
   });
 
   // Get OG image path for a page (convention-based)
-  eleventyConfig.addFilter('ogImage', function (page) {
-    if (!page || !page.url) {
+  eleventyConfig.addFilter('ogImage', function (value) {
+    if (!value) {
       return '/icon-1024x1024.png';
     }
 
     // Extract slug from URL
-    const urlParts = page.url.split('/').filter(Boolean);
+    const urlParts = value.split('/').filter(Boolean);
     if (urlParts.length === 0) {
       return '/icon-1024x1024.png';
     }
