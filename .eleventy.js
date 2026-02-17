@@ -38,10 +38,7 @@ module.exports = function (eleventyConfig) {
 
   // copy static assets
   eleventyConfig.addPassthroughCopy('assets');
-  eleventyConfig.addPassthroughCopy({ 'public/**': '.' });
-  eleventyConfig.addPassthroughCopy({
-    'node_modules/normalize.css/normalize.css': 'assets/css/normalize.css'
-  });
+  eleventyConfig.addPassthroughCopy('public');
 
   // add dump for debugging
   eleventyConfig.addFilter('dump', function (value) {
