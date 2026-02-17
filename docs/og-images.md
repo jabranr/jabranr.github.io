@@ -5,10 +5,10 @@ This project automatically generates Open Graph (OG) images for all articles and
 ## Features
 
 - **Automatic generation**: Creates unique OG images for each article and project
-- **Custom design**: 
+- **Custom design**:
   - Dark background (#222222)
-  - Logo watermark with 0.35 opacity
-  - Title in Playfair Display font
+  - Logo watermark with low opacity
+  - Title in Serif font
   - Author attribution ("Jabran Rafique") in bottom right
   - Optimal dimensions: 1200x630px (recommended for all social platforms)
 - **Smart caching**: Only generates missing images (unless forced)
@@ -23,6 +23,7 @@ npm run og-images
 ```
 
 This will:
+
 - Scan all articles and projects
 - Skip private content
 - Generate images only for pages without existing OG images
