@@ -6,7 +6,7 @@ categories: articles
 tags: ['articles', Google, Maps, StreetView, Earth, Live satellite images]
 excerpt: 'Informational article explaining Google mapping products and how they work. Also covers relevant Google products directly or indirectly involved.'
 permalink:
-thumbnail: ../../assets/images/google-maps-logo.jpg
+thumbnail: assets/images/google-maps-logo.jpg
 comment: true
 private: false
 ---
@@ -25,14 +25,14 @@ The sattelite images on these products actually are not captured by Google itsel
 
 These images are taken from time to time, analyzed, processed and then made available to the products. Some of the possible important things to consider here are:
 
-+ bright sun light
-+ no clouds
-+ no long shadows
-+ less traffic on roads
-+ less human activity on streets
-+ less air traffic activity
+- bright sun light
+- no clouds
+- no long shadows
+- less traffic on roads
+- less human activity on streets
+- less air traffic activity
 
-and list probably continues. For example, you will also note that images in Google StreetView are mostly taken on a weekend or at time of the day with less activities as you can see most businesses are shut normally. *hint*
+and list probably continues. For example, you will also note that images in Google StreetView are mostly taken on a weekend or at time of the day with less activities as you can see most businesses are shut normally. _hint_
 
 > There are no live sattelite images on Google mapping products – at least not yet!
 
@@ -66,18 +66,15 @@ Map data synchronization works opposite to how it is mentioned above for satteli
 
 > Others products that have indirect attachments to Google Maps are [Google Business](https://www.google.com/business/) (previously Places) and [Panoramio](http://www.panoramio.com/).
 
-
 ### Here comes the live imagery: <sup>3</sup>
 
 [Google recently bought Skybox](http://www.fastcompany.com/3023325/fast-feed/proof-that-cheaper-satellites-still-can-take-incredibly-detailed-photos-of-earth), a company aiming to provide HD quality live satellite footage at public domains. It is becoming more apparent that live imagery is not too far away from being a reality with [these stunning satelling images and HD quality videos](http://www.firstimagery.skybox.com/) taken from SkySat-1 satellite. Here is Burj Khalifa, Dubai in one of the footages:
 
 <iframe src="//player.vimeo.com/video/92251790?title=0&amp;byline=0&amp;portrait=0" width="100%" height="432" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
-
 If you think that I have missed something in this article, let me know in comments below and I'll try to answer.
 
 Enjoy beautiful universe!
-
 
 <footer>
 

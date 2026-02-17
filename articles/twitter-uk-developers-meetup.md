@@ -6,7 +6,7 @@ categories: articles
 tags: ['articles', Twitter UK, Twitter API, Developer]
 excerpt: 'Experience tale of attending first ever Twitter Developers meetup by Twitter UK in London.'
 permalink:
-thumbnail: ../../assets/images/twitter-uk-office.jpg
+thumbnail: assets/images/twitter-uk-office.jpg
 comment: true
 private: false
 ---
@@ -26,7 +26,6 @@ A clear focus of this meetup was missing though as well as Twitter Dev team whic
 <blockquote class="twitter-tweet" lang="en"><p><a href="https://twitter.com/hashtag/twitterdevuk?src=hash">#twitterdevuk</a> meetup at new twitter office in London. I think there are more FT employees here than Twitter staff.</p>&mdash; Andrew Betts (@triblondon) <a href="https://twitter.com/triblondon/statuses/488759388287795200">July 14, 2014</a></blockquote>
 
 Since this was the first ever meetup, I guess they will make it better with time but for now well done!
-
 
 <footer>
 

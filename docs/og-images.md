@@ -48,21 +48,15 @@ Use this when you want to update all images (e.g., after design changes).
    - Uses generated image if it exists
    - Falls back to default icon if not found
 
-3. **GitHub Actions**: Workflow automatically generates images when:
-   - Content is pushed to main branch
-   - Manual trigger via workflow dispatch
-   - Changes are committed back to the repository
-
 ## File Structure
 
 ```
-assets/images/og/          # Generated OG images
+public/og/          # Generated OG images
 scripts/
   ├── generate-og-images.js  # Image generation script
   └── fonts/
-      └── PlayfairDisplay-Bold.ttf  # Custom font
-.github/workflows/
-  └── generate-og-images.yml  # Automation workflow
+      └── InstrumentSerif-Regular.ttf  # Custom font
+      └── Inter-VariableFont_opsz,wght.ttf  # Custom font
 ```
 
 ## Customization

@@ -7,7 +7,7 @@ excerpt: >
   This jQuery plugin uses form field placeholder attribute to provide a fallback support for incompatible browsers.
 code: https://github.com/jabranr/jquery.placeholderfallback.js
 private: false
-thumbnail: ../../assets/images/projects/placeholder-fallback.png
+thumbnail: assets/images/projects/placeholder-fallback.png
 featured: true
 ---
 

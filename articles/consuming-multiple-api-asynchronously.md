@@ -16,7 +16,7 @@ tags:
   ]
 excerpt: 'Consuming multiple APIs parallel to each other can be very tricky. Here is a detailed case study to chain multiple APIs with each other using JavaScript’s asynchronous approach.'
 permalink:
-thumbnail: ../../assets/images/usa-outdoors-adventure.jpg
+thumbnail: assets/images/usa-outdoors-adventure.jpg
 comment: true
 private: false
 ---

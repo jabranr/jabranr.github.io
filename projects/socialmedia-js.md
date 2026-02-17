@@ -7,7 +7,7 @@ excerpt: >
   Use JavaScript based SDKs for various social media platforms conveniently.
 code: http://git.io/socialmedia.js
 private: false
-thumbnail: ../../assets/images/projects/socialmedia.png
+thumbnail: assets/images/projects/socialmedia.png
 featured: true
 ---
 
