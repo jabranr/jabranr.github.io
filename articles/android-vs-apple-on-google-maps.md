@@ -3,10 +3,20 @@ layout: post
 title: Android vs Apple at Google Maps
 date: 2015-04-25 18:00:00
 categories: articles
-tags: ['articles', Pakistan, Google Maps, Android, Apple, Skype, Mapping, Google Map Maker]
+tags:
+  [
+    'articles',
+    Pakistan,
+    Google Maps,
+    Android,
+    Apple,
+    Skype,
+    Mapping,
+    Google Map Maker
+  ]
 excerpt: 'Here I am covering details regarding series of vandalism at Google Maps that originated from Google Map Maker.'
 permalink:
-thumbnail: ../../assets/images/android_bot_peeing_on_apple_logo.png
+thumbnail: assets/images/android_bot_peeing_on_apple_logo.png
 comment: true
 private: false
 ---

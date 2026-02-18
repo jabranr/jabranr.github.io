@@ -7,7 +7,7 @@ tags:
   ['articles', Google Maps, Mapping, Geography, Quiz, Education, World Capitals]
 excerpt: 'Test your geo skills with Guess Where? app. Guess name of the unmarked capital from given options. You can also choose a region or play quiz for whole world.'
 permalink:
-thumbnail: ../../assets/images/guess_where_quiz_app.png
+thumbnail: assets/images/guess_where_quiz_app.png
 comment: true
 private: false
 ---

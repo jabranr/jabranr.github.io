@@ -6,7 +6,7 @@ categories: articles
 tags: ['articles', iOS, Xcode, Mac OS X, Cocoa, Apple, Swift, Development]
 excerpt: 'I recently went into learning iOS development. Here is all about so far experience and what future holds in it with new child in Cocoa family called Swift.'
 permalink:
-thumbnail: ../../assets/images/wwdc-swift-launch.png
+thumbnail: assets/images/wwdc-swift-launch.png
 comment: true
 private: false
 ---
@@ -22,7 +22,7 @@ I have to confess that originally it was C family syntax that held me start lear
 
 `- (void) didReceiveMemoryWarning { … }`
 
-As a web developer with history of working with a bit *different* kind of languages, some of the stuff in C family is both exciting and confusing at the same time. However, since all programming languages share the core concepts therefore it’s just a matter of getting familiar with new extra-lengthy-excitingly-confusing syntax.
+As a web developer with history of working with a bit _different_ kind of languages, some of the stuff in C family is both exciting and confusing at the same time. However, since all programming languages share the core concepts therefore it’s just a matter of getting familiar with new extra-lengthy-excitingly-confusing syntax.
 
 But so far so good! I find it interesting and fun to learn Objective-C. Since I didn't have any clue about C family, I actually found this as a wonderful opportunity to learn one of those too. Therefore I have chosen C++ as a side learning with Objective-C.
 
@@ -32,6 +32,6 @@ One of the fascinating things in Swift seems to be eliminating the complex namin
 
 Apple released a starter guide to learn Swift language – which actually is more than just a beginner’s guide. It is available at Apple app store and can be downloaded as an [eBook from iTunes or iBooks](https://itunes.apple.com/us/book/the-swift-programming-language/id881256329?mt=11).
 
-Apple continues to support Objective-C and in fact it is possible to use both languages to build the apps. Getting a new *easy to learn* language doesn't mean that I'm going to just leave Objective-C and C++ in the middle. In fact I will carry on as usual and then adding Swift into this list eventually – just in time for iOS8 release in coming fall since it is the future of Cocoa apps.
+Apple continues to support Objective-C and in fact it is possible to use both languages to build the apps. Getting a new _easy to learn_ language doesn't mean that I'm going to just leave Objective-C and C++ in the middle. In fact I will carry on as usual and then adding Swift into this list eventually – just in time for iOS8 release in coming fall since it is the future of Cocoa apps.
 
 Happy learning!

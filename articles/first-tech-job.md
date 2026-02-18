@@ -6,7 +6,7 @@ categories: articles
 tags: ['articles', 'FirstTechJob', 'education', 'web design', 'web development']
 excerpt: 'Recent involvement in #FirstTechJob discussion on Twitter brought out all nostalgic memories. Here I tell my life changing story from medical education to computing.'
 permalink:
-thumbnail: ../../assets/images/
+thumbnail: assets/images/
 comment: true
 private: false
 ---

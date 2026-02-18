@@ -6,40 +6,38 @@ categories: articles
 tags: ['articles', Urdu, Typeface, Type, Font, Webfont, Google]
 excerpt: 'Today, Google Web Fonts Early Access announced experimental draft of Noto Nastaleeq typeface. This move makes it a first Urdu Nastaleeq font available in famous web fonts repository.'
 permalink:
-thumbnail: ../../assets/images/google-noto-nastaleeq-draft.jpg
+thumbnail: assets/images/google-noto-nastaleeq-draft.jpg
 comment: true
 private: false
 ---
 
 Today, Google Web Fonts Early Access [announced experimental draft of Noto Nastaleeq](http://googledevelopers.blogspot.com.au/2014/11/i-can-get-another-if-i-break-it.html?utm_campaign=noto-urdu-1114&utm_source=jabran.me) (NN) typeface. This move makes it a first Urdu Nastaleeq font available in famous web fonts repository.
 
-
 ### Using as Desktop font:
 
 The typeface is available to [download as a single True-Type Font](http://www.google.com/get/noto/) (TTF) file in compressed ZIP format. The major thing to notice is the file size that is amazingly small (~289KB) but keeping in mind the fact that this is an experimental release so file size may increase with future updates. Nevertheless, download the file and simply install the font to use in various system software as well as read web sites that list this typeface in their `font-family`.
-
 
 ### Using as Web font:
 
 Now comes the interesting part where you have a website in Urdu language and you would like to set Nastaleeq typeface as part of default `font-family`. You can get information on it from [Google Web Fonts Early Access](http://www.google.com/fonts/earlyaccess?utm_campaign=noto-urdu-1114&utm_source=jabran.me) page. Grab the CSS from the page or here you go:
 
 ```html
-<link rel="stylesheet" href="//fonts.googleapis.com/earlyaccess/notonastaliqurdudraft.css">
+<link
+  rel="stylesheet"
+  href="//fonts.googleapis.com/earlyaccess/notonastaliqurdudraft.css"
+/>
 ```
 
 or Import into CSS:
 
 ```css
 @import url(http://fonts.googleapis.com/earlyaccess/notonastaliqurdudraft.css);
-
 ```
 
 Then update the `font-family` to include Noto Nastaleeq as suggested and you are good to go.
 
 ```html
-body {
-	font-family: 'Noto Nastaliq Urdu Draft', serif;
-}
+body { font-family: 'Noto Nastaliq Urdu Draft', serif; }
 ```
 
 ### Reliability / Issues:
@@ -63,7 +61,6 @@ Urdu fonts have strong support with Naskh and Nastaleeq typefaces for desktop us
 Some of the very well known projects are by [Center for Language Engineering](http://www.cle.org.pk) (CLE), formely Center for Research in Urdu Language Processing (CRULP). They have [number of fonts](http://www.cle.org.pk/software/localization.htm), in both Naskh and Nastaleeq typefaces that are available to use under appropriate public licenses. However, only [Nafees Pakistani Web Naskh](http://www.cle.org.pk/software/localization/Fonts/nafeesPakistaniWebNaskh.html) is an optimized web compatible font. [Taj Nastaleeq by Alqlm](http://taj.alqlm.org/) is another very comprehensive Urdu Nastaleeq font available for desktop use only under public license. The team behind Taj Nastaleeq has reportedly been working on its web edition.
 
 If you are just a web user on PC and only wish to ready and write in Urdu (Naskh/Nastaleeq) over the web then you can try [Pak Urdu Installer](http://www.mbilalm.com/blog/pak-urdu-installer-en/) made by M Bilal that makes PC compatible for Urdu with simple few steps installation process.
-
 
 ### Conclusion
 

@@ -38,10 +38,7 @@ module.exports = function (eleventyConfig) {
 
   // copy static assets
   eleventyConfig.addPassthroughCopy('assets');
-  eleventyConfig.addPassthroughCopy({ 'public/**': '.' });
-  eleventyConfig.addPassthroughCopy({
-    'node_modules/normalize.css/normalize.css': 'assets/css/normalize.css'
-  });
+  eleventyConfig.addPassthroughCopy({ public: '.' });
 
   // add dump for debugging
   eleventyConfig.addFilter('dump', function (value) {
@@ -78,6 +75,31 @@ module.exports = function (eleventyConfig) {
       return fs.readFileSync('./version.txt', 'utf8').trim();
     }
     return 'not-set';
+  });
+
+  // Get OG image path for a page (convention-based)
+  eleventyConfig.addFilter('ogImage', function (value) {
+    if (!value) {
+      return '/icon-1024x1024.png';
+    }
+
+    // Extract slug from URL
+    const urlParts = value.split('/').filter(Boolean);
+    if (urlParts.length === 0) {
+      return '/icon-1024x1024.png';
+    }
+
+    // Get the last part of the URL as the slug
+    const slug = urlParts[urlParts.length - 1];
+    const ogImagePath = path.resolve(__dirname, `./public/og/${slug}.png`);
+
+    // Check if OG image exists
+    if (fs.existsSync(ogImagePath)) {
+      return `/og/${slug}.png`;
+    }
+
+    // Fallback to default icon
+    return '/icon-1024x1024.png';
   });
 
   // format date time

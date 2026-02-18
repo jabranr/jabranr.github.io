@@ -10,7 +10,7 @@ tags:
 excerpt: 'Socialmedia.js is a JavaScript library that enables social media functions and plugins in web apps and websites. It reduces the pain of collecting code snippets and their setup.'
 comment: true
 private: false
-thumbnail: ../../assets/images/socialmedia-js.png
+thumbnail: assets/images/socialmedia-js.png
 ---
 
 Those who often work with [Facebook API](https://developers.facebook.com/) are aware that how tedious it could be to go find the appropriate code script(s)for [Facebook SDK](https://developers.facebook.com/docs/sdks/) to make various Facebook API functions available into their applications. So was the case with me when I started working with [Facebook applications](http://jabran.me/understanding-user-journey-in-facebook-applications/) about half a year ago.

@@ -15,6 +15,7 @@ This project follows consistent code style conventions enforced through automate
 Code is automatically formatted on commit via Husky pre-commit hook.
 
 **Manual Formatting:**
+
 ```bash
 # Format specific files
 npx prettier --write src/file.js
@@ -31,6 +32,7 @@ npx prettier --check .
 **Configuration**: `.editorconfig`
 
 Settings enforced by EditorConfig:
+
 - **Indent Style**: Spaces
 - **Indent Size**: 2 spaces
 - **End of Line**: LF (Unix-style)
@@ -58,11 +60,11 @@ function calculateTotal(items) {
 
 // ❌ Bad: 4-space indentation, unclear names
 function calc(x) {
-    let t = 0;
-    for (const i of x) {
-        t += i.p;
-    }
-    return t;
+  let t = 0;
+  for (const i of x) {
+    t += i.p;
+  }
+  return t;
 }
 ```
 
@@ -80,7 +82,7 @@ module.exports = function (config) {
 // ✅ Good: Use ES6 modules for test files
 import { test, expect } from '@playwright/test';
 
-export default function() {
+export default function () {
   // ...
 }
 ```
@@ -109,12 +111,15 @@ function formatDate(date, format) {
 }
 
 // ✅ Good: Arrow functions for callbacks
-const filtered = items.filter(item => item.active);
+const filtered = items.filter((item) => item.active);
 
 // ✅ Good: Consistent parameter spacing
-eleventyConfig.addFilter('format_date', function (value, format = 'MMMM DD, YYYY') {
-  return dayjs(Number(value)).format(format);
-});
+eleventyConfig.addFilter(
+  'format_date',
+  function (value, format = 'MMMM DD, YYYY') {
+    return dayjs(Number(value)).format(format);
+  }
+);
 ```
 
 #### Object and Array Literals
@@ -124,7 +129,7 @@ eleventyConfig.addFilter('format_date', function (value, format = 'MMMM DD, YYYY
 const config = {
   testDir: './integration',
   fullyParallel: true,
-  reporter: 'html',
+  reporter: 'html'
 };
 
 // ✅ Good: Consistent spacing
@@ -132,7 +137,7 @@ const items = [1, 2, 3, 4];
 const obj = { name: 'John', age: 30 };
 
 // ❌ Bad: Inconsistent spacing
-const items=[1,2,3,4];
+const items = [1, 2, 3, 4];
 ```
 
 ### Nunjucks Templates
@@ -238,24 +243,21 @@ Only add custom CSS when Tailwind utilities are insufficient:
 @tailwind components;
 @tailwind utilities;
 
-/* 2. Then imports */
-@import 'normalize.css';
-
-/* 3. Custom base styles */
+/* 2. Custom base styles */
 @layer base {
   body {
     @apply font-sans antialiased;
   }
 }
 
-/* 4. Custom components */
+/* 3. Custom components */
 @layer components {
   .btn-primary {
     @apply rounded bg-blue-600 px-4 py-2 text-white;
   }
 }
 
-/* 5. Custom utilities */
+/* 4. Custom utilities */
 @layer utilities {
   .content-auto {
     content-visibility: auto;
@@ -269,10 +271,10 @@ Only add custom CSS when Tailwind utilities are insufficient:
 
 ```markdown
 ---
-title: "Article Title"
+title: 'Article Title'
 date: 2026-02-09
 tags: articles
-excerpt: "Brief description of the article"
+excerpt: 'Brief description of the article'
 ---
 
 ## Article Content
@@ -282,33 +284,41 @@ First paragraph of the article...
 
 #### Content Style
 
-```markdown
+````markdown
 <!-- ✅ Good: ATX-style headers -->
+
 ## Section Title
+
 ### Subsection
 
 <!-- ❌ Bad: Setext-style headers -->
-Section Title
--------------
+
+## Section Title
 
 <!-- ✅ Good: Fenced code blocks with language -->
+
 ```javascript
 const greeting = 'Hello';
 ```
+````
 
 <!-- ❌ Bad: Indented code blocks -->
+
     const greeting = 'Hello';
 
 <!-- ✅ Good: Unordered lists with consistent markers -->
+
 - Item one
 - Item two
   - Nested item
 
 <!-- ✅ Good: Ordered lists -->
+
 1. First step
 2. Second step
 3. Third step
-```
+
+````
 
 ### JSON Configuration Files
 
@@ -324,9 +334,10 @@ const greeting = 'Hello';
     "eleventy": "^3.0.0"
   }
 }
-```
+````
 
 **Style Rules:**
+
 - 2-space indentation
 - Double quotes for strings
 - No trailing commas (invalid JSON)
@@ -342,14 +353,14 @@ const greeting = 'Hello';
 
 ### Specific Patterns
 
-| File Type | Pattern | Example |
-|-----------|---------|---------|
-| Templates | `.njk` | `index.njk`, `base-layout.njk` |
-| Markdown | `.md` | `article-title.md`, `README.md` |
-| Tests | `.spec.js` | `homepage.spec.js` |
-| Config | Varies | `.eleventy.js`, `tailwind.config.js` |
-| Styles | `.css` | `main.css`, `resume.css` |
-| Data | `.json`, `.js` | `config.js`, `resume.json` |
+| File Type | Pattern        | Example                              |
+| --------- | -------------- | ------------------------------------ |
+| Templates | `.njk`         | `index.njk`, `base-layout.njk`       |
+| Markdown  | `.md`          | `article-title.md`, `README.md`      |
+| Tests     | `.spec.js`     | `homepage.spec.js`                   |
+| Config    | Varies         | `.eleventy.js`, `tailwind.config.js` |
+| Styles    | `.css`         | `main.css`, `resume.css`             |
+| Data      | `.json`, `.js` | `config.js`, `resume.json`           |
 
 ## Code Organization
 
@@ -384,11 +395,11 @@ function formatDate(date, format = 'MMMM DD, YYYY') {
   if (format === 'unix') {
     return +dayjs();
   }
-  
+
   if (date === undefined) {
     return dayjs().format(format);
   }
-  
+
   return dayjs(Number(date)).format(format);
 }
 
@@ -429,9 +440,12 @@ eleventyConfig.addFilter('dump', function (value) {
  * @param {string} format - Format string (default: 'MMMM DD, YYYY')
  * @returns {string} Formatted date
  */
-eleventyConfig.addFilter('format_date', function (value, format = 'MMMM DD, YYYY') {
-  // ...
-});
+eleventyConfig.addFilter(
+  'format_date',
+  function (value, format = 'MMMM DD, YYYY') {
+    // ...
+  }
+);
 ```
 
 ### Nunjucks Comments
@@ -439,7 +453,7 @@ eleventyConfig.addFilter('format_date', function (value, format = 'MMMM DD, YYYY
 ```njk
 {# ✅ Good: Explain complex logic #}
 {# Filtering for articles published in the last 30 days #}
-{% set recentArticles = collections.articles | 
+{% set recentArticles = collections.articles |
   filter(article => article.date > (Date.now() - 30 * 24 * 60 * 60 * 1000)) %}
 
 {# ❌ Bad: Unnecessary comments #}
@@ -485,7 +499,7 @@ Closes #123
 ✅ Good:
 fix: correct date formatting in article metadata
 
-Changed format from MM/DD/YYYY to MMMM DD, YYYY for 
+Changed format from MM/DD/YYYY to MMMM DD, YYYY for
 better readability.
 
 ❌ Bad:
@@ -536,9 +550,7 @@ Fix
   "editor.codeActionsOnSave": {
     "source.fixAll": true
   },
-  "tailwindCSS.experimental.classRegex": [
-    ["class:\\s*['\"]([^'\"]*)['\"]"]
-  ]
+  "tailwindCSS.experimental.classRegex": [["class:\\s*['\"]([^'\"]*)['\"]"]]
 }
 ```
 

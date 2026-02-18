@@ -23,8 +23,11 @@
     <meta name="twitter:creator" content="@jabranr">
     <meta name="twitter:title" content="{{ title }}">
     <meta name="twitter:description" content="{{ description }}">
-    <meta property="og:image" content="{{ '/icon-1024x1024.png' | absoluteUrl }}" />
-    <meta name="twitter:image" content="{{ '/icon-1024x1024.png' | absoluteUrl }}" />
+    <meta property="og:image" content="{{ page.url | ogImage | absoluteUrl }}" />
+    <meta property="og:image:alt" content="{{ title }}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="{{ page.url | ogImage | absoluteUrl }}" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="msapplication-TileImage" content="{{ '/apple-touch-icon.png' | absoluteUrl }}" />
