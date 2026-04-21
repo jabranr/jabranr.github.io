@@ -3,9 +3,8 @@ layout: post
 title: Wait for Cloudflare Pages deployment in GitHub Actions
 date: 2026-04-20 07:00:00
 categories: articles
-tags: [Github, Github Actions, Github Workflows, Cloudflare, Cloudflare Pages]
+tags: [articles, Github, Github Actions, Github Workflows, Cloudflare, Cloudflare Pages]
 excerpt: 'Here is a quick overview of my journey from WordPress to Github that introduced me to amazing collection of tools in web industry.'
-permalink: '/articles/github-pages-cloudflare-pages-deployment/'
 comment: true
 private: false
 ---

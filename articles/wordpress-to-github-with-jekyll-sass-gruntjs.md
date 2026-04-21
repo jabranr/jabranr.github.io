@@ -5,6 +5,7 @@ date: 2014-05-17 07:00:00
 categories: articles
 tags:
   [
+    articles,
     WordPress,
     Github,
     Jekyll,
