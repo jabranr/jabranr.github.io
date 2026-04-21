@@ -130,6 +130,20 @@ math {
   animation-timeline: scroll(y);
 }
 
+table thead {
+  border-bottom: 1px solid #eee;
+
+  th {
+    text-align: left;
+  }
+}
+
+table tr,
+table th,
+table td {
+  padding: 1rem;
+}
+
 @keyframes width {
   from {
     width: 0;
