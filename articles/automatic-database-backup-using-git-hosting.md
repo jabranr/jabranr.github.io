@@ -5,6 +5,7 @@ date: 2016-04-25 8:00:00
 categories: articles
 tags:
   [
+    'articles',
     'database',
     'backup',
     'version control',
