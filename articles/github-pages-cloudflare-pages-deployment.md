@@ -3,7 +3,7 @@ layout: post
 title: Wait for Cloudflare Pages deployment in GitHub Actions
 date: 2026-04-20 07:00:00
 categories: articles
-tags: [articles, Github, Github Actions, Github Workflows, Cloudflare, Cloudflare Pages]
+tags: [articles, GitHub, GitHub Actions, GitHub Workflows, Cloudflare, Cloudflare Pages]
 excerpt: 'How to wait for a Cloudflare Pages deployment to complete in GitHub Actions before running dependent jobs like E2E tests or Lighthouse checks.'
 comment: true
 private: false
