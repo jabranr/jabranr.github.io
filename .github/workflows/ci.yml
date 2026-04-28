@@ -2,10 +2,6 @@ name: CI Checks
 
 on:
   pull_request:
-    types:
-      - opened
-      - synchronize
-      - reopened
   push:
     branches:
       - main
@@ -20,16 +16,30 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: 'npm'
+
       - run: npm ci
       - run: npm run build
+
       - name: Install Chromium browser
         run: npx playwright install --with-deps chromium
-      - name: Run Playwright tests
-        run: CI=true npm run test
+
+      - name: Run Playwright functional tests
+        if: ${{ github.event_name == 'pull_request' }}
+        env:
+          CI: true
+        run: npm run test:functional
+
+      - name: Run Playwright e2e tests
+        if: ${{ github.event_name == 'push' }}
+        env:
+          CI: true
+        run: npm run test:functional
+
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with:
