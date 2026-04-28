@@ -1,11 +1,13 @@
 {
-  "name": "@jabraf/personal-website",
+  "name": "@jabraf/portfolio",
   "version": "3.0.0",
   "description": "Jabran Rafique's personal website and blog",
   "main": "index.js",
   "scripts": {
-    "start": "run-p dev:*",
-    "preview": "NODE_ENV=production eleventy --serve --port=8080",
+    "format:check": "prettier --check .",
+    "format:fix": "prettier --write .",
+    "dev": "run-p dev:*",
+    "start": "NODE_ENV=production eleventy --serve --port=8080",
     "dev:watch": "NODE_ENV=development eleventy --serve",
     "dev:css": "run-p css:*",
     "css:main": "tailwindcss -w -i ./styles/main.css -o ./public/main.css",
@@ -14,12 +16,14 @@
     "build": "NODE_ENV=production eleventy",
     "prebuild": "npm run build:css && npm run build:version",
     "build:version": "GIT_VERSION=$(git rev-parse HEAD 2> /dev/null | head -c 7 || echo \"dev\") && echo \"$GIT_VERSION\" > version.txt",
-    "test": "playwright test",
+    "test:functional": "TEST_ENV=functional playwright test",
+    "test:e2e": "playwright test",
     "test:headed": "npm run test -- --headed",
     "test:ui": "npm run test -- --ui",
     "test:report": "playwright show-report",
     "og-images": "node scripts/generate-og-images.js",
-    "og-images:force": "node scripts/generate-og-images.js --force"
+    "og-images:force": "node scripts/generate-og-images.js --force",
+    "prepare": "husky"
   },
   "repository": {
     "type": "git",
@@ -40,13 +44,12 @@
     "name": "Jabran Rafique",
     "email": "hello@jabran.me"
   },
-  "prettier": "@jabraf/prettier",
+  "prettier": "@jabraf/dev/prettier",
   "license": "MIT",
   "devDependencies": {
     "@11ty/eleventy": "^3.1.2",
     "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.2",
-    "@jabraf/prettier": "^3.0.1",
-    "@playwright/test": "^1.58.0",
+    "@jabraf/dev": "^0.0.4",
     "autoprefixer": "^10.4.23",
     "canvas": "^3.2.1",
     "cloudflare": "^5.2.0",
@@ -59,14 +62,8 @@
     "postcss": "^8.5.6",
     "postcss-import": "^16.1.1",
     "prettier-plugin-tailwindcss": "^0.7.2",
-    "pretty-quick": "^4.2.2",
     "prismjs": "^1.30.0",
     "tailwindcss": "^3.4.19"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged"
-    }
   },
   "volta": {
     "node": "22.17.0"

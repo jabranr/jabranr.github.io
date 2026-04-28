@@ -8,10 +8,10 @@ This document provides step-by-step instructions for common development tasks.
 2. Add frontmatter with required fields:
    ```yaml
    ---
-   title: "Article Title"
+   title: 'Article Title'
    date: YYYY-MM-DD
    tags: articles
-   excerpt: "Brief description"
+   excerpt: 'Brief description'
    ---
    ```
 3. Write content in Markdown below the frontmatter
@@ -35,6 +35,7 @@ This document provides step-by-step instructions for common development tasks.
 4. CSS is automatically rebuilt during development
 
 **Example:** To add a new color, update `tailwind.config.js`:
+
 ```js
 theme: {
   extend: {
@@ -53,6 +54,7 @@ theme: {
 4. Run tests to verify: `npm test`
 
 **Template:**
+
 ```javascript
 import { test, expect } from '@playwright/test';
 
@@ -70,10 +72,10 @@ test.describe('Feature Name', () => {
 2. Add frontmatter:
    ```yaml
    ---
-   title: "Project Name"
+   title: 'Project Name'
    date: YYYY-MM-DD
    tags: projects
-   excerpt: "Brief description"
+   excerpt: 'Brief description'
    ---
    ```
 3. Add project content

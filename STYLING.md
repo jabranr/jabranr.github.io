@@ -114,12 +114,9 @@ function formatDate(date, format) {
 const filtered = items.filter((item) => item.active);
 
 // ✅ Good: Consistent parameter spacing
-eleventyConfig.addFilter(
-  'format_date',
-  function (value, format = 'MMMM DD, YYYY') {
-    return dayjs(Number(value)).format(format);
-  }
-);
+eleventyConfig.addFilter('format_date', function (value, format = 'MMMM DD, YYYY') {
+  return dayjs(Number(value)).format(format);
+});
 ```
 
 #### Object and Array Literals
@@ -129,7 +126,7 @@ eleventyConfig.addFilter(
 const config = {
   testDir: './integration',
   fullyParallel: true,
-  reporter: 'html'
+  reporter: 'html',
 };
 
 // ✅ Good: Consistent spacing
@@ -440,12 +437,9 @@ eleventyConfig.addFilter('dump', function (value) {
  * @param {string} format - Format string (default: 'MMMM DD, YYYY')
  * @returns {string} Formatted date
  */
-eleventyConfig.addFilter(
-  'format_date',
-  function (value, format = 'MMMM DD, YYYY') {
-    // ...
-  }
-);
+eleventyConfig.addFilter('format_date', function (value, format = 'MMMM DD, YYYY') {
+  // ...
+});
 ```
 
 ### Nunjucks Comments

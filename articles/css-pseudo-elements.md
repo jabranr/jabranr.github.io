@@ -84,5 +84,3 @@ In both cases we have basically hid the element or it's content but the element 
 ```
 
 I am not sure what impact it might have on performance as I have not tested it but nontheless it seems like a better option to go with.
-
-

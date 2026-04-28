@@ -23,13 +23,14 @@ graph TD
     ROOT --> SPEAKING["speaking.njk<br/>(Speaking engagements)"]
     ROOT --> SITEMAP["sitemap.njk<br/>(Sitemap template)"]
     ROOT --> RSS["rss.njk<br/>(RSS feed template)"]
-    
+
     style PUBLIC fill:#fff3cd
     style DOCS fill:#d1ecf1
     style INTEGRATION fill:#d1ecf1
 ```
 
 **Key directories:**
+
 - **Source content**: `articles/`, `projects/`, `_includes/`
 - **Generated files**: `public/` (do not modify directly)
 - **Configuration**: `.eleventy.js`, `tailwind.config.js`, `playwright.config.js`
@@ -37,15 +38,15 @@ graph TD
 
 ## Key Configuration Files
 
-| File | Purpose |
-|------|---------|
-| `.eleventy.js` | Eleventy configuration, plugins, filters, collections |
-| `tailwind.config.js` | Tailwind CSS configuration |
-| `playwright.config.js` | Playwright test configuration |
-| `.editorconfig` | Editor settings (2 space indent, LF line endings) |
-| `package.json` | Dependencies and npm scripts |
-| `.env.development` | Development environment variables |
-| `.env.production` | Production environment variables |
+| File                   | Purpose                                               |
+| ---------------------- | ----------------------------------------------------- |
+| `.eleventy.js`         | Eleventy configuration, plugins, filters, collections |
+| `tailwind.config.js`   | Tailwind CSS configuration                            |
+| `playwright.config.js` | Playwright test configuration                         |
+| `.editorconfig`        | Editor settings (2 space indent, LF line endings)     |
+| `package.json`         | Dependencies and npm scripts                          |
+| `.env.development`     | Development environment variables                     |
+| `.env.production`      | Production environment variables                      |
 
 ## Technology Stack
 
@@ -63,6 +64,7 @@ graph TD
 **GitHub Actions** workflow (`.github/workflows/ci.yml`):
 
 **Triggers:**
+
 - Pull requests (opened, synchronized, reopened)
 - Pushes to `main` branch
 
@@ -78,7 +80,7 @@ flowchart TD
     H -->|Yes| I[Success]
     H -->|No| J[Upload test reports as artifacts]
     J --> K[Fail]
-    
+
     style A fill:#e1f5ff
     style I fill:#d4edda
     style K fill:#f8d7da
@@ -91,6 +93,7 @@ flowchart TD
 ## Version Tracking
 
 Version is tracked via git commit hash stored in `version.txt`:
+
 - Generated during build process
 - Accessible in templates via `appVersion` filter
 - First 7 characters of commit SHA
@@ -98,6 +101,7 @@ Version is tracked via git commit hash stored in `version.txt`:
 ## Generated Files
 
 **Do not modify these directly:**
+
 - `public/*.css` - Generated from `styles/*.css` by Tailwind
 - `_site/` - Eleventy build output (if present)
 - `version.txt` - Generated during build

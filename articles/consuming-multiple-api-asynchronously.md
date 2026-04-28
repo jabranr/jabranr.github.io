@@ -3,17 +3,7 @@ layout: post
 title: 'Consuming multiple APIs asynchronously'
 date: 2014-08-21 08:00:00
 categories: articles
-tags:
-  [
-    'articles',
-    Facebook,
-    Graph,
-    API,
-    Google Maps,
-    JavaScript,
-    Asynchorounus,
-    callback
-  ]
+tags: ['articles', Facebook, Graph, API, Google Maps, JavaScript, Asynchorounus, callback]
 excerpt: 'Consuming multiple APIs parallel to each other can be very tricky. Here is a detailed case study to chain multiple APIs with each other using JavaScript’s asynchronous approach.'
 permalink:
 thumbnail: assets/images/usa-outdoors-adventure.jpg
@@ -52,7 +42,7 @@ window.fbAsyncInit = function () {
   FB.init({
     appId: '1234567890',
     xfbml: true,
-    version: 'v2.0'
+    version: 'v2.0',
   });
 
   // Callback function goes here
@@ -79,7 +69,7 @@ Now depending on personal choice, that may or may not be an optimal workflow &nd
 ```javascript
 var myFbApp = new Socialmedia.Facebook({
   appid: '12345678',
-  callback: myCallbackFunc
+  callback: myCallbackFunc,
 });
 ```
 
@@ -154,7 +144,7 @@ function setupLocationData(map, json) {
       position: new google.maps.LatLng(info.lat, info.lng),
       id: info.id,
       info: info,
-      map: map
+      map: map,
     });
   }
 }

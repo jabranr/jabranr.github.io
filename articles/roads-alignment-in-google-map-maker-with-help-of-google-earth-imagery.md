@@ -3,17 +3,7 @@ layout: post
 title: 'Roads alignment in Google Map Maker with help of Google Earth imagery'
 date: 2013-10-05 07:00:00
 categories: articles
-tags:
-  [
-    'articles',
-    Azad Kashmir,
-    Banjosa Lake,
-    Bhratian,
-    Google Earth,
-    Google Map Maker,
-    Google Maps,
-    Rawalakot
-  ]
+tags: ['articles', Azad Kashmir, Banjosa Lake, Bhratian, Google Earth, Google Map Maker, Google Maps, Rawalakot]
 excerpt: 'This is a story of my personal pursuit of updating public information for Google Maps and then physically travelling on the route to experience it. Let me tell that it felt great.'
 comment: true
 private: false

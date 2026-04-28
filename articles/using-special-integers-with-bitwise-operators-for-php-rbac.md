@@ -3,17 +3,7 @@ layout: post
 title: 'Using Special Integers with Bitwise Operators for PHP RBAC'
 date: 2013-10-11 07:00:00
 categories: articles
-tags:
-  [
-    'articles',
-    Binary,
-    Bitwise Operators,
-    CMS,
-    GitHub,
-    PHP,
-    RBAC,
-    Role-Based Access Control
-  ]
+tags: ['articles', Binary, Bitwise Operators, CMS, GitHub, PHP, RBAC, Role-Based Access Control]
 excerpt: 'Ever wondered how different type of roles and permissions in a system are handled? Well, using bitwise operators can be one of the methods. But this article is more about getting a list of required integers that would make Bitwise operator work properly.'
 comment: true
 private: false

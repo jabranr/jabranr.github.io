@@ -1,24 +1,20 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: 'selector',
-  content: [
-    './*.{html,js,njk,md,json}',
-    './{_includes,articles,projects}/**/*.{html,js,njk,md,json}'
-  ],
+  content: ['./*.{html,js,njk,md,json}', './{_includes,articles,projects}/**/*.{html,js,njk,md,json}'],
   theme: {
     container: {
-      center: true
+      center: true,
     },
     extend: {
       screens: {
         screen: { raw: 'screen' },
-        print: { raw: 'print' }
+        print: { raw: 'print' },
       },
       backgroundImage: ({ theme }) => ({
-        skyBackground:
-          'linear-gradient(90deg,#ff7800,#f80032 17.19%,#ff00a0 42.71%,#8c28ff 60%,#0023ff 85%,#1798ff)'
-      })
-    }
+        skyBackground: 'linear-gradient(90deg,#ff7800,#f80032 17.19%,#ff00a0 42.71%,#8c28ff 60%,#0023ff 85%,#1798ff)',
+      }),
+    },
   },
-  plugins: []
+  plugins: [],
 };
