@@ -40,7 +40,7 @@ gplusButton.addEventListener(
     // Use Share function from gplus instance of Socialmedia.GooglePlus class
     gplus.Share({
       link: 'http://example.com',
-      lang: 'ur'
+      lang: 'ur',
     });
   },
   false

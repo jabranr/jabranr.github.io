@@ -21,40 +21,40 @@ const CONFIG = {
   logo: {
     add: true,
     opacity: 0.1,
-    path: path.join(__dirname, '../public/logo.png')
+    path: path.join(__dirname, '../public/logo.png'),
   },
   fonts: {
     sans: {
       name: 'Inter',
       weight: 'bold',
       size: '48px',
-      path: path.join(__dirname, './fonts/Inter-VariableFont_opsz,wght.ttf')
+      path: path.join(__dirname, './fonts/Inter-VariableFont_opsz,wght.ttf'),
     },
     serif: {
       name: 'Instrument Serif',
       weight: 'normal',
       style: 'normal',
       size: '120px',
-      path: path.join(__dirname, './fonts/InstrumentSerif-Regular.ttf')
-    }
+      path: path.join(__dirname, './fonts/InstrumentSerif-Regular.ttf'),
+    },
   },
   outputDir: path.join(__dirname, '../public/og'),
   defaultImage: {
     title: 'Software Engineer. Sometimes maker of things.',
     slug: 'icon-1024x1024',
-    outputPath: path.join(__dirname, '../public/icon-1024x1024.png')
-  }
+    outputPath: path.join(__dirname, '../public/icon-1024x1024.png'),
+  },
 };
 
 // Register custom font
 registerFont(CONFIG.fonts.serif.path, {
   family: CONFIG.fonts.serif.name,
-  weight: CONFIG.fonts.serif.weight
+  weight: CONFIG.fonts.serif.weight,
 });
 
 registerFont(CONFIG.fonts.sans.path, {
   family: CONFIG.fonts.sans.name,
-  weight: CONFIG.fonts.sans.weight
+  weight: CONFIG.fonts.sans.weight,
 });
 
 // Ensure output directory exists
@@ -82,10 +82,7 @@ function extractFrontmatter(content) {
     let value = line.substring(colonIndex + 1).trim();
 
     // Remove quotes if present
-    if (
-      (value.startsWith('"') && value.endsWith('"')) ||
-      (value.startsWith("'") && value.endsWith("'"))
-    ) {
+    if ((value.startsWith('"') && value.endsWith('"')) || (value.startsWith("'") && value.endsWith("'"))) {
       value = value.slice(1, -1);
     }
 
@@ -104,10 +101,7 @@ function extractFrontmatter(content) {
  */
 function getContentFiles() {
   const files = [];
-  const contentDirs = [
-    path.join(__dirname, '../articles'),
-    path.join(__dirname, '../projects')
-  ];
+  const contentDirs = [path.join(__dirname, '../articles'), path.join(__dirname, '../projects')];
 
   for (const dir of contentDirs) {
     if (!fs.existsSync(dir)) continue;
@@ -131,9 +125,7 @@ async function generateImage(filePath, force = false) {
   const frontmatter = extractFrontmatter(content);
 
   if (!frontmatter) {
-    console.log(
-      `⚠️  Skipping ${path.basename(filePath)}: No frontmatter found`
-    );
+    console.log(`⚠️  Skipping ${path.basename(filePath)}: No frontmatter found`);
     return { status: 'skipped', reason: 'no_frontmatter' };
   }
 
@@ -242,10 +234,7 @@ async function generateImage(filePath, force = false) {
 /**
  * Generate Default OG image using Canvas
  */
-async function generateDefaultImage({
-  title = CONFIG.defaultImage.title,
-  force = false
-}) {
+async function generateDefaultImage({ title = CONFIG.defaultImage.title, force = false }) {
   // Generate slug from title
   const outputPath = path.join(CONFIG.defaultImage.outputPath);
 
@@ -329,10 +318,7 @@ async function generateDefaultImage({
     console.log(`✅ Generated ${CONFIG.defaultImage.slug}.png`);
     return { status: 'generated', path: outputPath };
   } catch (error) {
-    console.error(
-      `❌ Error generating ${CONFIG.defaultImage.slug}.png:`,
-      error.message
-    );
+    console.error(`❌ Error generating ${CONFIG.defaultImage.slug}.png:`, error.message);
     return { status: 'error', error: error.message };
   }
 }
@@ -362,15 +348,12 @@ async function main() {
 
   const defaultResult = await generateDefaultImage({
     title: 'Software Engineer. Sometimes maker of things.',
-    force
+    force,
   });
 
   if (defaultResult.status === 'generated') {
     generated++;
-  } else if (
-    defaultResult.status === 'skipped' ||
-    defaultResult.status === 'exists'
-  ) {
+  } else if (defaultResult.status === 'skipped' || defaultResult.status === 'exists') {
     skipped++;
   } else if (defaultResult.status === 'error') {
     errors++;

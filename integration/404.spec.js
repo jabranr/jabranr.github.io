@@ -24,7 +24,7 @@ test.describe('404 Page', () => {
 
     // Check for a link that navigates to home
     const homeLink = page.locator('a[href="/"], a[href="https://jabran.me"], a[href="https://jabran.me/"]').first();
-    if (await homeLink.count() > 0) {
+    if ((await homeLink.count()) > 0) {
       await expect(homeLink).toBeVisible();
     } else {
       // If no specific home link, just verify there are navigation links

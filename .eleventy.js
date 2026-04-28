@@ -11,7 +11,7 @@ if (fs.existsSync(dotenvFile)) {
   require('dotenv-expand').expand(
     require('dotenv').config({
       path: dotenvFile,
-      quiet: true
+      quiet: true,
     })
   );
 }
@@ -26,10 +26,9 @@ module.exports = function (eleventyConfig) {
 
   // combine collections for RSS
   eleventyConfig.addCollection('rss', function (collectionApi) {
-    return [
-      ...collectionApi.getFilteredByTag('articles'),
-      ...collectionApi.getFilteredByTag('projects')
-    ].sort((a, b) => b.date - a.date);
+    return [...collectionApi.getFilteredByTag('articles'), ...collectionApi.getFilteredByTag('projects')].sort(
+      (a, b) => b.date - a.date
+    );
   });
 
   // add plugins
@@ -55,20 +54,17 @@ module.exports = function (eleventyConfig) {
   });
 
   // format date time
-  eleventyConfig.addFilter(
-    'format_date',
-    function (value, format = 'MMMM DD, YYYY') {
-      if (format === 'unix') {
-        return +dayjs();
-      }
-
-      if (value === undefined) {
-        return dayjs().format(format);
-      }
-
-      return dayjs(Number(value)).format(format);
+  eleventyConfig.addFilter('format_date', function (value, format = 'MMMM DD, YYYY') {
+    if (format === 'unix') {
+      return +dayjs();
     }
-  );
+
+    if (value === undefined) {
+      return dayjs().format(format);
+    }
+
+    return dayjs(Number(value)).format(format);
+  });
 
   eleventyConfig.addFilter('appVersion', function () {
     if (fs.existsSync('./version.txt')) {
@@ -116,12 +112,12 @@ module.exports = function (eleventyConfig) {
 
   // add 404 for dev server
   eleventyConfig.setServerOptions({
-    showVersion: true
+    showVersion: true,
   });
 
   return {
     markdownTemplateEngine: 'njk',
     dataTemplateEngine: 'njk',
-    htmlTemplateEngine: 'njk'
+    htmlTemplateEngine: 'njk',
   };
 };

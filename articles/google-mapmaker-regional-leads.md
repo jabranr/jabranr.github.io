@@ -3,15 +3,7 @@ layout: post
 title: Google Map Maker Regional Leads
 date: 2015-08-29 8:00:00
 categories: articles
-tags:
-  [
-    'articles',
-    Google Map Maker,
-    Google Maps,
-    Mapping,
-    Cartography,
-    Regional Leads
-  ]
+tags: ['articles', Google Map Maker, Google Maps, Mapping, Cartography, Regional Leads]
 excerpt: 'Reviewing the re-opening of Google Map Maker and new roles of Regional Leads'
 permalink:
 thumbnail: assets/images/mapmaker_reopened.png

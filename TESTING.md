@@ -34,6 +34,7 @@ Test configuration is in `playwright.config.js`:
 ### Web Server Setup
 
 Playwright automatically:
+
 1. Runs `npm run build` to build the site
 2. Starts preview server on port 8080
 3. Waits for server to be ready (120s timeout)
@@ -81,14 +82,14 @@ npx playwright codegen http://localhost:8080
 
 ### Existing Test Files
 
-| File | Purpose |
-|------|---------|
-| `homepage.spec.js` | Tests homepage functionality and navigation |
+| File               | Purpose                                       |
+| ------------------ | --------------------------------------------- |
+| `homepage.spec.js` | Tests homepage functionality and navigation   |
 | `articles.spec.js` | Tests article listing and individual articles |
-| `projects.spec.js` | Tests project pages |
-| `resume.spec.js` | Tests resume page |
-| `speaking.spec.js` | Tests speaking engagements page |
-| `404.spec.js` | Tests 404 error page |
+| `projects.spec.js` | Tests project pages                           |
+| `resume.spec.js`   | Tests resume page                             |
+| `speaking.spec.js` | Tests speaking engagements page               |
+| `404.spec.js`      | Tests 404 error page                          |
 
 ### Test File Pattern
 
@@ -99,14 +100,14 @@ test.describe('Feature Name', () => {
   test('should do something specific', async ({ page }) => {
     // 1. Navigate to page
     await page.goto('/path');
-    
+
     // 2. Perform actions
     await page.click('button');
-    
+
     // 3. Assert expected outcome
     await expect(page).toHaveTitle(/Expected Title/);
   });
-  
+
   test('should do another thing', async ({ page }) => {
     // Each test is independent
   });
@@ -120,11 +121,13 @@ test.describe('Feature Name', () => {
 #### 1. **Use Descriptive Test Names**
 
 ✅ **Good:**
+
 ```javascript
 test('should display article title and publication date', async ({ page }) => {
 ```
 
 ❌ **Bad:**
+
 ```javascript
 test('check article', async ({ page }) => {
 ```
@@ -132,12 +135,14 @@ test('check article', async ({ page }) => {
 #### 2. **Test User Behaviors, Not Implementation**
 
 ✅ **Good:** Test what users see and do
+
 ```javascript
 await expect(page.locator('h1')).toContainText('Welcome');
 await page.getByRole('button', { name: 'Subscribe' }).click();
 ```
 
 ❌ **Bad:** Test specific HTML structure
+
 ```javascript
 await expect(page.locator('div.container > div.header > h1')).toBeVisible();
 ```
@@ -145,12 +150,14 @@ await expect(page.locator('div.container > div.header > h1')).toBeVisible();
 #### 3. **Use Playwright's Built-in Waiting**
 
 ✅ **Good:** Automatic waiting with assertions
+
 ```javascript
 await expect(page.locator('button')).toBeVisible();
 await page.click('button'); // Waits automatically
 ```
 
 ❌ **Bad:** Manual waits
+
 ```javascript
 await page.waitForTimeout(5000);
 await page.click('button');
@@ -159,6 +166,7 @@ await page.click('button');
 #### 4. **Keep Tests Independent**
 
 Each test should:
+
 - Start from a clean state
 - Not depend on other tests
 - Clean up after itself (if needed)
@@ -180,6 +188,7 @@ test('second test', async ({ page }) => {
 #### 5. **Use Appropriate Selectors**
 
 Priority order:
+
 1. **Role-based** (accessible): `page.getByRole('button', { name: 'Submit' })`
 2. **Text-based**: `page.getByText('Welcome')`
 3. **Label**: `page.getByLabel('Email')`
@@ -223,10 +232,10 @@ test('should display author information', async ({ page }) => {
 ```javascript
 test('should display navigation links', async ({ page }) => {
   await page.goto('/');
-  
+
   const articlesLinks = page.locator('a[href*="articles"]');
   expect(await articlesLinks.count()).toBeGreaterThan(0);
-  
+
   // Or check specific count
   await expect(articlesLinks).toHaveCount(2);
 });
@@ -237,10 +246,10 @@ test('should display navigation links', async ({ page }) => {
 ```javascript
 test('should submit search form', async ({ page }) => {
   await page.goto('/');
-  
+
   await page.getByLabel('Search').fill('test query');
   await page.getByRole('button', { name: 'Submit' }).click();
-  
+
   await expect(page).toHaveURL(/.*search.*test.*query/);
 });
 ```
@@ -250,12 +259,14 @@ test('should submit search form', async ({ page }) => {
 ### When to Add Tests
 
 Add tests when:
+
 - ✅ Adding a new page or route
 - ✅ Adding interactive features (forms, navigation, etc.)
 - ✅ Fixing a bug (regression test)
 - ✅ Critical user paths need verification
 
 You may skip tests for:
+
 - ❌ Minor styling changes
 - ❌ Content-only updates
 - ❌ Documentation changes
@@ -263,11 +274,13 @@ You may skip tests for:
 ### Steps to Add a Test
 
 1. **Create test file** in `integration/` directory:
+
    ```bash
    touch integration/new-feature.spec.js
    ```
 
 2. **Write test** following patterns from existing tests:
+
    ```javascript
    import { test, expect } from '@playwright/test';
 
@@ -280,6 +293,7 @@ You may skip tests for:
    ```
 
 3. **Run test locally**:
+
    ```bash
    npm test
    ```
@@ -318,10 +332,10 @@ test.use({ trace: 'on' });
 
 ```javascript
 // Listen to console messages
-page.on('console', msg => console.log('Browser console:', msg.text()));
+page.on('console', (msg) => console.log('Browser console:', msg.text()));
 
 // Check for errors
-page.on('pageerror', error => console.log('Page error:', error));
+page.on('pageerror', (error) => console.log('Page error:', error));
 ```
 
 ## CI/CD Integration
@@ -329,10 +343,12 @@ page.on('pageerror', error => console.log('Page error:', error));
 ### GitHub Actions Workflow
 
 Tests run automatically on:
+
 - Pull requests (opened, synchronized, reopened)
 - Pushes to `main` branch
 
 Workflow steps:
+
 1. Checkout code
 2. Setup Node.js 22
 3. Install dependencies (`npm ci`)
@@ -410,6 +426,7 @@ Workflow steps:
 ## Questions?
 
 If you encounter issues or have questions about testing:
+
 1. Check this guide first
 2. Review existing test files for patterns
 3. Consult Playwright documentation

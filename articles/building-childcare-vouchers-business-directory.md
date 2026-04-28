@@ -3,14 +3,7 @@ layout: post
 title: Building childcare vouchers business directory
 date: 2023-02-21 01:00:00
 categories: articles
-tags:
-  [
-    'articles',
-    'childcare',
-    'vouchers',
-    'directory',
-    'pay with childcare voucher'
-  ]
+tags: ['articles', 'childcare', 'vouchers', 'directory', 'pay with childcare voucher']
 excerpt: Summary of various steps involved to build a business directory accepting childcare vouchers as payment
 comment: true
 private: false

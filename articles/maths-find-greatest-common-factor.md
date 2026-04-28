@@ -3,19 +3,7 @@ layout: post
 title: Find Greatest Common Factor (Maths series)
 date: 2025-10-20 09:00:00
 categories: articles
-tags:
-  [
-    'articles',
-    'maths',
-    'programming',
-    'formulas',
-    'algorithm',
-    'factor',
-    'gcf',
-    'gcd',
-    'hcf',
-    'hcd'
-  ]
+tags: ['articles', 'maths', 'programming', 'formulas', 'algorithm', 'factor', 'gcf', 'gcd', 'hcf', 'hcd']
 excerpt: Documenting my journey of re-learning maths by teaching and helping my son for his 11+ test. Here I learn how to find Great Common Factor (GCF) for given numbers.
 comment: false
 private: false

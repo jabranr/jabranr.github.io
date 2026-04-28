@@ -12,7 +12,9 @@ test.describe('Homepage', () => {
     // Check for navigation links by finding actual links
     await expect(page.locator('a[href*="articles"]')).toHaveCount(await page.locator('a[href*="articles"]').count());
     await expect(page.locator('a[href*="projects"]')).toHaveCount(await page.locator('a[href*="projects"]').count());
-    await expect(page.locator('a[href*="speaking"], a[href*="speak"]')).toHaveCount(await page.locator('a[href*="speaking"], a[href*="speak"]').count());
+    await expect(page.locator('a[href*="speaking"], a[href*="speak"]')).toHaveCount(
+      await page.locator('a[href*="speaking"], a[href*="speak"]').count()
+    );
     await expect(page.locator('a[href*="resume"]')).toHaveCount(await page.locator('a[href*="resume"]').count());
 
     // Verify at least one of each type exists

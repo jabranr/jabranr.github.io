@@ -3,8 +3,7 @@ layout: post
 title: 'Build to Learn – socialmedia.js – Case Study'
 date: 2015-04-13 08:00:00
 categories: articles
-tags:
-  ['articles', social media, Facebook, Twitter, Google+, Pinterest, API, SDKs]
+tags: ['articles', social media, Facebook, Twitter, Google+, Pinterest, API, SDKs]
 excerpt: 'The journey of learning web development by building some library, framework or merely a wrapper. Here is quick summary from building and maintaining of socialmedia.js and learning through this process.'
 permalink:
 thumbnail: assets/images/socialmedia-js.png
@@ -45,7 +44,7 @@ In order to use the Facebook SDKs into your web app, you will normally need foll
     FB.init({
       appId: 'your-app-id',
       xfbml: true,
-      version: 'v2.3'
+      version: 'v2.3',
     });
   };
 
@@ -69,7 +68,7 @@ Here is how it is done with Socialmedia.
 <script src="path/to/socialmedia.min.js" type="text/javascript"></script>
 <script>
   var facebook = new Socialmedia.Facebook({
-    appid: 'your-app-id'
+    appid: 'your-app-id',
   });
 </script>
 ```
@@ -99,9 +98,7 @@ This website already uses Socialmedia therefore I can just go ahead and setup so
 The code used for this example is as following:
 
 ```html
-<button class="btn btn-sm btn-primary" type="button" id="inviteFriends">
-  Invite friends to read article
-</button>
+<button class="btn btn-sm btn-primary" type="button" id="inviteFriends">Invite friends to read article</button>
 
 <script type="text/javascript">
   var inviteFriends = document.querySelector('#inviteFriends');
@@ -111,7 +108,7 @@ The code used for this example is as following:
       function (e) {
         facebook.Invite({
           title: 'Invited friends to read this article',
-          message: document.title
+          message: document.title,
         });
       },
       false
@@ -133,9 +130,7 @@ The code used for this example is as following:
 The code used for this example is as following:
 
 ```html
-<button class="btn btn-sm btn-primary" type="button" id="getInfo">
-  Get basic info from Facebook
-</button>
+<button class="btn btn-sm btn-primary" type="button" id="getInfo">Get basic info from Facebook</button>
 <textarea
   name="infoBox"
   id="infoBox"
@@ -235,8 +230,7 @@ For Twitter, it would be as following and few of the API methods ([complete API 
   var twitter = new Socialmedia.Twitter();
 </script>
 
-// Exposes following API to use with Twitter SDK: twitter.Tweet()
-twitter.Hashtag() twitter.Mention()
+// Exposes following API to use with Twitter SDK: twitter.Tweet() twitter.Hashtag() twitter.Mention()
 ```
 
 ## Google+ SDK

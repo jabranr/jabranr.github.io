@@ -9,6 +9,7 @@ npm start
 ```
 
 This command runs both:
+
 - Eleventy dev server with live reload (port 8080)
 - Tailwind CSS watch mode for style changes
 
@@ -26,12 +27,13 @@ flowchart LR
     B --> C[Generate version.txt]
     C --> D[Run Eleventy build]
     D --> E[Output to _site/]
-    
+
     style A fill:#e1f5ff
     style E fill:#d4edda
 ```
 
 **Build process:**
+
 1. Builds CSS with Tailwind (minified)
 2. Generates `version.txt` with git commit hash
 3. Runs Eleventy build
@@ -54,6 +56,7 @@ See [TESTING.md](../TESTING.md) for comprehensive testing guidelines.
 Code is automatically formatted on commit via Husky pre-commit hook.
 
 **Manual formatting:**
+
 ```bash
 npx prettier --write <file>
 ```

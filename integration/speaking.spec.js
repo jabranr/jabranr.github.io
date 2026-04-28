@@ -43,5 +43,4 @@ test.describe('Speaking Page', () => {
       await expect(eventLink).toHaveAttribute('href', /https?:\/\/.+/);
     }
   });
-
 });
