@@ -92,13 +92,15 @@ jobs:
     needs: deployment-status
     if: ${{ github.event_name == 'pull_request' }}
     uses: jabranr/workflows/.github/workflows/reusable-lighthouse.yml@main
-    with:
+    secrets:
       github-token: ${{ secrets.GITHUB_TOKEN }}
+    with:
       urls: 'https://${{ github.event.pull_request.head.sha }}.jabranr.pages.dev,https://${{ github.event.pull_request.head.sha }}.jabranr.pages.dev/articles/,https://${{ github.event.pull_request.head.sha }}.jabranr.pages.dev/projects/,https://${{ github.event.pull_request.head.sha }}.jabranr.pages.dev/speaking/,https://${{ github.event.pull_request.head.sha }}.jabranr.pages.dev/resume/'
 
   performance-audit:
     needs: deployment-status
     uses: jabranr/workflows/.github/workflows/reusable-lighthouse.yml@main
-    with:
+    secrets:
       github-token: ${{ secrets.GITHUB_TOKEN }}
+    with:
       urls: 'https://jabran.me,https://jabran.me/articles/,https://jabran.me/projects/,https://jabran.me/speaking/,https://jabran.me/resume/'
