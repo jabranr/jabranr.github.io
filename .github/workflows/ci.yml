@@ -91,11 +91,35 @@ jobs:
   performance-audit-pr:
     needs: deployment-status
     if: ${{ github.event_name == 'pull_request' }}
-    uses: jabranr/workflows/.github/workflows/reusable-lighthouse.yml@main
-    secrets:
-      github-token: ${{ secrets.GITHUB_TOKEN }}
-    with:
-      urls: 'https://${{ github.head_ref }}.jabranr.pages.dev,https://${{ github.head_ref }}.jabranr.pages.dev/articles/,https://${{ github.head_ref }}.jabranr.pages.dev/projects/,https://${{ github.head_ref }}.jabranr.pages.dev/speaking/,https://${{ github.head_ref }}.jabranr.pages.dev/resume/'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+
+      - run: npm ci
+      - run: npm run build
+
+      - name: Run Lighthouse CI
+        shell: bash
+        run: |
+          npm run lighthouse-ci collect \
+            --url=https://${{ github.head_ref }}.jabranr.pages.dev \
+            --url=https://${{ github.head_ref }}.jabranr.pages.dev/resume/ \
+            --url=https://${{ github.head_ref }}.jabranr.pages.dev/articles/ \
+            --url=https://${{ github.head_ref }}.jabranr.pages.dev/projects/ \
+            --url=https://${{ github.head_ref }}.jabranr.pages.dev/speaking/
+
+          npm run lighthouse-ci upload \
+            --githubToken=${{ secrets.GITHUB_TOKEN }} \
+            --target=temporary-public-storage
+    # uses: jabranr/workflows/.github/workflows/reusable-lighthouse.yml@main
+    # secrets:
+    #   github-token: ${{ secrets.GITHUB_TOKEN }}
+    # with:
+    #   urls: 'https://${{ github.head_ref }}.jabranr.pages.dev,https://${{ github.head_ref }}.jabranr.pages.dev/articles/,https://${{ github.head_ref }}.jabranr.pages.dev/projects/,https://${{ github.head_ref }}.jabranr.pages.dev/speaking/,https://${{ github.head_ref }}.jabranr.pages.dev/resume/'
 
   performance-audit:
     needs: deployment-status
