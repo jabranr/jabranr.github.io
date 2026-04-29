@@ -48,6 +48,21 @@ jobs:
     needs: build-and-test
     runs-on: ubuntu-latest
     steps:
+      - name: Wait for Cloudflare Pages deployment
+        uses: jabranr/workflows/.github/actions/wait-cf-pages-deployment@main
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Purge Cloudflare cache
+        env:
+          CF_PURGE_CACHE_TOKEN: ${{ secrets.CF_PURGE_CACHE_TOKEN }}
+          CF_ZONE_ID: ${{ secrets.CF_ZONE_ID }}
+        run: |
+          curl "https://api.cloudflare.com/client/v4/zones/$CF_ZONE_ID/purge_cache" \
+          -H 'Content-Type: application/json' \
+          -H "Authorization: Bearer $CF_PURGE_CACHE_TOKEN" \
+          -d '{"purge_everything": true}'
+
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
