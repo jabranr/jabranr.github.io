@@ -12,7 +12,6 @@ concurrency:
 
 jobs:
   build-and-test:
-    timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -42,10 +41,7 @@ jobs:
           path: playwright-report/
           retention-days: 7
 
-  e2e-tests:
-    if: ${{ github.event_name == 'push' }}
-    timeout-minutes: 60
-    needs: build-and-test
+  deployment-status:
     runs-on: ubuntu-latest
     steps:
       - name: Wait for Cloudflare Pages deployment
@@ -54,6 +50,7 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Purge Cloudflare cache
+        if: ${{ github.event_name == 'push' }}
         env:
           CF_PURGE_CACHE_TOKEN: ${{ secrets.CF_PURGE_CACHE_TOKEN }}
           CF_ZONE_ID: ${{ secrets.CF_ZONE_ID }}
@@ -63,6 +60,11 @@ jobs:
           -H "Authorization: Bearer $CF_PURGE_CACHE_TOKEN" \
           -d '{"purge_everything": true}'
 
+  e2e-tests:
+    if: ${{ github.event_name == 'push' }}
+    needs: deployment-status
+    runs-on: ubuntu-latest
+    steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
@@ -85,3 +87,27 @@ jobs:
           name: playwright-report
           path: playwright-report/
           retention-days: 7
+
+  performance-audit:
+    needs: deployment-status
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+      - run: npm ci
+
+      - name: Run PR Lighthouse audit
+        if: ${{ github.event_name == 'pull_request' }}
+        uses: jabranr/workflows/.github/workflows/resuable-lighthouse@main
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          urls: 'https://${{ github.event.pull_request.head.sha }}.jabranr.pages.dev,https://${{ github.event.pull_request.head.sha }}.jabranr.pages.dev/articles/,https://${{ github.event.pull_request.head.sha }}.jabranr.pages.dev/projects/,https://${{ github.event.pull_request.head.sha }}.jabranr.pages.dev/speaking/,https://${{ github.event.pull_request.head.sha }}.jabranr.pages.dev/resume/'
+
+      - name: Run Lighthouse audit
+        uses: jabranr/workflows/.github/workflows/resuable-lighthouse@main
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          urls: 'https://jabran.me,https://jabran.me/articles/,https://jabran.me/projects/,https://jabran.me/speaking/,https://jabran.me/resume/'
