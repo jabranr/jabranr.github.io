@@ -95,7 +95,7 @@ jobs:
     secrets:
       github-token: ${{ secrets.GITHUB_TOKEN }}
     with:
-      urls: 'https://${{ github.ref_name }}.jabranr.pages.dev,https://${{ github.ref_name }}.jabranr.pages.dev/articles/,https://${{ github.ref_name }}.jabranr.pages.dev/projects/,https://${{ github.ref_name }}.jabranr.pages.dev/speaking/,https://${{ github.ref_name }}.jabranr.pages.dev/resume/'
+      urls: 'https://${{ github.head_ref }}.jabranr.pages.dev,https://${{ github.head_ref }}.jabranr.pages.dev/articles/,https://${{ github.head_ref }}.jabranr.pages.dev/projects/,https://${{ github.head_ref }}.jabranr.pages.dev/speaking/,https://${{ github.head_ref }}.jabranr.pages.dev/resume/'
 
   performance-audit:
     needs: deployment-status
