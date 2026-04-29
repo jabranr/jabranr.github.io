@@ -95,10 +95,11 @@ jobs:
     secrets:
       github-token: ${{ secrets.GITHUB_TOKEN }}
     with:
-      urls: 'https://${{ github.event.pull_request.head.sha }}.jabranr.pages.dev,https://${{ github.event.pull_request.head.sha }}.jabranr.pages.dev/articles/,https://${{ github.event.pull_request.head.sha }}.jabranr.pages.dev/projects/,https://${{ github.event.pull_request.head.sha }}.jabranr.pages.dev/speaking/,https://${{ github.event.pull_request.head.sha }}.jabranr.pages.dev/resume/'
+      urls: 'https://${{ github.ref_name }}.jabranr.pages.dev,https://${{ github.ref_name }}.jabranr.pages.dev/articles/,https://${{ github.ref_name }}.jabranr.pages.dev/projects/,https://${{ github.ref_name }}.jabranr.pages.dev/speaking/,https://${{ github.ref_name }}.jabranr.pages.dev/resume/'
 
   performance-audit:
     needs: deployment-status
+    if: ${{ github.event_name == 'push' }}
     uses: jabranr/workflows/.github/workflows/reusable-lighthouse.yml@main
     secrets:
       github-token: ${{ secrets.GITHUB_TOKEN }}
