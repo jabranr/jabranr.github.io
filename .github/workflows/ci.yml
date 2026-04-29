@@ -12,7 +12,6 @@ concurrency:
 
 jobs:
   build-and-test:
-    timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -42,10 +41,7 @@ jobs:
           path: playwright-report/
           retention-days: 7
 
-  e2e-tests:
-    if: ${{ github.event_name == 'push' }}
-    timeout-minutes: 60
-    needs: build-and-test
+  deployment-status:
     runs-on: ubuntu-latest
     steps:
       - name: Wait for Cloudflare Pages deployment
@@ -54,6 +50,7 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Purge Cloudflare cache
+        if: ${{ github.event_name == 'push' }}
         env:
           CF_PURGE_CACHE_TOKEN: ${{ secrets.CF_PURGE_CACHE_TOKEN }}
           CF_ZONE_ID: ${{ secrets.CF_ZONE_ID }}
@@ -63,6 +60,11 @@ jobs:
           -H "Authorization: Bearer $CF_PURGE_CACHE_TOKEN" \
           -d '{"purge_everything": true}'
 
+  e2e-tests:
+    if: ${{ github.event_name == 'push' }}
+    needs: deployment-status
+    runs-on: ubuntu-latest
+    steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
@@ -85,3 +87,45 @@ jobs:
           name: playwright-report
           path: playwright-report/
           retention-days: 7
+
+  performance-audit-pr:
+    needs: deployment-status
+    if: ${{ github.event_name == 'pull_request' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+
+      - run: npm ci
+      - run: npm run build
+
+      - name: Run Lighthouse CI
+        shell: bash
+        run: |
+          npx lhci collect \
+            --url=https://${{ github.head_ref }}.jabranr.pages.dev \
+            --url=https://${{ github.head_ref }}.jabranr.pages.dev/resume/ \
+            --url=https://${{ github.head_ref }}.jabranr.pages.dev/articles/ \
+            --url=https://${{ github.head_ref }}.jabranr.pages.dev/projects/ \
+            --url=https://${{ github.head_ref }}.jabranr.pages.dev/speaking/
+
+          npx lhci upload \
+            --githubToken=${{ secrets.GITHUB_TOKEN }} \
+            --target=temporary-public-storage
+    # uses: jabranr/workflows/.github/workflows/reusable-lighthouse.yml@main
+    # secrets:
+    #   github-token: ${{ secrets.GITHUB_TOKEN }}
+    # with:
+    #   urls: 'https://${{ github.head_ref }}.jabranr.pages.dev,https://${{ github.head_ref }}.jabranr.pages.dev/articles/,https://${{ github.head_ref }}.jabranr.pages.dev/projects/,https://${{ github.head_ref }}.jabranr.pages.dev/speaking/,https://${{ github.head_ref }}.jabranr.pages.dev/resume/'
+
+  performance-audit:
+    needs: deployment-status
+    if: ${{ github.event_name == 'push' }}
+    uses: jabranr/workflows/.github/workflows/reusable-lighthouse.yml@main
+    secrets:
+      github-token: ${{ secrets.GITHUB_TOKEN }}
+    with:
+      urls: 'https://jabran.me,https://jabran.me/articles/,https://jabran.me/projects/,https://jabran.me/speaking/,https://jabran.me/resume/'
