@@ -23,7 +23,6 @@
     "test:report": "playwright show-report",
     "og-images": "node scripts/generate-og-images.js",
     "og-images:force": "node scripts/generate-og-images.js --force",
-    "lighthouse-ci": "lhci",
     "prepare": "husky"
   },
   "repository": {
@@ -51,7 +50,6 @@
     "@11ty/eleventy": "^3.1.2",
     "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.2",
     "@jabraf/dev": "^0.0.4",
-    "@lhci/cli": "^0.15.1",
     "autoprefixer": "^10.4.23",
     "canvas": "^3.2.1",
     "cloudflare": "^5.2.0",
