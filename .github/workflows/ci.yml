@@ -91,15 +91,23 @@ jobs:
   performance-audit-pr:
     needs: deployment-status
     if: ${{ github.event_name == 'pull_request' }}
-    uses: jabranr/workflows/.github/workflows/reusable-lighthouse.yml@main
-    with:
-      urls: 'https://${{ github.head_ref }}.jabranr.pages.dev,https://${{ github.head_ref }}.jabranr.pages.dev/resume/,https://${{ github.head_ref }}.jabranr.pages.dev/articles/,https://${{ github.head_ref }}.jabranr.pages.dev/projects/,https://${{ github.head_ref }}.jabranr.pages.dev/speaking/'
-      save-artifact: false
+    runs-on: ubuntu-latest
+    steps:
+      - name: Performance Audit (PR)
+        uses: jabranr/workflows/.github/actions/performance-audit@main
+        with:
+          urls: 'https://${{ github.head_ref }}.jabranr.pages.dev,https://${{ github.head_ref }}.jabranr.pages.dev/resume/,https://${{ github.head_ref }}.jabranr.pages.dev/articles/,https://${{ github.head_ref }}.jabranr.pages.dev/projects/,https://${{ github.head_ref }}.jabranr.pages.dev/speaking/'
+          save-artifact: false
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 
   performance-audit:
     needs: deployment-status
     if: ${{ github.event_name == 'push' }}
-    uses: jabranr/workflows/.github/workflows/reusable-lighthouse.yml@main
-    with:
-      urls: 'https://jabran.me,https://jabran.me/articles/,https://jabran.me/projects/,https://jabran.me/speaking/,https://jabran.me/resume/'
-      save-artifact: true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Performance Audit
+        uses: jabranr/workflows/.github/actions/performance-audit@main
+        with:
+          urls: 'https://jabran.me,https://jabran.me/articles/,https://jabran.me/projects/,https://jabran.me/speaking/,https://jabran.me/resume/'
+          save-artifact: true
+          github-token: ${{ secrets.GITHUB_TOKEN }}
