@@ -100,21 +100,39 @@ jobs:
           cache: 'npm'
 
       - run: npm ci
-      - run: npm run build
+      # - run: npm run build
+      - name: Create artifacts directory
+        run: mkdir -p "${{ github.workspace }}/tmp/artifacts"
 
-      - name: Run Lighthouse CI
-        shell: bash
-        run: |
-          npx lhci collect \
-            --url=https://${{ github.head_ref }}.jabranr.pages.dev \
-            --url=https://${{ github.head_ref }}.jabranr.pages.dev/resume/ \
-            --url=https://${{ github.head_ref }}.jabranr.pages.dev/articles/ \
-            --url=https://${{ github.head_ref }}.jabranr.pages.dev/projects/ \
-            --url=https://${{ github.head_ref }}.jabranr.pages.dev/speaking/
+      - name: Run Lighthouse
+        uses: foo-software/lighthouse-check-action@master
+        with:
+          urls: 'https://${{ github.head_ref }}.jabranr.pages.dev,https://${{ github.head_ref }}.jabranr.pages.dev/resume/,https://${{ github.head_ref }}.jabranr.pages.dev/articles/,https://${{ github.head_ref }}.jabranr.pages.dev/projects/,https://${{ github.head_ref }}.jabranr.pages.dev/speaking/'
+          gitAuthor: ${{ github.actor }}
+          gitBranch: ${{ github.ref }}
+          gitHubAccessToken: ${{ secrets.github-token }}
+          outputDirectory: '${{ github.workspace }}/tmp/artifacts'
 
-          npx lhci upload \
-            --githubToken=${{ secrets.GITHUB_TOKEN }} \
-            --target=temporary-public-storage
+      - name: Upload Lighthouse artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-results
+          path: '${{ github.workspace }}/tmp/artifacts'
+
+      # - name: Run Lighthouse CI
+      #   shell: bash
+      #   run: |
+      #     npx lhci collect \
+      #       --url=https://${{ github.head_ref }}.jabranr.pages.dev \
+      #       --url=https://${{ github.head_ref }}.jabranr.pages.dev/resume/ \
+      #       --url=https://${{ github.head_ref }}.jabranr.pages.dev/articles/ \
+      #       --url=https://${{ github.head_ref }}.jabranr.pages.dev/projects/ \
+      #       --url=https://${{ github.head_ref }}.jabranr.pages.dev/speaking/
+
+      #     npx lhci upload \
+      #       --githubToken=${{ secrets.GITHUB_TOKEN }} \
+      #       --target=temporary-public-storage
+
     # uses: jabranr/workflows/.github/workflows/reusable-lighthouse.yml@main
     # secrets:
     #   github-token: ${{ secrets.GITHUB_TOKEN }}
