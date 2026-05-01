@@ -88,26 +88,24 @@ jobs:
           path: playwright-report/
           retention-days: 7
 
-  performance-audit-pr:
+  performance-audit:
     needs: deployment-status
-    if: ${{ github.event_name == 'pull_request' }}
     runs-on: ubuntu-latest
     steps:
+      - name: Get domain
+        id: get-domain
+        env:
+          GITHUB_EVENT_NAME: ${{ github.event_name }}
+          GITHUB_HEAD_REF: ${{ github.head_ref }}
+        run: |
+          if [ "$GITHUB_EVENT_NAME" == "pull_request" ]; then
+            echo "domain=https://$GITHUB_HEAD_REF.jabranr.pages.dev" >> $GITHUB_OUTPUT
+          else
+            echo "domain=https://jabran.me" >> $GITHUB_OUTPUT
+          fi
+
       - name: Performance Audit (PR)
         uses: jabranr/workflows/.github/actions/performance-audit@main
         with:
-          urls: 'https://${{ github.head_ref }}.jabranr.pages.dev,https://${{ github.head_ref }}.jabranr.pages.dev/resume/,https://${{ github.head_ref }}.jabranr.pages.dev/articles/,https://${{ github.head_ref }}.jabranr.pages.dev/projects/,https://${{ github.head_ref }}.jabranr.pages.dev/speaking/'
-          save-artifact: false
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-
-  performance-audit:
-    needs: deployment-status
-    if: ${{ github.event_name == 'push' }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Performance Audit
-        uses: jabranr/workflows/.github/actions/performance-audit@main
-        with:
-          urls: 'https://jabran.me,https://jabran.me/articles/,https://jabran.me/projects/,https://jabran.me/speaking/,https://jabran.me/resume/'
-          save-artifact: true
+          urls: '${{ steps.get-domain.outputs.domain }},${{ steps.get-domain.outputs.domain }}/resume/,${{ steps.get-domain.outputs.domain }}/articles/,${{ steps.get-domain.outputs.domain }}/projects/,${{ steps.get-domain.outputs.domain }}/speaking/'
           github-token: ${{ secrets.GITHUB_TOKEN }}
