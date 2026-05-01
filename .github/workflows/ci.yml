@@ -12,7 +12,6 @@ concurrency:
 
 jobs:
   build-and-test:
-    timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -42,10 +41,7 @@ jobs:
           path: playwright-report/
           retention-days: 7
 
-  e2e-tests:
-    if: ${{ github.event_name == 'push' }}
-    timeout-minutes: 60
-    needs: build-and-test
+  deployment-status:
     runs-on: ubuntu-latest
     steps:
       - name: Wait for Cloudflare Pages deployment
@@ -54,6 +50,7 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Purge Cloudflare cache
+        if: ${{ github.event_name == 'push' }}
         env:
           CF_PURGE_CACHE_TOKEN: ${{ secrets.CF_PURGE_CACHE_TOKEN }}
           CF_ZONE_ID: ${{ secrets.CF_ZONE_ID }}
@@ -63,6 +60,11 @@ jobs:
           -H "Authorization: Bearer $CF_PURGE_CACHE_TOKEN" \
           -d '{"purge_everything": true}'
 
+  e2e-tests:
+    if: ${{ github.event_name == 'push' }}
+    needs: deployment-status
+    runs-on: ubuntu-latest
+    steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
@@ -85,3 +87,25 @@ jobs:
           name: playwright-report
           path: playwright-report/
           retention-days: 7
+
+  performance-audit:
+    needs: deployment-status
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get domain
+        id: get-domain
+        env:
+          GITHUB_EVENT_NAME: ${{ github.event_name }}
+          GITHUB_HEAD_REF: ${{ github.head_ref }}
+        run: |
+          if [ "$GITHUB_EVENT_NAME" == "pull_request" ]; then
+            echo "domain=https://$GITHUB_HEAD_REF.jabranr.pages.dev" >> $GITHUB_OUTPUT
+          else
+            echo "domain=https://jabran.me" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Performance Audit
+        uses: jabranr/workflows/.github/actions/performance-audit@main
+        with:
+          urls: '${{ steps.get-domain.outputs.domain }},${{ steps.get-domain.outputs.domain }}/resume/,${{ steps.get-domain.outputs.domain }}/articles/,${{ steps.get-domain.outputs.domain }}/projects/,${{ steps.get-domain.outputs.domain }}/speaking/'
+          github-token: ${{ secrets.GITHUB_TOKEN }}
