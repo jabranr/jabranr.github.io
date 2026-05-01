@@ -104,7 +104,7 @@ jobs:
             echo "domain=https://jabran.me" >> $GITHUB_OUTPUT
           fi
 
-      - name: Performance Audit (PR)
+      - name: Performance Audit
         uses: jabranr/workflows/.github/actions/performance-audit@main
         with:
           urls: '${{ steps.get-domain.outputs.domain }},${{ steps.get-domain.outputs.domain }}/resume/,${{ steps.get-domain.outputs.domain }}/articles/,${{ steps.get-domain.outputs.domain }}/projects/,${{ steps.get-domain.outputs.domain }}/speaking/'
