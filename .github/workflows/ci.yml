@@ -19,7 +19,7 @@ jobs:
       run-lint: false
       run-typecheck: false
 
-  functional:
+  functional-tests:
     needs: lint-and-build
     uses: jabranr/workflows/.github/workflows/reusable-integration.yml@main
     with:
