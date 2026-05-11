@@ -11,35 +11,18 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build-and-test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: 'npm'
-
-      - run: npm ci
-      - run: npm run build
-      - run: npm run format:check
-
-      - name: Install Chromium browser
-        if: ${{ github.event_name == 'pull_request' }}
-        run: npx playwright install --with-deps chromium
-
-      - name: Run Playwright functional tests
-        if: ${{ github.event_name == 'pull_request' }}
-        env:
-          CI: true
-        run: npm run test:functional
-
-      - uses: actions/upload-artifact@v4
-        if: ${{ github.event_name == 'pull_request' && !cancelled() }}
-        with:
-          name: playwright-report
-          path: playwright-report/
-          retention-days: 7
+  lint-and-build:
+    uses: jabranr/workflows/.github/workflows/reusable-pr-checks.yml
+    with:
+      run-pre-release: false
+      run-unit-test: false
+      run-lint: false
+      run-typecheck: false
+  functional:
+    needs: lint-and-build
+    uses: jabranr/workflows/.github/workflows/reusable-integration.yml
+    with:
+      test-type: functional
 
   deployment-status:
     runs-on: ubuntu-latest
@@ -63,30 +46,9 @@ jobs:
   e2e-tests:
     if: ${{ github.event_name == 'push' }}
     needs: deployment-status
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: 'npm'
-
-      - run: npm ci
-
-      - name: Install Chromium browser
-        run: npx playwright install --with-deps chromium
-
-      - name: Run Playwright e2e tests
-        env:
-          CI: true
-        run: npm run test:e2e
-
-      - uses: actions/upload-artifact@v4
-        if: ${{ !cancelled() }}
-        with:
-          name: playwright-report
-          path: playwright-report/
-          retention-days: 7
+    uses: jabranr/workflows/.github/workflows/reusable-integration.yml
+    with:
+      test-type: e2e
 
   performance-audit:
     needs: deployment-status
