@@ -11,35 +11,19 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build-and-test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: 'npm'
+  lint-and-build:
+    uses: jabranr/workflows/.github/workflows/reusable-pr-checks.yml@main
+    with:
+      run-pre-release: false
+      run-unit-test: false
+      run-lint: false
+      run-typecheck: false
 
-      - run: npm ci
-      - run: npm run build
-      - run: npm run format:check
-
-      - name: Install Chromium browser
-        if: ${{ github.event_name == 'pull_request' }}
-        run: npx playwright install --with-deps chromium
-
-      - name: Run Playwright functional tests
-        if: ${{ github.event_name == 'pull_request' }}
-        env:
-          CI: true
-        run: npm run test:functional
-
-      - uses: actions/upload-artifact@v4
-        if: ${{ github.event_name == 'pull_request' && !cancelled() }}
-        with:
-          name: playwright-report
-          path: playwright-report/
-          retention-days: 7
+  functional-tests:
+    needs: lint-and-build
+    uses: jabranr/workflows/.github/workflows/reusable-integration.yml@main
+    with:
+      test-type: functional
 
   deployment-status:
     runs-on: ubuntu-latest
@@ -63,30 +47,9 @@ jobs:
   e2e-tests:
     if: ${{ github.event_name == 'push' }}
     needs: deployment-status
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: 'npm'
-
-      - run: npm ci
-
-      - name: Install Chromium browser
-        run: npx playwright install --with-deps chromium
-
-      - name: Run Playwright e2e tests
-        env:
-          CI: true
-        run: npm run test:e2e
-
-      - uses: actions/upload-artifact@v4
-        if: ${{ !cancelled() }}
-        with:
-          name: playwright-report
-          path: playwright-report/
-          retention-days: 7
+    uses: jabranr/workflows/.github/workflows/reusable-integration.yml@main
+    with:
+      test-type: e2e
 
   performance-audit:
     needs: deployment-status
@@ -99,9 +62,9 @@ jobs:
           GITHUB_HEAD_REF: ${{ github.head_ref }}
         run: |
           if [ "$GITHUB_EVENT_NAME" == "pull_request" ]; then
-            echo "domain=https://$GITHUB_HEAD_REF.jabranr.pages.dev" >> $GITHUB_OUTPUT
+            echo "domain=https://$GITHUB_HEAD_REF.jabranr.pages.dev" >> "$GITHUB_OUTPUT"
           else
-            echo "domain=https://jabran.me" >> $GITHUB_OUTPUT
+            echo "domain=https://jabran.me" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Performance Audit
