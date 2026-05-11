@@ -12,15 +12,16 @@ concurrency:
 
 jobs:
   lint-and-build:
-    uses: jabranr/workflows/.github/workflows/reusable-pr-checks.yml
+    uses: jabranr/workflows/.github/workflows/reusable-pr-checks.yml@main
     with:
       run-pre-release: false
       run-unit-test: false
       run-lint: false
       run-typecheck: false
+
   functional:
     needs: lint-and-build
-    uses: jabranr/workflows/.github/workflows/reusable-integration.yml
+    uses: jabranr/workflows/.github/workflows/reusable-integration.yml@main
     with:
       test-type: functional
 
@@ -46,7 +47,7 @@ jobs:
   e2e-tests:
     if: ${{ github.event_name == 'push' }}
     needs: deployment-status
-    uses: jabranr/workflows/.github/workflows/reusable-integration.yml
+    uses: jabranr/workflows/.github/workflows/reusable-integration.yml@main
     with:
       test-type: e2e
 
