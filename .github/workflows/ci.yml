@@ -62,9 +62,9 @@ jobs:
           GITHUB_HEAD_REF: ${{ github.head_ref }}
         run: |
           if [ "$GITHUB_EVENT_NAME" == "pull_request" ]; then
-            echo "domain=https://$GITHUB_HEAD_REF.jabranr.pages.dev" >> $GITHUB_OUTPUT
+            echo "domain=https://$GITHUB_HEAD_REF.jabranr.pages.dev" >> "$GITHUB_OUTPUT"
           else
-            echo "domain=https://jabran.me" >> $GITHUB_OUTPUT
+            echo "domain=https://jabran.me" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Performance Audit
