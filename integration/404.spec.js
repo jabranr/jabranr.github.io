@@ -1,6 +1,6 @@
 const { test, expect } = require('@playwright/test');
 
-test.describe('404 Page', () => {
+test.describe('404 Page', { tag: ['@e2e'] }, () => {
   test('should load 404 page for non-existent route', async ({ page }) => {
     // Navigate directly to /404 to test the custom 404 page
     // Note: Eleventy 3.x dev server doesn't automatically serve custom 404 pages for non-existent routes

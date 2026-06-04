@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 // Selector for article links - targets links within article content areas
 const ARTICLE_LINK_SELECTOR = 'main a[href^="/articles/"]';
 
-test.describe('Articles Page', () => {
+test.describe('Articles Page', { tag: ['@e2e'] }, () => {
   test('should load articles page', async ({ page }) => {
     await page.goto('/articles');
     await expect(page).toHaveTitle('Articles - Jabran Rafique');
