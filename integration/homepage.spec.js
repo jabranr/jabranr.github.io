@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Homepage', () => {
+test.describe('Homepage', { tag: ['@e2e'] }, () => {
   test('should load successfully', async ({ page }) => {
     await page.goto('/');
     await expect(page).toHaveTitle(/Jabran Rafique/);

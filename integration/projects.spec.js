@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 // Selector for project links - targets links within main content area that go to projects
 const PROJECT_LINK_SELECTOR = 'main a[href^="/projects/"]';
 
-test.describe('Projects Page', () => {
+test.describe('Projects Page', { tag: ['@e2e'] }, () => {
   test('should load projects page', async ({ page }) => {
     await page.goto('/projects');
     await expect(page).toHaveTitle('Projects - Jabran Rafique');
