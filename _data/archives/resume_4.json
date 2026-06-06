@@ -1,0 +1,265 @@
+{
+  "title": "Jabran Rafique",
+  "contact": ["hello@jabran.me", "07983580025"],
+  "social": [
+    {
+      "text": "jabran.me",
+      "link": "https://jabran.me"
+    },
+    {
+      "text": "<span>github.com/</span>jabranr",
+      "link": "https://github.com/jabranr"
+    },
+    {
+      "text": "<span>linkedin.com/</span>jabranr",
+      "link": "https://jabranr.me/linkedin"
+    },
+    {
+      "text": "<span>x.com/</span>jabranr",
+      "link": "https://x.com/jabranr"
+    }
+  ],
+  "intro": "Senior Tech Lead / Staff Engineer with 10+ years experience of architecting and scaling high-performance web applications. Expert at aligning technical strategy and roadmaps with business ROI to drive measurable growth. Proven track record in mentoring teams and fostering a culture of engineering excellence.",
+  "employments": [
+    {
+      "order": 1,
+      "role": "Senior Software Engineer / Tech Lead",
+      "duration": "Dec 2023 — Present",
+      "employer": "Sky",
+      "website": "sky.com",
+      "intro": "Manage Sky’s online portfolio across US, Europe, and Africa. Lead TDD/DX initiatives; mentor engineers to accelerate career growth. Drive high-stakes technical decisions via cross-functional stakeholder collaboration.",
+      "experience": [
+        "Architected and delivered enterprise-wide AI automation infra with Augment/Auggie and GitHub Copilot, creating reusable GitHub Actions workflows with AI agent prompts, enhancing developer productivity and code quality and reducing time to market.",
+        "Engineered interactive AI development workflows enabling teams to trigger AI-assisted code analysis, implementation planning, and automated PR generation through GitHub issue comments, streamlining development cycles for distributed teams.",
+        "Created automated documentation generation pipeline running weekly via GitHub Actions, automatically analysing codebases and generating/updating markdown files with Augment AI agents, reducing 75% of documentation maintenance overhead.",
+        "Helped implement tailored AI-powered PR review system using Claude Sonnet 4.5 and Haiku 4.5 models with custom prompt engineering, providing automated code quality feedback with configurable severity levels and confidence scoring.",
+        "Implemented rigorous performance monitoring using Lighthouse CI, Catchpoint and Elastic APM Watchers, validation checks for GraphQL Schema in Concourse CI/CD workflows to continously evaluate performance bottlenecks and reduce frictions, ensuring web applications consistently meet high-performance standards across global markets.",
+        "Architected and implemented automation of the rules order key for Akamai Property Manager eliminating manual effort by 100%, enhancing CDN config efficiency, accuracy and DX.",
+        "Contributed to Next.js 15+ applications using React, TypeScript, styled-components, Apollo Client for GraphQL, integration and VR with Playwright and Cypress, Vitest, and AWS Lambda serverless architecture, serving millions of users across Peacock, NOW TV, and Sky streaming platforms.",
+        "Contributed to the shared UI components library to align implementations with Sky's design system, enhancing consistency and reusability across multiple web applications.",
+        "Championed developer experience improvements through automation, mentor engineers, fostering technical skill growth and career progression.",
+        "Led knowledge-sharing sessions and code reviews to promote best practices and continuous learning within the team. Helped promote at least 2 engineers to senior roles."
+      ]
+    },
+    {
+      "order": 2,
+      "role": "Staff Engineer",
+      "duration": "Jan 2023 — Nov 2023",
+      "employer": "Rated People",
+      "website": "ratedpeople.com",
+      "intro": "Led legacy-to-React/Node migration, improving reliability and performance. Leveraged Lighthouse/WebPageTest and PWA for 55% platform speed increase. Spearheaded CI/CD pipelines via BitBucket, Bamboo, AWS, and Cloudflare.",
+      "experience": [
+        "Guided strategic planning and technical direction, aligning engineering efforts with long-term business goals and market trends.",
+        "Championed progressive web app (PWA) technologies, revolutionizing mobile user experience and substantially increasing engagement metrics.",
+        "Cultivated a culture of continuous learning and technical excellence through mentorship, elevating team capabilities and fostering innovation.",
+        "Actively involved in recruitment process, attracting top-tier talent to build a high-performing engineering team aligned with company vision."
+      ]
+    },
+    {
+      "order": 3,
+      "role": "Frontend Tech Lead",
+      "duration": "Jun 2018 — Dec 2022",
+      "employer": "Rated People",
+      "website": "ratedpeople.com",
+      "intro": "Built Node/Redis BFF service with auth sessions handling more than half a million daily requests to Java microservices. Spearheaded migration using React, Node, and Remix. Leveraged Cloudflare Workers, VWO and SEOClarity for A/B testing and SEO gains.",
+      "experience": [
+        "Cultivated engineering excellence by mentoring frontend developers, elevating code quality standards, and optimizing workflow automation processes.",
+        "Implemented comprehensive monitoring systems with AWS CloudWatch, AppDynamics, Heap, and Site24x7, ensuring platform stability and swift issue resolution.",
+        "Actively shaped a high-performing engineering team through active involvement in recruitment, aligning talent acquisition with long-term technical goals."
+      ]
+    },
+    {
+      "order": 4,
+      "role": "Frontend Web Developer",
+      "duration": "Nov 2015 — May 2018",
+      "employer": "Rated People",
+      "website": "ratedpeople.com",
+      "intro": "Helped transition Frontend stack to AWS to enhance performance; Docker for scalable deployments. Spearheaded and developed custom signup app with automated vetting process using LAMP and Symfony2.",
+      "experience": [
+        "Actively participated in platform rebranding during 2016, improving user engagement and brand perception.",
+        "Modernized Frontend tools chain to boost developer experience.",
+        "Pioneered cutting-edge UI/UX designs that enhanced user engagement and site functionality."
+      ]
+    },
+    {
+      "order": 5,
+      "role": "Lead Web Developer",
+      "duration": "Feb 2013 — Oct 2015",
+      "employer": "Influence Digital",
+      "website": "influence.digital",
+      "intro": "Collaborated with design leads and project managers to maintain development sprints, ensuring seamless project execution for high-profile clients. Oversaw the social apps and websites development, mentored and managed the development team and maintained the technical roadmap.",
+      "experience": [
+        "Enforced rigorous quality standards in code and documentation, ensuring robust and maintainable applications across diverse client projects.",
+        "Spearheaded the adoption of cutting-edge technologies, guiding the team on industry trends and elevating the company's technical capabilities.",
+        "Mentored junior developers and freelancers, fostering a culture of knowledge sharing and driving team productivity in agile development sprints.",
+        "Developed a custom MVC framework for custom web apps, enhancing code reusability and streamlining development processes for high-profile clients.",
+        "Developed and optimized in-house social media MVC application frameworks, significantly improving performance and user engagement for client platforms while enhancing code reusability and streamlining development processes."
+      ]
+    }
+  ],
+  "freelancing": [
+    {
+      "order": 1,
+      "role": "Developer",
+      "duration": "Sep 2013 — Aug 2014",
+      "employer": "Multinet",
+      "website": "multinet.com.pk",
+      "description": "I developed a Role-Based Access Control (RBAC) platform in LAM(PHP) stack to monitor countrywide fibre-optic operations internally. The monitoring platform extensively used Google Maps API underneath with drawings API on top of it to add lines and station data to showcase service status in real-time. The source of data was the emails generated by the stations on service updates."
+    },
+    {
+      "order": 2,
+      "role": "Developer",
+      "duration": "May 2012 — Aug 2012",
+      "employer": "JMK Logistics",
+      "website": "jmklogistics.com",
+      "description": "I developed the website, designed branding and an internal logistics consignment system using LAM(PHP) stack that had helped me learn advance aspects of web development."
+    },
+    {
+      "order": 3,
+      "role": "Developer",
+      "duration": "Feb 2011 — Jan 2012",
+      "employer": "Aerologic Limited",
+      "website": "aerologic-ltd.com",
+      "description": "I designed the wireframes and prototypes. Based on these designs, I developed the website and inventory UI for electro-mechanical material related to the aerospace industry using open-source technologies LAM(PHP)."
+    }
+  ],
+  "projects": {
+    "description": "I develop apps based on personal ideas and interests in my spare time. Most of my projects are open-sourced and the code is hosted at GitHub. Here are some selected projects:",
+    "data": [
+      {
+        "name": "Guess Where",
+        "website": "guess-where.jabran.dev",
+        "description": "Geo-quiz game. Built with React, Google Maps API, and PartyKit (WebSockets)."
+      },
+      {
+        "name": "Google Maps API React Hook",
+        "website": "npmjs.com/package/@jabraf/use-gmaps",
+        "description": "Custom React hook to integrate Google Maps JavaScript SDK in React apps."
+      },
+      {
+        "name": "Facebook API React Hook",
+        "website": "npmjs.com/package/use-facebook",
+        "description": "Custom React hook to integrate Facebook JavaScript SDK in React apps."
+      },
+      {
+        "name": "Postcode.io",
+        "website": "github.com/jabranr/postcodes-io",
+        "description": "PHP library for postcodes.io API."
+      },
+      {
+        "name": "Work Clock",
+        "website": "work-clock.pages.dev",
+        "description": "Swift-based MacOS utility for managing remote work across timezones."
+      },
+      {
+        "name": "Childcare Vouchers",
+        "website": "childcare-vouchers.uk",
+        "description": "A directory of businesses accepting childcare vouchers as payment."
+      },
+      {
+        "name": "Reason to Follow",
+        "website": "reasontofollow.com",
+        "description": "A browser extension for remembering reasons to follow accounts on social platforms."
+      },
+      {
+        "hidden": true,
+        "name": "Covidonation",
+        "website": "covidonation.pages.dev",
+        "description": "Directory of organizations helping during the COVID-19 pandemic."
+      },
+      {
+        "hidden": true,
+        "name": "Covid19 Today",
+        "website": "covid19-today.pages.dev",
+        "description": "Daily updated figures for COVID-19 for every country and continent."
+      },
+      {
+        "hidden": true,
+        "name": "Socialmedia.js",
+        "website": "github.com/jabranr/socialmedia",
+        "description": "A JavaScript library that simplifies the social media integration into the web apps. It has a comprehensive documentation covering setup and usage for various supportive social media platforms."
+      },
+      {
+        "hidden": true,
+        "name": "Fetchwitter",
+        "website": "github.com/jabranr/fetchwitter/",
+        "description": "An easy-to-use PHP client to authenticate and consume Twitter API in web apps. Fetchwitter exposes a small and simple API to fetch Tweets and perform searches with terms such as a hashtag. It also has a WordPress plugin for easy integration into WordPress."
+      },
+      {
+        "hidden": true,
+        "name": "CSV Parser",
+        "website": "github.com/jabranr/csv-parser/",
+        "description": "A PHP client to parse CSV data from a file, stream, or string and convert into indexed or associative array format."
+      },
+      {
+        "hidden": true,
+        "name": "JS Memcache",
+        "website": "github.com/jabranr/js-memcache",
+        "description": "A lightweight JavaScript in-memory cache to store data for better performance by saving on network requests."
+      }
+    ]
+  },
+  "education": [
+    {
+      "order": 1,
+      "type": "MSc Computer Science (Web Development)",
+      "school": "Staffordshire University",
+      "duration": "September 2010 — February 2013"
+    },
+    {
+      "order": 2,
+      "type": "Bachelor of Science in Information Technology",
+      "school": "West London College of Business & Management Sciences",
+      "duration": "May 2005 — August 2008",
+      "hidden": true
+    }
+  ],
+  "skillsDescription": "",
+
+  "skills": [
+    {
+      "title": "Languages/Frameworks",
+      "tech": "TypeScript, JavaScript, PHP, SQL, Java, Swift, Bash, Ruby, Python"
+    },
+    {
+      "title": "Frontend",
+      "tech": "ReactJS, Remix, NextJS, Redux, Tailwind, React Native, HTML, JavaScript, CSS, Sass, Styled Components, Vite, Webpack, PWA, Service Workers, Web Sockets, ThreeJS, D3JS"
+    },
+    {
+      "title": "Backend",
+      "tech": "NodeJS, Express, GraphQL, Symfony, Laravel, Redis, REST APIs, Elastic, RabbitMQ, MySQL, MongoDB, AWS DynamoDB"
+    },
+    {
+      "title": "AI/ML",
+      "tech": "OpenAI, Gemini, Anthropic/Claude, GitHub Copilot, Augment, Prompt Engineering, AI Agents, Hugging Face, TensorFlow, DALL-E"
+    },
+    {
+      "title": "Management",
+      "tech": "Jira, Confluence, Agile (Scrum/Kanban), GitHub, Bitbucket"
+    },
+    {
+      "title": "Architecture",
+      "tech": "AI Agentic workflows, Micro-frontends, Microservices, Monorepos (Lerna/Yarn Workspaces), PWA, MVC, SSR, SSG, JAMstack, Serverless, CDNs, OAuth, JWT"
+    },
+    {
+      "title": "Cloud/DevOps",
+      "tech": "AWS, Cloudflare, Docker, GCP, GitHub Actions, Bamboo, Jenkins, Concourse, Fly, Atlassian, Akamai"
+    },
+    {
+      "title": "Testing",
+      "tech": "TDD, BDD, Jest, Vitest, Cypress, Playwright, React Testing Library, Selenium, JUnit, PHPUnit, Puppeteer"
+    },
+
+    {
+      "title": "Observability/UX",
+      "tech": "AppDynamics, Site24x7, VWO, Optimizely, SEOClarity, Elastic APM, Heap Analytics, Lighthouse, WebPageTest, Datadog, Grafana, Prometheus, CloudWatch, Catchpoint, Google Analytics, OpenTelemetry, BetterStack, Figma"
+    }
+  ],
+  "volunteering": [
+    {
+      "title": "Regional Community Lead & Moderator",
+      "org": "Google Map Maker",
+      "duration": "2008 — 2013"
+    }
+  ]
+}
