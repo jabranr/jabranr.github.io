@@ -1,4 +1,4 @@
-# Jabran.me
+# Jabran.me [![CI Checks](https://github.com/jabranr/jabranr.github.io/actions/workflows/ci.yml/badge.svg)](https://github.com/jabranr/jabranr.github.io/actions/workflows/ci.yml)
 
 This is uncompiled source code for the personal website of Jabran Rafique.
 
