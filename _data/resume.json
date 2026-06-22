@@ -62,7 +62,7 @@
       "website": "ratedpeople.com",
       "intro": "Built and scaled core platform services; led frontend architecture, event-driven backend integrations and cross-functional technical direction.",
       "experience": [
-        "Built Node/Redis BFF service for user authentication handling 500k+ daily requests as a proxy to Java microservices, backed by DynamoDB, MongoDB, RDS, Elasticsearch and served through Apache, AWS and Cloudflare — designed for high-throughput, low-latency performance.",
+        "Built Node/Redis BFF service for user authentication handling 500k+ daily requests as a proxy to Java microservices, backed by DynamoDB, MongoDB, RDS, Elasticsearch and served through Apache, AWS and Cloudflare; designed for high-throughput, low-latency performance.",
         "Directed Salesforce Lightning and Apex development for Sales, Customer Success and Marketing custom flows, collaborating with cross-functional stakeholders to deliver scalable CRM automation aligned with business operations.",
         "Provided technical direction and code review to backend Java/Spring Boot teams, ensuring quality and architectural coherence across service boundaries.",
         "Led migration of legacy PHP and JSP stack to a modern React/NodeJS architecture (strangler-fig pattern) using Remix and Cloudflare Workers, VWO and SEOClarity for A/B testing and SEO gains.",
