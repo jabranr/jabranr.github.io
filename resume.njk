@@ -30,7 +30,7 @@ excludeFromBrowse: true
     {%- if job.intro -%}
       <p>{{job.intro}}</p>
     {%- endif -%}
-    <ul class="list-disc list-inside mt-2 mb-4 hidden print:block ml-4 columns-2">
+    <ul class="list-disc list-inside mt-2 mb-4 hidden print:block ml-4 {% if loop.first %}columns-2{% endif %}">
       {%- for duty in job.experience -%}
         <li>{{duty|safe}}</li>
       {%- endfor -%}
@@ -119,4 +119,4 @@ excludeFromBrowse: true
   <a href="javascript:window.print();">Print CV</a>
 </p>
 
-<p class="hidden print:block mt-20 text-sm">Source: jabran.me/resume/</p>
+{# <p class="hidden print:block mt-20 text-sm">Source: jabran.me/resume/</p> #}
