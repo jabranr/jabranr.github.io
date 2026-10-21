@@ -17,8 +17,6 @@ Here is how I solved that with a small reusable GitHub Actions workflow.
 
 ---
 
-### The problem
-
 A typical CD pipeline for a Cloudflare Pages project looks roughly like this:
 
 ```
@@ -31,8 +29,6 @@ The deploy step triggers Cloudflare's build pipeline, but it returns almost imme
 What we actually need is a step that sits between `deploy` and `run tests` and simply waits — polling GitHub's Checks API until the Cloudflare Pages check run for the current commit is completed.
 
 ---
-
-### The solution
 
 I put together a reusable composite action, `actions/wait-cf-pages-deployment`, as part of my shared [workflows repository](https://github.com/jabranr/workflows).
 

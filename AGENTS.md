@@ -25,6 +25,10 @@ npm run build  # Production build
 - **[docs/architecture.md](./docs/architecture.md)** - Repository structure, tech stack, and CI/CD
 - **[docs/og-images.md](./docs/og-images.md)** - Open Graph image generation and configuration
 
+### Agent Skills
+
+- **[docs/agents/skills/](./docs/agents/skills/)** - Reusable agent skills for this repo (e.g. article writing voice/style guide)
+
 ## Essential Rules
 
 ### Do ✅
