@@ -1,5 +1,26 @@
 import { test, expect } from '@playwright/test';
 
+// Count canvas frames drawn in a time window (each frame starts with clearRect)
+function countDraws(page, ms) {
+  return page.evaluate(
+    (ms) =>
+      new Promise((resolve) => {
+        const proto = CanvasRenderingContext2D.prototype;
+        const original = proto.clearRect;
+        let frames = 0;
+        proto.clearRect = function (...args) {
+          frames++;
+          return original.apply(this, args);
+        };
+        setTimeout(() => {
+          proto.clearRect = original;
+          resolve(frames);
+        }, ms);
+      }),
+    ms
+  );
+}
+
 test.describe('Contour maps', { tag: ['@e2e'] }, () => {
   test('should draw the live map on the homepage hero', async ({ page }) => {
     await page.goto('/');
@@ -19,6 +40,26 @@ test.describe('Contour maps', { tag: ['@e2e'] }, () => {
 
     await expect(page.locator('[data-contour-elev]')).toContainText(/Elevation \d+ m/);
     await expect(page.locator('[data-contour-pos]')).toContainText(/\d+\.\d{4}° N/);
+  });
+
+  test('should stop drawing when the map is scrolled out of view', async ({ page }) => {
+    await page.goto('/');
+    await expect(page.locator('[data-contour-live]')).toHaveClass(/\bis-live\b/);
+
+    await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+    await page.waitForTimeout(300);
+    expect(await countDraws(page, 1000)).toBe(0);
+
+    await page.evaluate(() => window.scrollTo(0, 0));
+    await expect.poll(() => countDraws(page, 500)).toBeGreaterThan(0);
+  });
+
+  test('should keep the map still for visitors who prefer reduced motion', async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    await page.goto('/');
+    await expect(page.locator('[data-contour-live]')).toHaveClass(/\bis-live\b/);
+
+    expect(await countDraws(page, 1000)).toBe(0);
   });
 
   test('should show the pre-rendered map without JavaScript', async ({ browser }) => {

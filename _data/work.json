@@ -18,7 +18,7 @@
   {
     "name": "Work Clock",
     "kind": "macOS app",
-    "description": "A menu bar clock for the time zone your team works in.",
+    "description": "A macOS menu bar app that shows the time in a different time zone.",
     "url": "https://work-clock.jabran.dev",
     "cta": "Visit website",
     "map": "work-work-clock"

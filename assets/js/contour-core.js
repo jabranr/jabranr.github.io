@@ -302,5 +302,9 @@
     return d.replace(/ -/g, '-');
   }
 
-  return { hashString, createNoise, createTerrain, sampleGrid, march, chain, simplify, toPathData };
+  // Article and project header maps. The build (contour.11ty.js) and the OG
+  // cards both read this, so a page's header and its social card show one terrain.
+  const PAGE_MAP = { width: 1600, height: 440, tilt: 0.5, step: 0.075, base: -1.4 };
+
+  return { hashString, createNoise, createTerrain, sampleGrid, march, chain, simplify, toPathData, PAGE_MAP };
 });

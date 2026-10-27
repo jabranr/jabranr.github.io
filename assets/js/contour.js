@@ -120,7 +120,8 @@
       pointer.x += (pointer.tx - pointer.x) * 0.14;
       pointer.y += (pointer.ty - pointer.y) * 0.14;
       pointer.a += (pointer.ta - pointer.a) * 0.07;
-      if (now - lastDraw >= FRAME_MS) {
+      // small tolerance: vsync timestamps jitter, and 2 frames at 60Hz are ~33.3ms apart
+      if (now - lastDraw >= FRAME_MS - 2) {
         lastDraw = now;
         draw();
       }

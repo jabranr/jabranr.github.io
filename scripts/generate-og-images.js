@@ -3,8 +3,8 @@
 /**
  * Generate Open Graph images for all published posts and pages
  *
- * Each card draws the same seeded contour map as the page header it belongs to
- * (see assets/js/contour-core.js), so a shared link matches the page it opens.
+ * The top of each card shows the same contour map as the header of the page it
+ * belongs to (see PAGE_MAP in assets/js/contour-core.js), so a shared link matches the page it opens.
  *
  * Usage:
  *   node scripts/generate-og-images.js          # Generate missing images
@@ -43,7 +43,7 @@ const CONFIG = {
     },
   },
   outputDir: path.join(__dirname, '../public/og'),
-  // JPEG: antialiased contour lines make PNGs ~6x larger for no visible gain
+  // JPEG: as PNG, antialiased contour lines made cards ~5x larger (31 MB vs 5.8 MB for all cards)
   jpeg: { quality: 0.82, progressive: true, chromaSubsampling: false },
   defaultImage: {
     title: 'Software engineer for the progressive, performant and accessible web.',
@@ -144,12 +144,17 @@ function wrap(ctx, text, maxWidth) {
 function drawContours(ctx, slug) {
   const { width, height, colors } = CONFIG;
   const cell = 8;
-  const terrain = Contour.createTerrain(Contour.hashString(slug), { width, tilt: 0.5, scale: 150 });
-  const grid = Contour.sampleGrid(terrain, width, height, cell, 0);
+  const map = Contour.PAGE_MAP;
+
+  // Sample the page header's terrain (PAGE_MAP.width wide) scaled to the card width,
+  // so the top of the card shows exactly the map in the page header
+  const zoom = map.width / width;
+  const terrain = Contour.createTerrain(Contour.hashString(slug), { width: map.width, tilt: map.tilt });
+  const grid = Contour.sampleGrid((x, y, t) => terrain(x * zoom, y * zoom, t), width, height, cell, 0);
   const lines = new Path2DLike();
   const index = new Path2DLike();
 
-  Contour.march(grid, cell, 0.07, -1.4, (li, level, x1, y1, x2, y2) => {
+  Contour.march(grid, cell, map.step, map.base, (li, level, x1, y1, x2, y2) => {
     (li % 5 === 0 ? index : lines).push(x1, y1, x2, y2);
   });
 

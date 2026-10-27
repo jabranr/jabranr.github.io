@@ -56,7 +56,7 @@ flowchart TD
 
 - **One engine, three outputs.** `contour-core.js` is a UMD module used by the browser, the build and the OG script, so a page header, its social card and its terrain always match. Terrain is seeded from the page slug.
 - **Static maps** are SVGs used as CSS masks: `class="contour-mask"` with `style="--contour-src: url('/contour/<slug>.svg')"`. They take the theme's contour colour and need no JavaScript.
-- **Live maps** use `[data-contour-live="<seed>"]` with a `<canvas>` and a `[data-contour-static]` fallback inside. The pointer raises a hill whose rings turn the accent colour; `[data-contour-pos]` and `[data-contour-elev]` show coordinates and height. It pauses off-screen and in background tabs, runs at 30fps, and is still under `prefers-reduced-motion`.
+- **Live maps** use `[data-contour-live="<seed>"]` with a `<canvas>` and a `[data-contour-static]` fallback inside. The pointer raises a hill whose rings turn the accent colour; `[data-contour-pos]` and `[data-contour-elev]` show coordinates and height. It draws at most 30 frames per second, pauses off-screen and in background tabs, and stays still under `prefers-reduced-motion` (redrawing only when the pointer moves).
 - The list of SVGs comes from the `contourMaps` collection in `.eleventy.js`. Articles and projects are added automatically; add other slugs there.
 
 ## Command palette

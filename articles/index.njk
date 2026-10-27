@@ -40,7 +40,7 @@ permalink: "/articles/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber
   <nav data-testid="pagination" id="pagination" aria-label="Pages" class="mt-12 flex flex-wrap items-center gap-2 font-mono text-sm">
     {% for pageEntry in pagination.pages %}
       {% if pagination.hrefs[loop.index0] == '/articles/1/' or page.url == pagination.hrefs[loop.index0] %}
-        <span class="grid h-10 min-w-10 place-items-center rounded-lg bg-ink px-3 text-paper" aria-current="page" aria-label="Page {{ loop.index }}">{{ loop.index }}</span>
+        <span class="grid h-10 min-w-10 place-items-center rounded-lg bg-ink px-3 text-paper" aria-current="page">{{ loop.index }}</span>
       {% else %}
         <a class="grid h-10 min-w-10 place-items-center rounded-lg border border-line px-3 transition-colors hover:border-ink" href="/articles/{% if loop.index != loop.first %}{{ loop.index }}/{% endif %}" aria-label="Go to page {{ loop.index }}">{{ loop.index }}</a>
       {% endif %}

@@ -32,9 +32,11 @@ module.exports = function (eleventyConfig) {
   });
 
   // contour maps rendered at /contour/<slug>.svg (see contour.11ty.js)
+  const { width, height, tilt } = require('./assets/js/contour-core.js').PAGE_MAP;
+  const pageMap = { width, height, tilt };
   eleventyConfig.addCollection('contourMaps', function (collectionApi) {
     const pages = [...collectionApi.getFilteredByTag('articles'), ...collectionApi.getFilteredByTag('projects')].map(
-      (item) => ({ slug: item.page.fileSlug, width: 1600, height: 440, tilt: 0.5 })
+      (item) => ({ slug: item.page.fileSlug, ...pageMap })
     );
     // read fresh (not require) so edits show up while serving
     const work = JSON.parse(fs.readFileSync(path.resolve(__dirname, './_data/work.json'), 'utf8')).map((item) => ({

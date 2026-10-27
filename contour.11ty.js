@@ -2,8 +2,7 @@ const Core = require('./assets/js/contour-core.js');
 
 // Coarser than the live canvas: lines are simplified and rounded to whole pixels to keep files small
 const CELL = 14;
-const STEP = 0.075;
-const BASE = -1.4;
+const { step: STEP, base: BASE } = Core.PAGE_MAP;
 const TOLERANCE = 0.7;
 
 /**

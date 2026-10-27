@@ -28,11 +28,11 @@ permalink: "/projects/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber
         {% else %}
           <span class="contour-mask h-[4.5rem] w-[4.5rem] shrink-0 rounded-xl border border-line" style="--contour-src: url('/contour/{{ project.page.fileSlug }}.svg')" aria-hidden="true"></span>
         {% endif %}
-        <span class="min-w-0">
+        <div class="min-w-0">
           <span class="font-mono text-xs text-muted tabular"><time datetime="{{ project.date | format_date('YYYY-MM-DD') }}">{{ project.date | format_date('YYYY') }}</time></span>
           <h2 class="mt-1 font-display text-xl font-bold leading-snug transition-colors group-hover:text-accent" style="view-transition-name: {{ project.url | vtName }}">{{ project.data.title }}</h2>
-          <span class="mt-2 line-clamp-3 block text-sm text-muted">{{ project.data.excerpt | striptags }}</span>
-        </span>
+          <p class="mt-2 line-clamp-3 text-sm text-muted">{{ project.data.excerpt | striptags }}</p>
+        </div>
       </a>
     </li>
   {% endfor %}
@@ -42,7 +42,7 @@ permalink: "/projects/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber
   <nav data-testid="pagination" id="pagination" aria-label="Pages" class="mt-12 flex flex-wrap items-center gap-2 font-mono text-sm">
     {% for pageEntry in pagination.pages %}
       {% if pagination.hrefs[loop.index0] == '/projects/1/' or page.url == pagination.hrefs[loop.index0] %}
-        <span class="grid h-10 min-w-10 place-items-center rounded-lg bg-ink px-3 text-paper" aria-current="page" aria-label="Page {{ loop.index }}">{{ loop.index }}</span>
+        <span class="grid h-10 min-w-10 place-items-center rounded-lg bg-ink px-3 text-paper" aria-current="page">{{ loop.index }}</span>
       {% else %}
         <a class="grid h-10 min-w-10 place-items-center rounded-lg border border-line px-3 transition-colors hover:border-ink" href="/projects/{% if loop.index != loop.first %}{{ loop.index }}/{% endif %}" aria-label="Go to page {{ loop.index }}">{{ loop.index }}</a>
       {% endif %}

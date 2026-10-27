@@ -5,14 +5,14 @@ This project generates Open Graph (OG) images for every article and project.
 ## Features
 
 - **Automatic generation**: a card for each article and project, plus a default card
-- **Matches the page**: each card draws the same seeded contour map as the page header (see [design-system.md](./design-system.md))
+- **Matches the page**: the top of each card shows the same contour map as the page header (same seed and `PAGE_MAP` settings from `assets/js/contour-core.js`), with more terrain below it (see [design-system.md](./design-system.md))
 - **Design**:
   - Dark paper background (`#0a1510`) with contour lines
   - Section and year as a mono eyebrow (for example `ARTICLES · 2016`)
   - Title in Bricolage Grotesque, shrunk to fit three lines
   - Logo, name and `jabran.me` along the bottom, with an accent rule
   - 1200x630px, the size every social platform expects
-- **JPEG output**: antialiased contour lines make PNGs about six times larger for no visible gain
+- **JPEG output**: as PNG, antialiased contour lines made each card about 600 KB (31 MB in total); as JPEG they average about 115 KB (5.8 MB)
 - **Smart caching**: only generates missing images (unless forced)
 - **Private content handling**: skips draft/private articles
 
