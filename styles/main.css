@@ -4,151 +4,357 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Fonts: self-hosted latin subsets (SIL Open Font License, via Google Fonts) */
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 200 800;
+  font-stretch: 75% 100%;
+  font-display: swap;
+  src: url('/assets/fonts/bricolage-grotesque-latin.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Geist';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/assets/fonts/geist-latin.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Geist Mono';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/assets/fonts/geist-mono-latin.woff2') format('woff2');
+}
+
+/*
+ * Colour tokens as RGB channels (used by tailwind.config.js).
+ * Light by default, dark from the OS unless the visitor picked light,
+ * and dark whenever the visitor picked dark.
+ */
+@layer base {
+  :root {
+    --paper: 244 247 244;
+    --surface: 255 255 255;
+    --ink: 15 36 25;
+    --muted: 75 99 85;
+    --line: 213 224 216;
+    --accent: 207 25 86;
+    --brand: 14 127 64;
+    --contour: 38 84 60;
+    color-scheme: light;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not(.light) {
+      --paper: 10 21 16;
+      --surface: 16 30 23;
+      --ink: 226 239 231;
+      --muted: 143 176 157;
+      --line: 34 54 43;
+      --accent: 255 92 143;
+      --brand: 67 196 126;
+      --contour: 150 215 178;
+      color-scheme: dark;
+    }
+  }
+
+  :root.dark {
+    --paper: 10 21 16;
+    --surface: 16 30 23;
+    --ink: 226 239 231;
+    --muted: 143 176 157;
+    --line: 34 54 43;
+    --accent: 255 92 143;
+    --brand: 67 196 126;
+    --contour: 150 215 178;
+    color-scheme: dark;
+  }
+
+  /* Paper is white: always print with the light palette */
+  @media print {
+    :root,
+    :root.dark {
+      --paper: 255 255 255;
+      --surface: 255 255 255;
+      --ink: 15 36 25;
+      --muted: 75 99 85;
+      --line: 213 224 216;
+      --accent: 207 25 86;
+      color-scheme: light;
+    }
+  }
+
+  html {
+    @apply bg-paper font-sans text-ink antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply min-h-screen bg-paper;
+  }
+
+  ::selection {
+    @apply bg-accent text-white;
+  }
+
+  :focus-visible {
+    @apply rounded-sm outline outline-2 outline-offset-2 outline-accent;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  kbd {
+    @apply inline-block rounded border border-b-2 border-current px-1.5 font-mono text-[0.75em] leading-normal opacity-80;
+  }
+}
+
+/* Page-to-page morphs (cross-document View Transitions). Browsers without support just navigate. */
+@view-transition {
+  navigation: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @view-transition {
+    navigation: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@layer components {
+  .eyebrow {
+    @apply font-mono text-xs font-medium uppercase tracking-[0.12em] text-muted;
+  }
+
+  .link {
+    @apply underline decoration-accent/60 decoration-1 underline-offset-4 transition-colors hover:text-accent hover:decoration-accent;
+  }
+
+  .wordmark-name {
+    font-variation-settings: 'wdth' 75;
+  }
+
+  /* Static contour: an SVG used as a mask, painted in the theme's contour colour */
+  .contour-mask {
+    background-color: rgb(var(--contour) / 0.75);
+    -webkit-mask: var(--contour-src) center / cover no-repeat;
+    mask: var(--contour-src) center / cover no-repeat;
+  }
+
+  /* Soft paper-coloured halo that keeps text readable over contour lines */
+  .contour-halo {
+    background: radial-gradient(closest-side, rgb(var(--paper)) 55%, rgb(var(--paper) / 0));
+  }
+
+  .waypoint::before {
+    content: '';
+    @apply inline-block border-x-[5px] border-b-[9px] border-x-transparent border-b-ink;
+  }
+
+  .scale-bar {
+    @apply block h-1.5 w-20 border border-t-0 border-ink;
+    background: linear-gradient(
+      90deg,
+      rgb(var(--ink)) 0 25%,
+      transparent 25% 50%,
+      rgb(var(--ink)) 50% 75%,
+      transparent 75%
+    );
+  }
+
+  .reading-progress {
+    animation: grow-x linear both;
+    animation-timeline: scroll(root block);
+    transform-origin: 0 50%;
+  }
+
+  /* Command palette (native <dialog>) */
+  .cmdk::backdrop {
+    background: rgb(var(--ink) / 0.35);
+    backdrop-filter: blur(2px);
+  }
+
+  .cmdk[open] {
+    animation: cmdk-in 0.16s ease-out;
+  }
+
+  .cmdk-item[aria-selected='true'] {
+    @apply bg-accent/10;
+  }
+
+  .cmdk-item mark {
+    @apply bg-transparent font-semibold text-accent;
+  }
+
+  /* Article and project body copy written in Markdown */
+  .prose {
+    @apply max-w-prose text-[1.0625rem] leading-[1.75] md:text-lg;
+  }
+
+  .prose > * + * {
+    @apply mt-5;
+  }
+
+  .prose h2,
+  .prose h3,
+  .prose h4 {
+    @apply scroll-mt-24 font-display font-bold leading-tight tracking-tight;
+  }
+
+  .prose h2 {
+    @apply mt-12 text-2xl md:text-3xl;
+  }
+
+  .prose h3 {
+    @apply mt-10 text-xl md:text-2xl;
+  }
+
+  .prose h4 {
+    @apply mt-8 text-lg;
+  }
+
+  .prose a {
+    @apply underline decoration-accent/60 decoration-1 underline-offset-4 transition-colors hover:text-accent hover:decoration-accent;
+    overflow-wrap: anywhere;
+  }
+
+  .prose strong {
+    @apply font-semibold;
+  }
+
+  .prose .lead {
+    @apply text-xl leading-relaxed text-ink md:text-2xl;
+  }
+
+  .prose ul {
+    @apply list-disc pl-6;
+  }
+
+  .prose ol {
+    @apply list-decimal pl-6;
+  }
+
+  .prose li + li {
+    @apply mt-2;
+  }
+
+  .prose li::marker {
+    @apply text-accent;
+  }
+
+  .prose blockquote {
+    @apply border-l-2 border-accent pl-5 italic text-muted;
+  }
+
+  .prose img {
+    @apply mx-auto h-auto max-w-full rounded-md border border-line;
+  }
+
+  .prose figure figcaption {
+    @apply mt-2 text-center text-sm text-muted;
+  }
+
+  .prose hr {
+    @apply my-10 border-line;
+  }
+
+  .prose table {
+    @apply block w-full overflow-x-auto text-base;
+  }
+
+  .prose thead {
+    @apply border-b border-line;
+  }
+
+  .prose th {
+    @apply text-left font-semibold;
+  }
+
+  .prose th,
+  .prose td {
+    @apply px-3 py-2;
+  }
+
+  .prose :not(pre) > code {
+    @apply rounded bg-ink/[0.07] px-1.5 py-0.5 font-mono text-[0.85em] text-accent;
+    overflow-wrap: anywhere;
+  }
+
+  .prose pre[class*='language-'],
+  .prose pre {
+    @apply relative my-6 overflow-x-auto rounded-lg font-mono text-sm leading-relaxed;
+  }
+
+  .prose pre code {
+    @apply font-mono;
+  }
+
+  .prose math {
+    @apply my-4 inline-block text-3xl;
+  }
+
+  .code-copy {
+    @apply absolute right-2 top-2 rounded border border-white/20 bg-black/40 px-2 py-0.5 font-mono text-xs text-white/80 opacity-0 transition-opacity hover:text-white focus-visible:opacity-100;
+  }
+
+  .prose pre:hover .code-copy {
+    @apply opacity-100;
+  }
+}
+
+@layer utilities {
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
 html[lang='ur'],
 .translated-rtl {
   direction: rtl;
 }
 
-html.light {
-  .icon-light-mode {
-    @apply visible;
-  }
-
-  .icon-dark-mode {
-    @apply hidden;
-  }
-}
-
-html.dark {
-  .icon-light-mode {
-    @apply hidden;
-  }
-
-  .icon-dark-mode {
-    @apply visible;
-  }
-}
-
-.lead {
-  @apply my-8 text-3xl font-extralight leading-tight;
-}
-
-p {
-  @apply my-4;
-}
-
-a {
-  @apply text-sky-600 underline hover:text-red-700 dark:text-sky-400;
-}
-
-h2,
-h3,
-h4 {
-  @apply my-6 mb-2 text-2xl font-bold;
-}
-
-h2 {
-  @apply my-8 mb-4 text-3xl;
-}
-
-h4 {
-  @apply my-4 mb-2 text-xl;
-}
-
-.logo {
-  @apply m-0 block bg-contain bg-no-repeat text-6xl font-bold leading-none tracking-tighter text-sky-950  no-underline transition-colors md:bg-[url('/avatar.png')] md:pl-28 md:leading-relaxed dark:text-sky-50;
-}
-
-:not(h1).logo {
-  @apply hover:text-black dark:hover:text-gray-300;
-}
-
-[lang='ur'] .logo,
-.translated-rtl .logo {
-  @apply bg-right pl-0 pr-20 md:pr-16;
-}
-
-.hero a {
-  text-decoration-skip-ink: none;
-}
-
-.bg-full-width {
-  @apply bg-sky-950 text-sky-50 shadow-[0_0_0_100vmax_#082f49] dark:bg-sky-100 dark:text-sky-950 dark:shadow-[0_0_0_100vmax_#e0f2fe];
-  clip-path: inset(0 -100vmax);
-}
-
-.colophone a {
-  @apply inline-block font-bold text-[#00bcd4] after:ml-[6px] after:inline-block after:pr-[3px] after:text-[#666] after:content-['\2022'] last:after:content-[''] hover:text-[#cf1956];
-}
-
-code {
-  @apply rounded-[4px] bg-[#eee] px-1 py-[1px] font-mono text-sm text-[#cf1956];
-}
-
-blockquote {
-  @apply my-4 border-l-[5px] border-l-[#ddd] bg-[#eee] px-4 py-1 italic text-[#666];
-}
-
-.post ul {
-  @apply my-4 list-disc pl-10;
-}
-
-.articles-list {
-  counter-reset: articles;
-}
-
-.articles-list li {
-  margin-top: 0.5rem;
-  counter-increment: articles;
-  display: flex;
-  align-items: center;
-}
-
-.articles-list li::before {
-  content: counter(articles);
-  margin-right: 10px;
-  display: block;
-  font-weight: lighter;
-  font-size: 4rem;
-  color: #ddd;
-  line-height: 1;
-  min-width: min-content;
-  font-variant-numeric: tabular-nums;
+pre[class*='language-'],
+code[class*='language-'] {
+  font-family: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
 
 pre[class*='language-'] {
-  font-size: 1rem;
-  line-height: 1.5;
+  font-size: 0.875rem;
+  line-height: 1.65;
+  padding: 1.1rem 1.25rem;
+  margin: 1.5rem 0;
 }
 
-math {
-  @apply my-4 inline-block text-3xl;
-}
-
-.reading-progress {
-  animation-name: width;
-  animation-timeline: scroll(y);
-}
-
-table thead {
-  border-bottom: 1px solid #eee;
-
-  th {
-    text-align: left;
-  }
-}
-
-table tr,
-table th,
-table td {
-  padding: 1rem;
-}
-
-@keyframes width {
+@keyframes grow-x {
   from {
-    width: 0;
+    transform: scaleX(0);
   }
   to {
-    width: 100%;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes cmdk-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
   }
 }
