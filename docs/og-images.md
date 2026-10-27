@@ -1,18 +1,20 @@
 # Open Graph Image Generation
 
-This project automatically generates Open Graph (OG) images for all articles and projects.
+This project generates Open Graph (OG) images for every article and project.
 
 ## Features
 
-- **Automatic generation**: Creates unique OG images for each article and project
-- **Custom design**:
-  - Dark background (#222222)
-  - Logo watermark with low opacity
-  - Title in Serif font
-  - Author attribution ("Jabran Rafique") in bottom right
-  - Optimal dimensions: 1200x630px (recommended for all social platforms)
-- **Smart caching**: Only generates missing images (unless forced)
-- **Private content handling**: Skips draft/private articles
+- **Automatic generation**: a card for each article and project, plus a default card
+- **Matches the page**: each card draws the same seeded contour map as the page header (see [design-system.md](./design-system.md))
+- **Design**:
+  - Dark paper background (`#0a1510`) with contour lines
+  - Section and year as a mono eyebrow (for example `ARTICLES · 2016`)
+  - Title in Bricolage Grotesque, shrunk to fit three lines
+  - Logo, name and `jabran.me` along the bottom, with an accent rule
+  - 1200x630px, the size every social platform expects
+- **JPEG output**: antialiased contour lines make PNGs about six times larger for no visible gain
+- **Smart caching**: only generates missing images (unless forced)
+- **Private content handling**: skips draft/private articles
 
 ## Usage
 
@@ -27,7 +29,7 @@ This will:
 - Scan all articles and projects
 - Skip private content
 - Generate images only for pages without existing OG images
-- Save to `assets/images/og/`
+- Save to `public/og/`
 
 ### Regenerate all images
 
@@ -35,57 +37,46 @@ This will:
 npm run og-images:force
 ```
 
-Use this when you want to update all images (e.g., after design changes).
+Use this after design changes.
 
 ## How it works
 
-1. **Convention-based naming**: Images are named after the page slug
-   - Article: `/articles/secret-sauces-of-git/` → `secret-sauces-of-git.png`
-   - Project: `/projects/socialmedia-js/` → `socialmedia-js.png`
+1. **Convention-based naming**: images are named after the page slug
+   - Article: `/articles/secret-sauces-of-git/` → `public/og/secret-sauces-of-git.jpg`
+   - Project: `/projects/socialmedia-js/` → `public/og/socialmedia-js.jpg`
+   - Everything else uses `public/og/default.jpg`
 
-2. **Automatic integration**: The `base.njk` template automatically:
-   - Checks for OG image based on page URL
-   - Uses generated image if it exists
-   - Falls back to default icon if not found
+2. **Automatic integration**: the `ogImage` filter in `.eleventy.js`:
+   - Looks for `public/og/<slug>.jpg` based on the page URL
+   - Falls back to `/og/default.jpg`, then `/icon-1024x1024.png`
 
 ## File Structure
 
 ```
-public/og/          # Generated OG images
+public/og/                     # Generated OG images (.jpg)
+assets/js/contour-core.js      # Contour engine shared with the site
 scripts/
-  ├── generate-og-images.js  # Image generation script
+  ├── generate-og-images.js    # Image generation script
   └── fonts/
-      └── InstrumentSerif-Regular.ttf  # Custom font
-      └── Inter-VariableFont_opsz,wght.ttf  # Custom font
+      ├── BricolageGrotesque-ExtraBoldCondensed.ttf  # Titles and name
+      └── GeistMono-Medium.ttf                       # Eyebrow and domain
 ```
 
 ## Customization
 
-To customize the design, edit `scripts/generate-og-images.js`:
+Edit `CONFIG` in `scripts/generate-og-images.js`:
 
-- `CONFIG.bgColor`: Background color
-- `CONFIG.textColor`: Text color
-- `CONFIG.logoOpacity`: Logo transparency (0-1)
-- Font sizes: Modify in the canvas drawing code
+- `CONFIG.colors`: background, text, contour and accent colours
+- `CONFIG.jpeg`: output quality
+- Title size and layout: `drawCard()`
+- Contour density: `drawContours()`
 
 ## Troubleshooting
 
 **Images not appearing on social media**
 
-1. Verify image exists: Check `assets/images/og/` directory
+1. Verify the image exists in `public/og/`
 2. Test with social media debuggers:
    - Facebook: https://developers.facebook.com/tools/debug/
-   - Twitter: https://cards-dev.twitter.com/validator
    - LinkedIn: https://www.linkedin.com/post-inspector/
 3. Clear social media cache (may take 24-48 hours)
-
-**Script fails to generate images**
-
-- Ensure all dependencies are installed: `npm ci`
-- Check that the logo exists: `public/logo.png`
-- Verify font file exists: `scripts/fonts/PlayfairDisplay-Bold.ttf`
-
-## Dependencies
-
-- `canvas`: Node.js canvas implementation for image generation
-- Playfair Display font (included in `scripts/fonts/`)

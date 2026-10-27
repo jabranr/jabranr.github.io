@@ -24,12 +24,15 @@ npm run build  # Production build
 - **[docs/eleventy.md](./docs/eleventy.md)** - Eleventy filters, collections, and environment variables
 - **[docs/architecture.md](./docs/architecture.md)** - Repository structure, tech stack, and CI/CD
 - **[docs/og-images.md](./docs/og-images.md)** - Open Graph image generation and configuration
+- **[docs/design-system.md](./docs/design-system.md)** - Colour tokens, fonts, contour maps, command palette and motion
 
 ## Essential Rules
 
 ### Do ✅
 
-- Use Tailwind utility classes for styling
+- Use Tailwind utility classes for styling, with the colour tokens (`bg-paper`, `text-ink`, `text-muted`, `border-line`, `text-accent`)
+- Treat JavaScript as an enhancement: every page must work and read well without it
+- Respect `prefers-reduced-motion` for anything that moves
 - Add tests for new features
 - Test locally before committing: `npm start` and `npm test`
 
@@ -38,3 +41,4 @@ npm run build  # Production build
 - Don't modify generated files in `public/` directory
 - Don't change Node version without updating `volta` in `package.json`
 - Don't bypass pre-commit hooks (code formatting is automatic)
+- Don't use raw colours (`text-gray-600`, `#666`) or `dark:` variants for colours; use tokens so both themes work

@@ -19,6 +19,14 @@ test.describe('404 Page', { tag: ['@e2e'] }, () => {
     await expect(body).toBeVisible();
   });
 
+  test('should say the visitor is off the map and offer a way back', async ({ page }) => {
+    await page.goto('/404');
+
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText('Off the map');
+    await expect(page.getByRole('link', { name: 'Back to the homepage' })).toHaveAttribute('href', /^\/\?ref=404$/);
+    await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', 'noindex, nofollow');
+  });
+
   test('should have navigation back to home', async ({ page }) => {
     await page.goto('/404');
 
