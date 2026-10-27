@@ -3,6 +3,9 @@
 /**
  * Generate Open Graph images for all published posts and pages
  *
+ * Each card draws the same seeded contour map as the page header it belongs to
+ * (see assets/js/contour-core.js), so a shared link matches the page it opens.
+ *
  * Usage:
  *   node scripts/generate-og-images.js          # Generate missing images
  *   node scripts/generate-og-images.js --force  # Regenerate all images
@@ -11,51 +14,48 @@
 const fs = require('fs');
 const path = require('path');
 const { createCanvas, loadImage, registerFont } = require('canvas');
+const Contour = require('../assets/js/contour-core.js');
 
 // Configuration
 const CONFIG = {
   width: 1200,
   height: 630,
-  bgColor: '#222222',
-  textColor: '#f5f5f8',
+  colors: {
+    paper: '#0a1510',
+    ink: '#e2efe7',
+    muted: '#8fb09d',
+    contour: 'rgba(150, 215, 178, 0.22)',
+    contourIndex: 'rgba(150, 215, 178, 0.45)',
+    accent: '#ff5c8f',
+  },
   logo: {
-    add: true,
-    opacity: 0.1,
+    size: 44,
     path: path.join(__dirname, '../public/logo.png'),
   },
   fonts: {
-    sans: {
-      name: 'Inter',
-      weight: 'bold',
-      size: '48px',
-      path: path.join(__dirname, './fonts/Inter-VariableFont_opsz,wght.ttf'),
+    display: {
+      name: 'Bricolage Grotesque OG',
+      path: path.join(__dirname, './fonts/BricolageGrotesque-ExtraBoldCondensed.ttf'),
     },
-    serif: {
-      name: 'Instrument Serif',
-      weight: 'normal',
-      style: 'normal',
-      size: '120px',
-      path: path.join(__dirname, './fonts/InstrumentSerif-Regular.ttf'),
+    mono: {
+      name: 'Geist Mono OG',
+      path: path.join(__dirname, './fonts/GeistMono-Medium.ttf'),
     },
   },
   outputDir: path.join(__dirname, '../public/og'),
+  // JPEG: antialiased contour lines make PNGs ~6x larger for no visible gain
+  jpeg: { quality: 0.82, progressive: true, chromaSubsampling: false },
   defaultImage: {
-    title: 'Software Engineer. Sometimes maker of things.',
-    slug: 'icon-1024x1024',
-    outputPath: path.join(__dirname, '../public/icon-1024x1024.png'),
+    title: 'Software engineer for the progressive, performant and accessible web.',
+    slug: 'default',
+    outputPath: path.join(__dirname, '../public/og/default.jpg'),
   },
 };
 
-// Register custom font
-registerFont(CONFIG.fonts.serif.path, {
-  family: CONFIG.fonts.serif.name,
-  weight: CONFIG.fonts.serif.weight,
-});
-
-registerFont(CONFIG.fonts.sans.path, {
-  family: CONFIG.fonts.sans.name,
-  weight: CONFIG.fonts.sans.weight,
-});
+// Register custom fonts
+for (const font of Object.values(CONFIG.fonts)) {
+  registerFont(font.path, { family: font.name });
+}
 
 // Ensure output directory exists
 if (!fs.existsSync(CONFIG.outputDir)) {
@@ -118,7 +118,133 @@ function getContentFiles() {
 }
 
 /**
- * Generate OG image using Canvas
+ * Word-wrap text to a width, returning lines
+ */
+function wrap(ctx, text, maxWidth) {
+  const words = text.split(' ');
+  const lines = [];
+  let line = words[0];
+
+  for (let i = 1; i < words.length; i++) {
+    const test = line + ' ' + words[i];
+    if (ctx.measureText(test).width > maxWidth) {
+      lines.push(line);
+      line = words[i];
+    } else {
+      line = test;
+    }
+  }
+  lines.push(line);
+  return lines;
+}
+
+/**
+ * Draw the contour map for a slug, faded behind the title on the left
+ */
+function drawContours(ctx, slug) {
+  const { width, height, colors } = CONFIG;
+  const cell = 8;
+  const terrain = Contour.createTerrain(Contour.hashString(slug), { width, tilt: 0.5, scale: 150 });
+  const grid = Contour.sampleGrid(terrain, width, height, cell, 0);
+  const lines = new Path2DLike();
+  const index = new Path2DLike();
+
+  Contour.march(grid, cell, 0.07, -1.4, (li, level, x1, y1, x2, y2) => {
+    (li % 5 === 0 ? index : lines).push(x1, y1, x2, y2);
+  });
+
+  ctx.lineCap = 'round';
+  lines.stroke(ctx, colors.contour, 1.2);
+  index.stroke(ctx, colors.contourIndex, 1.8);
+
+  const fade = ctx.createLinearGradient(0, 0, width, 0);
+  fade.addColorStop(0, 'rgba(10, 21, 16, 0.94)');
+  fade.addColorStop(0.55, 'rgba(10, 21, 16, 0.7)');
+  fade.addColorStop(1, 'rgba(10, 21, 16, 0)');
+  ctx.fillStyle = fade;
+  ctx.fillRect(0, 0, width, height);
+}
+
+// node-canvas has no Path2D, so batch segments and stroke them in one path
+class Path2DLike {
+  constructor() {
+    this.segments = [];
+  }
+
+  push(...points) {
+    this.segments.push(points);
+  }
+
+  stroke(ctx, color, lineWidth) {
+    ctx.beginPath();
+    for (const [x1, y1, x2, y2] of this.segments) {
+      ctx.moveTo(x1, y1);
+      ctx.lineTo(x2, y2);
+    }
+    ctx.strokeStyle = color;
+    ctx.lineWidth = lineWidth;
+    ctx.stroke();
+  }
+}
+
+/**
+ * Render one card to a PNG file
+ */
+async function drawCard({ title, slug, eyebrow, outputPath }) {
+  const { width, height, colors, fonts } = CONFIG;
+  const canvas = createCanvas(width, height);
+  const ctx = canvas.getContext('2d');
+  const pad = 72;
+
+  ctx.fillStyle = colors.paper;
+  ctx.fillRect(0, 0, width, height);
+  drawContours(ctx, slug);
+
+  // Eyebrow
+  ctx.fillStyle = colors.muted;
+  ctx.font = `22px "${fonts.mono.name}"`;
+  ctx.textBaseline = 'alphabetic';
+  ctx.fillText(eyebrow.toUpperCase().split('').join(' '), pad, pad + 16);
+
+  // Title: shrink until it fits in three lines
+  let size = 96;
+  let lines;
+  do {
+    ctx.font = `${size}px "${fonts.display.name}"`;
+    lines = wrap(ctx, title, width - pad * 2 - 80);
+    size -= 6;
+  } while (lines.length > 3 && size > 56);
+
+  const lineHeight = (size + 6) * 1.02;
+  ctx.fillStyle = colors.ink;
+  let y = pad + 70 + lineHeight * 0.8;
+  for (const line of lines) {
+    ctx.fillText(line, pad, y);
+    y += lineHeight;
+  }
+
+  // Footer: logo, name and an accent rule
+  const footerY = height - pad;
+  const logo = await loadImage(CONFIG.logo.path);
+  ctx.drawImage(logo, pad - 4, footerY - CONFIG.logo.size + 8, CONFIG.logo.size, CONFIG.logo.size);
+  ctx.fillStyle = colors.ink;
+  ctx.font = `32px "${fonts.display.name}"`;
+  ctx.fillText('Jabran Rafique', pad + CONFIG.logo.size + 10, footerY);
+
+  ctx.fillStyle = colors.muted;
+  ctx.font = `22px "${fonts.mono.name}"`;
+  ctx.textAlign = 'right';
+  ctx.fillText('jabran.me', width - pad, footerY);
+  ctx.textAlign = 'left';
+
+  ctx.fillStyle = colors.accent;
+  ctx.fillRect(0, height - 8, width, 8);
+
+  fs.writeFileSync(outputPath, canvas.toBuffer('image/jpeg', CONFIG.jpeg));
+}
+
+/**
+ * Generate OG image for a content file
  */
 async function generateImage(filePath, force = false) {
   const content = fs.readFileSync(filePath, 'utf-8');
@@ -144,181 +270,46 @@ async function generateImage(filePath, force = false) {
 
   // use file name as slug instead of title to be aligned with how 11ty renders the page
   const slug = path.basename(filePath, '.md');
-  const outputPath = path.join(CONFIG.outputDir, `${slug}.png`);
+  const outputPath = path.join(CONFIG.outputDir, `${slug}.jpg`);
+  const section = path.basename(path.dirname(filePath));
+  const year = String(frontmatter.date || '').slice(0, 4);
 
   // Skip if file exists and not forcing
   if (!force && fs.existsSync(outputPath)) {
-    console.log(`✓ ${slug}.png already exists`);
+    console.log(`✓ ${slug}.jpg already exists`);
     return { status: 'exists', path: outputPath };
   }
 
   try {
-    console.log(`🎨 Generating ${slug}.png...`);
-
-    // Create canvas
-    const canvas = createCanvas(CONFIG.width, CONFIG.height);
-    const ctx = canvas.getContext('2d');
-
-    // Fill background
-    ctx.fillStyle = CONFIG.bgColor;
-    ctx.fillRect(0, 0, CONFIG.width, CONFIG.height);
-
-    // Load and draw logo with opacity
-    if (CONFIG.logo.add) {
-      const logo = await loadImage(CONFIG.logo.path);
-      ctx.globalAlpha = CONFIG.logo.opacity;
-
-      // Center the logo
-      const logoSize = CONFIG.width;
-      const logoX = (CONFIG.width - logoSize) / 2;
-      const logoY = (CONFIG.height - logoSize) / 4;
-      ctx.drawImage(logo, logoX, logoY, logoSize, logoSize);
-    }
-
-    // Reset opacity for text
-    ctx.globalAlpha = 1.0;
-
-    // Draw title with Serif font
-    ctx.fillStyle = CONFIG.textColor;
-    ctx.font = `${CONFIG.fonts.serif.style} ${CONFIG.fonts.serif.size} "${CONFIG.fonts.serif.name}"`;
-    ctx.textBaseline = 'middle';
-
-    // Word wrap for title
-    const maxWidth = CONFIG.width - 120; // 60px padding on each side
-    const lineHeight = 1.1 * parseFloat(CONFIG.fonts.serif.size);
-    const words = title.split(' ');
-    const lines = [];
-    let currentLine = words[0];
-
-    for (let i = 1; i < words.length; i++) {
-      const testLine = currentLine + ' ' + words[i];
-      const metrics = ctx.measureText(testLine);
-
-      if (metrics.width > maxWidth) {
-        lines.push(currentLine);
-        currentLine = words[i];
-      } else {
-        currentLine = testLine;
-      }
-    }
-    lines.push(currentLine);
-
-    // Center the title block but move it towards top when more characters
-    const titleBlockHeight = lines.length * lineHeight;
-    let y = (CONFIG.height - titleBlockHeight) / 2 + lineHeight / 2;
-
-    // Draw each line
-    for (const line of lines) {
-      ctx.fillText(line, 60, y);
-      y += lineHeight;
-    }
-
-    // Draw author name at bottom right
-    ctx.font = `${CONFIG.fonts.sans.size} ${CONFIG.fonts.sans.name}`;
-    ctx.textAlign = 'right';
-    ctx.textBaseline = 'bottom';
-    ctx.fillText('Jabran Rafique', CONFIG.width - 40, CONFIG.height - 40);
-
-    // Save to file
-    const buffer = canvas.toBuffer('image/png');
-    fs.writeFileSync(outputPath, buffer);
-
-    console.log(`✅ Generated ${slug}.png`);
+    console.log(`🎨 Generating ${slug}.jpg...`);
+    await drawCard({ title, slug, eyebrow: [section, year].filter(Boolean).join(' · '), outputPath });
+    console.log(`✅ Generated ${slug}.jpg`);
     return { status: 'generated', path: outputPath };
   } catch (error) {
-    console.error(`❌ Error generating ${slug}.png:`, error.message);
+    console.error(`❌ Error generating ${slug}.jpg:`, error.message);
     return { status: 'error', error: error.message };
   }
 }
 
 /**
- * Generate Default OG image using Canvas
+ * Generate Default OG image
  */
 async function generateDefaultImage({ title = CONFIG.defaultImage.title, force = false }) {
-  // Generate slug from title
   const outputPath = path.join(CONFIG.defaultImage.outputPath);
 
   // Skip if file exists and not forcing
   if (!force && fs.existsSync(outputPath)) {
-    console.log(`✓ ${CONFIG.defaultImage.slug}.png already exists`);
+    console.log(`✓ ${CONFIG.defaultImage.slug}.jpg already exists`);
     return { status: 'exists', path: outputPath };
   }
 
   try {
-    console.log(`🎨 Generating ${CONFIG.defaultImage.slug}.png...`);
-
-    // Create canvas
-    const canvas = createCanvas(CONFIG.width, CONFIG.height);
-    const ctx = canvas.getContext('2d');
-
-    // Fill background
-    ctx.fillStyle = CONFIG.bgColor;
-    ctx.fillRect(0, 0, CONFIG.width, CONFIG.height);
-
-    // Load and draw logo with opacity
-    if (CONFIG.logo.add) {
-      const logo = await loadImage(CONFIG.logo.path);
-      ctx.globalAlpha = CONFIG.logo.opacity;
-
-      // Center the logo
-      const logoSize = CONFIG.width;
-      const logoX = (CONFIG.width - logoSize) / 2;
-      const logoY = (CONFIG.height - logoSize) / 4;
-      ctx.drawImage(logo, logoX, logoY, logoSize, logoSize);
-    }
-
-    // Reset opacity for text
-    ctx.globalAlpha = 1.0;
-
-    // Draw title with Serif font
-    ctx.fillStyle = CONFIG.textColor;
-    ctx.font = `${CONFIG.fonts.serif.style} ${CONFIG.fonts.serif.size} "${CONFIG.fonts.serif.name}"`;
-    ctx.textBaseline = 'middle';
-
-    // Word wrap for title
-    const maxWidth = CONFIG.width - 120; // 60px padding on each side
-    const lineHeight = 1.1 * parseFloat(CONFIG.fonts.serif.size);
-    const words = title.split(' ');
-    const lines = [];
-    let currentLine = words[0];
-
-    for (let i = 1; i < words.length; i++) {
-      const testLine = currentLine + ' ' + words[i];
-      const metrics = ctx.measureText(testLine);
-
-      if (metrics.width > maxWidth) {
-        lines.push(currentLine);
-        currentLine = words[i];
-      } else {
-        currentLine = testLine;
-      }
-    }
-    lines.push(currentLine);
-
-    // Center the title block but move it towards top when more characters
-    const titleBlockHeight = lines.length * lineHeight;
-    let y = (CONFIG.height - titleBlockHeight) / 2 + lineHeight / 2;
-
-    // Draw each line
-    for (const line of lines) {
-      ctx.fillText(line, 60, y);
-      y += lineHeight;
-    }
-
-    // Draw author name at bottom right
-    ctx.font = `${CONFIG.fonts.sans.size} ${CONFIG.fonts.sans.name}`;
-    ctx.textAlign = 'right';
-    ctx.textBaseline = 'bottom';
-    ctx.fillText('Jabran Rafique', CONFIG.width - 40, CONFIG.height - 40);
-
-    // Save to file
-    const buffer = canvas.toBuffer('image/png');
-    fs.writeFileSync(outputPath, buffer);
-
-    console.log(`✅ Generated ${CONFIG.defaultImage.slug}.png`);
+    console.log(`🎨 Generating ${CONFIG.defaultImage.slug}.jpg...`);
+    await drawCard({ title, slug: 'home', eyebrow: 'Senior Software Engineer · Tech Lead', outputPath });
+    console.log(`✅ Generated ${CONFIG.defaultImage.slug}.jpg`);
     return { status: 'generated', path: outputPath };
   } catch (error) {
-    console.error(`❌ Error generating ${CONFIG.defaultImage.slug}.png:`, error.message);
+    console.error(`❌ Error generating ${CONFIG.defaultImage.slug}.jpg:`, error.message);
     return { status: 'error', error: error.message };
   }
 }
@@ -333,9 +324,7 @@ async function main() {
   console.log('🚀 Starting OG image generation...\n');
   console.log(`Configuration:
   - Dimensions: ${CONFIG.width}x${CONFIG.height}
-  - Background: ${CONFIG.bgColor}
-  - Text Color: ${CONFIG.textColor}
-  - Logo Opacity: ${CONFIG.logo.opacity}
+  - Background: ${CONFIG.colors.paper}
   - Output Directory: ${CONFIG.outputDir}
   - Force Regenerate: ${force}\n`);
 
@@ -346,29 +335,16 @@ async function main() {
   let skipped = 0;
   let errors = 0;
 
-  const defaultResult = await generateDefaultImage({
-    title: 'Software Engineer. Sometimes maker of things.',
-    force,
-  });
+  const count = (result) => {
+    if (result.status === 'generated') generated++;
+    else if (result.status === 'skipped' || result.status === 'exists') skipped++;
+    else if (result.status === 'error') errors++;
+  };
 
-  if (defaultResult.status === 'generated') {
-    generated++;
-  } else if (defaultResult.status === 'skipped' || defaultResult.status === 'exists') {
-    skipped++;
-  } else if (defaultResult.status === 'error') {
-    errors++;
-  }
+  count(await generateDefaultImage({ force }));
 
   for (const file of files) {
-    const result = await generateImage(file, force);
-
-    if (result.status === 'generated') {
-      generated++;
-    } else if (result.status === 'skipped' || result.status === 'exists') {
-      skipped++;
-    } else if (result.status === 'error') {
-      errors++;
-    }
+    count(await generateImage(file, force));
   }
 
   console.log(`\n📊 Summary:
