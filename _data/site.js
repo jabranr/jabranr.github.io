@@ -5,7 +5,6 @@ module.exports = {
     name: 'Sky',
     url: 'https://careers.sky.com',
   },
-  location: 'London',
   title: 'Jabran Rafique - Senior Software Engineer / Tech Lead',
   description:
     'Jabran Rafique is a Senior Software Engineer and Tech Lead at Sky, building progressive, performant and accessible web.',
@@ -16,5 +15,4 @@ module.exports = {
     { label: 'LinkedIn', url: 'https://jabran.me/linkedin' },
     { label: 'X', url: 'https://x.com/jabranr' },
   ],
-  stack: ['TypeScript', 'React', 'Next.js', 'Node', 'GraphQL', 'Playwright', 'Cloudflare', 'AWS', 'GitHub Actions'],
 };
