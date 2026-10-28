@@ -54,7 +54,7 @@ Following CSS would add a bullet after each item as an `::after` pseudo element.
 
 Now that bullet is added after each item in navigation, it looks a bit odd to have a bullet in front of last item. So we can remove it by following two methods:
 
-#### By hiding it:
+## By hiding it:
 
 ```css
 .site__nav-item:last-child::after {
@@ -62,7 +62,7 @@ Now that bullet is added after each item in navigation, it looks a bit odd to ha
 }
 ```
 
-#### By setting empty content:
+## By setting empty content:
 
 ```css
 .site__nav-item:last-child::after {

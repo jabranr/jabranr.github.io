@@ -23,7 +23,7 @@ I got a chance to finally ask Romain that why Twitter is not working on building
 
 A clear focus of this meetup was missing though as well as Twitter Dev team which most of us really hoped to catch up with. Nevertheless, event was still quite engaging overall. Though despite expectations of many, only limited number of people attended the meetup. The tweet from Andrew Betts from FT Labs sums it up well.
 
-<blockquote class="twitter-tweet" lang="en"><p><a href="https://twitter.com/hashtag/twitterdevuk?src=hash">#twitterdevuk</a> meetup at new twitter office in London. I think there are more FT employees here than Twitter staff.</p>&mdash; Andrew Betts (@triblondon) <a href="https://twitter.com/triblondon/statuses/488759388287795200">July 14, 2014</a></blockquote>
+<blockquote><p><a href="https://twitter.com/hashtag/twitterdevuk?src=hash">#twitterdevuk</a> meetup at new twitter office in London. I think there are more FT employees here than Twitter staff.</p>&mdash; Andrew Betts (@triblondon) <a href="https://twitter.com/triblondon/statuses/488759388287795200">July 14, 2014</a></blockquote>
 
 Since this was the first ever meetup, I guess they will make it better with time but for now well done!
 

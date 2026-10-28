@@ -36,7 +36,7 @@ There is already an [issue](https://github.com/cloudflare/workers-sdk/issues/166
 
 Meanwhile, to get our apps working, we can fix the issue using a custom patch. Here are the steps to patch the `wrangler` to make it work as expected in two parts.
 
-### Part 1
+## Part 1
 
 > Part 1 is only needed once since it's just the setup.
 
@@ -112,7 +112,7 @@ index 622e617..0090fbd 100644
 ...
 ```
 
-### Part 2
+## Part 2
 
 - Now add the following script in `package.json`:
 
@@ -125,7 +125,7 @@ index 622e617..0090fbd 100644
 
 This will ensure that `wrangler` is always patched correctly after each `npm install`.
 
-### References
+## References
 
 - [GitHub wrangler issue](https://github.com/cloudflare/workers-sdk/issues/1668)
 - [GitHub wrangler pull request](https://github.com/cloudflare/workers-sdk/pull/2396)

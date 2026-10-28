@@ -228,7 +228,7 @@
     },
     {
       "title": "Backend",
-      "tech": "NodeJS, Express, GraphQL, REST APIs, Spring Boot (advisory), RabbitMQ, MySQL, Symfony, Laravel, Salesforce Apex"
+      "tech": "NodeJS, Express, GraphQL, REST APIs, Spring Boot, RabbitMQ, MySQL, Symfony, Laravel, Salesforce Apex"
     },
     {
       "title": "Data/Search/Web servers",

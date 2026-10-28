@@ -49,7 +49,7 @@ The whole experience of moving from a comprehensive CMS to a content generating 
 
 ...and welcome to my new website!
 
-### References
+## References
 
 1. [Jekyll](http://jekyllrb.com), [Sass](http://sass-lang.com), [Grunt.js](http://gruntjs.com), [Bower](http://bower.io/), [CoffeeScript](http://coffeescript.org) <br>
 2. [Twitter Bootstrap](http://getbootstrap.com) <br>

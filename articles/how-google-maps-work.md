@@ -15,11 +15,11 @@ Perhaps not as you might have been thinking. Few years ago, I amazed my father b
 
 This informational article is based on my experience with Google Mapping products for last ~5+ years and covers major points on how these things work. This is also in relations to recent [terrorists attack at Karachi airport](http://www.bbc.co.uk/news/world-asia-27758032) especially after what it seems to be some people sharing the [screenshots of sattelite images taken from Google Maps](https://twitter.com/jabranr/status/475750198036402176) thinking if they were live images. Let’s start with what are Google Maps &amp; Google Earth.
 
-### Google Maps &amp; Google Earth
+## Google Maps &amp; Google Earth
 
 Google Maps is a free web based service with geographical information and can be accessed by variety of methods and devices. The most interesting part is it’s static true color sattelite images of [Earth](http://google.com/maps), [Moon](http://google.com/moon), [Sky](http://google.com/sky) and [Mars](http://google.com/mars), interactive 360&deg; panoramas of Earth ([StreetView](http://google.com/maps/views)) and so on. Google Maps is also [available for mobile devices](https://www.google.com/mobile/maps/) – as well as in form of installable software known as [Google Earth](http://earth.google.com). There is also another platform called [Google Map Maker](http://mapmaker.google.com) where anyone can register to contribute to add or update the map data. Nevertheless, all these products are linked to each other in one or more ways.
 
-### How Google gets sattelite images?
+## How Google gets sattelite images?
 
 The sattelite images on these products actually are not captured by Google itself (mostly) but partners who own commercial sattelites. Some of the famous satellite images providers are [DigitalGlobe](http://digitalglobe.com), GeoEye (part of DigitalGlobe now), [NASA](http://earthobservatory.nasa.gov) and so on. The list is huge and for every satellite image it is always credited in bottom right copyright information on Google Maps.
 
@@ -40,21 +40,21 @@ There are no specific times to capture the sattelite images. Actually satellites
 
 Whenever Google updates its imagery, it updates it on [Google LatLng Blog](http://google-latlong.blogspot.com). Google also provides a [Google Earth file](http://mw1.google.com/mw-earth-vectordb/Imagery_Updates/imagery_updates.kml) that contains all places with updated imagery marked with red rectangles<sup>1</sup>. Normally, such an update only appears in Google Earth initially and then eventually it is synchronized to Google Maps, Google Maps Mobile and Google Map Maker.
 
-### How Google Earth is different?
+## How Google Earth is different?
 
 Google Earth on other hand is an extended version of Google Maps in a software form that can only be explored in sattelite or hybrid mode. It also includes layers from various sources including Google itself as well as a [community layer](https://productforums.google.com/forum/#!forum/gec) where anyone can publish their contributions. However these contributions do not become a part of Google data layers in mapping products unlike contributions coming from Google Map Maker (detailed explanation below). Google Earth also provides ability to create custom layers, maps, tours and much more.
 
-### What is Google StreetView?
+## What is Google StreetView?
 
 StreetView is basically street level 360&deg; panoramas stitched together. Google uses [cars, trekkers, trolleys, snowmobiles and trikes](http://www.google.co.uk/intl/en-GB/maps/about/behind-the-scenes/streetview/#devices) to captures these images. Originally it started from streets (hence the product name) but it is not limited to streets only any more as Google StreetView goes [under oceans](https://www.google.com/maps/views/streetview/oceans), [inside museums & historical landmarks](https://www.google.com/maps/views/streetview/art-project), ski resorts and much more.
 
 People can also [create their own StreetViews using a camera](http://google-latlong.blogspot.com/2013/12/create-your-own-street-view.html?m=1) and submit to [Google Maps Views](https://google.com/maps/views) gallery from where it eventually appears in Google Maps as part of [StreetView coverage layer](http://www.google.co.uk/intl/en-GB/maps/about/behind-the-scenes/streetview/#where).
 
-### How Google Maps gets traffic information?
+## How Google Maps gets traffic information?
 
 Probably one of the most useful features is up-to-dated traffic situation. Traffic data comes through [Google Transit](http://maps.google.co.uk/intl/en/landing/transit/) a separate product to Google Maps where all this data is provided by third parties. Mostly these sources are local transport agencies or government departments who provide information in specific formats to Google. Like StreetView, traffic data is also available in certain countries only.
 
-### Where does all map data come from?
+## Where does all map data come from?
 
 Google has a huge list of data providers from each country that includes partners such as local government departments and companies like Yellow Pages etc. However, for a part of world it was still very difficult to get such data especially countries with certain restrictions and limitations on providing public data.
 
@@ -66,11 +66,9 @@ Map data synchronization works opposite to how it is mentioned above for satteli
 
 > Others products that have indirect attachments to Google Maps are [Google Business](https://www.google.com/business/) (previously Places) and [Panoramio](http://www.panoramio.com/).
 
-### Here comes the live imagery: <sup>3</sup>
+## Here comes the live imagery: <sup>3</sup>
 
-[Google recently bought Skybox](http://www.fastcompany.com/3023325/fast-feed/proof-that-cheaper-satellites-still-can-take-incredibly-detailed-photos-of-earth), a company aiming to provide HD quality live satellite footage at public domains. It is becoming more apparent that live imagery is not too far away from being a reality with [these stunning satelling images and HD quality videos](http://www.firstimagery.skybox.com/) taken from SkySat-1 satellite. Here is Burj Khalifa, Dubai in one of the footages:
-
-<iframe title="SkySat-1 satellite footage of Burj Khalifa, Dubai" src="//player.vimeo.com/video/92251790?title=0&amp;byline=0&amp;portrait=0" width="100%" height="432" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+[Google recently bought Skybox](http://www.fastcompany.com/3023325/fast-feed/proof-that-cheaper-satellites-still-can-take-incredibly-detailed-photos-of-earth), a company aiming to provide HD quality live satellite footage at public domains. It is becoming more apparent that live imagery is not too far away from being a reality with [these stunning satelling images and HD quality videos](http://www.firstimagery.skybox.com/) taken from SkySat-1 satellite.
 
 If you think that I have missed something in this article, let me know in comments below and I'll try to answer.
 

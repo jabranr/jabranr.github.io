@@ -13,11 +13,11 @@ private: false
 
 Today, Google Web Fonts Early Access [announced experimental draft of Noto Nastaleeq](http://googledevelopers.blogspot.com.au/2014/11/i-can-get-another-if-i-break-it.html?utm_campaign=noto-urdu-1114&utm_source=jabran.me) (NN) typeface. This move makes it a first Urdu Nastaleeq font available in famous web fonts repository.
 
-### Using as Desktop font:
+## Using as Desktop font:
 
 The typeface is available to [download as a single True-Type Font](http://www.google.com/get/noto/) (TTF) file in compressed ZIP format. The major thing to notice is the file size that is amazingly small (~289KB) but keeping in mind the fact that this is an experimental release so file size may increase with future updates. Nevertheless, download the file and simply install the font to use in various system software as well as read web sites that list this typeface in their `font-family`.
 
-### Using as Web font:
+## Using as Web font:
 
 Now comes the interesting part where you have a website in Urdu language and you would like to set Nastaleeq typeface as part of default `font-family`. You can get information on it from [Google Web Fonts Early Access](http://www.google.com/fonts/earlyaccess?utm_campaign=noto-urdu-1114&utm_source=jabran.me) page. Grab the CSS from the page or here you go:
 
@@ -37,7 +37,7 @@ Then update the `font-family` to include Noto Nastaleeq as suggested and you are
 body { font-family: 'Noto Nastaliq Urdu Draft', serif; }
 ```
 
-### Reliability / Issues:
+## Reliability / Issues:
 
 Since this is an experimental release, I would highly recommend NOT to completely rely on it &ndash; as:
 
@@ -51,7 +51,7 @@ Google engineer Behdad Esfahbod had a [test drive with Noto Nastaleeq Urdu](http
 
 The [Noto project](https://code.google.com/p/noto/) is hosted at Google Code. All [known issues with Noto Nastaleeq](https://code.google.com/p/noto/issues/list?can=1&q=Noto+Nastaliq&colspec=ID+Type+Status+Priority+Milestone+Owner+Summary&cells=tiles) can be seen at project's Issue Tracker. If you are testing this release then you can also [file a new issue](https://code.google.com/p/noto/issues/entry).
 
-### Alternatives:
+## Alternatives:
 
 Urdu fonts have strong support with Naskh and Nastaleeq typefaces for desktop use but the web still lacks the optimized support for Urdu fonts, in particular case of Nastaleeq typeface. If you are looking for a bit more comprehensive web support for Urdu with mix of Naskh and Nastaleeq then you can try few of existing projects.
 
@@ -59,7 +59,7 @@ Some of the very well known projects are by [Center for Language Engineering](ht
 
 If you are just a web user on PC and only wish to ready and write in Urdu (Naskh/Nastaleeq) over the web then you can try [Pak Urdu Installer](http://www.mbilalm.com/blog/pak-urdu-installer-en/) made by M Bilal that makes PC compatible for Urdu with simple few steps installation process.
 
-### Conclusion
+## Conclusion
 
 Nevertheless, Noto Nastaleeq Urdu definitely is a milestone in web fonts category and we surely look forward to more updates from Google and have it released as a complete working version soon.
 

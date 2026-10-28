@@ -38,7 +38,7 @@ Since I had more than 12 types of permissions to assign to various Roles, I thou
 
 I thought it might also be helpful for anyone else so I have put it on [Github Gist](https://gist.github.com/jabranr/7406258). Please feel free to use it to do wonders.
 
-### So what exactly are special integers?
+## So what exactly are special integers?
 
 Special integers are special in way because they are power of 2 i.e. `2, 4, 8, 16` and so on. These special integers return amazing outcome due to their Binary structure when they are used with Bitwise operators. By analysing the following list of integers you can see that these integers (1, 2, 4, 8, 16) have only one digit “1” in their structure when converted to Binary.
 

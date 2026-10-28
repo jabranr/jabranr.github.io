@@ -87,13 +87,11 @@ facebook.Feed(...)
 
 ### Examples:
 
-This website already uses Socialmedia therefore I can just go ahead and setup some live examples right here. Here are two examples to demonstrate the convenience of Socialmedia:
+Here are two examples to demonstrate the convenience of Socialmedia. They originally ran live on this page; those demos have since been retired as the Facebook APIs they used changed, but the code is kept here for reference.
 
-##### Example 1:
+#### Example 1:
 
-- Following button lets you invite your Facebook friends to read this article&mdash;provided your are already logged into Facebook otherwise it will ask you to login first.
-
-<button class="btn btn-sm btn-primary" type="button" id="inviteFriends">Invite friends to read article</button>
+- A button that lets you invite your Facebook friends to read this article&mdash;provided your are already logged into Facebook otherwise it will ask you to login first.
 
 The code used for this example is as following:
 
@@ -117,15 +115,9 @@ The code used for this example is as following:
 </script>
 ```
 
-##### Example 2:
+#### Example 2:
 
-- Following button will get your Facebook basic information and display underneath&mdash;provided you are logged into Facebook already and given permissions (upon request) otherwise it will ask you to login first and to allow this app to get data from Facebook on your behalf.
-
-<button class="btn btn-sm btn-primary" type="button" id="getInfo">Get basic info from Facebook</button>
-
-<textarea name="infoBox" id="infoBox" class="form-control" rows="5" style="resize: none;" placeholder="Info will appear here" disabled></textarea>
-
-> None of your information is collected or saved. All requests and responses are live. However, you will NOT be asked for data permissions by Facebook again after you have allowed it once already. If you need to remove the app permissions then you will need to manually remove the app from your [Facebook app settings](https://facebook.com/settings?tab=applications).
+- A button that gets your Facebook basic information and displays it underneath&mdash;provided you are logged into Facebook already and given permissions (upon request) otherwise it will ask you to login first and to allow this app to get data from Facebook on your behalf.
 
 The code used for this example is as following:
 
@@ -172,51 +164,6 @@ The code used for this example is as following:
   }
 </script>
 ```
-
-<script src="https://unpkg.com/socialmedia@2.0.2/dist/socialmedia.min.js"></script>
-
-<script type="text/javascript">
-	window.jabranr = window.jabranr || {};
-
-	jabranr.facebook = new Socialmedia.Facebook({
-		appid: process.env.FACEBOOK_APP_ID
-	});
-
-	var inviteFriends = document.querySelector('#inviteFriends');
-	var getInfo = document.querySelector('#getInfo');
-	if ( inviteFriends ) {
-		inviteFriends.addEventListener('click', function(e){
-			jabranr.facebook.Invite({
-				title: 'Invited friends to read this article',
-				message: document.title
-			});
-		}, false);
-	}
-
-	if ( getInfo ) {
-		getInfo.addEventListener('click', function(e){
-			FB.getLoginStatus(function(response)	{
-				if ( response && response.status === 'connected' ) {
-					FB.api('/me', getUserInfo);
-					getInfo.style.display = 'none';
-				}
-				else {
-					FB.login(function(response)	{
-						if ( response && response.status === 'connected' ) {
-							FB.api('/me', getUserInfo);
-							getInfo.style.display = 'none';
-						}
-					});
-				}
-			});
-		}, false);
-
-		function getUserInfo(info) {
-			var infoBox = document.querySelector('#infoBox');
-			infoBox.innerHTML = JSON.stringify(info, null, 2);
-		}
-	}
-</script>
 
 Socialmedia works similarly for other supported social media platforms too. Here is quick overview through all these.
 

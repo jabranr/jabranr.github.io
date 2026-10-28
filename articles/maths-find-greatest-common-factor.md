@@ -38,14 +38,14 @@ Here is a tree breakdown of finding all factors and then choose the common highe
 
 </div>
 
-### Problem
+## Problem
 
 Let's think of a real-life example to make use of GCF.
 
 - A baker has 24 chocolate muffins and 36 vanilla muffins.
 - He wants to pack them in boxes so each box has the same number of muffins and no muffins are left out.
 
-### Solution
+## Solution
 
 We can make use of [Euclid’s Algorithm](https://en.wikipedia.org/wiki/Euclidean_algorithm).
 
@@ -84,7 +84,7 @@ gcf(24, 36); // 12
 
 ---
 
-### GCF for Multiple Numbers
+## GCF for Multiple Numbers
 
 It gets interesting when there are more than 2 numbers. Using the same Euclid's Algorithm, we can select two largest numbers in given list of numbers and find GCF. Let's say we want to find GCF for 20,50,125 so it will be:
 
@@ -132,12 +132,12 @@ This same method can be used to find:
 - Greatest Common Denominator (GCD)
 - Greatest Common Divisor (GCD)
 
-> ### Maths meets programming
+> **Maths meets programming**
 >
 > Helping my son, Omer prepare for the 11+ test reignited my interest in maths. With over couple of decades in programming, I naturally started applying what I was learning—turning formulas into code. This blog is my way of documenting that journey.
 >
 > > These are simple problems, often solved and available on coding platforms, but this is my personal exploration of learning and implementation.
 
-### Others in the Maths series
+## Others in the Maths series
 
 - [Find sum of Consecutive numbers](/articles/maths-sum-of-consecutive-numbers/)

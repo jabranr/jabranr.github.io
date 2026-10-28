@@ -17,7 +17,7 @@ Here is how I solved that with a small reusable GitHub Actions workflow.
 
 ---
 
-### The problem
+## The problem
 
 A typical CD pipeline for a Cloudflare Pages project looks roughly like this:
 
@@ -32,7 +32,7 @@ What we actually need is a step that sits between `deploy` and `run tests` and s
 
 ---
 
-### The solution
+## The solution
 
 I put together a reusable composite action, `actions/wait-cf-pages-deployment`, as part of my shared [workflows repository](https://github.com/jabranr/workflows).
 
@@ -48,7 +48,7 @@ The action accepts the following inputs:
 | -------------- | -------- | ---------------------------------------- |
 | `github-token` | No       | github-token to use for GitHub API calls |
 
-### Usage
+## Usage
 
 Reference it directly in your workflow step:
 
@@ -69,7 +69,7 @@ E2E tests will not start until `wait-for-deployment` resolves, and `wait-for-dep
 
 ---
 
-### How the polling works
+## How the polling works
 
 Under the hood, the action calls the GitHub Checks API endpoint for the current commit:
 
@@ -83,7 +83,7 @@ The action polls every 15 seconds for up to 2 minutes and exits as soon as a ter
 
 ---
 
-### References
+## References
 
 - [actions/wait-cf-pages-deployment on GitHub](https://github.com/jabranr/workflows#actionswait-cf-pages-deployment)
 - [GitHub Checks API documentation](https://docs.github.com/en/rest/checks/runs)

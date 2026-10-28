@@ -69,3 +69,36 @@ test.describe('Articles Page', { tag: ['@e2e'] }, () => {
     await expect(currentPage).toHaveText('2');
   });
 });
+
+test.describe('Article embeds', { tag: ['@e2e'] }, () => {
+  test('should embed YouTube videos from the no-cookie domain', async ({ page }) => {
+    await page.goto('/articles/roads-alignment-in-google-map-maker-with-help-of-google-earth-imagery/');
+
+    const iframes = page.locator('article iframe');
+    await expect(iframes).toHaveCount(2);
+    for (const src of await iframes.evaluateAll((els) => els.map((el) => el.getAttribute('src')))) {
+      expect(src).toMatch(/^https:\/\/www\.youtube-nocookie\.com\/embed\//);
+    }
+  });
+
+  test('should show tweets and pens without third-party scripts', async ({ page }) => {
+    for (const path of [
+      '/articles/fetch-tweets-with-twitter-api-v1-1/',
+      '/articles/first-tech-job/',
+      '/articles/new-cocoa-programmers-ios-objective-c-and-swift/',
+      '/articles/rebuilding-united-website-development-workflow/',
+    ]) {
+      await page.goto(path);
+      await expect(page.locator('script[src*="twitter.com"], script[src*="codepen.io"]')).toHaveCount(0);
+    }
+  });
+
+  test('should load Build to Learn without page errors', async ({ page }) => {
+    const errors = [];
+    page.on('pageerror', (error) => errors.push(error.message));
+
+    await page.goto('/articles/build-to-learn-web-development/');
+    await expect(page.getByRole('heading', { level: 1 })).toContainText('Build to Learn');
+    expect(errors).toEqual([]);
+  });
+});

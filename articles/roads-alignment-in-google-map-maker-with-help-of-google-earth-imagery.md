@@ -36,10 +36,10 @@ Next step is to go to Google Map Maker and choose the option to add a new Overla
 
 Here is also a screen cast that I made of these events that actually may explain in more details than this post. Enjoy mapping!
 
-### Part I:
+## Part I:
 
-<iframe title="Part 1 – How to update incorrectly mapped roads with Google Earth &amp; Google Map Maker" width="100%" height="422" src="//www.youtube.com/embed/acVkysspN6o?rel=0&#038;autohide=1&#038;modestbranding=1&#038;showinfo=0" frameborder="0" allowfullscreen></iframe>
+<iframe title="Part 1 – How to update incorrectly mapped roads with Google Earth &amp; Google Map Maker" width="100%" height="422" src="https://www.youtube-nocookie.com/embed/acVkysspN6o?rel=0&#038;autohide=1&#038;modestbranding=1&#038;showinfo=0" frameborder="0" allowfullscreen></iframe>
 
-### Part II:
+## Part II:
 
-<iframe title="Part 2 – How to update incorrectly mapped roads with Google Earth &amp; Google Map Maker" width="100%" height="422" src="//www.youtube.com/embed/iz7dvp-NtJM?rel=0&#038;autohide=1&#038;modestbranding=1&#038;showinfo=0" frameborder="0" allowfullscreen></iframe>
+<iframe title="Part 2 – How to update incorrectly mapped roads with Google Earth &amp; Google Map Maker" width="100%" height="422" src="https://www.youtube-nocookie.com/embed/iz7dvp-NtJM?rel=0&#038;autohide=1&#038;modestbranding=1&#038;showinfo=0" frameborder="0" allowfullscreen></iframe>

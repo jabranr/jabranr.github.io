@@ -15,7 +15,7 @@ A week ago I came across an interesting [geo quiz by Telegraph](http://www.teleg
 
 Nevertheless, I immediately thought, how great it would be to have a live, interactive and dynamic version of it. Well, I also thought why not build it. So here it is at [http://jabran.me/guess-where/](http://jabran.me/guess-where/) Go ahead and give it a go!
 
-### Technical side:
+## Technical side:
 
 The app is based on following technologies:
 
@@ -35,7 +35,7 @@ To keep the development, deployment and maintenance at ease, I have also incorpo
 
 Well, that looks like a long list and probably an overkill for a one page app but it is pretty much a default setup I would use for any such app.
 
-### Collaboration:
+## Collaboration:
 
 The code of app is open source and [available at Github](https://github.com/jabranr/guess-where/) to fork, collaborate or just view under MIT license. You will need followings pre-installed to get going with it:
 

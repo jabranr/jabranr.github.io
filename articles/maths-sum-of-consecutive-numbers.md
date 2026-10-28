@@ -9,7 +9,7 @@ comment: false
 private: false
 ---
 
-> ### Maths meets programming
+> **Maths meets programming**
 >
 > Helping my son prepare for the 11+ test reignited my interest in maths. With over couple of decades in programming, I naturally started applying what I was learning—turning formulas into code. This blog is my way of documenting that journey.
 >
@@ -17,11 +17,11 @@ private: false
 
 To find sum of `n` given numbers. For example, `1,2,3,4,5` will be `1 + 2 + 3 + 4 + 5 = 15`.
 
-### Problem
+## Problem
 
 It looks easy for small list of numbers but quickly becomes a difficult task as list grows.
 
-### Solution
+## Solution
 
 To find the sum of numbers like `1, 2, 3, ..., n`, the quickest thought was to loop through numbers but instead of looping through them, use this elegant formula:
 
@@ -62,6 +62,6 @@ function sum(...args) {
 sum(1, 2, 3, 4, 5); // 15
 ```
 
-### Others in the Maths series
+## Others in the Maths series
 
 - [Find Greatest Common Factor (GCF)](/articles/maths-find-greatest-common-factor/)

@@ -246,7 +246,7 @@ Now we have two additional custom methods, `setTimestamps` and `setUpdatedTimest
 
 > We can simply extend the `BaseEntity` to any entity and need not worry about generating a primary key attribute (`id`) and timestamps now on.
 
-### Additional enhancements:
+## Additional enhancements:
 
 We can have as many as enhancement we like to the `BaseEntity` and those will be automatically extended to sub-entities. For example we can have a `save` method to persist the record by keeping all logic in `BaseEntity` instead of a controller. In current situation if we are creating a user we will use following steps inside a controller:
 

@@ -22,7 +22,7 @@ The package consists of two files.
 - `ig-config.php`
 - `ig-config.php` shall contain the configuration information that is required for `instagram.class.php` to work properly.
 
-### Instructions:
+## Instructions:
 
 - Include/require the `instagram.class.php` file.
 - Create a new instance of class i.e. `$ig = new JRIG( parameters )`;

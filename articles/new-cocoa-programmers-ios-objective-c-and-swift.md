@@ -13,8 +13,7 @@ private: false
 
 It was not long ago when native apps development fascinated me. So I kicked off with basics of mobile apps development.
 
-<blockquote class="twitter-tweet" lang="en"><p>Gearing up for some solid learning. Starting with C++ and heading to iOS &amp; Android. Future is full of more knowledge!</p>&mdash; Jabran Rafique (@jabranr) <a href="https://twitter.com/jabranr/statuses/463763722305929216">May 6, 2014</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote><p>Gearing up for some solid learning. Starting with C++ and heading to iOS &amp; Android. Future is full of more knowledge!</p>&mdash; Jabran Rafique (@jabranr) <a href="https://twitter.com/jabranr/statuses/463763722305929216">May 6, 2014</a></blockquote>
 
 I started with reading through [ecosystems of iOS and Android environments](http://code.tutsplus.com/tutorials/understanding-the-ios-ecosystem--mobile-13824). As I read through ecosystems of both environments, I get a strong desire to start with iOS instead of Android despite having experience with Java and no experience at all with C family. So one could imagine that now days I am all about reading and practicing the iOS development.
 
