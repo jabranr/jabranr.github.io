@@ -60,6 +60,7 @@ graph TD
 - **Styling**: Tailwind CSS v3.4.19 with CSS-variable colour tokens (see [design-system.md](./design-system.md))
 - **Fonts**: Bricolage Grotesque, Geist, Geist Mono (self-hosted)
 - **Client JavaScript**: plain scripts, no framework; every feature degrades without it
+- **Analytics**: Cloudflare Web Analytics, injected by Cloudflare Pages into every deployment (no cookies or local storage; page views, visits, referrers and Core Web Vitals; no custom events). There is no Google Analytics or Tag Manager.
 - **Testing**: Playwright
 - **Build Tool**: npm scripts with npm-run-all
 - **Node Version**: 22.17.0 (managed via Volta)

@@ -42,3 +42,4 @@ npm run build  # Production build
 - Don't change Node version without updating `volta` in `package.json`
 - Don't bypass pre-commit hooks (code formatting is automatic)
 - Don't use raw colours (`text-gray-600`, `#666`) or `dark:` variants for colours; use tokens so both themes work
+- Don't add Google Analytics, Tag Manager or other cookie-based trackers. Analytics is Cloudflare Web Analytics, which Cloudflare Pages injects at the edge (cookie-free, no custom events); don't add its snippet to templates or it will double-count
