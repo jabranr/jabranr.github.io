@@ -2,56 +2,67 @@
   size: A4;
 }
 
+/* :where() keeps these at element-level specificity so utility classes in resume.njk still win */
+
 html,
 body {
   @apply print:m-0 print:h-[297mm] print:w-[210mm] print:p-0 print:py-4;
 }
 
 body {
-  font-family: 'Inter', sans-serif;
-  @apply print:text-[12pt];
+  @apply print:block print:min-h-0 print:text-[12pt];
 }
 
-h2,
-h4,
-.font-serif {
-  font-family: 'Playfair Display', serif;
+:where(.resume) p {
+  @apply my-3 leading-relaxed;
 }
 
-h2 {
-  @apply mt-8 border-b-2 border-b-[#666] pb-2 text-2xl print:mb-0 print:mt-4 print:border-b-[1px] print:pb-0;
+:where(.resume) a {
+  @apply underline decoration-accent/60 underline-offset-4 transition-colors hover:text-accent;
 }
 
-h3 {
-  @apply mb-0 text-xl text-[#666] print:mt-4;
+:where(.resume) h2 {
+  @apply mt-14 flex items-center gap-4 font-display text-2xl font-extrabold tracking-tight after:h-px after:flex-1 after:bg-line print:mb-0 print:mt-4 print:border-b print:border-b-[#666] print:pb-0 print:after:hidden;
 }
 
-h4 {
-  @apply mt-0 text-xl;
+:where(.resume) h3 {
+  @apply mt-6 text-lg font-semibold print:mt-4;
 }
 
-.logo {
-  @apply print:w-full print:bg-none print:p-0 print:text-[22pt];
+:where(.resume) h3 small {
+  @apply font-mono text-xs font-normal text-muted print:text-[9pt];
 }
 
-.print-link {
-  @apply print:text-inherit print:no-underline print:after:ml-1 print:after:text-[10pt] print:after:font-normal print:after:content-[attr(data-print)];
+:where(.resume) h4 {
+  @apply mt-1 font-mono text-sm uppercase tracking-[0.08em] text-muted print:font-sans print:normal-case print:tracking-normal;
 }
 
-body,
-h2,
-h3,
-h4 {
-  @apply print:text-[12pt] print:text-[#333];
+:where(.resume) ul {
+  @apply text-muted;
 }
 
-h2,
-h3,
-h4 {
-  @apply print:text-[14pt];
+:where(.resume) .print-link {
+  @apply print:text-inherit print:no-underline print:after:ml-1 print:after:font-normal print:after:text-[10pt] print:after:content-[attr(data-print)];
 }
 
-ul,
-p {
-  @apply print:text-[10pt];
+@media print {
+  :where(.resume),
+  :where(.resume) h1,
+  :where(.resume) h2,
+  :where(.resume) h3,
+  :where(.resume) h4,
+  :where(.resume) ul {
+    color: #333;
+  }
+
+  :where(.resume) h2,
+  :where(.resume) h3,
+  :where(.resume) h4 {
+    font-size: 14pt;
+  }
+
+  :where(.resume) ul,
+  :where(.resume) p {
+    font-size: 10pt;
+  }
 }

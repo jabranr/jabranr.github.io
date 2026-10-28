@@ -31,6 +31,32 @@ module.exports = function (eleventyConfig) {
     );
   });
 
+  // contour maps rendered at /contour/<slug>.svg (see contour.11ty.js)
+  const { width, height, tilt } = require('./assets/js/contour-core.js').PAGE_MAP;
+  const pageMap = { width, height, tilt };
+  eleventyConfig.addCollection('contourMaps', function (collectionApi) {
+    const pages = [...collectionApi.getFilteredByTag('articles'), ...collectionApi.getFilteredByTag('projects')].map(
+      (item) => ({ slug: item.page.fileSlug, ...pageMap })
+    );
+    // read fresh (not require) so edits show up while serving
+    const work = JSON.parse(fs.readFileSync(path.resolve(__dirname, './_data/work.json'), 'utf8')).map((item) => ({
+      slug: item.map,
+      width: 720,
+      height: 440,
+      tilt: 0.2,
+    }));
+
+    return [
+      { slug: 'home', width: 1600, height: 900, tilt: 0.35 },
+      { slug: 'off-the-map', width: 1600, height: 900, tilt: 0 },
+      { slug: 'page-articles', width: 1600, height: 440, tilt: 0.6 },
+      { slug: 'page-projects', width: 1600, height: 440, tilt: 0.6 },
+      { slug: 'page-speaking', width: 1600, height: 440, tilt: 0.6 },
+      ...work,
+      ...pages,
+    ];
+  });
+
   // add plugins
   eleventyConfig.addPlugin(timeToRead);
   eleventyConfig.addPlugin(syntaxHighlight);
@@ -73,29 +99,23 @@ module.exports = function (eleventyConfig) {
     return 'not-set';
   });
 
-  // Get OG image path for a page (convention-based)
+  // Get OG image path for a page (convention-based, see scripts/generate-og-images.js)
   eleventyConfig.addFilter('ogImage', function (value) {
-    if (!value) {
-      return '/icon-1024x1024.png';
-    }
-
-    // Extract slug from URL
-    const urlParts = value.split('/').filter(Boolean);
-    if (urlParts.length === 0) {
-      return '/icon-1024x1024.png';
-    }
+    const fallback = fs.existsSync(path.resolve(__dirname, './public/og/default.jpg'))
+      ? '/og/default.jpg'
+      : '/icon-1024x1024.png';
 
     // Get the last part of the URL as the slug
-    const slug = urlParts[urlParts.length - 1];
-    const ogImagePath = path.resolve(__dirname, `./public/og/${slug}.png`);
+    const slug = String(value || '')
+      .split('/')
+      .filter(Boolean)
+      .pop();
 
-    // Check if OG image exists
-    if (fs.existsSync(ogImagePath)) {
-      return `/og/${slug}.png`;
+    if (slug && fs.existsSync(path.resolve(__dirname, `./public/og/${slug}.jpg`))) {
+      return `/og/${slug}.jpg`;
     }
 
-    // Fallback to default icon
-    return '/icon-1024x1024.png';
+    return fallback;
   });
 
   // format date time
@@ -108,7 +128,34 @@ module.exports = function (eleventyConfig) {
     return `${config.APP_HOSTNAME}${regulateSlash}`;
   });
 
+  // group a list of pages by year, newest first: [{ year, items }]
+  eleventyConfig.addFilter('groupByYear', function (items) {
+    const groups = [];
+    for (const item of items) {
+      const year = dayjs(item.date).format('YYYY');
+      const last = groups[groups.length - 1];
+      if (last && last.year === year) {
+        last.items.push(item);
+      } else {
+        groups.push({ year, items: [item] });
+      }
+    }
+    return groups;
+  });
+
+  // unique view-transition-name for a page, so its title morphs between list and page
+  eleventyConfig.addFilter('vtName', function (url) {
+    const slug = String(url || '')
+      .split('/')
+      .filter(Boolean)
+      .pop();
+    return `t-${(slug || 'home').replace(/[^a-z0-9-]/gi, '-')}`;
+  });
+
+  eleventyConfig.addNunjucksGlobal('currentYear', new Date().getFullYear());
+
   eleventyConfig.addWatchTarget('./styles/');
+  eleventyConfig.addWatchTarget('./assets/js/');
 
   // add 404 for dev server
   eleventyConfig.setServerOptions({

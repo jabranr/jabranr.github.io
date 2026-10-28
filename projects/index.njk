@@ -1,7 +1,9 @@
 ---
 layout: page.njk
 title: Projects
-description: Here is list of projects I have worked on from time to time.
+eyebrow: Open source
+description: Libraries, plugins and experiments I have built over the years. Most are open source on GitHub, free to use, and open to feedback and fixes.
+contour: page-projects
 eleventyExcludeFromCollections: true
 eleventyComputed:
   title: "{% if pagination.pageNumber > 0 %}Projects - Page {{ pagination.pageNumber + 1 }}{% else %}Projects{% endif %}"
@@ -13,27 +15,37 @@ pagination:
 permalink: "/projects/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber + 1 }}/{% endif %}"
 ---
 
-<section class="border-b-[3px] border-double border-b-[#f69] mb-10 pb-8">
-  <p>Most of these are open-source and hosted at <a href="https://github.com/jabranr">GitHub</a> – free to use and explore. You are most welcome to share your feedback, corrections and even enhancements to any of those.</p>
-  <p>I also use <a href="https://gist.github.com/jabranr">GitHub Gist</a> and <a href="https://codepen.io/jabranr">CodePen</a> to share experiments from day to day work.</p>
-</section>
+<p class="mt-8 font-mono text-sm text-muted">
+  Code on <a class="link text-ink" href="{{ site.github }}">GitHub</a>, snippets on <a class="link text-ink" href="https://gist.github.com/jabranr">Gist</a> and experiments on <a class="link text-ink" href="https://codepen.io/jabranr">CodePen</a>.
+</p>
 
-{% for project in projects %}
-  <section class="mt-4 pt-4 {% if not loop.first %}border-t-[1px] border-t-[#ddd]{% endif %}">
-    <time class="text-[#666] text-sm" datetime="{{ project.date | format_date('YYYY-MM-DD') }}">{{ project.date | format_date }}</time>
-    <h3 class="text-xl font-bold my-2">
-      <a href="{{ project.url | url }}">{{ project.data.title }}</a>
-    </h3>
-    <p class="text-base mb-4">{{ project.data.excerpt | safe }}</p>
-  </section>
-{% endfor %}
-
-<nav data-testid="pagination" id="pagination" class="inline-flex items-center justify-center font-bold text-base my-12">
-  {% for pageEntry in pagination.pages %}
-    {% if pagination.hrefs[loop.index0] == '/projects/1/' or page.url == pagination.hrefs[loop.index0] %}
-      <span class="block bg-[#eee] w-8 h-8 rounded-full text-center p-1" aria-current="page">{{ loop.index }}</span>
-    {% else %}
-      <a class="block w-8 h-8 rounded-full text-center p-1" href="/projects/{% if loop.index != loop.first %}{{ loop.index }}/{% endif %}">{{ loop.index }}</a>
-    {% endif %}
+<ul class="mt-8 grid gap-4 md:grid-cols-2">
+  {% for project in projects %}
+    <li>
+      <a href="{{ project.url | url }}" class="group flex h-full gap-5 rounded-xl border border-line bg-surface p-5 transition-colors hover:border-ink">
+        {% if project.data.thumbnail and 'assets/images/projects/' in project.data.thumbnail %}
+          <img src="/{{ project.data.thumbnail | replace('.png', '-192.webp') }}" width="72" height="72" alt="" loading="lazy" decoding="async" class="h-[4.5rem] w-[4.5rem] shrink-0 rounded-xl border border-line object-cover" />
+        {% else %}
+          <span class="contour-mask h-[4.5rem] w-[4.5rem] shrink-0 rounded-xl border border-line" style="--contour-src: url('/contour/{{ project.page.fileSlug }}.svg')" aria-hidden="true"></span>
+        {% endif %}
+        <div class="min-w-0">
+          <span class="font-mono text-xs text-muted tabular"><time datetime="{{ project.date | format_date('YYYY-MM-DD') }}">{{ project.date | format_date('YYYY') }}</time></span>
+          <h2 class="mt-1 font-display text-xl font-bold leading-snug transition-colors group-hover:text-accent" style="view-transition-name: {{ project.url | vtName }}">{{ project.data.title }}</h2>
+          <p class="mt-2 line-clamp-3 text-sm text-muted">{{ project.data.excerpt | striptags }}</p>
+        </div>
+      </a>
+    </li>
   {% endfor %}
-</nav>
+</ul>
+
+{% if pagination.pages.length > 1 %}
+  <nav data-testid="pagination" id="pagination" aria-label="Pages" class="mt-12 flex flex-wrap items-center gap-2 font-mono text-sm">
+    {% for pageEntry in pagination.pages %}
+      {% if pagination.hrefs[loop.index0] == '/projects/1/' or page.url == pagination.hrefs[loop.index0] %}
+        <span class="grid h-10 min-w-10 place-items-center rounded-lg bg-ink px-3 text-paper" aria-current="page">{{ loop.index }}</span>
+      {% else %}
+        <a class="grid h-10 min-w-10 place-items-center rounded-lg border border-line px-3 transition-colors hover:border-ink" href="/projects/{% if loop.index != loop.first %}{{ loop.index }}/{% endif %}" aria-label="Go to page {{ loop.index }}">{{ loop.index }}</a>
+      {% endif %}
+    {% endfor %}
+  </nav>
+{% endif %}

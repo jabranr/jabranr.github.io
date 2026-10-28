@@ -82,14 +82,18 @@ npx playwright codegen http://localhost:8080
 
 ### Existing Test Files
 
-| File               | Purpose                                       |
-| ------------------ | --------------------------------------------- |
-| `homepage.spec.js` | Tests homepage functionality and navigation   |
-| `articles.spec.js` | Tests article listing and individual articles |
-| `projects.spec.js` | Tests project pages                           |
-| `resume.spec.js`   | Tests resume page                             |
-| `speaking.spec.js` | Tests speaking engagements page               |
-| `404.spec.js`      | Tests 404 error page                          |
+| File                      | Purpose                                                                                                         |
+| ------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| `homepage.spec.js`        | Tests homepage functionality and navigation                                                                     |
+| `articles.spec.js`        | Tests article listing and individual articles                                                                   |
+| `projects.spec.js`        | Tests project pages                                                                                             |
+| `resume.spec.js`          | Tests resume page                                                                                               |
+| `speaking.spec.js`        | Tests speaking engagements page                                                                                 |
+| `404.spec.js`             | Tests 404 error page                                                                                            |
+| `command-palette.spec.js` | Tests the Ctrl/⌘ K search and actions, and its no-JS fallback                                                   |
+| `analytics.spec.js`       | Tests that no Google tracking loads; after deploy, that the Cloudflare beacon does                              |
+| `theme.spec.js`           | Tests light/dark theme, persistence and no-JS behaviour                                                         |
+| `contour.spec.js`         | Tests the live contour map (pointer readout, off-screen pause, reduced motion), its no-JS fallback and SVG maps |
 
 ### Test File Pattern
 

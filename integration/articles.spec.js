@@ -29,6 +29,26 @@ test.describe('Articles Page', { tag: ['@e2e'] }, () => {
     await expect(page).toHaveURL(/.*articles\/.+/);
   });
 
+  test('should group articles by year', async ({ page }) => {
+    await page.goto('/articles');
+
+    const years = await page.locator('main h2').allTextContents();
+    expect(years.length).toBeGreaterThan(1);
+    expect(years.every((year) => /^\d{4}$/.test(year.trim()))).toBeTruthy();
+  });
+
+  test('should show the article with its date, reading time and social card', async ({ page }) => {
+    await page.goto('/articles/secret-sauces-of-git/');
+
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText('Secret sauces of Git');
+    await expect(page.locator('article header time')).toHaveAttribute('datetime', /^\d{4}-\d{2}-\d{2}$/);
+    await expect(page.locator('article header')).toContainText(/\d+ minutes? read/);
+    await expect(page.locator('meta[property="og:image"]')).toHaveAttribute(
+      'content',
+      /\/og\/secret-sauces-of-git\.jpg$/
+    );
+  });
+
   test('pagination should work correctly', async ({ page }) => {
     await page.goto('/articles');
 

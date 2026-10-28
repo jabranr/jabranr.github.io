@@ -10,7 +10,7 @@ graph TD
     ROOT --> DATA["_data/<br/>(Eleventy data files)"]
     ROOT --> INCLUDES["_includes/<br/>(Nunjucks templates/partials)"]
     ROOT --> ARTICLES["articles/<br/>(Blog articles in Markdown)"]
-    ROOT --> ASSETS["assets/<br/>(Static assets)"]
+    ROOT --> ASSETS["assets/<br/>(Images, fonts, browser JS)"]
     ROOT --> DOCS["docs/<br/>(AI agent documentation)"]
     ROOT --> INTEGRATION["integration/<br/>(Playwright test files)"]
     ROOT --> MISC["misc/<br/>(Miscellaneous files)"]
@@ -21,6 +21,9 @@ graph TD
     ROOT --> INDEX["index.njk<br/>(Homepage template)"]
     ROOT --> RESUME["resume.njk<br/>(Resume page template)"]
     ROOT --> SPEAKING["speaking.njk<br/>(Speaking engagements)"]
+    ROOT --> NOTFOUND["404.njk<br/>(Off the map page)"]
+    ROOT --> CONTOUR["contour.11ty.js<br/>(Contour map SVGs)"]
+    ROOT --> SEARCH["search.11ty.js<br/>(Command palette index)"]
     ROOT --> SITEMAP["sitemap.njk<br/>(Sitemap template)"]
     ROOT --> RSS["rss.njk<br/>(RSS feed template)"]
 
@@ -31,7 +34,9 @@ graph TD
 
 **Key directories:**
 
-- **Source content**: `articles/`, `projects/`, `_includes/`
+- **Source content**: `articles/`, `projects/`, `_includes/`, `_data/` (`site.js`, `work.json`, `talks.json`, `resume.json`)
+- **Browser JavaScript**: `assets/js/` (`site.js`, `command.js`, `contour.js`, `contour-core.js`), served as-is with no bundler
+- **Fonts**: `assets/fonts/` (self-hosted woff2)
 - **Generated files**: `public/` (do not modify directly)
 - **Configuration**: `.eleventy.js`, `tailwind.config.js`, `playwright.config.js`
 - **Documentation**: `docs/` (AI agent guides)
@@ -52,7 +57,10 @@ graph TD
 
 - **Static Site Generator**: Eleventy (11ty) v3.1.2
 - **Template Engine**: Nunjucks
-- **Styling**: Tailwind CSS v3.4.19
+- **Styling**: Tailwind CSS v3.4.19 with CSS-variable colour tokens (see [design-system.md](./design-system.md))
+- **Fonts**: Bricolage Grotesque, Geist, Geist Mono (self-hosted)
+- **Client JavaScript**: plain scripts, no framework; every feature degrades without it
+- **Analytics**: Cloudflare Web Analytics, injected by Cloudflare Pages into every deployment (no cookies or local storage; page views, visits, referrers and Core Web Vitals; no custom events). There is no Google Analytics or Tag Manager.
 - **Testing**: Playwright
 - **Build Tool**: npm scripts with npm-run-all
 - **Node Version**: 22.17.0 (managed via Volta)

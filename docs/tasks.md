@@ -80,3 +80,23 @@ test.describe('Feature Name', () => {
    ```
 3. Add project content
 4. Project will appear in projects listing and RSS feed
+
+## Adding a Talk
+
+1. Add an entry to `_data/talks.json` (newest first): `title`, `event`, `place`, `year`, `image`, `alt`, `credit`, `description` (HTML allowed) and `links`
+2. Put the photo in `assets/images/speaking/` as a square `.webp` (450px is plenty)
+3. It appears on `/speaking/` and in the homepage "On stage" strip
+
+## Updating Selected Work
+
+1. Edit `_data/work.json`: `name`, `kind`, `description`, `url`, `cta` and `map`
+2. `map` is the contour slug for the card image (use `work-<name>`); the `contourMaps` collection renders it automatically
+3. Selected work also places waypoints on the homepage map, so keep it to four items
+
+## Updating Site Details
+
+Name, role, employer, email and social links live in `_data/site.js` and are used by the header, footer, meta tags and command palette.
+
+## Regenerating Social Cards
+
+After changing an article title or the card design, run `npm run og-images` (missing only) or `npm run og-images:force` (all). See [og-images.md](./og-images.md).

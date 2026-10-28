@@ -1,7 +1,9 @@
 ---
 layout: page.njk
 title: Articles
-description: An archived collection of articles by Jabran Rafique
+eyebrow: Writing since 2012
+description: Notes on web engineering, tooling, open data and the years I spent mapping Pakistan on Google Map Maker.
+contour: page-articles
 eleventyExcludeFromCollections: true
 eleventyComputed:
   title: "{% if pagination.pageNumber > 0 %}Articles - Page {{ pagination.pageNumber + 1 }}{% else %}Articles{% endif %}"
@@ -13,24 +15,34 @@ pagination:
 permalink: "/articles/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber + 1 }}/{% endif %}"
 ---
 
-{% for article in articles %}
-  <section class="mt-4 pt-4 {% if not loop.first %}border-t-[1px] border-t-[#ddd]{% endif %}">
-    <time class="text-[#666] text-sm" datetime="{{ article.date | format_date('YYYY-MM-DD') }}">{{ article.date | format_date }}</time>
-    <h3 class="text-xl font-bold my-2">
-      <a href="{{ article.url | url }}">{{ article.data.title }}</a>
-    </h3>
-    <p class="text-base mb-4">{{ article.data.excerpt | safe }}</p>
+<p class="mt-8 hidden font-mono text-sm text-muted [.js_&]:block">
+  Looking for something? <button type="button" data-cmdk-open class="link text-ink">Search all {{ collections.articles.length }} articles</button>
+</p>
+
+{% for group in articles | groupByYear %}
+  <section class="mt-8 grid gap-x-10 gap-y-2 border-t border-line pt-6 md:grid-cols-[9rem_1fr]" aria-labelledby="year-{{ group.year }}">
+    <h2 id="year-{{ group.year }}" class="font-display text-3xl font-extrabold text-muted tabular md:sticky md:top-6 md:self-start md:pt-4">{{ group.year }}</h2>
+    <ul>
+      {% for article in group.items %}
+        <li class="border-b border-line last:border-0">
+          <a href="{{ article.url | url }}" class="group block py-5">
+            <h3 class="font-display text-xl font-bold leading-snug transition-colors group-hover:text-accent md:text-2xl" style="view-transition-name: {{ article.url | vtName }}">{{ article.data.title }}</h3>
+            {% if article.data.excerpt %}<p class="mt-2 line-clamp-2 max-w-3xl text-muted">{{ article.data.excerpt | striptags }}</p>{% endif %}
+            <p class="mt-2 font-mono text-xs text-muted"><time datetime="{{ article.date | format_date('YYYY-MM-DD') }}">{{ article.date | format_date }}</time></p>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
   </section>
 {% endfor %}
 
-
 {% if pagination.pages.length > 1 %}
-  <nav data-testid="pagination" id="pagination" class="inline-flex items-center justify-center font-bold text-base my-12">
+  <nav data-testid="pagination" id="pagination" aria-label="Pages" class="mt-12 flex flex-wrap items-center gap-2 font-mono text-sm">
     {% for pageEntry in pagination.pages %}
       {% if pagination.hrefs[loop.index0] == '/articles/1/' or page.url == pagination.hrefs[loop.index0] %}
-        <span class="block bg-[#eee] w-8 h-8 rounded-full text-center p-1" aria-current="page" aria-label="Page {{ loop.index }}">{{ loop.index }}</span>
+        <span class="grid h-10 min-w-10 place-items-center rounded-lg bg-ink px-3 text-paper" aria-current="page">{{ loop.index }}</span>
       {% else %}
-        <a class="block w-8 h-8 rounded-full text-center p-1" href="/articles/{% if loop.index != loop.first %}{{ loop.index }}/{% endif %}"  aria-label="Go to page {{ loop.index }}">{{ loop.index }}</a>
+        <a class="grid h-10 min-w-10 place-items-center rounded-lg border border-line px-3 transition-colors hover:border-ink" href="/articles/{% if loop.index != loop.first %}{{ loop.index }}/{% endif %}" aria-label="Go to page {{ loop.index }}">{{ loop.index }}</a>
       {% endif %}
     {% endfor %}
   </nav>

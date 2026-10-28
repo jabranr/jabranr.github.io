@@ -38,8 +38,8 @@ Here is also a screen cast that I made of these events that actually may explain
 
 ### Part I:
 
-<iframe width="100%" height="422" src="//www.youtube.com/embed/acVkysspN6o?rel=0&#038;autohide=1&#038;modestbranding=1&#038;showinfo=0" frameborder="0" allowfullscreen></iframe>
+<iframe title="Part 1 – How to update incorrectly mapped roads with Google Earth &amp; Google Map Maker" width="100%" height="422" src="//www.youtube.com/embed/acVkysspN6o?rel=0&#038;autohide=1&#038;modestbranding=1&#038;showinfo=0" frameborder="0" allowfullscreen></iframe>
 
 ### Part II:
 
-<iframe width="100%" height="422" src="//www.youtube.com/embed/iz7dvp-NtJM?rel=0&#038;autohide=1&#038;modestbranding=1&#038;showinfo=0" frameborder="0" allowfullscreen></iframe>
+<iframe title="Part 2 – How to update incorrectly mapped roads with Google Earth &amp; Google Map Maker" width="100%" height="422" src="//www.youtube.com/embed/iz7dvp-NtJM?rel=0&#038;autohide=1&#038;modestbranding=1&#038;showinfo=0" frameborder="0" allowfullscreen></iframe>

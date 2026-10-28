@@ -2,44 +2,49 @@
 layout: base.njk
 ---
 
-{% set previousPage = collections.all | getPreviousCollectionItem(page) %}
-{% set nextPage = collections.all | getNextCollectionItem(page) %}
+{% set older = collections.articles | getPreviousCollectionItem(page) %}
+{% set newer = collections.articles | getNextCollectionItem(page) %}
 
-<div class="block h-1 sticky top-0 bg-green-500 reading-progress"></div>
-<section class="container text-sm my-4">
-  <a href="/">Home</a> &rsaquo; <a href="/articles/">Articles</a>
-</section>
+<div class="reading-progress fixed inset-x-0 top-0 z-50 h-[3px] bg-accent print:hidden" aria-hidden="true"></div>
 
-<section class="container post">
-  <h1 class="my-6 relative text-4xl font-bold after:block after::absolute after:content-[''] after:w-[25%] after:h-[4px] after:mt-4 after:bg-[#cf1956]">{{title}}</h1>
-  <time datetime="{{ date | format_date('YYYY-MM-DD') }}" class="text-gray-500 text-base">
-    {{date|format_date}} &bull; {{ content | timeToRead }} read
-  </time>
-  <section class="article_content">
-    {# Google ads #}
-    {# {% if env_NODE_ENV != 'development' %}
-      <div class="ads mt-4">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4297681002419123" crossorigin="anonymous"></script>
-        <!-- Banner ad -->
-        <ins class="adsbygoogle"
-            style="display:block"
-            data-ad-client="ca-pub-4297681002419123"
-            data-ad-slot="6682049184"
-            data-ad-format="auto"
-            data-full-width-responsive="true"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-      </div>
-    {% endif %} #}
-    {{ content | safe }}
-  </section>
+<article>
+  <header class="relative isolate overflow-hidden border-b border-line">
+    <div class="contour-mask absolute inset-0 -z-10" style="--contour-src: url('/contour/{{ page.fileSlug }}.svg')" aria-hidden="true"></div>
+    <div class="absolute inset-0 -z-10 bg-gradient-to-r from-paper via-paper/85 to-paper/10" aria-hidden="true"></div>
+    <div class="mx-auto max-w-site px-4 pb-12 pt-10 sm:px-6 md:pb-16 md:pt-14">
+      <nav aria-label="Breadcrumb" class="eyebrow">
+        <a class="hover:text-ink" href="/">Home</a> <span aria-hidden="true">/</span> <a class="hover:text-ink" href="/articles/">Articles</a>
+      </nav>
+      <h1 class="mt-6 max-w-4xl font-display text-4xl font-extrabold leading-[1.02] tracking-[-0.02em] md:text-6xl" style="view-transition-name: {{ page.url | vtName }}">{{ title }}</h1>
+      <p class="mt-6 font-mono text-sm text-muted">
+        <time datetime="{{ date | format_date('YYYY-MM-DD') }}">{{ date | format_date }}</time>
+        <span aria-hidden="true">&middot;</span> {{ content | timeToRead }} read
+      </p>
+    </div>
+  </header>
 
-  {% if previousPage or nextPage %}
-    <section class="my-12 border-t-2 border-t-[#cf1956]">
-      <h3 class="text-xl">More articles</h3>
-      <section class="flex flex-col md:flex-row md:items-center md:justify-between">
-        {% if previousPage  %}<a rel="prev" href="{{ previousPage.url | url }}"><span class="hidden md:inline-block">&laquo;</span> {{ previousPage.data.title }}</a>{% endif %}
-        {% if nextPage  %}<a rel="next" href="{{ nextPage.url | url }}">{{ nextPage.data.title }} <span class="hidden md:inline-block">&raquo;</span></a>{% endif %}
-      </section>
-    </section>
-  {% endif %}
-</section>
+  <div class="mx-auto max-w-site px-4 py-12 sm:px-6 md:py-16">
+    <div class="prose article_content">
+      {{ content | safe }}
+    </div>
+  </div>
+</article>
+
+{% if older or newer %}
+  <nav aria-label="More articles" class="mx-auto max-w-site px-4 sm:px-6">
+    <div class="grid gap-4 border-t border-line pt-10 md:grid-cols-2">
+      {% if older %}
+        <a rel="prev" href="{{ older.url | url }}" class="group rounded-xl border border-line bg-surface p-6 transition-colors hover:border-ink">
+          <span class="eyebrow">&larr; Older</span>
+          <span class="mt-2 block font-display text-xl font-bold leading-snug group-hover:text-accent">{{ older.data.title }}</span>
+        </a>
+      {% endif %}
+      {% if newer %}
+        <a rel="next" href="{{ newer.url | url }}" class="group rounded-xl border border-line bg-surface p-6 text-right transition-colors hover:border-ink md:col-start-2">
+          <span class="eyebrow">Newer &rarr;</span>
+          <span class="mt-2 block font-display text-xl font-bold leading-snug group-hover:text-accent">{{ newer.data.title }}</span>
+        </a>
+      {% endif %}
+    </div>
+  </nav>
+{% endif %}

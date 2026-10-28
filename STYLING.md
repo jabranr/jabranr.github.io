@@ -197,8 +197,8 @@ const items = [1, 2, 3, 4];
 ```html
 <!-- ✅ Good: Use Tailwind utilities -->
 <div class="mx-auto max-w-4xl px-4 py-8">
-  <h1 class="text-3xl font-bold text-gray-900">Title</h1>
-  <p class="mt-4 text-gray-600">Description</p>
+  <h1 class="font-display text-3xl font-bold text-ink">Title</h1>
+  <p class="mt-4 text-muted">Description</p>
 </div>
 
 <!-- ❌ Bad: Custom classes when Tailwind utilities exist -->
@@ -250,7 +250,7 @@ Only add custom CSS when Tailwind utilities are insufficient:
 /* 3. Custom components */
 @layer components {
   .btn-primary {
-    @apply rounded bg-blue-600 px-4 py-2 text-white;
+    @apply rounded bg-ink px-4 py-2 text-paper;
   }
 }
 

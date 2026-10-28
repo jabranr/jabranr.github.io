@@ -1,0 +1,87 @@
+[
+  {
+    "title": "Google Maps & Digital Landscape of Pakistan",
+    "event": "Google DevFest LUMS",
+    "place": "Lahore",
+    "year": 2019,
+    "image": "/assets/images/speaking/lums-devfest-2019.webp",
+    "alt": "Jabran speaking at Google DevFest LUMS, Lahore in 2019",
+    "credit": "Tech Tology",
+    "description": "I shared the stage with many amazing people to tell the stories of Google Maps and how hundreds of passionate volunteers mapped to shape the digital landscape of Pakistan on Google Maps.",
+    "links": [{ "label": "Event page", "url": "https://www.facebook.com/events/937081413342144" }]
+  },
+  {
+    "title": "Google Maps: Drawing from clean slate",
+    "event": "University of Engineering & Technology",
+    "place": "Lahore",
+    "year": 2019,
+    "image": "/assets/images/speaking/dsc-uet-lahore.webp",
+    "alt": "Jabran speaking at University of Engineering & Technology, Lahore in 2019",
+    "credit": "DSC UET",
+    "description": "I was invited to present to an amazing group of students at the University of Engineering & Technology, Lahore, sharing stories from my time at Google Map Maker, how Google Maps are drawn and how Google has mapped cities and countries.",
+    "links": [{ "label": "Event page", "url": "https://www.facebook.com/events/573032606858734" }]
+  },
+  {
+    "title": "Citizen mapping: impact of crowd-sourced contributions on local populations",
+    "event": "Google Big Tent",
+    "place": "Sendai",
+    "year": 2011,
+    "image": "/assets/images/speaking/big-tent-sendai.webp",
+    "alt": "Jabran speaking at Google Big Tent Sendai in 2011",
+    "credit": "Google Big Tent",
+    "description": "I was invited along with <a href=\"https://www.twitter.com/momers\" target=\"_blank\" rel=\"noopener noreferrer\">Omer Sheikh</a>, a fellow mapper, to highlight our mapping efforts through Google Map Maker during a couple of natural disasters, which helped relief and rescue efforts on the ground for agencies such as UNITAR/UNOSAT.",
+    "links": [
+      {
+        "label": "Google blog",
+        "url": "https://googleblog.blogspot.com/2012/07/big-tent-sendai-smarter-ways-to-share.html"
+      }
+    ]
+  },
+  {
+    "title": "Mapper Stories: Pakistan",
+    "event": "Google Geo Users Summit",
+    "place": "Singapore",
+    "year": 2011,
+    "image": "/assets/images/speaking/geo-summit-singapore.webp",
+    "alt": "Jabran speaking at Google Geo Users Summit Singapore in 2011",
+    "credit": "Google",
+    "description": "The Summit hosted Google Map Maker mappers, Geo Modelers and Panoramio enthusiasts from Asia Pacific to celebrate their crowd-sourced contributions and set new strategies to increase community engagement.",
+    "links": [
+      { "label": "More details", "url": "https://sites.google.com/site/2011geocommunityapac/" },
+      { "label": "Google blog", "url": "https://maps.googleblog.com/2011/04/celebrating-top-geo-contributors-in.html" }
+    ]
+  },
+  {
+    "title": "Mapper Stories: Pakistan",
+    "event": "Google Map Maker Regional Conference",
+    "place": "Dubai",
+    "year": 2011,
+    "image": "/assets/images/speaking/gmm-regional-uae.webp",
+    "alt": "Jabran speaking at Google Map Maker Regional Conference Dubai in 2011",
+    "credit": "Google",
+    "description": "The Regional Conference brought the most active cartographers together to meet, have fun and learn from each other. Teams and individuals from each region presented their stories of mapping and how digital maps have helped their regions.",
+    "links": [{ "label": "More details", "url": "https://sites.google.com/site/2012mapmakercommunity/mena" }]
+  },
+  {
+    "title": "Disaster Response, case of Pakistan / Map Maker for mobile, some thoughts",
+    "event": "Africa Super Mappers Conference",
+    "place": "Kenya",
+    "year": 2010,
+    "image": "/assets/images/speaking/africa-mappers.webp",
+    "alt": "Jabran speaking at Africa Super Mappers Conference, Kenya in 2010",
+    "credit": "Google",
+    "description": "I was invited along with <a href=\"https://www.twitter.com/farazilu\" target=\"_blank\" rel=\"noopener noreferrer\">Faraz Ahmad</a>, a fellow Google Map Maker mapper, to share the strategies we used to map Pakistan rapidly while keeping quality up, helping attendees learn approaches to the digital cartography of Africa.",
+    "links": [{ "label": "More details", "url": "https://sites.google.com/site/superafricamappers/home" }]
+  },
+  {
+    "title": "All you need is a map and some goodwill",
+    "event": "TEDx Lahore",
+    "place": "Lahore",
+    "year": 2010,
+    "image": "/assets/images/speaking/tedx-lahore.webp",
+    "alt": "Jabran speaking at TEDx Lahore in 2010",
+    "credit": "TEDx Lahore",
+    "description": "I was invited along with <a href=\"https://www.twitter.com/momers\" target=\"_blank\" rel=\"noopener noreferrer\">Omer Sheikh</a> to speak about the importance of open access to public information and data, especially during natural disasters, and the struggle agencies face when information is limited or restricted.",
+    "links": [{ "label": "More details", "url": "https://www.ted.com/tedx/events/915" }]
+  }
+]

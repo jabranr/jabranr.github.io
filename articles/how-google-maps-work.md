@@ -70,7 +70,7 @@ Map data synchronization works opposite to how it is mentioned above for satteli
 
 [Google recently bought Skybox](http://www.fastcompany.com/3023325/fast-feed/proof-that-cheaper-satellites-still-can-take-incredibly-detailed-photos-of-earth), a company aiming to provide HD quality live satellite footage at public domains. It is becoming more apparent that live imagery is not too far away from being a reality with [these stunning satelling images and HD quality videos](http://www.firstimagery.skybox.com/) taken from SkySat-1 satellite. Here is Burj Khalifa, Dubai in one of the footages:
 
-<iframe src="//player.vimeo.com/video/92251790?title=0&amp;byline=0&amp;portrait=0" width="100%" height="432" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<iframe title="SkySat-1 satellite footage of Burj Khalifa, Dubai" src="//player.vimeo.com/video/92251790?title=0&amp;byline=0&amp;portrait=0" width="100%" height="432" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
 If you think that I have missed something in this article, let me know in comments below and I'll try to answer.
 

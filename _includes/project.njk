@@ -2,29 +2,60 @@
 layout: base.njk
 ---
 
-{% set previousPage = collections.all | getPreviousCollectionItem(page) %}
-{% set nextPage = collections.all | getNextCollectionItem(page) %}
+{% set older = collections.projects | getPreviousCollectionItem(page) %}
+{% set newer = collections.projects | getNextCollectionItem(page) %}
 
-<section class="container text-sm my-4">
-  <a href="/">Home</a> &rsaquo; <a  href="/projects/">Projects</a>
-</section>
+<article>
+  <header class="relative isolate overflow-hidden border-b border-line">
+    <div class="contour-mask absolute inset-0 -z-10" style="--contour-src: url('/contour/{{ page.fileSlug }}.svg')" aria-hidden="true"></div>
+    <div class="absolute inset-0 -z-10 bg-gradient-to-r from-paper via-paper/85 to-paper/10" aria-hidden="true"></div>
+    <div class="mx-auto flex max-w-site flex-col gap-8 px-4 pb-12 pt-10 sm:px-6 md:flex-row md:items-end md:justify-between md:pb-16 md:pt-14">
+      <div>
+        <nav aria-label="Breadcrumb" class="eyebrow">
+          <a class="hover:text-ink" href="/">Home</a> <span aria-hidden="true">/</span> <a class="hover:text-ink" href="/projects/">Projects</a>
+        </nav>
+        <h1 class="mt-6 max-w-4xl font-display text-4xl font-extrabold leading-[1.02] tracking-[-0.02em] md:text-6xl" style="view-transition-name: {{ page.url | vtName }}">{{ title }}</h1>
+        <p class="mt-6 font-mono text-sm text-muted">
+          <time datetime="{{ date | format_date('YYYY-MM-DD') }}">{{ date | format_date }}</time>
+          <span aria-hidden="true">&middot;</span> {{ content | timeToRead }} read
+        </p>
+        {% if code %}
+          <p class="mt-6">
+            <a href="{{ code }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-lg bg-ink px-4 py-2.5 text-sm font-medium text-paper transition-opacity hover:opacity-85">
+              View source <span aria-hidden="true">&nearr;</span>
+            </a>
+          </p>
+        {% endif %}
+      </div>
+      {% if thumbnail %}
+        {% set thumb = thumbnail | replace('.png', '-192.webp') %}
+        <img src="/{{ thumb }}" width="96" height="96" alt="" class="h-24 w-24 shrink-0 rounded-2xl border border-line object-cover shadow-sm" />
+      {% endif %}
+    </div>
+  </header>
 
-<section class="container project">
-  <h1 class="my-6 relative text-4xl font-bold after:block after::absolute after:content-[''] after:w-[25%] after:h-[4px] after:mt-4 after:bg-[#cf1956]">{{title}}</h1>
-  <time datetime="{{ date | format_date('YYYY-MM-DD') }}" class="text-gray-500 text-base">
-    {{date|format_date}} &bull; {{ content | timeToRead }} read
-  </time>
-  <section class="article_content">
-    {{ content | safe }}
-  </section>
+  <div class="mx-auto max-w-site px-4 py-12 sm:px-6 md:py-16">
+    <div class="prose article_content">
+      {{ content | safe }}
+    </div>
+  </div>
+</article>
 
-  {% if previousPage or nextPage %}
-    <section class="my-12 border-t-2 border-t-[#cf1956]">
-      <h3 class="text-xl">More projects</h3>
-      <section class="flex flex-col md:flex-row md:items-center md:justify-between">
-        {% if previousPage %}<a rel="prev" href="{{ previousPage.url | url }}"><span class="hidden md:inline-block">&laquo;</span> {{ previousPage.data.title }}</a>{% endif %}
-        {% if nextPage %}<a rel="next" href="{{ nextPage.url | url }}">{{ nextPage.data.title }} <span class="hidden md:inline-block">&raquo;</span></a>{% endif %}
-      </section>
-    </section>
-  {% endif %}
-</section>
+{% if older or newer %}
+  <nav aria-label="More projects" class="mx-auto max-w-site px-4 sm:px-6">
+    <div class="grid gap-4 border-t border-line pt-10 md:grid-cols-2">
+      {% if older %}
+        <a rel="prev" href="{{ older.url | url }}" class="group rounded-xl border border-line bg-surface p-6 transition-colors hover:border-ink">
+          <span class="eyebrow">&larr; Older</span>
+          <span class="mt-2 block font-display text-xl font-bold leading-snug group-hover:text-accent">{{ older.data.title }}</span>
+        </a>
+      {% endif %}
+      {% if newer %}
+        <a rel="next" href="{{ newer.url | url }}" class="group rounded-xl border border-line bg-surface p-6 text-right transition-colors hover:border-ink md:col-start-2">
+          <span class="eyebrow">Newer &rarr;</span>
+          <span class="mt-2 block font-display text-xl font-bold leading-snug group-hover:text-accent">{{ newer.data.title }}</span>
+        </a>
+      {% endif %}
+    </div>
+  </nav>
+{% endif %}

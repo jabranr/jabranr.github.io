@@ -1,0 +1,29 @@
+---
+layout: base.njk
+title: Page not found
+permalink: /404/
+eleventyExcludeFromCollections: true
+scripts:
+  - /assets/js/contour-core.js
+  - /assets/js/contour.js
+---
+
+<section data-contour-live="off-the-map" class="group relative isolate touch-pan-y overflow-hidden" aria-labelledby="lost-heading">
+  <div data-contour-static class="contour-mask absolute inset-0 -z-10 transition-opacity duration-700 group-[.is-live]:opacity-0" style="--contour-src: url('/contour/off-the-map.svg')" aria-hidden="true"></div>
+  <canvas class="absolute inset-0 -z-10 h-full w-full opacity-0 transition-opacity duration-700 group-[.is-live]:opacity-100" aria-hidden="true"></canvas>
+
+  <div class="mx-auto flex min-h-[min(40rem,calc(100svh-4.5rem))] max-w-site flex-col justify-center px-4 py-16 sm:px-6">
+    <div class="relative max-w-xl">
+      <div class="contour-halo absolute -inset-x-20 -inset-y-12 -z-10" aria-hidden="true"></div>
+      <p class="eyebrow">Error 404 &middot; Page not found</p>
+      <h1 id="lost-heading" class="wordmark-name mt-4 font-display text-[clamp(3.5rem,10vw,7rem)] font-extrabold leading-[0.88] tracking-[-0.03em]">Off the map</h1>
+      <p class="mt-6 text-lg">This page has moved, been removed, or was never charted. The coordinates below are as lost as you are.</p>
+      <p class="mt-3 font-mono text-sm text-muted tabular" data-contour-pos>??.????° N&ensp;?.????° W</p>
+      <p class="hidden font-mono text-sm text-muted [.js_&]:block" data-contour-elev>Elevation unknown</p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href="/?ref=404" class="inline-flex items-center gap-2 rounded-lg bg-ink px-5 py-3 text-sm font-medium text-paper transition-opacity hover:opacity-85"><span aria-hidden="true">&larr;</span> Back to the homepage</a>
+        <a href="/articles/" data-cmdk-open class="inline-flex items-center rounded-lg border border-ink/25 bg-paper/70 px-5 py-3 text-sm font-medium backdrop-blur transition-colors hover:border-ink">Search the site</a>
+      </div>
+    </div>
+  </div>
+</section>
