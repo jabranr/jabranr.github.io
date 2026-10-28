@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+    <title>Live Speedometer</title>
+    <meta name="robots" content="noindex" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+    />
+    <style>
+      /* Layout: one-screen instrument panel, big readout on top, coordinate table below */
+      :root {
+        --bg: #eef1f4;
+        --panel: #ffffff;
+        --fg: #15202b;
+        --muted: #5b6b7a;
+        --line: #d3dae1;
+        --accent: #0b6bcb;
+        --ok: #1a7f4b;
+        --warn: #b4560a;
+        --display: 'Barlow Condensed', 'Arial Narrow', system-ui, sans-serif;
+        --mono: 'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace;
+        color-scheme: light;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #0d141b;
+          --panel: #151f29;
+          --fg: #e6edf3;
+          --muted: #8b9bab;
+          --line: #263442;
+          --accent: #5aa9ff;
+          --ok: #4cc38a;
+          --warn: #f0a050;
+          color-scheme: dark;
+        }
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+      body {
+        background: var(--bg);
+        color: var(--fg);
+        font: 15px/1.45 var(--mono);
+        padding-block: max(20px, env(safe-area-inset-top, 0px)) max(20px, env(safe-area-inset-bottom, 0px));
+        padding-left: max(16px, env(safe-area-inset-left, 0px));
+        padding-right: max(16px, env(safe-area-inset-right, 0px));
+        display: flex;
+        justify-content: center;
+      }
+      main {
+        width: 100%;
+        max-width: 520px;
+        display: grid;
+        gap: 16px;
+        align-content: start;
+      }
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+      }
+      h1 {
+        font: 700 1.1rem/1 var(--display);
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        margin: 0;
+      }
+      .status {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.78rem;
+        color: var(--muted);
+      }
+      .dot {
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: var(--muted);
+      }
+      .status[data-s='live'] .dot {
+        background: var(--ok);
+        box-shadow: 0 0 0 4px color-mix(in srgb, var(--ok) 25%, transparent);
+      }
+      .status[data-s='stale'] .dot,
+      .status[data-s='wait'] .dot {
+        background: var(--warn);
+      }
+      .status[data-s='error'] .dot {
+        background: #d33;
+      }
+
+      .gauge {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 24px 20px 18px;
+        text-align: center;
+      }
+      .speed {
+        font: 700 clamp(6rem, 34vw, 10rem)/0.9 var(--display);
+        font-variant-numeric: tabular-nums;
+        letter-spacing: -0.02em;
+      }
+      .unit {
+        font: 500 1.1rem/1 var(--display);
+        letter-spacing: 0.2em;
+        color: var(--muted);
+        text-transform: uppercase;
+        margin-top: 6px;
+      }
+      .bar {
+        height: 6px;
+        border-radius: 3px;
+        background: var(--line);
+        margin-top: 18px;
+        overflow: hidden;
+      }
+      .bar > i {
+        display: block;
+        height: 100%;
+        width: 0;
+        background: var(--accent);
+        transition: width 0.6s ease;
+      }
+      .scale {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.7rem;
+        color: var(--muted);
+        margin-top: 4px;
+      }
+
+      dl {
+        margin: 0;
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        overflow: hidden;
+      }
+      .row {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 11px 16px;
+        border-top: 1px solid var(--line);
+      }
+      .row:first-child {
+        border-top: 0;
+      }
+      dt {
+        color: var(--muted);
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+      dd {
+        margin: 0;
+        font-variant-numeric: tabular-nums;
+        text-align: right;
+        min-width: 0;
+        overflow-wrap: anywhere;
+      }
+
+      .actions {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      button,
+      a.btn {
+        font: 500 0.85rem var(--mono);
+        color: var(--accent);
+        background: transparent;
+        border: 1px solid var(--accent);
+        border-radius: 8px;
+        padding: 9px 14px;
+        cursor: pointer;
+        text-decoration: none;
+      }
+      button:focus-visible,
+      a.btn:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 2px;
+      }
+      .msg {
+        font-size: 0.82rem;
+        color: var(--warn);
+        min-height: 1.2em;
+        margin: 0;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .bar > i {
+          transition: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>Live Speedometer</h1>
+        <span class="status" id="status" data-s="wait"
+          ><span class="dot"></span><span id="statusText">Waiting for GPS</span></span
+        >
+      </header>
+
+      <section class="gauge" aria-live="polite">
+        <div class="speed" id="speed">--</div>
+        <div class="unit">mph</div>
+        <div class="bar"><i id="bar"></i></div>
+        <div class="scale"><span>0</span><span>35</span><span>70</span><span>105</span></div>
+      </section>
+
+      <dl>
+        <div class="row">
+          <dt>Latitude</dt>
+          <dd id="lat">--</dd>
+        </div>
+        <div class="row">
+          <dt>Longitude</dt>
+          <dd id="lng">--</dd>
+        </div>
+        <div class="row">
+          <dt>Accuracy</dt>
+          <dd id="acc">--</dd>
+        </div>
+        <div class="row">
+          <dt>Heading</dt>
+          <dd id="hdg">--</dd>
+        </div>
+        <div class="row">
+          <dt>Altitude</dt>
+          <dd id="alt">--</dd>
+        </div>
+        <div class="row">
+          <dt>Speed source</dt>
+          <dd id="src">--</dd>
+        </div>
+        <div class="row">
+          <dt>Last fix</dt>
+          <dd id="age">--</dd>
+        </div>
+      </dl>
+
+      <div class="actions">
+        <button id="start" type="button">Start tracking</button>
+        <a class="btn" id="map" href="#" target="_blank" rel="noopener" hidden>Open in Maps</a>
+      </div>
+      <p class="msg" id="msg"></p>
+    </main>
+
+    <script>
+      (() => {
+        const MS_TO_MPH = 2.236936;
+        const MAX_MPH = 105;
+        const $ = (id) => document.getElementById(id);
+        let last = null; // latest position
+        let prev = null; // previous position, for computed speed fallback
+        let speedMph = null,
+          speedSrc = '--';
+        let watchId = null,
+          wakeLock = null;
+
+        const compass = (d) => ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'][Math.round(d / 45) % 8];
+
+        function haversine(a, b) {
+          const R = 6371000,
+            r = (x) => (x * Math.PI) / 180;
+          const dLat = r(b.latitude - a.latitude),
+            dLng = r(b.longitude - a.longitude);
+          const h =
+            Math.sin(dLat / 2) ** 2 + Math.cos(r(a.latitude)) * Math.cos(r(b.latitude)) * Math.sin(dLng / 2) ** 2;
+          return 2 * R * Math.asin(Math.sqrt(h));
+        }
+
+        function onPosition(pos) {
+          prev = last;
+          last = pos;
+          const c = pos.coords;
+          if (c.speed != null && !Number.isNaN(c.speed)) {
+            speedMph = Math.max(0, c.speed) * MS_TO_MPH;
+            speedSrc = 'GPS';
+          } else if (prev) {
+            const dt = (pos.timestamp - prev.timestamp) / 1000;
+            const d = haversine(prev.coords, c);
+            // ignore jitter smaller than the reported accuracy
+            speedMph = dt > 0 && d > c.accuracy / 2 ? (d / dt) * MS_TO_MPH : 0;
+            speedSrc = 'Computed';
+          }
+          $('msg').textContent = '';
+        }
+
+        function onError(err) {
+          const text =
+            {
+              1: 'Location permission denied. Allow location for this page in your browser settings, then tap Start tracking.',
+              2: 'Position unavailable. Move somewhere with a clear view of the sky.',
+              3: 'GPS timed out. Still trying.',
+            }[err.code] || err.message;
+          $('msg').textContent = text;
+          if (err.code === 1) setStatus('error', 'Permission denied');
+        }
+
+        function setStatus(s, text) {
+          $('status').dataset.s = s;
+          $('statusText').textContent = text;
+        }
+
+        // Repaint once per second, regardless of how often the GPS fires.
+        function render() {
+          if (!last) return;
+          const c = last.coords;
+          const age = Math.max(0, (Date.now() - last.timestamp) / 1000);
+          $('speed').textContent = speedMph == null ? '--' : speedMph.toFixed(speedMph < 10 ? 1 : 0);
+          $('bar').style.width = Math.min(100, ((speedMph || 0) / MAX_MPH) * 100) + '%';
+          $('lat').textContent = c.latitude.toFixed(6) + '°';
+          $('lng').textContent = c.longitude.toFixed(6) + '°';
+          $('acc').textContent = '±' + Math.round(c.accuracy * 3.28084) + ' ft';
+          $('hdg').textContent =
+            c.heading != null && !Number.isNaN(c.heading) && (speedMph || 0) > 1
+              ? Math.round(c.heading) + '° ' + compass(c.heading)
+              : '--';
+          $('alt').textContent = c.altitude != null ? Math.round(c.altitude * 3.28084) + ' ft' : '--';
+          $('src').textContent = speedSrc;
+          $('age').textContent = age < 1 ? 'just now' : Math.round(age) + ' s ago';
+          const map = $('map');
+          map.href = `https://www.google.com/maps?q=${c.latitude},${c.longitude}`;
+          map.hidden = false;
+          if (age > 5) setStatus('stale', 'Signal stale');
+          else setStatus('live', 'Live');
+        }
+
+        async function keepAwake() {
+          try {
+            wakeLock = await navigator.wakeLock?.request('screen');
+          } catch (_) {
+            /* optional */
+          }
+        }
+
+        function start() {
+          if (!('geolocation' in navigator)) {
+            $('msg').textContent = 'This browser has no location support.';
+            setStatus('error', 'Unsupported');
+            return;
+          }
+          if (!window.isSecureContext) {
+            $('msg').textContent =
+              'Location needs HTTPS or a local file. Open this page over https:// or from your device.';
+          }
+          if (watchId != null) navigator.geolocation.clearWatch(watchId);
+          watchId = navigator.geolocation.watchPosition(onPosition, onError, {
+            enableHighAccuracy: true,
+            maximumAge: 0,
+            timeout: 10000,
+          });
+          setStatus('wait', 'Waiting for GPS');
+          $('start').textContent = 'Restart tracking';
+          keepAwake();
+        }
+
+        document.addEventListener('visibilitychange', () => {
+          if (document.visibilityState === 'visible' && watchId != null) keepAwake();
+        });
+        $('start').addEventListener('click', start);
+        setInterval(render, 1000);
+        start();
+      })();
+    </script>
+  </body>
+</html>
