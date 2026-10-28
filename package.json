@@ -6,6 +6,7 @@
   "scripts": {
     "format:check": "prettier --check .",
     "format:fix": "prettier --write .",
+    "predev": "npm run build:css",
     "dev": "run-p dev:*",
     "start": "NODE_ENV=production eleventy --serve --port=8080",
     "dev:watch": "NODE_ENV=development eleventy --serve",

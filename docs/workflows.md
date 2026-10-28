@@ -5,15 +5,19 @@ This document covers the standard development workflows for this project.
 ## Starting Development
 
 ```bash
-npm start
+npm run dev
 ```
 
-This command runs both:
+This command:
 
-- Eleventy dev server with live reload (port 8080)
-- Tailwind CSS watch mode for style changes
+1. Builds the CSS once (`predev` runs `npm run build:css`)
+2. Runs the Eleventy dev server with live reload (port 8080) and Tailwind CSS watch mode together
+
+The CSS must exist before Eleventy starts: Eleventy copies `public/` on startup, and `public/*.css` is gitignored, so a stylesheet written afterwards is not picked up and every page renders unstyled. The functional tests start this same command.
 
 Access the site at: `http://localhost:8080`
+
+`npm start` serves a production build (`NODE_ENV=production`) on port 8080 without watchers.
 
 ## Building for Production
 
