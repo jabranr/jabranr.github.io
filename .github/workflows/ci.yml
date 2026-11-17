@@ -10,9 +10,12 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+permissions:
+  contents: read
+
 jobs:
   lint-and-build:
-    uses: jabranr/workflows/.github/workflows/reusable-pr-checks.yml@main
+    uses: jabranr/workflows/.github/workflows/reusable-pr-checks.yml@ad3f06522e7b029504ab30aeb3fc958aab8b1bef # main
     with:
       run-pre-release: false
       run-unit-test: false
@@ -21,15 +24,17 @@ jobs:
 
   functional-tests:
     needs: lint-and-build
-    uses: jabranr/workflows/.github/workflows/reusable-integration.yml@main
+    uses: jabranr/workflows/.github/workflows/reusable-integration.yml@ad3f06522e7b029504ab30aeb3fc958aab8b1bef # main
     with:
       test-type: functional
 
   deployment-status:
     runs-on: ubuntu-latest
+    permissions:
+      checks: read
     steps:
       - name: Wait for Cloudflare Pages deployment
-        uses: jabranr/workflows/.github/actions/wait-cf-pages-deployment@main
+        uses: jabranr/workflows/.github/actions/wait-cf-pages-deployment@ad3f06522e7b029504ab30aeb3fc958aab8b1bef # main
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -47,13 +52,17 @@ jobs:
   e2e-tests:
     if: ${{ github.event_name == 'push' }}
     needs: deployment-status
-    uses: jabranr/workflows/.github/workflows/reusable-integration.yml@main
+    uses: jabranr/workflows/.github/workflows/reusable-integration.yml@ad3f06522e7b029504ab30aeb3fc958aab8b1bef # main
     with:
       test-type: e2e
 
   performance-audit:
     needs: deployment-status
     runs-on: ubuntu-latest
+    # Lighthouse results are posted as a commit status / PR comment.
+    permissions:
+      pull-requests: write
+      statuses: write
     steps:
       - name: Get domain
         id: get-domain
@@ -68,7 +77,7 @@ jobs:
           fi
 
       - name: Performance Audit
-        uses: jabranr/workflows/.github/actions/performance-audit@main
+        uses: jabranr/workflows/.github/actions/performance-audit@ad3f06522e7b029504ab30aeb3fc958aab8b1bef # main
         with:
           urls: '${{ steps.get-domain.outputs.domain }},${{ steps.get-domain.outputs.domain }}/resume/,${{ steps.get-domain.outputs.domain }}/articles/,${{ steps.get-domain.outputs.domain }}/projects/,${{ steps.get-domain.outputs.domain }}/speaking/'
           github-token: ${{ secrets.GITHUB_TOKEN }}

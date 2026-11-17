@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "actions": {
+    "actions/checkout@11d5960a326750d5838078e36cf38b85af677262": {
+      "commit": "11d5960a326750d5838078e36cf38b85af677262"
+    },
+    "jabranr/workflows/.github/actions/performance-audit@ad3f06522e7b029504ab30aeb3fc958aab8b1bef": {
+      "commit": "ad3f06522e7b029504ab30aeb3fc958aab8b1bef"
+    },
+    "jabranr/workflows/.github/actions/wait-cf-pages-deployment@ad3f06522e7b029504ab30aeb3fc958aab8b1bef": {
+      "commit": "ad3f06522e7b029504ab30aeb3fc958aab8b1bef"
+    },
+    "jabranr/workflows/.github/workflows/reusable-integration.yml@ad3f06522e7b029504ab30aeb3fc958aab8b1bef": {
+      "commit": "ad3f06522e7b029504ab30aeb3fc958aab8b1bef"
+    },
+    "jabranr/workflows/.github/workflows/reusable-pr-checks.yml@ad3f06522e7b029504ab30aeb3fc958aab8b1bef": {
+      "commit": "ad3f06522e7b029504ab30aeb3fc958aab8b1bef"
+    },
+    "secure-ci/cli@4de5123f55633171aeca62a1377f8c20a63c975f": {
+      "commit": "4de5123f55633171aeca62a1377f8c20a63c975f"
+    }
+  }
+}
