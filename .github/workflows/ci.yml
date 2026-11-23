@@ -19,6 +19,41 @@ jobs:
       run-lint: false
       run-typecheck: false
 
+  seo-lint:
+    # Lints only the pages a PR changes (Jabran's SEO loop; settings in seo.config.yaml)
+    if: ${{ github.event_name == 'pull_request' }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0 # seo-lint-changed diffs against the base branch
+
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6.5.0
+        with:
+          node-version-file: package.json # volta.node
+          cache: npm
+
+      - run: npm ci
+
+      - run: npm run build
+
+      - name: Fetch seo-lint
+        env:
+          SKILLS_SHA: 05bd4d1660bf195384df5e3d49fdc9aa5aa534d9 # jabranr/skills, seo-loop-v1
+        run: |
+          mkdir -p "$RUNNER_TEMP/seo-lint"
+          for f in seo-lint.mjs seo-lint-changed.mjs; do
+            curl -fsSL "https://raw.githubusercontent.com/jabranr/skills/${SKILLS_SHA}/skills/jabraf-seo-qa/scripts/$f" \
+              -o "$RUNNER_TEMP/seo-lint/$f"
+          done
+
+      - name: seo-lint changed pages
+        env:
+          BASE_REF: ${{ github.base_ref }}
+        run: node "$RUNNER_TEMP/seo-lint/seo-lint-changed.mjs" "origin/$BASE_REF" --config seo.config.yaml
+
   functional-tests:
     needs: lint-and-build
     uses: jabranr/workflows/.github/workflows/reusable-integration.yml@main
