@@ -72,7 +72,7 @@ audience:
     - setting up a static site, its CI and deployments well
     - Git and tooling habits that save time
     - finding a hands-on engineer to hire or invite to speak
-  reading_level_max_grade: 12 # developer audience; existing articles score 10 to 13.5 (tool names push it up)
+  reading_level_max_grade: 10 # technical audience; older articles score 10 to 13.5 (tool names push it up) and come down through refreshes
 
 voice:
   tone: practical and honest developer notes from experience; show the command or code that worked; British spelling (organise, colour); no hype
