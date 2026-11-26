@@ -51,3 +51,15 @@ test.describe('Sitemap', { tag: ['@e2e'] }, () => {
     );
   });
 });
+
+// public/ is passthrough-copied to the site root; Eleventy must not also render its HTML as templates
+test.describe('Static files', { tag: ['@e2e'] }, () => {
+  test('should serve public/ files at their real paths and not under /public/', async ({ request }) => {
+    for (const url of ['/googleb30de92a5090f502.html', '/speed/', '/robots.txt']) {
+      expect((await request.get(url)).status(), url).toBe(200);
+    }
+    for (const url of ['/public/googleb30de92a5090f502/', '/public/speed/']) {
+      expect((await request.get(url)).status(), url).toBe(404);
+    }
+  });
+});
