@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Building childcare vouchers business directory
+description: 'How I built childcare-vouchers.uk, a directory of businesses that accept childcare vouchers, with Eleventy, Tailwind CSS and Cloudflare Pages.'
 date: 2023-02-21 01:00:00
 categories: articles
 tags: ['articles', 'childcare', 'vouchers', 'directory', 'pay with childcare voucher']

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Find Greatest Common Factor (Maths series)
+description: "Find the greatest common factor (GCF or HCF) of two or more numbers with Euclid's algorithm, using a muffin example and a small JavaScript function."
 date: 2025-10-20 09:00:00
 categories: articles
 tags: ['articles', 'maths', 'programming', 'formulas', 'algorithm', 'factor', 'gcf', 'gcd', 'hcf', 'hcd']

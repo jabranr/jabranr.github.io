@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 'Making public data more readable and accessible'
+description: 'Geography of Pakistan on GitHub turns official public data, starting with the 1998 population census, into reusable digital formats anyone can use.'
 date: 2014-08-23 08:00:00
 categories: articles
 tags: ['articles', Pakistan, public, census, boundaries, data]

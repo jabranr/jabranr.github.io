@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 'Pakistan’s Elections Information Portals'
+description: 'A look at the websites and maps built for the 2013 general elections in Pakistan, where they overlap or fall short, and a list of the resources I found.'
 date: 2013-04-28 07:00:00
 categories: articles
 tags: ['articles', Constituency Maps, data mining, Elections, Google Maps, Information portals, Pakistan, Public data]

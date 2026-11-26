@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Smashing Conference London 2018
+description: 'Two days at Smashing Conference London 2018 with the Rated People front end team: why we picked it, the talks, and the London Underground mystery theme.'
 date: 2018-02-22 08:00:00
 categories: articles
 tags: ['articles', Event, Conference, Smashing, London, Web Development, Web Performance, '#perfmatters']

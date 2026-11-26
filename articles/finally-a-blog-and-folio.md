@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 'Welcome at my blog and folio'
+description: 'My first post on jabran.me, from 2012: who I am as a web engineer in London, and what this blog and folio cover, from web development to web mapping.'
 date: 2012-11-16 07:00:00
 categories: articles
 tags: ['articles', Jabran Rafique, personal blog, portfolio]

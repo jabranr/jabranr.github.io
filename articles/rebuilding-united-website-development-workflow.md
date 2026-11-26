@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 'Rebuilding United Website - Development Workflow'
+description: 'How we rebuilt the United agency website mobile first with Bootstrap: the tools I used to test responsive layouts, the social feeds and the animations.'
 date: 2014-06-10 08:00:00
 categories: articles
 tags: ['articles', Web, Design, Development, United Agency, London, Workflow]

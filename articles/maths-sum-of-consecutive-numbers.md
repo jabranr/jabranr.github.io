@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Sum of consecutive numbers (Maths series)
+description: 'Sum consecutive numbers from 1 to n with the formula n(n + 1) / 2 instead of a loop, plus a short JavaScript function. Part of my maths series for the 11+.'
 date: 2025-10-19 09:00:00
 categories: articles
 tags: ['articles', 'maths', 'programming', 'formulas', 'algorithm', 'sum']

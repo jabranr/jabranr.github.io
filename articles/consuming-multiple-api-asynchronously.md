@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 'Consuming multiple APIs asynchronously'
+description: 'Chain the Facebook Graph API, a custom API and the Google Maps API with JavaScript callbacks, so each SDK call runs in order with no early call warnings.'
 date: 2014-08-21 08:00:00
 categories: articles
 tags: ['articles', Facebook, Graph, API, Google Maps, JavaScript, Asynchorounus, callback]

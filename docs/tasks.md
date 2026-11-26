@@ -6,14 +6,20 @@ This document provides step-by-step instructions for common development tasks.
 
 1. Create a new `.md` file in the `articles/` directory
 2. Add frontmatter with required fields:
+
    ```yaml
    ---
    title: 'Article Title'
+   description: 'Meta description for search results and share cards, 70-160 characters'
    date: YYYY-MM-DD
    tags: articles
    excerpt: 'Brief description'
    ---
    ```
+
+   `description` is required: `integration/meta-description.spec.js` fails without it. Write it from the
+   article's own content, in British spelling, with no em dashes.
+
 3. Write content in Markdown below the frontmatter
 4. The article will automatically appear in the articles listing
 

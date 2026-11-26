@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 'Fetch tweets with Twitter API v1.1'
+description: 'Fetch tweets from Twitter API v1.1 in PHP with application-only OAuth: create an app, exchange its credentials for a bearer token, then request the feed.'
 date: 2013-10-09 07:00:00
 categories: articles
 tags: ['articles', 'Tweets, Twitter API, Twitter API v1.1, PHP']

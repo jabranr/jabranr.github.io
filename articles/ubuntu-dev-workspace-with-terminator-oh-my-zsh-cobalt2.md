@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Dev workspace setup on Linux (Ubuntu) with Terminator, Oh My ZSH and Cobalt2
+description: 'Set up a developer terminal on Ubuntu 14.04 LTS with Terminator, ZSH, Oh My ZSH and the Cobalt2 colour scheme, close to an iTerm2 setup on macOS.'
 date: 2015-11-18 8:00:00
 categories: articles
 tags: ['articles', Linux, Ubuntu, Terminator, Terminal, Shell, ZSH, Oh My ZSH]

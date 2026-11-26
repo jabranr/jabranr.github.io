@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 'Understanding user journey in Facebook applications'
+description: 'How Facebook sends users to canvas apps and page tab apps on desktop and mobile, explained through the app settings and a flow chart of the user journey.'
 date: 2013-09-13 07:00:00
 categories: articles
 tags: ['articles', Facebook, Facebook API, Facebook App, Facebook Games, Graph API]

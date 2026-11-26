@@ -1,6 +1,7 @@
 ---
 layout: post
 title: How to resolve Cloudflare Workers Sites deploy error in a Remix app
+description: 'Fix the Wrangler v2 error "The uploaded script has no registered event handlers. [code: 10068]" in a Remix Workers Sites app with patch-package.'
 date: 2023-02-14 07:00:00
 categories: articles
 tags: ['articles', remix, wrangler, cloudflare, workers, 'workers-sites']

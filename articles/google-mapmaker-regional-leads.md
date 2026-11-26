@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Google Map Maker Regional Leads
+description: 'Google Map Maker reopened in 2015 and Advocates became Regional Leads. What changed in reviewing, what the role offers, and who the Leads for Pakistan are.'
 date: 2015-08-29 8:00:00
 categories: articles
 tags: ['articles', Google Map Maker, Google Maps, Mapping, Cartography, Regional Leads]

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Migrating from Sublime Text to Visual Studio Code
+description: 'Why I moved from Sublime Text to Visual Studio Code, and how the welcome screen, interactive playground, themes and extensions helped me settle in.'
 date: 2017-03-06 07:00:00
 categories: articles
 tags: ['articles', Workflow, Frontend tools, SublimeText, Sublime text, vscode, visual studio code]

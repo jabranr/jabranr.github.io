@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 'Using DRY concept in Symfony2 Entities'
+description: 'Keep Symfony2 Doctrine entities DRY by moving shared fields such as id and timestamps into a MappedSuperclass base entity that other entities extend.'
 date: 2016-07-25 07:00:00
 categories: articles
 tags: ['articles', Symfony, Symfon2, Doctrine, ORM, Entities, HasLifecycleCallbacks]

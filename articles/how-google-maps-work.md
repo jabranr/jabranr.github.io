@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 'Everything you need to know on how Google Maps work?'
+description: 'How Google Maps and Google Earth get satellite imagery, Street View, traffic and map data, and why the satellite images you see on them are not live.'
 date: 2014-06-20 08:00:00
 categories: articles
 tags: ['articles', Google, Maps, StreetView, Earth, Live satellite images]

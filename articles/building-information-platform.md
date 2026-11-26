@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Building an information platform
+description: 'Why I built an information portal for public services in Pakistan on local.com.pk, from the first idea to an open source GatsbyJS site.'
 date: 2019-01-25 01:00:00
 categories: articles
 tags: ['articles', pakistan, information, services, platform, portal]

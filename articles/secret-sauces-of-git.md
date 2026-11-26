@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 'Secret sauces of Git'
+description: 'Git commands I use when things get awkward: amend or reword commit messages, add changes to a finished commit, delete a remote branch and read a tidy log.'
 date: 2016-06-10 07:00:00
 categories: articles
 tags: ['articles', Git, Github, version control]

@@ -4,8 +4,12 @@
   {% set title = title ~ " - " ~ site.name %}
 {% endif %}
 
+{# Each page sets its own description (70-160 chars); the site one is the fallback #}
 {% if not description %}
   {% set description = site.description %}
+{% endif %}
+{% if pagination and pagination.pageNumber > 0 %}
+  {% set description = description ~ " Page " ~ (pagination.pageNumber + 1) ~ " of " ~ pagination.pages.length ~ "." %}
 {% endif %}
 
 {% set assetVersion = 'now' | format_date('unix') %}

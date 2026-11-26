@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Performance audits with GatsbyJS and Lighthouse
+description: 'Run Lighthouse audits against a GatsbyJS production build from npm scripts, avoid the port 9000 gotcha, and use the JSON report in a CI pipeline.'
 date: 2019-02-05 07:00:00
 categories: articles
 tags: ['articles', gatsbyjs, lighthouse, performance, audit, chrome, devtools, CD, CI]
