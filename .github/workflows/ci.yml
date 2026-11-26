@@ -41,7 +41,7 @@ jobs:
 
       - name: Fetch seo-lint
         env:
-          SKILLS_SHA: 05bd4d1660bf195384df5e3d49fdc9aa5aa534d9 # jabranr/skills, seo-loop-v1
+          SKILLS_SHA: c20c516360aab66e25516988582b4eebc7ea152e # jabranr/skills, seo-lint-changed --build-base
         run: |
           mkdir -p "$RUNNER_TEMP/seo-lint"
           for f in seo-lint.mjs seo-lint-changed.mjs; do
@@ -52,7 +52,7 @@ jobs:
       - name: seo-lint changed pages
         env:
           BASE_REF: ${{ github.base_ref }}
-        run: node "$RUNNER_TEMP/seo-lint/seo-lint-changed.mjs" "origin/$BASE_REF" --config seo.config.yaml
+        run: node "$RUNNER_TEMP/seo-lint/seo-lint-changed.mjs" "origin/$BASE_REF" --config seo.config.yaml --build-base
 
   functional-tests:
     needs: lint-and-build
