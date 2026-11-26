@@ -2,32 +2,39 @@
 permalink: /sitemap.xml
 eleventyExcludeFromCollections: true
 ---
+{#-
+  One <url> per indexable page. Left out: noindex pages (404, /resume/, /speed/), paginated list
+  pages after the first, and utility files (search.json, feed.xml, Google verification).
+  <lastmod> is the page's `updated` front matter, else its date; list pages use their newest item.
+-#}
+{%- set newestArticle = collections.articles | last -%}
+{%- set newestProject = collections.projects | last -%}
+{%- set articlesLastmod = newestArticle.data.updated or newestArticle.date -%}
+{%- set projectsLastmod = newestProject.data.updated or newestProject.date -%}
+{%- set homeLastmod = articlesLastmod if articlesLastmod > projectsLastmod else projectsLastmod -%}
 <?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>{{ '/' | absoluteUrl }}</loc>
-    <lastmod>{{ now | format_date('YYYY-MM-DD[T]HH:mm:ss[Z]') }}</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>{{ '/' | absoluteUrl }}/</loc>
+    <lastmod>{{ homeLastmod | format_date('YYYY-MM-DD') }}</lastmod>
+  </url>
+  <url>
+    <loc>{{ '/articles/' | absoluteUrl }}</loc>
+    <lastmod>{{ articlesLastmod | format_date('YYYY-MM-DD') }}</lastmod>
+  </url>
+  <url>
+    <loc>{{ '/projects/' | absoluteUrl }}</loc>
+    <lastmod>{{ projectsLastmod | format_date('YYYY-MM-DD') }}</lastmod>
   </url>
   <url>
     <loc>{{ '/speaking/' | absoluteUrl }}</loc>
-    <lastmod>{{ now | format_date('YYYY-MM-DD[T]HH:mm:ss[Z]') }}</lastmod>
-    <changefreq>weekly</changefreq>
   </url>
-
-  {%- for article in collections.articles -%}
-    <url>
-      <loc>{{ article.url | absoluteUrl  }}</loc>
-      <lastmod>{{ article.updated | format_date('YYYY-MM-DD[T]HH:mm:ss[Z]') }}</lastmod>
-      <changefreq>weekly</changefreq>
-    </url>
-
-    {%- for project in collections.projects -%}
-      <url>
-        <loc>{{ project.url | absoluteUrl  }}</loc>
-        <lastmod>{{ project.updated | format_date('YYYY-MM-DD[T]HH:mm:ss[Z]') }}</lastmod>
-        <changefreq>weekly</changefreq>
-      </url>
-    {%- endfor -%}
-  {%- endfor -%}
+  {%- for item in collections.articles.concat(collections.projects) %}
+    {%- if not item.data.noindex %}
+  <url>
+    <loc>{{ item.url | absoluteUrl }}</loc>
+    <lastmod>{{ (item.data.updated or item.date) | format_date('YYYY-MM-DD') }}</lastmod>
+  </url>
+    {%- endif %}
+  {%- endfor %}
 </urlset>
