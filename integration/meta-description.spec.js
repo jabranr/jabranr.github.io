@@ -2,13 +2,12 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { test, expect } from '@playwright/test';
 
-const ARTICLES_DIR = path.resolve('articles');
 const SITE_DESCRIPTION =
   'Jabran Rafique is a Senior Software Engineer and Tech Lead at Sky, building progressive, performant and accessible web.';
 
-// Read `description` from an article's front matter (single-quoted, plain or double-quoted YAML)
-function frontMatterDescription(file) {
-  const source = fs.readFileSync(path.join(ARTICLES_DIR, file), 'utf8');
+// Read `description` from a page's front matter (single-quoted, plain or double-quoted YAML)
+function frontMatterDescription(dir, file) {
+  const source = fs.readFileSync(path.resolve(dir, file), 'utf8');
   const frontMatter = source.split(/^---$/m)[1] || '';
   const match = frontMatter.match(/^description:\s*(.+)$/m);
   if (!match) return undefined;
@@ -18,14 +17,17 @@ function frontMatterDescription(file) {
   return value;
 }
 
-const articles = fs
-  .readdirSync(ARTICLES_DIR)
-  .filter((file) => file.endsWith('.md'))
-  .map((file) => ({
-    file,
-    url: `/articles/${file.replace(/\.md$/, '')}/`,
-    description: frontMatterDescription(file),
-  }));
+// Articles and project pages, each built at /<dir>/<slug>/
+const articles = ['articles', 'projects'].flatMap((dir) =>
+  fs
+    .readdirSync(path.resolve(dir))
+    .filter((file) => file.endsWith('.md'))
+    .map((file) => ({
+      file: `${dir}/${file}`,
+      url: `/${dir}/${file.replace(/\.md$/, '')}/`,
+      description: frontMatterDescription(dir, file),
+    }))
+);
 
 async function metaDescriptions(page) {
   return {
@@ -36,7 +38,7 @@ async function metaDescriptions(page) {
 }
 
 test.describe('Meta descriptions', { tag: ['@e2e'] }, () => {
-  test('every article has a unique description of 70 to 160 characters', () => {
+  test('every article and project has a unique description of 70 to 160 characters', () => {
     expect(articles.length).toBeGreaterThan(0);
     for (const { file, description } of articles) {
       expect(description, `${file} has no description`).toBeTruthy();
@@ -48,7 +50,7 @@ test.describe('Meta descriptions', { tag: ['@e2e'] }, () => {
     expect(unique.size).toBe(articles.length);
   });
 
-  test('every article page renders its own description in the meta tags', async ({ page }) => {
+  test('every article and project page renders its own description in the meta tags', async ({ page }) => {
     for (const { url, description } of articles) {
       await page.goto(url, { waitUntil: 'domcontentloaded' });
       expect(await metaDescriptions(page), url).toEqual({ description, og: description, twitter: description });

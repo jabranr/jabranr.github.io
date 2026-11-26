@@ -1,6 +1,7 @@
 ---
 layout: project
 title: Form field placeholder fallback support
+description: 'A small jQuery plugin that adds fallback support for the placeholder attribute on form fields in browsers without it, such as older Internet Explorer.'
 date: 2014-01-30 08:00:00
 tags: projects
 excerpt: >

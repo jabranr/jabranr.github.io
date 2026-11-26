@@ -1,6 +1,7 @@
 ---
 layout: project
 title: letter-spacing Custom Element
+description: 'letter-spacing is an inline custom element, made with Polymer Boilerplate, that applies CSS letter-spacing styling to its contents.'
 date: 2014-06-29 08:00:00
 tags: projects
 excerpt: >

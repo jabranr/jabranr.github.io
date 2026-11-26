@@ -1,6 +1,7 @@
 ---
 layout: project
 title: PHP library for Instagram API
+description: 'PHP library for Instagram API is an early PHP library, from 2013, for accessing the Instagram API. Its source code is on GitHub.'
 date: 2013-03-09 08:00:00
 tags: projects
 excerpt: >

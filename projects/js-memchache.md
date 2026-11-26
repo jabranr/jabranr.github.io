@@ -1,6 +1,7 @@
 ---
 layout: project
 title: JavaScript in-memory cache (JSMemCache)
+description: 'JSMemCache is a JavaScript in-memory cache of around 600 bytes minified and gzipped that stores data in memory to save on network requests.'
 date: 2017-01-04 08:00:00
 tags: projects
 excerpt: >
