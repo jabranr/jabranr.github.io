@@ -21,7 +21,8 @@ jobs:
 
   seo-lint:
     # Lints only the pages a PR changes (Jabran's SEO loop; settings in seo.config.yaml)
-    if: ${{ github.event_name == 'pull_request' }}
+    # Only the SEO loop's PRs (branches seo/...): legacy pages' known issues mustn't block human PRs
+    if: ${{ github.event_name == 'pull_request' && startsWith(github.head_ref, 'seo/') }}
     runs-on: ubuntu-latest
     permissions:
       contents: read
