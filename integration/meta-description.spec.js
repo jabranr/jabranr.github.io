@@ -57,7 +57,7 @@ test.describe('Meta descriptions', { tag: ['@e2e'] }, () => {
 
   test('top-level pages have their own description', async ({ page }) => {
     const seen = new Set();
-    for (const url of ['/', '/articles/', '/projects/', '/speaking/', '/resume/']) {
+    for (const url of ['/', '/articles/', '/projects/', '/speaking/', '/resume/', '/contact/']) {
       await page.goto(url, { waitUntil: 'domcontentloaded' });
       const { description, og, twitter } = await metaDescriptions(page);
       expect(description, url).not.toBe(SITE_DESCRIPTION);

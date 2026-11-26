@@ -32,7 +32,7 @@ test.describe('Sitemap', { tag: ['@e2e'] }, () => {
     const paths = locs.map((loc) => new URL(loc).pathname);
     for (const slug of slugs('articles')) expect(paths).toContain(`/articles/${slug}/`);
     for (const slug of slugs('projects')) expect(paths).toContain(`/projects/${slug}/`);
-    for (const url of ['/', '/articles/', '/projects/', '/speaking/']) expect(paths).toContain(url);
+    for (const url of ['/', '/articles/', '/projects/', '/speaking/', '/contact/']) expect(paths).toContain(url);
     expect(locs.filter((loc) => !/^https?:\/\/[^/]+\/(.*\/)?$/.test(loc))).toEqual([]);
   });
 

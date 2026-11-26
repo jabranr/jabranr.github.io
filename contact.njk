@@ -1,0 +1,25 @@
+---
+layout: page.njk
+title: Contact
+eyebrow: Get in touch
+description: How to contact Jabran Rafique by email about an article, a talk, a project or a role. Questions, corrections and fixes to my articles are welcome.
+contour: page-contact
+permalink: /contact/
+eleventyExcludeFromCollections: true
+---
+
+{# Contact links across the site point here, so Cloudflare Web Analytics counts contact intent as page views of /contact/ #}
+<section class="max-w-2xl py-12" aria-labelledby="email-heading">
+  <h2 id="email-heading" class="eyebrow">Email</h2>
+  <p class="mt-4">
+    <a class="link font-display text-3xl font-bold md:text-4xl" href="mailto:{{ site.email }}" data-testid="contact-email">{{ site.email }}</a>
+  </p>
+  <p class="mt-6 leading-relaxed text-muted">Email is the best way to reach me. If you are writing about an article, include its link so I know which one you mean.</p>
+
+  <h2 class="eyebrow mt-12">Elsewhere</h2>
+  <ul class="mt-4 flex flex-wrap gap-x-6 gap-y-2 font-mono text-sm">
+    {% for item in site.social %}
+      <li><a class="link" href="{{ item.url }}" target="_blank" rel="noopener noreferrer">{{ item.label }} <span aria-hidden="true">&nearr;</span></a></li>
+    {% endfor %}
+  </ul>
+</section>

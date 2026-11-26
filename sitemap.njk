@@ -29,6 +29,9 @@ eleventyExcludeFromCollections: true
   <url>
     <loc>{{ '/speaking/' | absoluteUrl }}</loc>
   </url>
+  <url>
+    <loc>{{ '/contact/' | absoluteUrl }}</loc>
+  </url>
   {%- for item in collections.articles.concat(collections.projects) %}
     {%- if not item.data.noindex %}
   <url>

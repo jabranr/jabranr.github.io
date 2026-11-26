@@ -48,18 +48,20 @@ publish:
 
 goal:
   preset: personal
-  north_star: article_organic_click # GSC clicks to /articles/<slug>/, plus contact by email
+  north_star: article_organic_click # GSC clicks to /articles/<slug>/
   # Analytics is Cloudflare Web Analytics, injected at the edge: cookie-free page views, no custom
-  # events (AGENTS.md forbids adding GA/GTM). So contact is not measured on site; count inbound
-  # emails to hello@jabran.me that mention an article by hand.
-  conversion_events: [article_organic_click, contact_email]
-  proxy_event: article_page_view # Cloudflare Web Analytics page views on /articles/<slug>/
+  # events (AGENTS.md forbids adding GA/GTM). Contact is measured as page views of /contact/: every
+  # on-site contact link points there (footer, command palette), and only that page links mailto:.
+  conversion_events: [article_organic_click, contact_page_view]
+  proxy_event: contact_page_view # Cloudflare Web Analytics page views of /contact/
   attribution:
-    first_touch_recorded: false # nothing first-party is stored; Cloudflare Web Analytics has no events
-    how_to_query: 'GSC (OpenSEO get_search_console_performance) clicks by page; Cloudflare Web Analytics page views by path and referrer'
+    # Cloudflare Web Analytics has no per-visitor attribution (no cookies, no user IDs, no events),
+    # so a contact page view cannot be tied back to the article or search that brought the visitor.
+    first_touch_recorded: false
+    how_to_query: 'Contact: Cloudflare dashboard → Web Analytics → jabran.me → Top paths (/contact/), with its referrers. Organic article clicks: OpenSEO get_search_console_performance by page.'
   cta:
     primary_label: Get in touch
-    primary_url: mailto:hello@jabran.me
+    primary_url: /contact/
     style: inline # one line at the end of an article; never a banner
 
 audience:

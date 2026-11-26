@@ -52,6 +52,7 @@ module.exports = function (eleventyConfig) {
       { slug: 'page-articles', width: 1600, height: 440, tilt: 0.6 },
       { slug: 'page-projects', width: 1600, height: 440, tilt: 0.6 },
       { slug: 'page-speaking', width: 1600, height: 440, tilt: 0.6 },
+      { slug: 'page-contact', width: 1600, height: 440, tilt: 0.6 },
       ...work,
       ...pages,
     ];
