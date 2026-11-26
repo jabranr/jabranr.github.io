@@ -15,7 +15,12 @@ permissions:
 
 jobs:
   lint-and-build:
-    uses: jabranr/workflows/.github/workflows/reusable-pr-checks.yml@ad3f06522e7b029504ab30aeb3fc958aab8b1bef # main
+    # The reusable workflow's pre-release job (skipped here) requests id-token: write,
+    # and a caller must grant at least what a nested job asks for.
+    permissions:
+      contents: read
+      id-token: write
+    uses: jabranr/workflows/.github/workflows/reusable-pr-checks.yml@59972e7319b1eb97d518e166633be1acddaf05db # main
     with:
       run-pre-release: false
       run-unit-test: false
@@ -24,7 +29,7 @@ jobs:
 
   functional-tests:
     needs: lint-and-build
-    uses: jabranr/workflows/.github/workflows/reusable-integration.yml@ad3f06522e7b029504ab30aeb3fc958aab8b1bef # main
+    uses: jabranr/workflows/.github/workflows/reusable-integration.yml@59972e7319b1eb97d518e166633be1acddaf05db # main
     with:
       test-type: functional
 
@@ -34,7 +39,7 @@ jobs:
       checks: read
     steps:
       - name: Wait for Cloudflare Pages deployment
-        uses: jabranr/workflows/.github/actions/wait-cf-pages-deployment@ad3f06522e7b029504ab30aeb3fc958aab8b1bef # main
+        uses: jabranr/workflows/.github/actions/wait-cf-pages-deployment@59972e7319b1eb97d518e166633be1acddaf05db # main
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -52,7 +57,7 @@ jobs:
   e2e-tests:
     if: ${{ github.event_name == 'push' }}
     needs: deployment-status
-    uses: jabranr/workflows/.github/workflows/reusable-integration.yml@ad3f06522e7b029504ab30aeb3fc958aab8b1bef # main
+    uses: jabranr/workflows/.github/workflows/reusable-integration.yml@59972e7319b1eb97d518e166633be1acddaf05db # main
     with:
       test-type: e2e
 
@@ -77,7 +82,7 @@ jobs:
           fi
 
       - name: Performance Audit
-        uses: jabranr/workflows/.github/actions/performance-audit@ad3f06522e7b029504ab30aeb3fc958aab8b1bef # main
+        uses: jabranr/workflows/.github/actions/performance-audit@59972e7319b1eb97d518e166633be1acddaf05db # main
         with:
           urls: '${{ steps.get-domain.outputs.domain }},${{ steps.get-domain.outputs.domain }}/resume/,${{ steps.get-domain.outputs.domain }}/articles/,${{ steps.get-domain.outputs.domain }}/projects/,${{ steps.get-domain.outputs.domain }}/speaking/'
           github-token: ${{ secrets.GITHUB_TOKEN }}

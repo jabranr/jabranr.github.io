@@ -1,12 +1,12 @@
 {
   "version": 2,
   "actions": {
-    "actions/cache@v4": {
+    "actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830": {
       "commit": "0057852bfaa89a56745cba8c7296529d2fc39830",
       "owner_id": 44036562,
       "repo_id": 215566462,
       "via": [
-        "jabranr/workflows/.github/workflows/reusable-integration.yml@ad3f06522e7b029504ab30aeb3fc958aab8b1bef"
+        "jabranr/workflows/.github/workflows/reusable-integration.yml@59972e7319b1eb97d518e166633be1acddaf05db"
       ]
     },
     "actions/checkout@11d5960a326750d5838078e36cf38b85af677262": {
@@ -14,45 +14,36 @@
       "owner_id": 44036562,
       "repo_id": 197814629
     },
-    "actions/checkout@v4": {
-      "commit": "11d5960a326750d5838078e36cf38b85af677262",
-      "owner_id": 44036562,
-      "repo_id": 197814629,
-      "via": [
-        "jabranr/workflows/.github/workflows/reusable-integration.yml@ad3f06522e7b029504ab30aeb3fc958aab8b1bef",
-        "jabranr/workflows/.github/workflows/reusable-pr-checks.yml@ad3f06522e7b029504ab30aeb3fc958aab8b1bef"
-      ]
-    },
-    "actions/github-script@v7": {
+    "actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b": {
       "commit": "f28e40c7f34bde8b3046d885e986cb6290c5673b",
       "owner_id": 44036562,
       "repo_id": 205262760,
       "via": [
-        "jabranr/workflows/.github/actions/wait-cf-pages-deployment@ad3f06522e7b029504ab30aeb3fc958aab8b1bef"
+        "jabranr/workflows/.github/actions/wait-cf-pages-deployment@59972e7319b1eb97d518e166633be1acddaf05db"
       ]
     },
-    "actions/setup-node@v4": {
+    "actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020": {
       "commit": "49933ea5288caeca8642d1e84afbd3f7d6820020",
       "owner_id": 44036562,
       "repo_id": 189476904,
       "via": [
-        "jabranr/workflows/.github/workflows/reusable-integration.yml@ad3f06522e7b029504ab30aeb3fc958aab8b1bef",
-        "jabranr/workflows/.github/workflows/reusable-pr-checks.yml@ad3f06522e7b029504ab30aeb3fc958aab8b1bef"
+        "jabranr/workflows/.github/workflows/reusable-integration.yml@59972e7319b1eb97d518e166633be1acddaf05db",
+        "jabranr/workflows/.github/workflows/reusable-pr-checks.yml@59972e7319b1eb97d518e166633be1acddaf05db"
       ]
     },
-    "actions/upload-artifact@v4": {
+    "actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02": {
       "commit": "ea165f8d65b6e75b540449e92b4886f43607fa02",
       "owner_id": 44036562,
       "repo_id": 192625955,
       "via": [
-        "jabranr/workflows/.github/actions/performance-audit@ad3f06522e7b029504ab30aeb3fc958aab8b1bef",
-        "jabranr/workflows/.github/workflows/reusable-integration.yml@ad3f06522e7b029504ab30aeb3fc958aab8b1bef"
+        "jabranr/workflows/.github/actions/performance-audit@59972e7319b1eb97d518e166633be1acddaf05db",
+        "jabranr/workflows/.github/workflows/reusable-integration.yml@59972e7319b1eb97d518e166633be1acddaf05db"
       ]
     },
-    "foo-software/lighthouse-check-action@master": {
+    "foo-software/lighthouse-check-action@a0b9f2d21433a2fb807adf9f83fbd3b4bec0a9d7": {
       "commit": "a0b9f2d21433a2fb807adf9f83fbd3b4bec0a9d7",
       "via": [
-        "jabranr/workflows/.github/actions/performance-audit@ad3f06522e7b029504ab30aeb3fc958aab8b1bef"
+        "jabranr/workflows/.github/actions/performance-audit@59972e7319b1eb97d518e166633be1acddaf05db"
       ]
     },
     "github/codeql-action/upload-sarif@33d7b85da1a04171e211befe2c739303b9a4c066": {
@@ -60,39 +51,39 @@
       "owner_id": 9919,
       "repo_id": 259445878,
       "via": [
-        "secure-ci/cli@4de5123f55633171aeca62a1377f8c20a63c975f"
+        "secure-ci/cli@251440e56fb0d03d8864b0dd29a4431d81ff63d8"
       ]
     },
-    "jabranr/workflows/.github/actions/actionlint@main": {
+    "jabranr/workflows/.github/actions/actionlint@ad3f06522e7b029504ab30aeb3fc958aab8b1bef": {
       "commit": "ad3f06522e7b029504ab30aeb3fc958aab8b1bef",
       "owner_id": 2131246,
       "repo_id": 1215013760,
       "via": [
-        "jabranr/workflows/.github/workflows/reusable-pr-checks.yml@ad3f06522e7b029504ab30aeb3fc958aab8b1bef"
+        "jabranr/workflows/.github/workflows/reusable-pr-checks.yml@59972e7319b1eb97d518e166633be1acddaf05db"
       ]
     },
-    "jabranr/workflows/.github/actions/performance-audit@ad3f06522e7b029504ab30aeb3fc958aab8b1bef": {
-      "commit": "ad3f06522e7b029504ab30aeb3fc958aab8b1bef",
+    "jabranr/workflows/.github/actions/performance-audit@59972e7319b1eb97d518e166633be1acddaf05db": {
+      "commit": "59972e7319b1eb97d518e166633be1acddaf05db",
       "owner_id": 2131246,
       "repo_id": 1215013760
     },
-    "jabranr/workflows/.github/actions/wait-cf-pages-deployment@ad3f06522e7b029504ab30aeb3fc958aab8b1bef": {
-      "commit": "ad3f06522e7b029504ab30aeb3fc958aab8b1bef",
+    "jabranr/workflows/.github/actions/wait-cf-pages-deployment@59972e7319b1eb97d518e166633be1acddaf05db": {
+      "commit": "59972e7319b1eb97d518e166633be1acddaf05db",
       "owner_id": 2131246,
       "repo_id": 1215013760
     },
-    "jabranr/workflows/.github/workflows/reusable-integration.yml@ad3f06522e7b029504ab30aeb3fc958aab8b1bef": {
-      "commit": "ad3f06522e7b029504ab30aeb3fc958aab8b1bef",
+    "jabranr/workflows/.github/workflows/reusable-integration.yml@59972e7319b1eb97d518e166633be1acddaf05db": {
+      "commit": "59972e7319b1eb97d518e166633be1acddaf05db",
       "owner_id": 2131246,
       "repo_id": 1215013760
     },
-    "jabranr/workflows/.github/workflows/reusable-pr-checks.yml@ad3f06522e7b029504ab30aeb3fc958aab8b1bef": {
-      "commit": "ad3f06522e7b029504ab30aeb3fc958aab8b1bef",
+    "jabranr/workflows/.github/workflows/reusable-pr-checks.yml@59972e7319b1eb97d518e166633be1acddaf05db": {
+      "commit": "59972e7319b1eb97d518e166633be1acddaf05db",
       "owner_id": 2131246,
       "repo_id": 1215013760
     },
-    "secure-ci/cli@4de5123f55633171aeca62a1377f8c20a63c975f": {
-      "commit": "4de5123f55633171aeca62a1377f8c20a63c975f",
+    "secure-ci/cli@251440e56fb0d03d8864b0dd29a4431d81ff63d8": {
+      "commit": "251440e56fb0d03d8864b0dd29a4431d81ff63d8",
       "owner_id": 338613570,
       "repo_id": 1153043892
     }
