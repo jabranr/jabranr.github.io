@@ -1,6 +1,7 @@
 ---
 layout: project
 title: Socialmedia.js
+description: 'Socialmedia.js loads the JavaScript SDKs of social media platforms in web pages and apps with simple methods, so SDK code is not repeated on every page.'
 date: 2013-03-08 08:00:00
 tags: projects
 excerpt: >

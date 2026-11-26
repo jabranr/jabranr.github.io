@@ -1,0 +1,178 @@
+# seo.config.yaml: per-repo settings for Jabran's SEO loop (the jabraf-seo-* skills in jabranr/skills).
+# Everything site-specific lives here, never in the skills. Business memory (overview, positioning,
+# voice, competitors) also lives in OpenSEO project context. Repo rules in AGENTS.md win over both.
+#
+# Parser note: seo-lint reads this file with a small YAML subset. Use `key: value`, nested maps,
+# `- item` lists indented under their key, inline `[a, b]` lists and inline `{ k: v }` maps.
+# Write a list of maps as `- { k: v, k2: v2 }` lines; `|` and `>` block scalars are fine.
+
+site:
+  name: Jabran Rafique
+  domain: jabran.me
+  base_url: https://jabran.me
+  trailing_slash: true # canonicals are page.url | absoluteUrl (_includes/base.njk): /articles/<slug>/
+  market: { country: GB, language: en }
+
+openseo:
+  project_id: '2dc3ab7a-ebc9-4ce7-b2cc-d341f8f66335'
+  weekly_credit_budget: 300 # base budget; cadence.ramp raises it
+  rank_tracker_id: '' # filled by jabraf-seo-setup
+
+github:
+  repo: jabranr/jabranr.github.io
+  base_branch: main
+  branch_prefix: seo/
+  max_open_review_prs: 3
+
+auto_merge:
+  # jabraf-seo-qa squash-merges a passed PR only when every merge gate holds. Cloudflare Pages
+  # deploys main straight to production, so a merge here is a production deploy.
+  enabled: true
+  method: squash
+  ci_wait_minutes: 20
+  allowed_paths: # articles, their images and their generated OG cards only
+    - 'articles/*.md'
+    - 'assets/images/**'
+    - 'public/og/*.jpg'
+  promote:
+    enabled: false # a merge to main deploys production directly
+    workflow: ''
+    workflow_inputs: { ref: '{sha}' }
+    staging_wait_minutes: 30
+    staging_ready: ''
+    run_timeout_minutes: 25
+    live_version_selector: ''
+
+publish:
+  deploy_wait_minutes: 15 # Cloudflare Pages build of main; ci.yml waits on it, then purges the cache
+
+goal:
+  preset: personal
+  north_star: article_organic_click # GSC clicks to /articles/<slug>/
+  # Analytics is Cloudflare Web Analytics, injected at the edge: cookie-free page views, no custom
+  # events (AGENTS.md forbids adding GA/GTM). Contact is measured as page views of /contact/: every
+  # on-site contact link points there (footer, command palette), and only that page links mailto:.
+  conversion_events: [article_organic_click, contact_page_view]
+  proxy_event: contact_page_view # Cloudflare Web Analytics page views of /contact/
+  attribution:
+    # Cloudflare Web Analytics has no per-visitor attribution (no cookies, no user IDs, no events),
+    # so a contact page view cannot be tied back to the article or search that brought the visitor.
+    first_touch_recorded: false
+    how_to_query: 'Contact: Cloudflare dashboard → Web Analytics → jabran.me → Top paths (/contact/), with its referrers. Organic article clicks: OpenSEO get_search_console_performance by page.'
+  cta:
+    primary_label: Get in touch
+    primary_url: /contact/
+    style: inline # one line at the end of an article; never a banner
+
+audience:
+  who: web developers and tech leads (front end, JavaScript, Eleventy, Cloudflare Pages, GitHub Actions, Git) looking for a practical fix or a worked example, and people hiring a senior engineer or speaker
+  not_who: beginners wanting a full programming course; people looking for agency services or SEO services
+  pains:
+    - a build or deploy error with no clear fix (Wrangler, Cloudflare Pages, GitHub Actions)
+    - setting up a static site, its CI and deployments well
+    - Git and tooling habits that save time
+    - finding a hands-on engineer to hire or invite to speak
+  reading_level_max_grade: 10 # technical audience; older articles score 10 to 13.5 (tool names push it up) and come down through refreshes
+
+voice:
+  tone: practical and honest developer notes from experience; show the command or code that worked; British spelling (organise, colour); no hype
+  person: I/you # first person singular for Jabran's own experience, "you" for the reader's steps
+  banned_phrases: # seo-lint fails on these as case-insensitive substrings
+    - '—' # em dash
+    - delve
+    - in today's fast-paced
+    - game-changer
+    - unlock the power
+    - seamless
+    - leverage
+    - it's important to note
+  brand_name_rule: 'Write as Jabran ("I"); never "we" for his own work, and no third-person bio inside an article'
+  rules:
+    - Every command, flag and config sample is copied from a run or from the tool's docs for the stated version; name the version.
+    - Personal experience stays true to the repo (articles/, projects/, _data/work.json, _data/talks.json, _data/resume.json); invent no stories, employers or results.
+    - Refreshing an old article keeps its date and adds a short dated "Updated" note instead of rewriting its history.
+
+content:
+  format: md
+  dir: articles
+  new_page_steps: |
+    1. Create articles/<slug>.md (lowercase, hyphens; built at /articles/<slug>/). Front matter, as in
+       articles/fix-wrangler-deploy-error-in-remix-app.md plus a description:
+         ---
+         layout: post
+         title: '<43 chars or fewer; base.njk appends " - Jabran Rafique">'
+         description: '<70-160 chars; without it the page falls back to the site description>'
+         date: <YYYY-MM-DD HH:mm:ss>
+         categories: articles
+         tags: ['articles', '<topic>', '<topic>']
+         excerpt: '<one sentence for the articles list and RSS>'
+         private: false
+         ---
+       post.njk renders the title as the H1, so the body uses ## and ### only. Code goes in fenced
+       blocks with a language (Prism highlights them).
+    2. Images: assets/images/<slug>-<name>.<ext>, referenced as /assets/images/<file> with alt text.
+    3. Run npm run og-images to generate public/og/<slug>.jpg (the share card) and commit it.
+    4. Sitemap, RSS, search.json, the articles list and the contour header are generated from the
+       articles collection; nothing else to edit.
+    5. Link 3 or more related articles or projects from the new article, and link it from at least
+       one related existing article.
+    6. Run npm run build and check _site/articles/<slug>/index.html exists; run npm run format:check
+       and npm run test:functional.
+  url_pattern: /articles/{slug}/
+  page_types: [article, guide, how-to]
+  min_words: 700
+  max_words: 2200
+  images:
+    source: 'assets/images/ (screenshots Jabran made, or Playwright screenshots of a real run); never invent screenshots or terminal output'
+    alt_text_required: true
+  internal_links_min: 3
+  must_link_to: [] # no money page; link related articles, /projects/ or /speaking/ where relevant
+
+facts:
+  # The ONLY sources for facts. QA fails anything not traceable here or to a cited public URL.
+  sources:
+    - _data/site.js
+    - _data/resume.json
+    - _data/work.json
+    - _data/talks.json
+    - projects/
+    - articles/ # Jabran's own earlier write-ups
+    - official docs of the tool an article covers, for its stated version
+  forbidden_claims:
+    - employers, clients, roles or results not in _data/resume.json or _data/work.json
+    - availability for hire or rates (unless the user adds them)
+    - audience, reader or download counts
+    - endorsements by an employer or a vendor
+
+build:
+  install: npm ci
+  build: npm run build
+  output_dir: _site
+  test: npm run test:functional
+  lint: npm run format:check # no ESLint in this repo; Prettier is the lint gate
+  preview: npm start # http://localhost:8080
+
+seo_lint:
+  # First match wins.
+  pages:
+    - { source: 'articles/index.njk', url: '/articles/' }
+    - { source: 'articles/{slug}.md', url: '/articles/{slug}/' }
+    - { source: 'projects/index.njk', url: '/projects/' }
+    - { source: 'projects/{slug}.md', url: '/projects/{slug}/' }
+
+competitors: # DRAFT: confirm with user
+  - dev.to
+  - freecodecamp.org
+  - css-tricks.com
+  - smashingmagazine.com
+
+weights:
+  page_type: { article: 1.0, guide: 1.0, how-to: 1.0 }
+  topic_cluster: {}
+
+cadence:
+  new_pages_per_week: 0 # refresh-only start
+  refreshes_per_week: 2
+  qa_max_rounds: 3
+  ramp:
+    - { from: 2026-12-14, new_pages_per_week: 1, refreshes_per_week: 2, weekly_credit_budget: 500 }

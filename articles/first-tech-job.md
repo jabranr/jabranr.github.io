@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 'Journey from medical education to #FirstTechJob'
+description: 'My #FirstTechJob story: how I left the path to medical college in Pakistan, discovered computers and the internet, and found my way into web development.'
 date: 2016-02-24 20:00:00
 categories: articles
 tags: ['articles', 'FirstTechJob', 'education', 'web design', 'web development']

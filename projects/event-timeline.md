@@ -1,6 +1,7 @@
 ---
 layout: project
 title: Event Timeline
+description: 'Event Timeline is a small JavaScript library that generates timelines for events with milestones. Install steps and API docs are on GitHub.'
 date: 2014-10-10 08:00:00
 tags: projects
 excerpt: >

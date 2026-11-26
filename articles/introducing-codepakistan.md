@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 'Introducing CodePakistan'
+description: 'Introducing CodePakistan, an open source platform on GitHub for sharing code, apps, data sets and public information that help people in Pakistan.'
 date: 2014-01-03 07:00:00
 categories: articles
 tags: ['articles', Pakistan, code, open data]

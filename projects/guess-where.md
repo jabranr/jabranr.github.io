@@ -1,6 +1,7 @@
 ---
 layout: project
 title: Guess where – an interactive geo quiz
+description: 'Guess where is an interactive geo quiz: name the town or city on an unmarked map from a set of choices. It was inspired by a Telegraph geo quiz.'
 date: 2016-11-06 08:00:00
 tags: projects
 excerpt: >

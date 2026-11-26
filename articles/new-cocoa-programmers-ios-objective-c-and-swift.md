@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 'New Cocoa Programmers, iOS, Objective-C and Swift'
+description: 'My first steps learning iOS development as a web developer: reading up on the iOS ecosystem, getting used to Objective-C naming, and first thoughts on Swift.'
 date: 2014-06-05 07:00:00
 categories: articles
 tags: ['articles', iOS, Xcode, Mac OS X, Cocoa, Apple, Swift, Development]

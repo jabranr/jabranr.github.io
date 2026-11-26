@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 'Automatic database backup using Git (Bitbucket/GitLab/Github)'
+description: 'Back up MySQL databases automatically on Ubuntu with a cron job, mysqldump and a private Git repository on GitHub, GitLab or Bitbucket.'
 date: 2016-04-25 8:00:00
 categories: articles
 tags:

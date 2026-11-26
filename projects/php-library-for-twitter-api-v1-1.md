@@ -1,6 +1,7 @@
 ---
 layout: project
 title: PHP library for Twitter API v1.1
+description: 'A deprecated PHP wrapper that fetches Tweets from Twitter API v1.1 with an application-only bearer token. Fetchwitter replaces it.'
 date: 2013-10-09 08:00:00
 tags: projects
 excerpt: >

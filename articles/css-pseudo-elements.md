@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 'CSS pseudo elements'
+description: 'Add bullet separators between navigation items with CSS ::after, and use :not(:last-child) so the last item never gets a pseudo element to hide.'
 date: 2016-06-03 07:00:00
 categories: articles
 tags: ['articles', CSS, CSS3, pseudo elements]

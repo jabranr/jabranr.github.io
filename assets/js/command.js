@@ -31,6 +31,7 @@
     { g: 'Go to', t: 'Projects', h: '/projects/', u: '/projects/' },
     { g: 'Go to', t: 'Speaking', h: '/speaking/', u: '/speaking/' },
     { g: 'Go to', t: 'Resume', h: '/resume/', u: '/resume/' },
+    { g: 'Go to', t: 'Contact', h: '/contact/', u: '/contact/' },
     { g: 'Actions', t: 'Switch theme', h: 'Light / dark', run: () => window.siteTheme && window.siteTheme.toggle() },
     { g: 'Actions', t: 'Copy email address', h: email, run: copyEmail },
     { g: 'Actions', t: 'Open GitHub profile', h: 'github.com/jabranr', u: dialog.dataset.github },

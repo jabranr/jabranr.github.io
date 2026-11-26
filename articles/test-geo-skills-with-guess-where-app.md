@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Test your geo skills with Guess Where? app
+description: 'Guess Where? is a map quiz I built with the Google Maps API: name the unmarked capital city for a region or the whole world. Here is how it was built.'
 date: 2015-09-07 8:00:00
 categories: articles
 tags: ['articles', Google Maps, Mapping, Geography, Quiz, Education, World Capitals]

@@ -43,3 +43,12 @@ npm run build  # Production build
 - Don't bypass pre-commit hooks (code formatting is automatic)
 - Don't use raw colours (`text-gray-600`, `#666`) or `dark:` variants for colours; use tokens so both themes work
 - Don't add Google Analytics, Tag Manager or other cookie-based trackers. Analytics is Cloudflare Web Analytics, which Cloudflare Pages injects at the edge (cookie-free, no custom events); don't add its snippet to templates or it will double-count
+
+## SEO loop
+
+This repo runs Jabran's SEO loop. Its settings are in [`seo.config.yaml`](seo.config.yaml); the
+`jabraf-seo-*` skills live in [`jabranr/skills`](https://github.com/jabranr/skills/tree/main/skills).
+Scheduled tasks load them pinned to a tag. To run a step by hand, load the skill with
+`npx -y skills@1.5.12 use https://github.com/jabranr/skills/tree/seo-loop-v1/skills/<skill>` and
+follow it for this repo. Change site behaviour in `seo.config.yaml` and loop behaviour upstream in
+the skills; this repo keeps no copies of them. The rules in this file win over the skills.

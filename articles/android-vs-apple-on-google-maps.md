@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Android vs Apple at Google Maps
+description: 'How an Android logo, then a Skype logo, came to be drawn on Google Maps near Rawalpindi and Lahore in 2015, and what Google Map Maker showed about it.'
 date: 2015-04-25 18:00:00
 categories: articles
 tags: ['articles', Pakistan, Google Maps, Android, Apple, Skype, Mapping, Google Map Maker]

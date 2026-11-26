@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 'Instagram API PHP Class'
+description: 'An early PHP class for the Instagram API that handles OAuth authentication and fetches basic user information, with setup steps and its parameters.'
 date: 2013-03-08 07:00:00
 categories: articles
 tags:

@@ -1,6 +1,7 @@
 ---
 layout: project
 title: css-letters Custom Element
+description: 'css-letters is an inline custom element, made with Polymer Boilerplate, that writes letters of the alphabet in CSS using the CSS Sans project.'
 date: 2017-02-13 08:00:00
 tags: projects
 excerpt: >

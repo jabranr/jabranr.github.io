@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 'Introducing socialmedia.js v1.1'
+description: 'socialmedia.js v1.1 is a small JavaScript library that sets up the Facebook SDK and its plugins in a web app with a few lines, instead of copied snippets.'
 date: 2013-09-19 07:00:00
 categories: articles
 tags: ['articles', Facebook API, Facebook SDK, GitHub, Google Maps API, JavaScript, Socialmedia.js, Twitter API]

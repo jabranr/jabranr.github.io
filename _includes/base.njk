@@ -4,8 +4,12 @@
   {% set title = title ~ " - " ~ site.name %}
 {% endif %}
 
+{# Each page sets its own description (70-160 chars); the site one is the fallback #}
 {% if not description %}
   {% set description = site.description %}
+{% endif %}
+{% if pagination and pagination.pageNumber > 0 %}
+  {% set description = description ~ " Page " ~ (pagination.pageNumber + 1) ~ " of " ~ pagination.pages.length ~ "." %}
 {% endif %}
 
 {% set assetVersion = 'now' | format_date('unix') %}
@@ -128,7 +132,7 @@
             <span class="wordmark-name font-display text-lg font-extrabold tracking-tight">{{ site.name }}</span>
           </a>
           <p class="mt-4 max-w-sm text-muted">Software engineer for the progressive, performant and accessible web. Writing here since 2012.</p>
-          <p class="mt-4"><a class="link font-mono text-sm" href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+          <p class="mt-4"><a class="link font-mono text-sm" href="/contact/" data-testid="footer-contact">Get in touch</a></p>
         </div>
         <nav aria-label="Site">
           <p class="eyebrow">Site</p>

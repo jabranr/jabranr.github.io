@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 'WordPress to Github with Jekyll, SASS and Grunt.js'
+description: 'Why I moved this blog from WordPress to GitHub Pages, and what I learnt along the way about Jekyll, Sass, Grunt.js, Bower and CoffeeScript.'
 date: 2014-05-17 07:00:00
 categories: articles
 tags: [articles, WordPress, Github, Jekyll, Sass, Gruntjs, Socialmedia, CoffeeScript, Twitter Bootstrap]

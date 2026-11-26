@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 'Using Special Integers with Bitwise Operators for PHP RBAC'
+description: 'Use powers of two with PHP bitwise operators to give roles several permissions in role-based access control, and a small function that lists those integers.'
 date: 2013-10-11 07:00:00
 categories: articles
 tags: ['articles', Binary, Bitwise Operators, CMS, GitHub, PHP, RBAC, Role-Based Access Control]

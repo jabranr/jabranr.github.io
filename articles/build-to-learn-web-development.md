@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 'Build to Learn – socialmedia.js – Case Study'
+description: 'What I learnt building socialmedia.js, a small wrapper for the Facebook, Twitter, Google+ and Pinterest SDKs, with CoffeeScript, Grunt and tests.'
 date: 2015-04-13 08:00:00
 categories: articles
 tags: ['articles', social media, Facebook, Twitter, Google+, Pinterest, API, SDKs]

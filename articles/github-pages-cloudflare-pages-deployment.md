@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Wait for Cloudflare Pages deployment in GitHub Actions
+description: 'Make GitHub Actions wait for a Cloudflare Pages deployment to finish before E2E tests or cache purges, with a reusable action that polls the Checks API.'
 date: 2026-04-20 07:00:00
 categories: articles
 tags: [articles, GitHub, GitHub Actions, GitHub Workflows, Cloudflare, Cloudflare Pages]

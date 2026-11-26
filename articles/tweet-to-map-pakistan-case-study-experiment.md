@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 'Tweet to map Pakistan – Case Study / Experiment'
+description: 'My 2011 experiment with @pkmaps: tweeting geotagged places from daily journeys in Pakistan to map them in Google Map Maker, and the GPS problems I hit.'
 date: 2013-09-06 07:00:00
 categories: articles
 tags: ['articles', Google Map Maker, GPS, Maps, Pakistan, Tweet, Twitter]

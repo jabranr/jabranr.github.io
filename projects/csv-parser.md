@@ -1,6 +1,7 @@
 ---
 layout: project
 title: CSV Parser
+description: 'CSV Parser is a PHP class that parses CSV data from a file, a stream or a string. Its source code and API documentation are on GitHub.'
 date: 2015-03-30 08:00:00
 tags: projects
 excerpt: >
