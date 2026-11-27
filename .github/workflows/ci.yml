@@ -54,18 +54,61 @@ jobs:
   performance-audit:
     needs: deployment-status
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      checks: read
+      pull-requests: write
+      statuses: write
     steps:
+      # Cloudflare Pages branch alias: lowercased, non-alphanumerics -> '-',
+      # cut to 28 chars, edge '-' trimmed. On alias collisions Cloudflare adds a
+      # random suffix (e.g. dependabot-npm-and-yarn-liqu-o3mj), so prefer the
+      # URL reported by the "Cloudflare Pages" check run and only fall back to
+      # computing it.
       - name: Get domain
         id: get-domain
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7.1.0
         env:
-          GITHUB_EVENT_NAME: ${{ github.event_name }}
-          GITHUB_HEAD_REF: ${{ github.head_ref }}
-        run: |
-          if [ "$GITHUB_EVENT_NAME" == "pull_request" ]; then
-            echo "domain=https://$GITHUB_HEAD_REF.jabranr.pages.dev" >> "$GITHUB_OUTPUT"
-          else
-            echo "domain=https://jabran.me" >> "$GITHUB_OUTPUT"
-          fi
+          HEAD_REF: ${{ github.head_ref }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        with:
+          script: |
+            if (context.eventName !== 'pull_request') {
+              core.setOutput('domain', 'https://jabran.me');
+              return;
+            }
+
+            let domain = '';
+            try {
+              const { data } = await github.rest.checks.listForRef({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                ref: process.env.HEAD_SHA,
+                check_name: 'Cloudflare Pages',
+              });
+              for (const run of data.check_runs) {
+                const out = `${run.output?.summary ?? ''}\n${run.output?.text ?? ''}`;
+                const match = out.match(/Branch Preview URL[\s\S]*?(https:\/\/[a-z0-9-]+\.jabranr\.pages\.dev)/i);
+                if (match) {
+                  domain = match[1].toLowerCase();
+                  break;
+                }
+              }
+            } catch (error) {
+              core.warning(`Could not read Cloudflare Pages check run: ${error.message}`);
+            }
+
+            if (!domain) {
+              const alias = process.env.HEAD_REF.toLowerCase()
+                .replace(/[^a-z0-9]+/g, '-')
+                .slice(0, 28)
+                .replace(/^-+|-+$/g, '');
+              domain = `https://${alias}.jabranr.pages.dev`;
+              core.warning(`Branch Preview URL not found in check run; using computed alias ${domain}`);
+            }
+
+            core.info(`Auditing ${domain}`);
+            core.setOutput('domain', domain);
 
       - name: Performance Audit
         uses: jabranr/workflows/.github/actions/performance-audit@main
