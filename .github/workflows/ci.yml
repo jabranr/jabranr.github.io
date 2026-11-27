@@ -62,8 +62,7 @@ jobs:
     steps:
       - name: Get domain
         id: get-domain
-        # TODO: switch to @main once jabranr/workflows#12 is merged
-        uses: jabranr/workflows/.github/actions/cf-pages-preview-url@0db84fa1bf57019c49f1771f35099f9864040b87 # feat/cf-pages-preview-url
+        uses: jabranr/workflows/.github/actions/cf-pages-preview-url@main
         with:
           production-url: 'https://jabran.me'
           pages-domain: 'jabranr.pages.dev'
