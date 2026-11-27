@@ -54,21 +54,21 @@ jobs:
   performance-audit:
     needs: deployment-status
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      checks: read
+      pull-requests: write
+      statuses: write
     steps:
       - name: Get domain
         id: get-domain
-        env:
-          GITHUB_EVENT_NAME: ${{ github.event_name }}
-          GITHUB_HEAD_REF: ${{ github.head_ref }}
-        run: |
-          if [ "$GITHUB_EVENT_NAME" == "pull_request" ]; then
-            echo "domain=https://$GITHUB_HEAD_REF.jabranr.pages.dev" >> "$GITHUB_OUTPUT"
-          else
-            echo "domain=https://jabran.me" >> "$GITHUB_OUTPUT"
-          fi
+        uses: jabranr/workflows/.github/actions/cf-pages-preview-url@main
+        with:
+          production-url: 'https://jabran.me'
+          pages-domain: 'jabranr.pages.dev'
 
       - name: Performance Audit
         uses: jabranr/workflows/.github/actions/performance-audit@main
         with:
-          urls: '${{ steps.get-domain.outputs.domain }},${{ steps.get-domain.outputs.domain }}/resume/,${{ steps.get-domain.outputs.domain }}/articles/,${{ steps.get-domain.outputs.domain }}/projects/,${{ steps.get-domain.outputs.domain }}/speaking/'
+          urls: '${{ steps.get-domain.outputs.url }},${{ steps.get-domain.outputs.url }}/resume/,${{ steps.get-domain.outputs.url }}/articles/,${{ steps.get-domain.outputs.url }}/projects/,${{ steps.get-domain.outputs.url }}/speaking/'
           github-token: ${{ secrets.GITHUB_TOKEN }}
