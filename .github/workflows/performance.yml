@@ -1,0 +1,26 @@
+# Lighthouse audit of the production site. Weekly or manual; it used to run on
+# every PR and push, which cost more than the signal was worth.
+name: Performance audit
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '23 5 * * 1'
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
+
+jobs:
+  performance-audit:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+      statuses: write
+    steps:
+      - name: Performance Audit
+        uses: jabranr/workflows/.github/actions/performance-audit@f70828fb1c1f0c9bc5232c60c8c6415082b1b96a # main
+        with:
+          urls: 'https://jabran.me,https://jabran.me/resume/,https://jabran.me/articles/,https://jabran.me/projects/,https://jabran.me/speaking/'
+          github-token: ${{ secrets.GITHUB_TOKEN }}

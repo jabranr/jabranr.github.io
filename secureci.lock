@@ -6,7 +6,7 @@
       "owner_id": 44036562,
       "repo_id": 215566462,
       "via": [
-        "jabranr/workflows/.github/workflows/reusable-integration.yml@59972e7319b1eb97d518e166633be1acddaf05db"
+        "jabranr/workflows/.github/workflows/reusable-integration.yml@f70828fb1c1f0c9bc5232c60c8c6415082b1b96a"
       ]
     },
     "actions/checkout@11d5960a326750d5838078e36cf38b85af677262": {
@@ -19,7 +19,7 @@
       "owner_id": 44036562,
       "repo_id": 205262760,
       "via": [
-        "jabranr/workflows/.github/actions/wait-cf-pages-deployment@59972e7319b1eb97d518e166633be1acddaf05db"
+        "jabranr/workflows/.github/actions/wait-cf-pages-deployment@f70828fb1c1f0c9bc5232c60c8c6415082b1b96a"
       ]
     },
     "actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020": {
@@ -27,8 +27,8 @@
       "owner_id": 44036562,
       "repo_id": 189476904,
       "via": [
-        "jabranr/workflows/.github/workflows/reusable-integration.yml@59972e7319b1eb97d518e166633be1acddaf05db",
-        "jabranr/workflows/.github/workflows/reusable-pr-checks.yml@59972e7319b1eb97d518e166633be1acddaf05db"
+        "jabranr/workflows/.github/workflows/reusable-integration.yml@f70828fb1c1f0c9bc5232c60c8c6415082b1b96a",
+        "jabranr/workflows/.github/workflows/reusable-pr-checks.yml@f70828fb1c1f0c9bc5232c60c8c6415082b1b96a"
       ]
     },
     "actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02": {
@@ -36,8 +36,8 @@
       "owner_id": 44036562,
       "repo_id": 192625955,
       "via": [
-        "jabranr/workflows/.github/actions/performance-audit@59972e7319b1eb97d518e166633be1acddaf05db",
-        "jabranr/workflows/.github/workflows/reusable-integration.yml@59972e7319b1eb97d518e166633be1acddaf05db"
+        "jabranr/workflows/.github/actions/performance-audit@f70828fb1c1f0c9bc5232c60c8c6415082b1b96a",
+        "jabranr/workflows/.github/workflows/reusable-integration.yml@f70828fb1c1f0c9bc5232c60c8c6415082b1b96a"
       ]
     },
     "foo-software/lighthouse-check-action@a0b9f2d21433a2fb807adf9f83fbd3b4bec0a9d7": {
@@ -45,7 +45,7 @@
       "owner_id": 34385368,
       "repo_id": 210489920,
       "via": [
-        "jabranr/workflows/.github/actions/performance-audit@59972e7319b1eb97d518e166633be1acddaf05db"
+        "jabranr/workflows/.github/actions/performance-audit@f70828fb1c1f0c9bc5232c60c8c6415082b1b96a"
       ]
     },
     "github/codeql-action/upload-sarif@33d7b85da1a04171e211befe2c739303b9a4c066": {
@@ -61,26 +61,26 @@
       "owner_id": 2131246,
       "repo_id": 1215013760,
       "via": [
-        "jabranr/workflows/.github/workflows/reusable-pr-checks.yml@59972e7319b1eb97d518e166633be1acddaf05db"
+        "jabranr/workflows/.github/workflows/reusable-pr-checks.yml@f70828fb1c1f0c9bc5232c60c8c6415082b1b96a"
       ]
     },
-    "jabranr/workflows/.github/actions/performance-audit@59972e7319b1eb97d518e166633be1acddaf05db": {
-      "commit": "59972e7319b1eb97d518e166633be1acddaf05db",
+    "jabranr/workflows/.github/actions/performance-audit@f70828fb1c1f0c9bc5232c60c8c6415082b1b96a": {
+      "commit": "f70828fb1c1f0c9bc5232c60c8c6415082b1b96a",
       "owner_id": 2131246,
       "repo_id": 1215013760
     },
-    "jabranr/workflows/.github/actions/wait-cf-pages-deployment@59972e7319b1eb97d518e166633be1acddaf05db": {
-      "commit": "59972e7319b1eb97d518e166633be1acddaf05db",
+    "jabranr/workflows/.github/actions/wait-cf-pages-deployment@f70828fb1c1f0c9bc5232c60c8c6415082b1b96a": {
+      "commit": "f70828fb1c1f0c9bc5232c60c8c6415082b1b96a",
       "owner_id": 2131246,
       "repo_id": 1215013760
     },
-    "jabranr/workflows/.github/workflows/reusable-integration.yml@59972e7319b1eb97d518e166633be1acddaf05db": {
-      "commit": "59972e7319b1eb97d518e166633be1acddaf05db",
+    "jabranr/workflows/.github/workflows/reusable-integration.yml@f70828fb1c1f0c9bc5232c60c8c6415082b1b96a": {
+      "commit": "f70828fb1c1f0c9bc5232c60c8c6415082b1b96a",
       "owner_id": 2131246,
       "repo_id": 1215013760
     },
-    "jabranr/workflows/.github/workflows/reusable-pr-checks.yml@59972e7319b1eb97d518e166633be1acddaf05db": {
-      "commit": "59972e7319b1eb97d518e166633be1acddaf05db",
+    "jabranr/workflows/.github/workflows/reusable-pr-checks.yml@f70828fb1c1f0c9bc5232c60c8c6415082b1b96a": {
+      "commit": "f70828fb1c1f0c9bc5232c60c8c6415082b1b96a",
       "owner_id": 2131246,
       "repo_id": 1215013760
     },

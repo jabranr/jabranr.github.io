@@ -20,7 +20,7 @@ jobs:
     permissions:
       contents: read
       id-token: write
-    uses: jabranr/workflows/.github/workflows/reusable-pr-checks.yml@59972e7319b1eb97d518e166633be1acddaf05db # main
+    uses: jabranr/workflows/.github/workflows/reusable-pr-checks.yml@f70828fb1c1f0c9bc5232c60c8c6415082b1b96a # main
     with:
       run-pre-release: false
       run-unit-test: false
@@ -29,17 +29,19 @@ jobs:
 
   functional-tests:
     needs: lint-and-build
-    uses: jabranr/workflows/.github/workflows/reusable-integration.yml@59972e7319b1eb97d518e166633be1acddaf05db # main
+    uses: jabranr/workflows/.github/workflows/reusable-integration.yml@f70828fb1c1f0c9bc5232c60c8c6415082b1b96a # main
     with:
       test-type: functional
 
   deployment-status:
+    # Only e2e (push-only) needs the deployment, so PRs skip the wait.
+    if: ${{ github.event_name == 'push' }}
     runs-on: ubuntu-latest
     permissions:
       checks: read
     steps:
       - name: Wait for Cloudflare Pages deployment
-        uses: jabranr/workflows/.github/actions/wait-cf-pages-deployment@59972e7319b1eb97d518e166633be1acddaf05db # main
+        uses: jabranr/workflows/.github/actions/wait-cf-pages-deployment@f70828fb1c1f0c9bc5232c60c8c6415082b1b96a # main
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -57,32 +59,6 @@ jobs:
   e2e-tests:
     if: ${{ github.event_name == 'push' }}
     needs: deployment-status
-    uses: jabranr/workflows/.github/workflows/reusable-integration.yml@59972e7319b1eb97d518e166633be1acddaf05db # main
+    uses: jabranr/workflows/.github/workflows/reusable-integration.yml@f70828fb1c1f0c9bc5232c60c8c6415082b1b96a # main
     with:
       test-type: e2e
-
-  performance-audit:
-    needs: deployment-status
-    runs-on: ubuntu-latest
-    # Lighthouse results are posted as a commit status / PR comment.
-    permissions:
-      pull-requests: write
-      statuses: write
-    steps:
-      - name: Get domain
-        id: get-domain
-        env:
-          GITHUB_EVENT_NAME: ${{ github.event_name }}
-          GITHUB_HEAD_REF: ${{ github.head_ref }}
-        run: |
-          if [ "$GITHUB_EVENT_NAME" == "pull_request" ]; then
-            echo "domain=https://$GITHUB_HEAD_REF.jabranr.pages.dev" >> "$GITHUB_OUTPUT"
-          else
-            echo "domain=https://jabran.me" >> "$GITHUB_OUTPUT"
-          fi
-
-      - name: Performance Audit
-        uses: jabranr/workflows/.github/actions/performance-audit@59972e7319b1eb97d518e166633be1acddaf05db # main
-        with:
-          urls: '${{ steps.get-domain.outputs.domain }},${{ steps.get-domain.outputs.domain }}/resume/,${{ steps.get-domain.outputs.domain }}/articles/,${{ steps.get-domain.outputs.domain }}/projects/,${{ steps.get-domain.outputs.domain }}/speaking/'
-          github-token: ${{ secrets.GITHUB_TOKEN }}
