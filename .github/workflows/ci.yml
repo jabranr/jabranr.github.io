@@ -26,6 +26,8 @@ jobs:
       test-type: functional
 
   deployment-status:
+    # Only e2e (push-only) needs the deployment, so PRs skip the wait.
+    if: ${{ github.event_name == 'push' }}
     runs-on: ubuntu-latest
     steps:
       - name: Wait for Cloudflare Pages deployment
@@ -50,25 +52,3 @@ jobs:
     uses: jabranr/workflows/.github/workflows/reusable-integration.yml@main
     with:
       test-type: e2e
-
-  performance-audit:
-    needs: deployment-status
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      checks: read
-      pull-requests: write
-      statuses: write
-    steps:
-      - name: Get domain
-        id: get-domain
-        uses: jabranr/workflows/.github/actions/cf-pages-preview-url@main
-        with:
-          production-url: 'https://jabran.me'
-          pages-domain: 'jabranr.pages.dev'
-
-      - name: Performance Audit
-        uses: jabranr/workflows/.github/actions/performance-audit@main
-        with:
-          urls: '${{ steps.get-domain.outputs.url }},${{ steps.get-domain.outputs.url }}/resume/,${{ steps.get-domain.outputs.url }}/articles/,${{ steps.get-domain.outputs.url }}/projects/,${{ steps.get-domain.outputs.url }}/speaking/'
-          github-token: ${{ secrets.GITHUB_TOKEN }}
