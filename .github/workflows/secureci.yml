@@ -1,0 +1,24 @@
+# Validate GitHub Actions workflows with SecureCI on every pull request, and
+# fail when an action ref has moved since it was locked in secureci.lock.
+# After adding or bumping an action: `npm run ci:inventory:update`.
+name: SecureCI
+
+on:
+  - pull_request
+
+permissions:
+  contents: read
+
+jobs:
+  secureci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: secure-ci/cli@251440e56fb0d03d8864b0dd29a4431d81ff63d8 # v1.5.0
+        with:
+          inventory: check
+          # Code scanning isn't enabled on this repository, so skip the SARIF
+          # upload; the job still fails when validation does. To see results
+          # in the Security tab, enable code scanning, drop this, and grant
+          # security-events: write and actions: read.
+          upload-sarif: false

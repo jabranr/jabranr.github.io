@@ -10,9 +10,17 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+permissions:
+  contents: read
+
 jobs:
   lint-and-build:
-    uses: jabranr/workflows/.github/workflows/reusable-pr-checks.yml@main
+    # The reusable workflow's pre-release job (skipped here) requests id-token: write,
+    # and a caller must grant at least what a nested job asks for.
+    permissions:
+      contents: read
+      id-token: write
+    uses: jabranr/workflows/.github/workflows/reusable-pr-checks.yml@f70828fb1c1f0c9bc5232c60c8c6415082b1b96a # main
     with:
       run-pre-release: false
       run-unit-test: false
@@ -21,7 +29,7 @@ jobs:
 
   functional-tests:
     needs: lint-and-build
-    uses: jabranr/workflows/.github/workflows/reusable-integration.yml@main
+    uses: jabranr/workflows/.github/workflows/reusable-integration.yml@f70828fb1c1f0c9bc5232c60c8c6415082b1b96a # main
     with:
       test-type: functional
 
@@ -29,9 +37,11 @@ jobs:
     # Only e2e (push-only) needs the deployment, so PRs skip the wait.
     if: ${{ github.event_name == 'push' }}
     runs-on: ubuntu-latest
+    permissions:
+      checks: read
     steps:
       - name: Wait for Cloudflare Pages deployment
-        uses: jabranr/workflows/.github/actions/wait-cf-pages-deployment@main
+        uses: jabranr/workflows/.github/actions/wait-cf-pages-deployment@f70828fb1c1f0c9bc5232c60c8c6415082b1b96a # main
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -49,6 +59,6 @@ jobs:
   e2e-tests:
     if: ${{ github.event_name == 'push' }}
     needs: deployment-status
-    uses: jabranr/workflows/.github/workflows/reusable-integration.yml@main
+    uses: jabranr/workflows/.github/workflows/reusable-integration.yml@f70828fb1c1f0c9bc5232c60c8c6415082b1b96a # main
     with:
       test-type: e2e
